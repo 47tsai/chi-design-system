@@ -19,6 +19,25 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 .preview-page-nav a{padding:.45rem .75rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);text-decoration:none}
 .preview-page-nav a:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
 
+.preview-catalog-tools{display:grid;gap:1rem;margin:0 0 1.25rem;padding:1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-lg);background:var(--chi-color-surface)}
+.preview-catalog-search{min-width:0}
+.preview-catalog-search>label{display:block;margin-bottom:.45rem;color:var(--chi-color-text-strong);font-size:var(--chi-text-sm);font-weight:700}
+.preview-catalog-search__control{display:flex;align-items:center;gap:.55rem}
+.preview-catalog-search__control>.chi-icon{flex:none;color:var(--chi-color-text-muted)}
+.preview-catalog-search__control .chi-input{min-width:0;flex:1}
+.preview-catalog-search__control .chi-button{flex:none}
+.preview-catalog-search .chi-help{margin:.5rem 0 0}
+.preview-catalog-filters{display:flex;flex-wrap:wrap;gap:.45rem}
+.preview-catalog-filter{min-height:2.25rem;padding:.4rem .75rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);background:var(--chi-color-surface);color:var(--chi-color-text-muted);font:inherit;font-size:var(--chi-text-sm);cursor:pointer}
+.preview-catalog-filter:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
+.preview-catalog-filter.is-active{border-color:var(--chi-color-accent);background:var(--chi-color-accent);color:var(--chi-color-on-accent)}
+.preview-catalog-filter:focus-visible,.preview-catalog-search__control .chi-button:focus-visible{outline:3px solid var(--chi-color-focus);outline-offset:2px}
+.preview-catalog-empty{grid-column:1/-1;padding:2rem 1rem;border:1px dashed var(--chi-color-border-strong);border-radius:var(--chi-radius-lg);color:var(--chi-color-text-muted);text-align:center}
+.preview-demo-panel[hidden]{display:none}
+@media(min-width:720px){.preview-catalog-tools{grid-template-columns:minmax(260px,1fr) minmax(0,1.2fr);align-items:center}.preview-catalog-filters{justify-content:flex-end}}
+@media(max-width:420px){.preview-catalog-search__control{flex-wrap:wrap}.preview-catalog-search__control .chi-input{flex-basis:calc(100% - 2rem)}.preview-catalog-search__control .chi-button{margin-left:auto}}
+
+
 @media(min-width:720px){.preview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.preview-swatch-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.preview-hero-grid{grid-template-columns:1fr auto;align-items:center}.preview-section{padding-block:2.75rem 3.25rem}}
 </style>
 </head>
@@ -112,7 +131,26 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 
 <section class="chi-container preview-section" id="components">
 <p class="preview-section__label">03 · Everyday components</p>
-<div class="preview-grid">
+<div class="preview-catalog-tools" aria-label="元件圖鑑篩選">
+  <div class="preview-catalog-search">
+    <label for="component-search">搜尋元件</label>
+    <div class="preview-catalog-search__control">
+      <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg>
+      <input class="chi-input" id="component-search" type="search" placeholder="例如：表單、按鈕、Toast、分頁" autocomplete="off">
+      <button class="chi-button chi-button--small" id="component-search-clear" type="button">清除</button>
+    </div>
+    <p class="chi-help" id="component-search-status" role="status" aria-live="polite">顯示全部元件。可用名稱、用途或英文關鍵字搜尋。</p>
+  </div>
+  <div class="preview-catalog-filters" role="group" aria-label="依類別篩選">
+    <button class="preview-catalog-filter is-active" type="button" data-component-filter="all" aria-pressed="true">全部</button>
+    <button class="preview-catalog-filter" type="button" data-component-filter="navigation" aria-pressed="false">導覽</button>
+    <button class="preview-catalog-filter" type="button" data-component-filter="forms" aria-pressed="false">表單</button>
+    <button class="preview-catalog-filter" type="button" data-component-filter="feedback" aria-pressed="false">狀態與回饋</button>
+    <button class="preview-catalog-filter" type="button" data-component-filter="data" aria-pressed="false">資料與清單</button>
+    <button class="preview-catalog-filter" type="button" data-component-filter="layout" aria-pressed="false">版面與其他</button>
+  </div>
+</div>
+<div class="preview-grid" id="component-catalog">
 <div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">導覽與路徑</h2><nav class="chi-breadcrumbs" aria-label="麵包屑"><a href="#components">首頁</a><span class="chi-breadcrumbs__separator">/</span><a href="#components">專案</a><span class="chi-breadcrumbs__separator">/</span><span aria-current="page">設定</span></nav>
 <div class="chi-tabs" role="tablist" aria-label="範例分頁"><button class="chi-tabs__item" id="demo-tab-overview" role="tab" aria-controls="tab-demo-text" aria-selected="true" tabindex="0" data-tab="overview">總覽</button><button class="chi-tabs__item" id="demo-tab-activity" role="tab" aria-controls="tab-demo-text" aria-selected="false" tabindex="-1" data-tab="activity">活動紀錄</button><button class="chi-tabs__item" id="demo-tab-settings" role="tab" aria-controls="tab-demo-text" aria-selected="false" tabindex="-1" data-tab="settings">設定</button></div><p class="chi-help" id="tab-demo-text" role="tabpanel" aria-labelledby="demo-tab-overview" tabindex="0">總覽內容顯示在這裡。分頁只切換同一層級的內容。</p></div>
 <div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">狀態與標籤</h2><div class="chi-row" style="flex-wrap:wrap"><span class="chi-badge">一般</span><span class="chi-badge chi-badge--success">正常</span><span class="chi-badge chi-badge--warning">待處理</span><span class="chi-badge chi-badge--danger">失敗</span></div><div class="chi-tag-list"><span class="chi-tag">工具 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#x"></use></svg></span><span class="chi-tag">公開</span><span class="chi-tag">v2.4.0</span></div><p class="chi-help">Badge 表示狀態或短屬性；Tag 用於分類、篩選或可移除條件。</p></div>
@@ -265,6 +303,79 @@ document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&siteMenuT
 
 </script>
 <script>
+(() => {
+  const catalog = document.getElementById('component-catalog');
+  const search = document.getElementById('component-search');
+  const clear = document.getElementById('component-search-clear');
+  const status = document.getElementById('component-search-status');
+  if (!catalog || !search || !clear || !status) return;
+
+  const panels = [...catalog.querySelectorAll('.preview-demo-panel')];
+  const categories = [
+    { key: 'navigation', label: '導覽', words: /導覽|路徑|分頁控制|搜尋與快速切換|選單/ },
+    { key: 'forms', label: '表單', words: /表單|選項與開關|設定列|檔案上傳/ },
+    { key: 'feedback', label: '狀態與回饋', words: /狀態與標籤|提示訊息|空狀態|載入中|Toast|確認對話框|提示與程式碼/ },
+    { key: 'data', label: '資料與清單', words: /進度與步驟|使用者與統計|列表與媒體列|資料表格|時間軸|已連結服務|裝置與操作清單/ },
+    { key: 'layout', label: '版面與其他', words: /區塊標題|引言與內容提示|主視覺與功能卡片|淺色主題|深色主題/ }
+  ];
+  panels.forEach((panel) => {
+    const heading = panel.querySelector('h2');
+    const title = heading?.textContent.trim() || '';
+    const category = categories.find((item) => item.words.test(title))?.key || 'layout';
+    panel.dataset.componentTitle = title;
+    panel.dataset.componentCategory = category;
+    panel.dataset.componentSearch = panel.textContent.toLocaleLowerCase();
+  });
+
+  const empty = document.createElement('p');
+  empty.className = 'preview-catalog-empty';
+  empty.hidden = true;
+  empty.textContent = '找不到符合條件的元件，試試其他關鍵字或切回「全部」。';
+  catalog.append(empty);
+
+  let activeCategory = 'all';
+  const render = () => {
+    const query = search.value.trim().toLocaleLowerCase();
+    let count = 0;
+    panels.forEach((panel) => {
+      const matchesQuery = !query || panel.dataset.componentSearch.includes(query);
+      const matchesCategory = activeCategory === 'all' || panel.dataset.componentCategory === activeCategory;
+      const visible = matchesQuery && matchesCategory;
+      panel.hidden = !visible;
+      if (visible) count += 1;
+    });
+    empty.hidden = count !== 0;
+    status.textContent = query || activeCategory !== 'all'
+      ? `符合條件的元件：${count} 組`
+      : `顯示全部元件：${count} 組。可用名稱、用途或英文關鍵字搜尋。`;
+  };
+
+  catalog.querySelectorAll('[data-component-filter]').forEach((button) => {
+    button.addEventListener('click', () => {
+      activeCategory = button.dataset.componentFilter || 'all';
+      catalog.querySelectorAll('[data-component-filter]').forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('is-active', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      });
+      render();
+    });
+  });
+  search.addEventListener('input', render);
+  clear.addEventListener('click', () => {
+    search.value = '';
+    activeCategory = 'all';
+    catalog.querySelectorAll('[data-component-filter]').forEach((item) => {
+      const selected = item.dataset.componentFilter === 'all';
+      item.classList.toggle('is-active', selected);
+      item.setAttribute('aria-pressed', String(selected));
+    });
+    render();
+    search.focus();
+  });
+  render();
+})();
+
 document.querySelectorAll('[data-copy-code]').forEach((button) => {
   button.addEventListener('click', async () => {
     const code = button.parentElement.querySelector('pre code')?.textContent || '';
