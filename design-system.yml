@@ -63,6 +63,10 @@ colors:
     light: "#d4dae6"
     dark: "#4b5265"
     token: "--chi-color-border-strong"
+  focus:
+    light: "#818cf8"
+    dark: "#a5a1ff"
+    token: "--chi-color-focus"
   success:
     light: "#237a50"
     dark: "#7ed6a7"
