@@ -6,6 +6,8 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
 - `elements.html`：設計規範入口、基礎 Token、元件圖鑑、版型範例與引用教學。
+- `preview.html`：可視化規格預覽，將 YAML 規格、色彩、字體、互動元件與頁型範例並列呈現。
+- `design-system.yml`：機器可讀的設計系統規格，集中記錄亮／暗色 Token、字體尺度、圓角、間距、元件映射與頁型模式。實際色值仍以 `tokens.css` 為準。
 - `elements.css`：圖鑑專用排版與篩選樣式，產品網站不需載入。
 - `tokens.css`：共用色彩、字級、間距、圓角、陰影與尺寸 token。
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定與回饋元件。
@@ -14,6 +16,9 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 - `AGENTS.md`：AI 的工程工作規範，定義修改前盤點、檔案選擇、功能保留、無障礙／安全注意事項、驗證方式與回報標準；它規定「怎麼做」，`DESIGN.md` 規定「介面應如何呈現」。
 
 ## 設計系統分頁
+
+- [可視化規格預覽](https://chi.qzz.io/chi-design-system/preview.html)：直接查看設計規格與元件呈現。
+- [機器可讀設計規格](https://chi.qzz.io/chi-design-system/design-system.yml)：YAML Token 與元件定義。
 
 - [空白版型](https://chi.qzz.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
 - [設計規範與元件](https://chi.qzz.io/chi-design-system/elements.html)：基礎、元件圖鑑、版型與使用方式。這是查閱手冊，不是產品首頁模板。
