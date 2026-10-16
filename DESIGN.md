@@ -30,6 +30,17 @@ The root preview is the working visual catalogue. It demonstrates the everyday U
 
 Prefer semantic native HTML elements and keep application logic in the host project. The catalogue's tabs and theme controls are demo interactions, not a reusable application state layer.
 
+## Account and settings patterns
+
+- .chi-setting-row: preference row with title, supporting text, and an optional control.
+- .chi-switch: accessible checkbox-based toggle with checked, focus, and disabled states.
+- .chi-account-row: linked service or account entry with status and optional action.
+- .chi-device-row: device/session list item with metadata and a secondary action.
+- .chi-empty-state: clear, compact explanation for an empty collection.
+- .chi-toast-region and .chi-toast--floating: transient action feedback with live-region support.
+
+Keep actual persistence and authorization in the host application. Demo toggles and toast actions in the catalogue are visual examples only.
+
 ## Component roles
 
 - .chi-site-header: compact translucent navigation.\n- navigation.css: reusable language picker, menu trigger, responsive navigation panel, footer variant, keyboard dismissal, and reduced-motion states.
@@ -49,6 +60,14 @@ Prefer semantic native HTML elements and keep application logic in the host proj
 - Load tokens.css before components.css.
 - Keep routing, state, validation, and data access in each host project.
 - index.html and examples/index.html are visual references, not production pages.
+
+## Account and settings checklist
+
+- Are settings labels explicit and their supporting descriptions readable?
+- Do switches use a native checkbox, an accessible name, and visible keyboard focus?
+- Are linked-account and device actions distinct from their row content?
+- Does an empty state explain what is empty and what to do next?
+- Are toast messages brief, dismissible, announced to assistive technology, and clearly not a substitute for persistent errors?
 
 ## Review checklist
 
