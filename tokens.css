@@ -1,31 +1,31 @@
 :root {
   color-scheme: light;
-
-  --chi-color-page: #f6f7f9;
+  --chi-color-page: #f5f6f8;
   --chi-color-surface: #ffffff;
+  --chi-color-surface-raised: #ffffff;
   --chi-color-surface-muted: #f0f2f5;
-  --chi-color-text: #20242c;
-  --chi-color-text-muted: #687180;
+  --chi-color-text: #20242b;
+  --chi-color-text-muted: #626c7a;
+  --chi-color-text-subtle: #7b8491;
   --chi-color-border: #dfe3e8;
-  --chi-color-border-strong: #c8ced7;
-  --chi-color-accent: #3b6eea;
-  --chi-color-accent-hover: #2f5fd0;
+  --chi-color-border-strong: #c5ccd5;
+  --chi-color-accent: #3569d4;
+  --chi-color-accent-hover: #2857b8;
   --chi-color-on-accent: #ffffff;
-  --chi-color-success: #218653;
-  --chi-color-warning: #a56612;
-  --chi-color-danger: #c43d48;
-  --chi-color-focus: #6a94ff;
-
+  --chi-color-success: #237a50;
+  --chi-color-warning: #8a5b13;
+  --chi-color-danger: #b93843;
+  --chi-color-focus: #7198ed;
   --chi-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
   --chi-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-
-  --chi-text-xs: 0.75rem;
-  --chi-text-sm: 0.875rem;
+  --chi-text-xs: 0.8125rem;
+  --chi-text-sm: 0.9rem;
   --chi-text-md: 1rem;
   --chi-text-lg: 1.125rem;
-  --chi-text-xl: 1.5rem;
-  --chi-text-2xl: 1.875rem;
-
+  --chi-text-xl: 1.375rem;
+  --chi-text-2xl: clamp(1.875rem, 3.2vw, 2.5rem);
+  --chi-leading-tight: 1.25;
+  --chi-leading-normal: 1.6;
   --chi-space-1: 0.25rem;
   --chi-space-2: 0.5rem;
   --chi-space-3: 0.75rem;
@@ -35,39 +35,36 @@
   --chi-space-8: 2rem;
   --chi-space-10: 2.5rem;
   --chi-space-12: 3rem;
-
-  --chi-radius-sm: 6px;
-  --chi-radius-md: 10px;
-  --chi-radius-lg: 14px;
+  --chi-space-16: 4rem;
+  --chi-radius-sm: 4px;
+  --chi-radius-md: 7px;
+  --chi-radius-lg: 10px;
   --chi-radius-pill: 999px;
-
   --chi-border-width: 1px;
-  --chi-shadow-sm: 0 1px 2px rgb(24 32 48 / 5%);
-  --chi-shadow-md: 0 8px 24px rgb(24 32 48 / 8%);
-
-  --chi-content-width: 1120px;
-  --chi-control-height: 42px;
-  --chi-transition-fast: 140ms ease;
+  --chi-shadow-sm: 0 1px 2px rgb(24 32 48 / 4%);
+  --chi-shadow-md: 0 8px 24px rgb(24 32 48 / 10%);
+  --chi-content-width: 1080px;
+  --chi-control-height: 44px;
+  --chi-transition-fast: 150ms ease;
 }
-
 [data-chi-theme="dark"] {
   color-scheme: dark;
-
-  --chi-color-page: #15171b;
-  --chi-color-surface: #1d2026;
-  --chi-color-surface-muted: #252932;
+  --chi-color-page: #17191d;
+  --chi-color-surface: #1e2127;
+  --chi-color-surface-raised: #252932;
+  --chi-color-surface-muted: #292e37;
   --chi-color-text: #f0f2f5;
-  --chi-color-text-muted: #a2aab7;
-  --chi-color-border: #353b46;
+  --chi-color-text-muted: #b0b7c2;
+  --chi-color-text-subtle: #969fac;
+  --chi-color-border: #363c47;
   --chi-color-border-strong: #4a5260;
-  --chi-color-accent: #8aa9ff;
-  --chi-color-accent-hover: #a5bbff;
-  --chi-color-on-accent: #151a28;
-  --chi-color-success: #68d5a0;
-  --chi-color-warning: #f0bd69;
-  --chi-color-danger: #ff929a;
-  --chi-color-focus: #9db7ff;
-
-  --chi-shadow-sm: 0 1px 2px rgb(0 0 0 / 16%);
-  --chi-shadow-md: 0 8px 24px rgb(0 0 0 / 24%);
+  --chi-color-accent: #91afff;
+  --chi-color-accent-hover: #adc3ff;
+  --chi-color-on-accent: #151b2a;
+  --chi-color-success: #7ed6a7;
+  --chi-color-warning: #edc071;
+  --chi-color-danger: #ff969e;
+  --chi-color-focus: #a4bdff;
+  --chi-shadow-sm: 0 1px 2px rgb(0 0 0 / 20%);
+  --chi-shadow-md: 0 8px 24px rgb(0 0 0 / 28%);
 }
