@@ -1,0 +1,227 @@
+version: "1.0"
+name: "Chi Design System"
+description: >-
+  Chi 是 Chi 系列網站共用的產品介面設計系統。整體採用清爽、精確、偏冷色的視覺語言，
+  以淡藍灰畫布、分層表面、靛藍強調色與清楚的文字層級建立秩序。視覺重心來自版面、
+  間距和可讀性；漸層與陰影只作為局部輔助。公開入口頁可以較有品牌感，帳號中心與工具頁
+  則優先清楚、緊湊、易於掃讀，不強迫所有產品使用同一種模板。
+
+source_of_truth:
+  design_decisions: "DESIGN.md"
+  color_spacing_typography_radius_shadow_tokens: "tokens.css"
+  reusable_components: "components.css"
+  navigation_components: "navigation.css"
+  visual_catalogue: "elements.html"
+  live_preview: "preview.html"
+
+colors:
+  page:
+    light: "#f6f8fc"
+    dark: "#17191f"
+    token: "--chi-color-page"
+  surface:
+    light: "#ffffff"
+    dark: "#20232c"
+    token: "--chi-color-surface"
+  surface-raised:
+    light: "#ffffff"
+    dark: "#272b36"
+    token: "--chi-color-surface-raised"
+  surface-muted:
+    light: "#edf2fc"
+    dark: "#282c38"
+    token: "--chi-color-surface-muted"
+  text:
+    light: "#33343a"
+    dark: "#e8eaf1"
+    token: "--chi-color-text"
+  text-strong:
+    light: "#202127"
+    dark: "#f7f8fc"
+    token: "--chi-color-text-strong"
+  text-muted:
+    light: "#686f7d"
+    dark: "#b2b8c7"
+    token: "--chi-color-text-muted"
+  text-subtle:
+    light: "#9299a7"
+    dark: "#8c94a6"
+    token: "--chi-color-text-subtle"
+  accent:
+    light: "#4f46e5"
+    dark: "#a5a1ff"
+    token: "--chi-color-accent"
+  accent-blue:
+    light: "#3b82f6"
+    dark: "#7daeff"
+    token: "--chi-color-accent-blue"
+  border:
+    light: "#e8ebf2"
+    dark: "#353a49"
+    token: "--chi-color-border"
+  border-strong:
+    light: "#d4dae6"
+    dark: "#4b5265"
+    token: "--chi-color-border-strong"
+  success:
+    light: "#237a50"
+    dark: "#7ed6a7"
+    token: "--chi-color-success"
+  warning:
+    light: "#8a5b13"
+    dark: "#edc071"
+    token: "--chi-color-warning"
+  danger:
+    light: "#b93843"
+    dark: "#ff969e"
+    token: "--chi-color-danger"
+  footer:
+    light: "#111113"
+    dark: "#101116"
+    token: "--chi-color-footer"
+
+typography:
+  font-family:
+    sans: 'Noto Sans TC, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  display:
+    fontSize: "clamp(2rem, 7vw, 2.5rem)"
+    fontWeight: 800
+    lineHeight: 1.2
+    token: "--chi-text-display"
+  heading-xl:
+    fontSize: "clamp(1.875rem, 4vw, 2.5rem)"
+    fontWeight: 750
+    lineHeight: 1.2
+    token: "--chi-text-2xl"
+  heading:
+    fontSize: "1.375rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    token: "--chi-text-xl"
+  body-lg:
+    fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: 1.65
+    token: "--chi-text-lg"
+  body:
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.65
+    token: "--chi-text-md"
+  supporting:
+    fontSize: ".9rem"
+    fontWeight: 400
+    lineHeight: 1.65
+    token: "--chi-text-sm"
+  caption:
+    fontSize: ".8125rem"
+    fontWeight: 400
+    lineHeight: 1.5
+    token: "--chi-text-xs"
+  micro:
+    fontSize: ".6875rem"
+    fontWeight: 500
+    lineHeight: 1.5
+    token: "--chi-text-2xs"
+
+rounded:
+  sm: "6px"
+  md: "10px"
+  lg: "16px"
+  xl: "22px"
+  pill: "999px"
+
+spacing:
+  1: "4px"
+  2: "8px"
+  3: "12px"
+  4: "16px"
+  5: "20px"
+  6: "24px"
+  8: "32px"
+  10: "40px"
+  12: "48px"
+  16: "64px"
+
+elevation:
+  subtle: "0 4px 14px rgb(59 82 145 / 8%)"
+  card: "0 10px 25px -5px rgb(220 226 240 / 65%), 0 8px 10px -6px rgb(220 226 240 / 42%)"
+  hover: "0 14px 28px -4px rgb(200 210 235 / 55%)"
+  principle: "先以畫布、表面和邊框建立層級；只有真正需要浮起的元件才使用陰影。"
+
+components:
+  navigation:
+    class: ".chi-site-header, .chi-nav"
+    background: "{colors.surface}"
+    text: "{colors.text-muted}"
+    active: "{colors.accent}"
+    principle: "文字導覽優先，使用細分隔線與有限的黏性玻璃效果。"
+  button-primary:
+    class: ".chi-button--primary"
+    background: "{colors.accent}"
+    text: "#ffffff"
+    minHeight: "44px"
+    radius: "{rounded.md}"
+    principle: "主要操作清楚突出；次要操作使用表面或邊框，不和主操作搶焦點。"
+  button-secondary:
+    class: ".chi-button"
+    background: "{colors.surface}"
+    text: "{colors.text}"
+    border: "{colors.border-strong}"
+    radius: "{rounded.md}"
+  icon-button:
+    class: ".chi-icon-button"
+    background: "{colors.surface-muted}"
+    focus: "3px solid {colors.focus}"
+    principle: "必須有 accessible name，並提供清楚的 focus-visible。"
+  panel:
+    class: ".chi-panel"
+    background: "{colors.surface}"
+    border: "{colors.border}"
+    radius: "{rounded.lg}"
+    elevation: "{elevation.subtle}"
+    principle: "只用於真正相關的內容群組，不把每一段文字都包成卡片。"
+  input:
+    class: ".chi-input"
+    background: "{colors.surface}"
+    border: "{colors.border-strong}"
+    focus: "{colors.focus}"
+    minHeight: "44px"
+  alert:
+    class: ".chi-alert"
+    variants: [info, success, warning, danger]
+    principle: "語意色搭配文字訊息，不只靠顏色傳遞狀態。"
+  setting-row:
+    class: ".chi-setting-row"
+    layout: "標題與描述在一側，狀態或操作在另一側"
+    divider: "{colors.border}"
+    principle: "適合帳號中心與設定頁，避免每個設定都變成獨立大卡片。"
+  toast:
+    class: ".chi-toast"
+    background: "{colors.surface}"
+    border: "{colors.border}"
+    elevation: "{elevation.card}"
+    principle: "短暫、非阻斷性的回饋；重要錯誤留在頁面中。"
+
+page_patterns:
+  marketing:
+    reference: "a.html"
+    layout: "品牌主視覺、簡潔說明、主要 CTA、適量功能群組"
+    visual_weight: "較高"
+  account-settings:
+    reference: "b.html"
+    layout: "應用程式外框、帳號摘要、分組設定列、清楚的狀態與操作"
+    visual_weight: "克制"
+  dashboard:
+    layout: "摘要指標、資料表格、狀態與工作流程"
+    visual_weight: "由資訊重要性決定"
+
+principles:
+  - "先定義頁面骨架與資訊層級，再處理元件外觀。"
+  - "以對齊、留白、字級和表面差異建立視覺秩序。"
+  - "優先使用語意 token，禁止在共用元件裡散落硬編碼色彩。"
+  - "亮色與深色主題都必須可讀，且不可只做機械式反相。"
+  - "保留產品既有資訊架構、路由、資料流程與功能。"
+  - "避免所有元素都做成卡片、膠囊、漸層或浮起的表面。"
+  - "清楚區分已實作、靜態檢查、瀏覽器實測與部署狀態。"
