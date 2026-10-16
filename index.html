@@ -22,6 +22,60 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 <div class="chi-row" style="justify-content:center;flex-wrap:wrap;margin-top:1.5rem"><a class="chi-button chi-button--primary chi-button--pill" href="#components">瀏覽元件 <span aria-hidden="true">↓</span></a><a class="chi-button chi-button--pill" href="DESIGN.md">設計規格</a></div>
 </div></section>
 
+
+<section class="chi-container preview-section" id="navigation">
+<p class="preview-section__label">01 · Navigation &amp; floating panels</p>
+<div class="preview-grid">
+<div class="preview-demo-panel chi-stack preview-demo-panel--wide">
+<h2 class="chi-section__title">網站導覽列、語言選單與行動版選單</h2>
+<p class="preview-subtitle">可重用的導覽元件。按鈕會同步更新展開狀態，點選外部或按 Escape 可關閉浮層；語言選擇會同步更新兩個示範選單的選取狀態。</p>
+<div class="chi-nav-demo" id="nav-demo">
+<a class="chi-nav-demo__brand" href="#navigation" aria-label="Chi 首頁">CHI<span aria-hidden="true" style="color:var(--chi-color-accent);padding-inline:2px">✳</span></a>
+<div class="chi-nav-demo__actions">
+<div class="chi-language" data-language-picker>
+<button class="chi-language__trigger" type="button" aria-expanded="false" aria-haspopup="listbox"><span aria-hidden="true">◎</span><span data-language-label>繁體中文</span><span aria-hidden="true">⌄</span></button>
+<div class="chi-language__panel" role="listbox" aria-label="選擇語言" hidden>
+<button class="chi-language__option" type="button" role="option" aria-selected="true" data-language="繁體中文">繁體中文 <span class="chi-language__check" aria-hidden="true">✓</span></button>
+<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="简体中文">简体中文 <span class="chi-language__check" aria-hidden="true">✓</span></button>
+<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="English">English <span class="chi-language__check" aria-hidden="true">✓</span></button>
+<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="日本語">日本語 <span class="chi-language__check" aria-hidden="true">✓</span></button>
+</div>
+</div>
+<button class="chi-mobile-menu__trigger" type="button" aria-label="開啟網站選單" aria-expanded="false" aria-controls="chi-mobile-menu"><span class="chi-mobile-menu__glyph" aria-hidden="true"><span></span><span></span><span></span></span></button>
+</div>
+<nav class="chi-mobile-menu" id="chi-mobile-menu" aria-label="行動版導覽" hidden>
+<a class="chi-mobile-menu__login" href="#patterns">登入 / 建立帳號</a>
+<a class="chi-mobile-menu__link" href="#foundations">設計基礎 <span aria-hidden="true">↗</span></a>
+<a class="chi-mobile-menu__link" href="#components">元件圖鑑 <span aria-hidden="true">↗</span></a>
+<a class="chi-mobile-menu__link" href="#patterns">版型範例 <span aria-hidden="true">↗</span></a>
+<a class="chi-mobile-menu__link" href="DESIGN.md">設計規格 <span aria-hidden="true">↗</span></a>
+</nav>
+</div>
+<div class="chi-row chi-row--between" style="flex-wrap:wrap;margin-top:1rem"><p class="chi-help">頁首語言選單</p><p class="chi-help" id="nav-language-status" role="status" aria-live="polite">目前語言：繁體中文</p></div>
+<div class="chi-footer" style="margin-top:1rem;border-radius:var(--chi-radius-md);padding:1.25rem">
+<div class="chi-row chi-row--between" style="flex-wrap:wrap">
+<div><strong style="color:#fff">CHI ✳</strong><p class="chi-help" style="color:#9ca3af;margin-top:.35rem">頁尾使用深色版本的相同語言選單。</p></div>
+<div class="chi-language chi-language--footer" data-language-picker>
+<button class="chi-language__trigger" type="button" aria-expanded="false" aria-haspopup="listbox"><span aria-hidden="true">◎</span><span data-language-label>繁體中文</span><span aria-hidden="true">⌄</span></button>
+<div class="chi-language__panel" role="listbox" aria-label="頁尾語言選擇" hidden>
+<button class="chi-language__option" type="button" role="option" aria-selected="true" data-language="繁體中文">繁體中文 <span class="chi-language__check" aria-hidden="true">✓</span></button>
+<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="简体中文">简体中文 <span class="chi-language__check" aria-hidden="true">✓</span></button>
+<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="English">English <span class="chi-language__check" aria-hidden="true">✓</span></button>
+<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="日本語">日本語 <span class="chi-language__check" aria-hidden="true">✓</span></button>
+</div>
+</div>
+</div></div>
+<p class="chi-help">這是互動示範，切換語言只更新選單狀態與標籤，尚未翻譯整個頁面。</p>
+</div>
+<div class="preview-demo-panel chi-stack">
+<h2 class="chi-section__title">導覽元件的使用原則</h2>
+<div class="chi-list">
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">頁首語言選單</p><p class="chi-list__description">靠近全站工具，白色表面與右側對齊，選取狀態清楚可辨。</p></div></div>
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">行動版導覽</p><p class="chi-list__description">用展開按鈕呈現登入與主要連結，不把整頁內容塞進小螢幕。</p></div></div>
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">頁尾語言選單</p><p class="chi-list__description">沿用相同選項與狀態，只切換深色外觀，避免維護兩套邏輯。</p></div></div>
+</div></div></div>
+</section>
+
 <section class="chi-container preview-section" id="foundations">
 <p class="preview-section__label">01 · Foundations</p>
 <div class="preview-grid">
@@ -78,5 +132,12 @@ last_checked: "just now"</pre></div>
 document.querySelectorAll('[data-tab]').forEach((tab)=>tab.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach((item)=>item.setAttribute('aria-selected',String(item===tab)));const copy={overview:'總覽內容顯示在這裡。分頁只切換同一層級的內容。',activity:'活動紀錄適合呈現時間順序的事件與狀態。',settings:'設定頁集中放置同一類型的偏好與控制項。'};document.getElementById('tab-demo-text').textContent=copy[tab.dataset.tab]}));
 document.querySelectorAll('.chi-segmented__item').forEach((item)=>item.addEventListener('click',()=>{document.querySelectorAll('.chi-segmented__item').forEach((button)=>button.setAttribute('aria-pressed',String(button===item)))}));
 document.querySelectorAll('.chi-toast button').forEach((button)=>button.addEventListener('click',()=>button.closest('.chi-toast').remove()));
+
+const closeNavPopovers=(except=null)=>{document.querySelectorAll('[data-language-picker]').forEach((picker)=>{if(picker===except)return;const trigger=picker.querySelector('.chi-language__trigger');const panel=picker.querySelector('.chi-language__panel');trigger.setAttribute('aria-expanded','false');panel.hidden=true});if(!except){const trigger=document.querySelector('.chi-mobile-menu__trigger');const menu=document.getElementById('chi-mobile-menu');if(trigger&&menu){trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-label','開啟網站選單');menu.hidden=true}}};
+document.querySelectorAll('[data-language-picker]').forEach((picker)=>{const trigger=picker.querySelector('.chi-language__trigger');const panel=picker.querySelector('.chi-language__panel');trigger.addEventListener('click',(event)=>{event.stopPropagation();const open=trigger.getAttribute('aria-expanded')==='true';closeNavPopovers(picker);trigger.setAttribute('aria-expanded',String(!open));panel.hidden=open});panel.querySelectorAll('[data-language]').forEach((option)=>option.addEventListener('click',()=>{const language=option.dataset.language;document.querySelectorAll('[data-language-picker]').forEach((other)=>{other.querySelector('[data-language-label]').textContent=language;other.querySelectorAll('[data-language]').forEach((item)=>item.setAttribute('aria-selected',String(item.dataset.language===language)))});document.getElementById('nav-language-status').textContent='目前語言：'+language;closeNavPopovers();trigger.focus()}))});
+const mobileTrigger=document.querySelector('.chi-mobile-menu__trigger');const mobileMenu=document.getElementById('chi-mobile-menu');mobileTrigger.addEventListener('click',(event)=>{event.stopPropagation();const open=mobileTrigger.getAttribute('aria-expanded')==='true';closeNavPopovers();mobileTrigger.setAttribute('aria-expanded',String(!open));mobileTrigger.setAttribute('aria-label',open?'開啟網站選單':'關閉網站選單');mobileMenu.hidden=open});
+document.addEventListener('click',(event)=>{if(!event.target.closest('[data-language-picker]')&&!event.target.closest('.chi-mobile-menu__trigger')&&!event.target.closest('.chi-mobile-menu'))closeNavPopovers();if(event.target.closest('.chi-mobile-menu__link,.chi-mobile-menu__login'))closeNavPopovers()});
+document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){closeNavPopovers();document.activeElement?.blur()}});
+
 </script>
 </body></html>
