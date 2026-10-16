@@ -14,11 +14,11 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 <a class="chi-brand" href="#" aria-label="Chi Design System 首頁">CHI<span style="color:var(--chi-color-accent);padding-inline:2px">✳</span></a>
 <div class="chi-site-menu-wrap"><button class="chi-site-menu__trigger" type="button" aria-label="開啟網站導覽" aria-expanded="false" aria-controls="chi-site-menu"><span class="chi-site-menu__glyph" aria-hidden="true"><span></span><span></span><span></span></span></button>
 <nav class="chi-site-menu" id="chi-site-menu" aria-label="網站導覽" hidden>
-<a class="chi-site-menu__link" href="#navigation"><span class="chi-site-menu__number">01</span><span><strong>導覽元件</strong><small>Navigation</small></span></a>
-<a class="chi-site-menu__link" href="#foundations"><span class="chi-site-menu__number">02</span><span><strong>基礎</strong><small>Foundations</small></span></a>
-<a class="chi-site-menu__link" href="#components"><span class="chi-site-menu__number">03</span><span><strong>元件圖鑑</strong><small>Components</small></span></a>
-<a class="chi-site-menu__link" href="#patterns"><span class="chi-site-menu__number">04</span><span><strong>版型</strong><small>Patterns</small></span></a>
-<a class="chi-site-menu__link" href="DESIGN.md"><span class="chi-site-menu__number">05</span><span><strong>規格</strong><small>Design specs</small></span><span class="chi-site-menu__external" aria-hidden="true">↗</span></a>
+<a class="chi-site-menu__link" href="#navigation">導覽元件</a>
+<a class="chi-site-menu__link" href="#foundations">基礎</a>
+<a class="chi-site-menu__link" href="#components">元件圖鑑</a>
+<a class="chi-site-menu__link" href="#patterns">版型</a>
+<a class="chi-site-menu__link" href="DESIGN.md">規格 <span class="chi-site-menu__external" aria-hidden="true">↗</span></a>
 </nav></div>
 </div></header>
 <main class="preview-main">
@@ -51,7 +51,7 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 <button class="chi-mobile-menu__trigger" type="button" aria-label="開啟網站選單" aria-expanded="false" aria-controls="chi-mobile-menu"><span class="chi-mobile-menu__glyph" aria-hidden="true"><span></span><span></span><span></span></span></button>
 </div>
 <nav class="chi-mobile-menu" id="chi-mobile-menu" aria-label="行動版導覽" hidden>
-<a class="chi-mobile-menu__login" href="#patterns">登入 / 建立帳號</a>
+
 <a class="chi-mobile-menu__link" href="#foundations">設計基礎 <span aria-hidden="true">↗</span></a>
 <a class="chi-mobile-menu__link" href="#components">元件圖鑑 <span aria-hidden="true">↗</span></a>
 <a class="chi-mobile-menu__link" href="#patterns">版型範例 <span aria-hidden="true">↗</span></a>
@@ -84,7 +84,7 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 </section>
 
 <section class="chi-container preview-section" id="foundations">
-<p class="preview-section__label">01 · Foundations</p>
+<p class="preview-section__label">02 · Foundations</p>
 <div class="preview-grid">
 <div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">色彩與表面</h2><p class="preview-subtitle">淡藍灰底色負責留白，白色表面承載內容，藍紫漸層只用於重要焦點。</p>
 <div class="preview-swatch-grid"><div class="preview-swatch" style="background:var(--chi-color-page)"><span>Page</span><span class="preview-code">#f6f8fc</span></div><div class="preview-swatch" style="background:var(--chi-color-surface)"><span>Surface</span><span class="preview-code">#ffffff</span></div><div class="preview-swatch" style="background:var(--chi-color-accent);color:white"><span>Accent</span><span class="preview-code">Indigo</span></div><div class="preview-swatch" style="background:var(--chi-color-footer);color:white"><span>Footer</span><span class="preview-code">Dark</span></div></div></div>
@@ -94,7 +94,7 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 </div></section>
 
 <section class="chi-container preview-section" id="components">
-<p class="preview-section__label">02 · Everyday components</p>
+<p class="preview-section__label">03 · Everyday components</p>
 <div class="preview-grid">
 <div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">導覽與路徑</h2><nav class="chi-breadcrumbs" aria-label="麵包屑"><a href="#components">首頁</a><span class="chi-breadcrumbs__separator">/</span><a href="#components">專案</a><span class="chi-breadcrumbs__separator">/</span><span aria-current="page">設定</span></nav>
 <div class="chi-tabs" role="tablist" aria-label="範例分頁"><button class="chi-tabs__item" role="tab" aria-selected="true" data-tab="overview">總覽</button><button class="chi-tabs__item" role="tab" aria-selected="false" data-tab="activity">活動紀錄</button><button class="chi-tabs__item" role="tab" aria-selected="false" data-tab="settings">設定</button></div><p class="chi-help" id="tab-demo-text">總覽內容顯示在這裡。分頁只切換同一層級的內容。</p></div>
@@ -119,7 +119,7 @@ last_checked: "just now"</pre></div>
 </div></section>
 
 <section class="chi-container preview-section" id="patterns">
-<p class="preview-section__label">03 · Page patterns</p>
+<p class="preview-section__label">04 · Page patterns</p>
 <div class="preview-grid">
 <div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">確認對話框</h2><div class="chi-dialog-backdrop"><div class="chi-dialog chi-stack" style="gap:1rem"><div class="chi-section__header"><h3 class="chi-section__title">刪除這個項目？</h3><span aria-hidden="true">×</span></div><p class="chi-help">刪除後將無法從此頁面還原。請確認你真的要繼續。</p><div class="chi-row" style="justify-content:flex-end;flex-wrap:wrap"><button class="chi-button">取消</button><button class="chi-button chi-button--danger">確認刪除</button></div></div></div><p class="chi-help">危險動作要說清楚後果，並讓取消操作容易找到。</p></div>
 <div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">區塊標題與篩選列</h2><div class="chi-section__header"><div><h3 class="chi-section__title">最近活動</h3><p class="chi-section__description">查看服務最近的變更</p></div><button class="chi-button chi-button--small">查看全部</button></div><div class="chi-row" style="flex-wrap:wrap"><span class="chi-badge chi-badge--success">全部服務</span><span class="chi-tag">最近 7 天⌄</span><span class="chi-tag">狀態：全部⌄</span></div><hr class="chi-divider"><div class="chi-media"><span class="chi-avatar">CI</span><div class="chi-media__body"><p class="chi-media__title">部署成功</p><p class="chi-media__description">main 分支 · 8 分鐘前</p></div><span class="chi-badge chi-badge--success">成功</span></div></div>
@@ -166,7 +166,7 @@ last_checked: "just now"</pre></div>
 </section>
 
 <section class="chi-container preview-section">
-<p class="preview-section__label">05 · Theme check</p>
+<p class="preview-section__label">06 · Theme check</p>
 <div class="preview-grid"><div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">淺色主題</h2><p class="chi-help">主要參考風格：淡藍灰背景、白色表面、藍紫焦點。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.removeAttribute('data-chi-theme')">切換至淺色</button></div><div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">深色主題</h2><p class="chi-help">同一組元件沿用相同層級與間距，只替換色彩與表面 tokens。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.setAttribute('data-chi-theme','dark')">切換至深色</button></div></div>
 </section>
 <section class="chi-container" style="padding-bottom:2.5rem"><div class="chi-logo-row"><span class="chi-logo-placeholder">STATUS</span><span class="chi-logo-placeholder">CHI SOURCE</span><span class="chi-logo-placeholder">TOOLS</span></div></section>
