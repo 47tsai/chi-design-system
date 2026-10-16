@@ -4,42 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Chi Design System 的設計規範、元件與版型範例"><title>Chi Design System · 設計規範與元件</title>
 <link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css"><link rel="stylesheet" href="./navigation.css">
-<style>
-body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.preview-section{padding:2.25rem 0 2.75rem;scroll-margin-top:76px}.preview-section__label{margin:0 0 1.2rem;color:var(--chi-color-text-subtle);font-size:var(--chi-text-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase}.preview-demo-panel{min-width:0}.preview-demo-panel>.chi-section__title{margin-bottom:.25rem}.preview-subtitle{margin:0;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);line-height:1.7}.preview-token{display:flex;align-items:center;gap:.65rem;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm)}.preview-token i{display:block;width:1.8rem;height:1.8rem;flex:none;border:1px solid var(--chi-color-border);border-radius:7px;background:var(--swatch)}.preview-grid{display:grid;grid-template-columns:1fr;gap:1rem}.preview-demo-panel--wide{grid-column:1/-1}.preview-swatch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.preview-swatch{min-height:76px;padding:.75rem;border:1px solid var(--chi-color-border);border-radius:10px;display:flex;flex-direction:column;justify-content:flex-end;font-size:var(--chi-text-xs)}.preview-code{font-family:var(--chi-font-mono);font-size:var(--chi-text-xs)}.preview-anchor{scroll-margin-top:80px}
-.preview-token-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:.75rem}
-.preview-token-card{min-width:0;padding:1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface)}
-.preview-token-card code,.preview-code-block code{font-family:var(--chi-font-mono);font-size:var(--chi-text-xs);overflow-wrap:anywhere}
-.preview-token-card p{margin:.35rem 0 0;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm)}
-.preview-code-block{position:relative;margin:0;padding:1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface-muted);overflow:auto;white-space:pre}
-.preview-code-block code{color:var(--chi-color-text)}
-.preview-copy{float:right;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);padding:.35rem .7rem;background:var(--chi-color-surface);color:var(--chi-color-text);font:inherit;font-size:var(--chi-text-xs);cursor:pointer}
-.preview-copy:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
-.preview-section__intro{max-width:68ch;margin:-.4rem 0 1.5rem;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);line-height:1.75}
-.preview-page-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem}
-.preview-page-nav a{padding:.45rem .75rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);text-decoration:none}
-.preview-page-nav a:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
-
-.preview-catalog-tools{display:grid;gap:1rem;margin:0 0 1.25rem}
-.preview-catalog-search{min-width:0}
-.preview-catalog-search>label{display:block;margin-bottom:.45rem;color:var(--chi-color-text-strong);font-size:var(--chi-text-sm);font-weight:700}
-.preview-catalog-search__control{display:flex;align-items:center;gap:.55rem}
-.preview-catalog-search__control>.chi-icon{flex:none;color:var(--chi-color-text-muted)}
-.preview-catalog-search__control .chi-input{min-width:0;flex:1}
-.preview-catalog-search__control .chi-button{flex:none}
-.preview-catalog-search .chi-help{margin:.5rem 0 0}
-.preview-catalog-filters{display:flex;flex-wrap:wrap;gap:.45rem}
-.preview-catalog-filter{min-height:2.25rem;padding:.4rem .75rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);background:var(--chi-color-surface);color:var(--chi-color-text-muted);font:inherit;font-size:var(--chi-text-sm);cursor:pointer}
-.preview-catalog-filter:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
-.preview-catalog-filter.is-active{border-color:var(--chi-color-accent);background:var(--chi-color-accent);color:var(--chi-color-on-accent)}
-.preview-catalog-filter:focus-visible,.preview-catalog-search__control .chi-button:focus-visible{outline:3px solid var(--chi-color-focus);outline-offset:2px}
-.preview-catalog-empty{grid-column:1/-1;padding:2rem 1rem;border:1px dashed var(--chi-color-border-strong);border-radius:var(--chi-radius-lg);color:var(--chi-color-text-muted);text-align:center}
-.preview-demo-panel[hidden]{display:none}
-@media(min-width:720px){.preview-catalog-tools{grid-template-columns:minmax(260px,1fr) minmax(0,1.2fr);align-items:center}.preview-catalog-filters{justify-content:flex-end}}
-@media(max-width:420px){.preview-catalog-search__control{flex-wrap:wrap}.preview-catalog-search__control .chi-input{flex-basis:calc(100% - 2rem)}.preview-catalog-search__control .chi-button{margin-left:auto}}
-
-
-@media(min-width:720px){.preview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.preview-swatch-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.preview-hero-grid{grid-template-columns:1fr auto;align-items:center}.preview-section{padding-block:2.75rem 3.25rem}}
-</style>
+<link rel="stylesheet" href="./elements.css">
 </head>
 <body class="chi-page">
 <a class="chi-skip-link" href="#main-content">跳至主要內容</a>
