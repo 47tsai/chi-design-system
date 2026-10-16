@@ -8,7 +8,11 @@ A framework-agnostic visual foundation for Chi sites, using a cool blue-gray pal
 - tokens.css: shared colors, typography, spacing, radii, shadows, and width tokens.
 - components.css: framework-agnostic layouts and reusable components.
 - index.html: GitHub Pages preview homepage.
-- examples/index.html: component preview.
+- examples/index.html: secondary entry to the same component catalogue.
+
+## Component catalogue
+
+The preview covers navigation, actions, form controls and validation, status badges, alerts, progress and steps, lists, tables, pagination, empty/loading states, avatars, statistics, tooltips, code blocks, and common page patterns. Component styles are in `components.css`; design tokens are in `tokens.css`.
 
 ## Preview
 
