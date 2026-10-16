@@ -38,3 +38,15 @@ GitHub Pages 網站：<https://tsai97216.github.io/chi-design-system/>
 新增元件前先檢查既有 token 與 class，避免功能重複；新增後同步更新圖鑑與 `DESIGN.md`。元件必須考慮窄螢幕、鍵盤操作、焦點樣式、深色主題與 reduced motion。圖鑑中的互動僅為前端示範，不代表已連接真實服務。
 
 提交前請在桌面與手機檢查實際頁面，並確認導覽連結、控制項狀態、文字換行和錯誤回饋。
+
+## 圖示
+
+使用本地 `icons.svg` sprite，不依賴外部 CDN 或圖示字型：
+
+```html
+<svg class="chi-icon" aria-hidden="true" focusable="false">
+  <use href="./icons.svg#search"></use>
+</svg>
+```
+
+圖示統一使用 24 × 24 viewBox、2px 圓角線條與 `currentColor`。詳細規範見 `DESIGN.md`。
