@@ -124,3 +124,34 @@
 .chi-dialog-backdrop{padding:1rem;border:1px dashed var(--chi-color-border-strong);border-radius:var(--chi-radius-lg);background:color-mix(in srgb,var(--chi-color-surface-muted) 60%,transparent)}.chi-dialog{width:min(100%,360px);margin-inline:auto;padding:1.25rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-lg);background:var(--chi-color-surface);box-shadow:var(--chi-shadow-md)}
 @media(max-width:680px){.chi-table th,.chi-table td{padding:.7rem .8rem}.chi-steps{gap:.25rem}.chi-steps__item{font-size:var(--chi-text-2xs)}}
 @media(prefers-reduced-motion:reduce){.chi-skeleton::after{animation:none}}
+
+
+/* Search, compact selection, upload, timeline, and toast patterns */
+.chi-search{position:relative;display:flex;align-items:center;gap:.55rem;min-height:var(--chi-control-height);padding-inline:.8rem;border:1px solid var(--chi-color-border-strong);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);color:var(--chi-color-text-muted)}
+.chi-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:var(--chi-color-text);font:inherit;font-size:var(--chi-text-sm)}
+.chi-search:focus-within{outline:3px solid var(--chi-color-focus);outline-offset:2px}
+.chi-segmented{display:inline-flex;align-items:center;gap:3px;padding:3px;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface-muted)}
+.chi-segmented__item{min-height:32px;padding:.35rem .8rem;border:0;border-radius:7px;background:transparent;color:var(--chi-color-text-muted);font:inherit;font-size:var(--chi-text-xs);cursor:pointer}
+.chi-segmented__item[aria-pressed=true]{background:var(--chi-color-surface);color:var(--chi-color-text-strong);box-shadow:var(--chi-shadow-sm);font-weight:700}
+.chi-menu{min-width:190px;padding:.35rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);box-shadow:var(--chi-shadow-md)}
+.chi-menu__item{display:flex;width:100%;align-items:center;gap:.65rem;padding:.6rem .7rem;border:0;border-radius:7px;background:transparent;color:var(--chi-color-text);font:inherit;font-size:var(--chi-text-sm);text-align:left;text-decoration:none;cursor:pointer}
+.chi-menu__item:hover,.chi-menu__item:focus-visible{outline:0;background:var(--chi-color-surface-muted)}
+.chi-menu__item--danger{color:var(--chi-color-danger)}
+.chi-dropzone{display:flex;min-height:130px;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1.25rem;border:1.5px dashed var(--chi-color-border-strong);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);text-align:center}
+.chi-dropzone__icon{display:grid;width:2.5rem;height:2.5rem;place-items:center;border-radius:50%;background:var(--chi-color-surface-muted);color:var(--chi-color-accent);font-size:1.2rem}
+.chi-timeline{display:flex;flex-direction:column}
+.chi-timeline__item{position:relative;display:grid;grid-template-columns:1rem minmax(0,1fr);column-gap:.8rem;padding-bottom:1.25rem}
+.chi-timeline__item:last-child{padding-bottom:0}
+.chi-timeline__rail{position:relative;display:flex;justify-content:center}
+.chi-timeline__rail::before{content:"";position:absolute;top:.2rem;bottom:-.2rem;width:1px;background:var(--chi-color-border-strong)}
+.chi-timeline__item:last-child .chi-timeline__rail::before{display:none}
+.chi-timeline__dot{position:relative;z-index:1;width:.65rem;height:.65rem;margin-top:.25rem;border:2px solid var(--chi-color-accent);border-radius:50%;background:var(--chi-color-surface)}
+.chi-timeline__title{margin:0;font-size:var(--chi-text-sm);font-weight:700}
+.chi-timeline__meta{margin:.2rem 0 0;color:var(--chi-color-text-subtle);font-size:var(--chi-text-xs)}
+.chi-toast{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);box-shadow:var(--chi-shadow-md);font-size:var(--chi-text-sm)}
+.chi-toast__message{min-width:0;flex:1}
+[data-chi-theme=dark] .chi-button--danger{background:#b93843;color:#fff}
+[data-chi-theme=dark] .chi-alert--info{border-color:#3e4778;background:#252a40}
+[data-chi-theme=dark] .chi-alert--success{border-color:#285a43;background:#1e3029}
+[data-chi-theme=dark] .chi-alert--warning{border-color:#66502c;background:#332b20}
+[data-chi-theme=dark] .chi-alert--danger{border-color:#71343c;background:#362329}
