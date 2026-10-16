@@ -1,38 +1,48 @@
-# Chi Design Principles
+# Chi Design System
 
-## Direction
+A restrained, panel-led interface system for the Chi website ecosystem.
 
-A clean, structured interface inspired by the restrained layout and clear information grouping of the HoYoverse Account Center. Treat the reference as a source of design ideas, not as an asset or code source.
+## Design direction
+Use the HoYoverse Account Center as a reference for clarity, quiet surfaces, clear navigation, and separated content areas. Do not copy its assets, exact composition, or proprietary implementation. Chi should share the same discipline while keeping its own identity.
 
-## Principles
+## Visual principles
+1. **Build the page before the component library.** Establish page grid, header, content width, and section rhythm first.
+2. **Use surfaces with intention.** Page background, primary surface, and inset surface have distinct roles. Not every group needs a card.
+3. **Prefer structure over decoration.** Thin borders, separators, alignment, and typography do most of the work. Reserve shadows for floating layers.
+4. **Make hierarchy obvious.** Page title, lead, section title, body, metadata, and helper text each have a defined role.
+5. **Keep controls calm and consistent.** Inputs and buttons share control height, border treatment, focus ring, and spacing rhythm.
+6. **Let content determine height.** Avoid fixed card heights and manual positioning.
+7. **Responsive layouts are intentional.** Desktop can use split layouts; narrow screens stack content in a predictable order.
+8. **Accessibility is visual design.** Maintain readable contrast, visible keyboard focus, semantic markup, and clear status text.
 
-1. **Structure with borders.** Use thin borders and subtle surface contrast to group information instead of relying on heavy shadows or decorative gradients.
-2. **Clear hierarchy.** Page title first, supporting description second, then section labels and controls. Keep helper text readable.
-3. **Consistent alignment.** Related cards share padding and content alignment. Place title, description, metadata, and actions in predictable positions.
-4. **Purposeful whitespace.** Use a small spacing scale. Avoid both cramped controls and oversized empty areas inside cards.
-5. **Functional restraint.** Use color to communicate interaction, focus, selection, and status. Avoid decoration that does not aid understanding.
-6. **Responsive by default.** Layouts should collapse cleanly on narrow screens without horizontal overflow.
-7. **Accessible interaction.** Preserve visible keyboard focus, readable contrast, and semantic HTML.
+## Layout rules
+- Use a centered container with a readable maximum width.
+- Keep the site header compact and separate it from content with a subtle divider.
+- Page introductions need a clear title and short lead, not excessive empty space.
+- Use grids only for collections of peer items. Use split layouts for content with different priorities.
+- Prefer separators and section spacing before adding another bordered box.
+- On mobile, reduce outer gutters modestly; do not shrink body text to fit.
 
-## Initial visual baseline
+## Component roles
+- `.chi-panel`: bounded region for related content, such as a settings group or summary.
+- `.chi-card`: one item in a collection of peer items. Use sparingly.
+- `.chi-section`: vertical grouping with consistent rhythm.
+- `.chi-field`, `.chi-input`, `.chi-select`, `.chi-textarea`: form controls with shared interaction language.
+- `.chi-button`: primary and secondary actions.
+- `.chi-divider`: quiet structural separator.
+- `.chi-badge`: compact state or category label, not explanatory text replacement.
 
-- Neutral page background and white surface.
-- Dark, readable primary text with subdued secondary text.
-- Thin neutral borders and modest corner radius.
-- One restrained accent color for links and primary actions.
-- Minimal shadows; do not use gradients as a default.
-- Comfortable control heights and consistent spacing.
+## Tokens and adoption
+- Tokens live in `tokens.css`; reusable styles live in `components.css`.
+- Prefix shared classes and variables with `chi-` to reduce collisions.
+- Avoid global rules that unexpectedly restyle host sites.
+- Keep routing, data access, validation, and application behavior in the host project.
+- Use `examples/index.html` as a visual regression reference.
 
-These values are an initial draft. Refine them against screenshots of the chosen reference page before applying them to production websites.
-
-## Cross-framework rules
-
-- Tokens belong in CSS custom properties.
-- Shared visual components use ordinary CSS classes prefixed with `chi-`.
-- Do not assume a framework, router, build system, or JavaScript runtime.
-- Keep behavior, data access, routing, and business logic in each host project.
-- Avoid global selectors that unexpectedly restyle a host site's existing elements.
-
-## Component layout guidance
-
-A standard card should place its heading and description at the top, its main content next, and any actions in a consistent action row. Use grid or flexbox for alignment rather than manual offsets. Do not force every card to the same height unless the collection layout needs it.
+## Review checklist
+- Does the page have one obvious primary focus?
+- Are panels used only where they help grouping?
+- Are title, description, metadata, and actions aligned?
+- Is body and helper text readable at phone width?
+- Do focus, hover, disabled, and dark-theme states remain visible?
+- Does the result look coherent without gradients or heavy shadows?
