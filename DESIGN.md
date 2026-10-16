@@ -1,48 +1,48 @@
 # Chi Design System
 
-A restrained, panel-led interface system for the Chi website ecosystem.
+A reusable visual foundation for Chi sites, inspired by the light, airy HoYoverse account-center reference supplied for this project.
 
-## Design direction
-Use the HoYoverse Account Center as a reference for clarity, quiet surfaces, clear navigation, and separated content areas. Do not copy its assets, exact composition, or proprietary implementation. Chi should share the same discipline while keeping its own identity.
+## Visual direction
 
-## Visual principles
-1. **Build the page before the component library.** Establish page grid, header, content width, and section rhythm first.
-2. **Use surfaces with intention.** Page background, primary surface, and inset surface have distinct roles. Not every group needs a card.
-3. **Prefer structure over decoration.** Thin borders, separators, alignment, and typography do most of the work. Reserve shadows for floating layers.
-4. **Make hierarchy obvious.** Page title, lead, section title, body, metadata, and helper text each have a defined role.
-5. **Keep controls calm and consistent.** Inputs and buttons share control height, border treatment, focus ring, and spacing rhythm.
-6. **Let content determine height.** Avoid fixed card heights and manual positioning.
-7. **Responsive layouts are intentional.** Desktop can use split layouts; narrow screens stack content in a predictable order.
-8. **Accessibility is visual design.** Maintain readable contrast, visible keyboard focus, semantic markup, and clear status text.
+The reference's recognizable character comes from its composition, not just its blue palette: a compact translucent header, soft blue-gray hero glow, centered headline, restrained gradient accent, pill-shaped primary action, lightly elevated feature cards, a quiet logo strip, and a near-black footer. Chi borrows these general principles without copying HoYoverse branding, proprietary assets, or exact copy.
 
-## Layout rules
-- Use a centered container with a readable maximum width.
-- Keep the site header compact and separate it from content with a subtle divider.
-- Page introductions need a clear title and short lead, not excessive empty space.
-- Use grids only for collections of peer items. Use split layouts for content with different priorities.
-- Prefer separators and section spacing before adding another bordered box.
-- On mobile, reduce outer gutters modestly; do not shrink body text to fit.
+## Principles
+
+1. **Start with page composition.** Establish the header, hero, reading width, content rhythm, and footer before styling components.
+2. **Use a cool, quiet canvas.** Pale blue-gray backgrounds and white surfaces create separation without thick outlines.
+3. **Reserve gradients for emphasis.** Accent gradients belong on a key phrase or primary action, not every heading and surface.
+4. **Use soft elevation selectively.** Feature cards can use a subtle border, translucent surface, and restrained shadow. Ordinary lists should remain flat.
+5. **Build cards with a consistent rhythm.** Icon, title, and description follow the same order and spacing. Never shrink body copy just to fit.
+6. **Let content set the height.** No fixed card heights, arbitrary offsets, or layout hacks.
+7. **Design mobile first, then expand.** A narrow reading column is intentional for focused pages. Wider layouts can use shared container and split/grid utilities.
+8. **Keep interactions accessible.** Use semantic HTML, keyboard focus, readable contrast, and reduced-motion support.
 
 ## Component roles
-- `.chi-panel`: bounded region for related content, such as a settings group or summary.
-- `.chi-card`: one item in a collection of peer items. Use sparingly.
-- `.chi-section`: vertical grouping with consistent rhythm.
-- `.chi-field`, `.chi-input`, `.chi-select`, `.chi-textarea`: form controls with shared interaction language.
-- `.chi-button`: primary and secondary actions.
-- `.chi-divider`: quiet structural separator.
-- `.chi-badge`: compact state or category label, not explanatory text replacement.
+
+- .chi-site-header: compact translucent navigation.
+- .chi-hero: soft gradient introduction with centered reading width.
+- .chi-title__accent: restrained violet-to-blue text accent.
+- .chi-button--primary and .chi-button--pill: gradient primary action with rounded geometry.
+- .chi-feature-list and .chi-card: repeatable feature stack or responsive feature grid.
+- .chi-icon-circle: consistent icon backing for host-provided icons.
+- .chi-logo-row: low-emphasis brand/integration row. Use approved real logos where available.
+- .chi-footer: dark closing section with a centered inner column.
+- .chi-panel, .chi-list, .chi-field, .chi-input, .chi-select, .chi-badge: general-purpose building blocks for tools and settings pages.
 
 ## Tokens and adoption
-- Tokens live in `tokens.css`; reusable styles live in `components.css`.
-- Prefix shared classes and variables with `chi-` to reduce collisions.
-- Avoid global rules that unexpectedly restyle host sites.
-- Keep routing, data access, validation, and application behavior in the host project.
-- Use `examples/index.html` as a visual regression reference.
+
+- tokens.css contains color, typography, spacing, radius, shadow, and width tokens.
+- components.css contains reusable, framework-agnostic chi- styles.
+- Load tokens.css before components.css.
+- Keep routing, state, validation, and data access in each host project.
+- index.html and examples/index.html are visual references, not production pages.
 
 ## Review checklist
-- Does the page have one obvious primary focus?
-- Are panels used only where they help grouping?
-- Are title, description, metadata, and actions aligned?
-- Is body and helper text readable at phone width?
-- Do focus, hover, disabled, and dark-theme states remain visible?
-- Does the result look coherent without gradients or heavy shadows?
+
+- Is the visual focus obvious at first glance?
+- Does the hero feel airy without creating a dead zone?
+- Are gradients used sparingly?
+- Are card titles and body text readable on phones?
+- Do card spacing and icon geometry remain consistent?
+- Does the footer close the page cleanly?
+- Are hover, focus, dark-theme, and reduced-motion states considered?
