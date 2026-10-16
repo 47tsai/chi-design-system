@@ -15,8 +15,8 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 
 ## 設計系統分頁
 
-- [空白版型](https://tsai97216.github.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
-- [設計規範與元件](https://tsai97216.github.io/chi-design-system/elements.html)：基礎、元件圖鑑、版型與使用方式。這是查閱手冊，不是產品首頁模板。
+- [空白版型](https://chi.qzz.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
+- [設計規範與元件](https://chi.qzz.io/chi-design-system/elements.html)：基礎、元件圖鑑、版型與使用方式。這是查閱手冊，不是產品首頁模板。
 
 ## 元件範圍
 
@@ -36,10 +36,10 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 
 ## 預覽
 
-- 空白版型：<https://tsai97216.github.io/chi-design-system/>
-- 設計規範與元件：<https://tsai97216.github.io/chi-design-system/elements.html>
+- 空白版型：<https://chi.qzz.io/chi-design-system/>
+- 設計規範與元件：<https://chi.qzz.io/chi-design-system/elements.html>
 
-若預覽尚未發佈，請在 GitHub repository 的 Settings → Pages 中選擇 `main` 分支與根目錄。
+本專案使用 `.github/workflows/deploy-pages.yml` 透過 GitHub Actions 發佈。若部署未執行，請先到 Actions 確認 `Deploy GitHub Pages` 工作流程；再到 Settings → Pages 確認 Source 設為 `GitHub Actions`。提交成功不代表網站已完成部署。
 
 ## 開發原則
 
