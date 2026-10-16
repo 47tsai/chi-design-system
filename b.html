@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoYoverse 通行證 - 帳號中心</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Microsoft JhengHei', 'PingFang TC', 'sans-serif'],
+                    },
+                    colors: {
+                        hoyoblue: {
+                            DEFAULT: '#3861fb',
+                            hover: '#2951e0',
+                            light: '#ebf1ff',
+                            text: '#4d72f8'
+                        },
+                        hoyobg: '#f7f8fc',
+                        cardbg: '#ffffff',
+                        darkfooter: '#111217',
+                        subtext: '#808080',
+                        bordercolor: '#eaedf3'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background-color: #f7f8fc;
+            color: #1a1a1a;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom Toggle Switch Style */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #3861fb;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #3861fb;
+        }
+        .toast-slide {
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-hoyoblue selection:text-white">
+
+    <!-- Toast Notification for Copy / Actions -->
+    <div id="toast" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 hidden">
+        <div class="bg-gray-900/90 text-white text-sm px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 backdrop-blur-sm">
+            <i class="fa-solid fa-circle-check text-green-400"></i>
+            <span id="toast-message">複製成功！</span>
+        </div>
+    </div>
+
+    <div>
+        <!-- Navigation Header -->
+        <header class="bg-white border-b border-bordercolor sticky top-0 z-40">
+            <div class="max-w-screen-md mx-auto px-4 h-14 flex items-center justify-between">
+                <!-- HoYoverse Logo -->
+                <div class="flex items-center cursor-pointer" onclick="switchTab('overview')">
+                    <span class="text-xl font-bold tracking-wider uppercase flex items-center gap-1 text-black">
+                        HOYOVERSE
+                        <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-indigo-500 to-sky-400 inline-block ml-0.5 animate-pulse"></span>
+                    </span>
+                </div>
+
+                <!-- Right Action Icons -->
+                <div class="flex items-center space-x-5 text-gray-700">
+                    <button id="lang-btn" class="hover:text-hoyoblue transition-colors" title="切換語言">
+                        <i class="fa-solid fa-globe text-lg"></i>
+                    </button>
+                    <button id="menu-toggle-btn" class="hover:text-hoyoblue transition-colors" onclick="toggleNavDropdown()">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sub-header Title Selector Dropdown Bar -->
+        <div class="bg-white border-b border-bordercolor shadow-sm">
+            <div class="max-w-screen-md mx-auto px-4 py-3 flex items-center justify-between cursor-pointer" onclick="toggleNavDropdown()">
+                <div class="flex items-center space-x-2">
+                    <span id="current-page-title" class="text-base font-bold text-gray-800">我的帳號</span>
+                </div>
+                <i id="dropdown-chevron" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-200 text-sm"></i>
+            </div>
+
+            <!-- Expandable Navigation Menu -->
+            <div id="nav-dropdown" class="hidden border-t border-gray-100 bg-white">
+                <div class="max-w-screen-md mx-auto py-2 px-2 text-sm">
+                    <button onclick="selectTab('overview')" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 flex items-center justify-between text-hoyoblue font-medium" data-tab="overview">
+                        我的帳號
+                    </button>
+                    <button onclick="selectTab('account-info')" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 flex items-center justify-between text-gray-700" data-tab="account-info">
+                        帳號資訊
+                    </button>
+                    <button onclick="selectTab('security')" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 flex items-center justify-between text-gray-700" data-tab="security">
+                        密碼及安全
+                    </button>
+                    <button onclick="selectTab('linked-accounts')" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 flex items-center justify-between text-gray-700" data-tab="linked-accounts">
+                        已綁定帳號
+                    </button>
+                    <button onclick="selectTab('personalization')" class="nav-item w-full text-left px-4 py-3 rounded-lg hover:bg-gray-50 flex items-center justify-between text-gray-700" data-tab="personalization">
+                        個人化推薦
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Body Container -->
+        <main class="max-w-screen-md mx-auto px-4 py-4 space-y-4">
+
+            <!-- ID Card Section (Visible on sub-pages) -->
+            <div id="user-id-card" class="bg-white rounded-xl p-3.5 border border-bordercolor shadow-sm flex items-center justify-between">
+                <div class="text-sm font-semibold text-gray-700 tracking-wide">
+                    ID: <span id="user-id-value">352370665</span>
+                </div>
+                <button onclick="copyUserId()" class="text-gray-400 hover:text-hoyoblue p-1 rounded transition-colors" title="複製 ID">
+                    <i class="fa-regular fa-copy text-base"></i>
+                </button>
+            </div>
+
+            <!-- VIEW 1: Overview (我的帳號) -->
+            <section id="view-overview" class="view-content space-y-4">
+                <!-- Account Info Summary Card -->
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="text-base font-bold text-gray-800">帳號資訊</h2>
+                        <button onclick="selectTab('account-info')" class="text-hoyoblue font-semibold text-sm flex items-center hover:underline">
+                            管理 <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="text-gray-400 text-xs mb-0.5">使用者名稱</p>
+                            <p class="font-medium text-gray-800">t****16</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-0.5">電子郵件地址</p>
+                            <p class="font-medium text-gray-800">ts****16@gmail.com</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-0.5">手機號碼</p>
+                            <p class="font-medium text-gray-800">978****16</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password & Security Summary Card -->
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="text-base font-bold text-gray-800">密碼及安全</h2>
+                        <button onclick="selectTab('security')" class="text-hoyoblue font-semibold text-sm flex items-center hover:underline">
+                            管理 <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <p class="text-gray-400 text-xs mb-0.5">密碼</p>
+                            <p class="font-medium text-gray-800">上次更新 2024/2/27</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-0.5">信任的裝置</p>
+                            <p class="font-medium text-gray-800">46</p>
+                            <p class="text-xs text-gray-400 mt-1 leading-relaxed">
+                                凡是受信任的裝置，使用者可在HoYoverse中跳過身份驗證的步驟
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linked Accounts Summary Card -->
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="text-base font-bold text-gray-800">已綁定帳號</h2>
+                        <button onclick="selectTab('linked-accounts')" class="text-hoyoblue font-semibold text-sm flex items-center hover:underline">
+                            管理 <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                        </button>
+                    </div>
+                    <div id="overview-linked-list" class="space-y-3">
+                        <!-- Rendered by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 2: 帳號資訊 (Account Info) -->
+            <section id="view-account-info" class="view-content hidden space-y-4">
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-4">
+                    <h2 class="text-base font-bold text-gray-800 border-b border-gray-100 pb-3">帳號資訊</h2>
+                    
+                    <div class="space-y-4 text-sm">
+                        <div class="py-1">
+                            <p class="text-gray-400 text-xs mb-1">使用者名稱</p>
+                            <p class="font-semibold text-gray-800">t****16</p>
+                        </div>
+
+                        <div class="border-t border-gray-50 pt-3 flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-xs mb-1">電子郵件地址</p>
+                                <p class="font-semibold text-gray-800">ts****16@gmail.com</p>
+                            </div>
+                            <button onclick="showToast('請前往驗證以更換電子郵件')" class="text-hoyoblue text-xs font-semibold hover:underline">
+                                更換電子郵件信箱綁定
+                            </button>
+                        </div>
+
+                        <div class="border-t border-gray-50 pt-3 flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-400 text-xs mb-1">手機號碼</p>
+                                <p class="font-semibold text-gray-800">978****16</p>
+                            </div>
+                            <button onclick="showToast('請前往驗證以解除手機號碼')" class="text-hoyoblue text-xs font-semibold hover:underline">
+                                解除手機號碼綁定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Deletion Card -->
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <h2 class="text-base font-bold text-gray-800">註銷帳號</h2>
+                        <button onclick="showToast('已跳轉至帳號註銷申請流程')" class="text-hoyoblue text-xs font-semibold hover:underline">
+                            帳號註銷申請
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        帳號一經註銷將無法恢復，請謹慎操作。
+                    </p>
+                </div>
+            </section>
+
+            <!-- VIEW 3: 密碼及安全 (Password & Security) -->
+            <section id="view-security" class="view-content hidden space-y-4">
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-3">
+                    <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+                        <div>
+                            <h2 class="text-base font-bold text-gray-800">密碼</h2>
+                            <p class="text-xs text-gray-400 mt-1">上次更新 2024/2/27</p>
+                        </div>
+                        <button onclick="showToast('請進行簡訊驗證以重設密碼')" class="text-hoyoblue text-xs font-semibold hover:underline">
+                            修改
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Trusted Devices List -->
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-4">
+                    <div class="border-b border-gray-100 pb-3">
+                        <h2 class="text-base font-bold text-gray-800">信任的裝置</h2>
+                    </div>
+
+                    <div id="trusted-devices-list" class="space-y-4 divide-y divide-gray-100">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 4: 已綁定帳號 (Linked Accounts) -->
+            <section id="view-linked-accounts" class="view-content hidden space-y-4">
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-4">
+                    <h2 class="text-base font-bold text-gray-800 border-b border-gray-100 pb-3">已綁定帳號</h2>
+                    
+                    <div id="full-linked-list" class="space-y-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 5: 個人化推薦 (Personalization Recommendations) -->
+            <section id="view-personalization" class="view-content hidden space-y-4">
+                <div class="bg-white rounded-2xl p-5 border border-bordercolor shadow-sm space-y-6">
+                    <h2 class="text-base font-bold text-gray-800 border-b border-gray-100 pb-3">個人化推薦</h2>
+
+                    <!-- Item 1: 信件訂閱管理 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-gray-800 text-sm">信件訂閱管理</h3>
+                            <!-- Custom Switch -->
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="toggle-email" class="sr-only peer" checked onchange="handleToggleChange('信件訂閱', this.checked)">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-hoyoblue"></div>
+                            </label>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            我們會不定期地發送電子郵件，向您介紹關於 HoYoverse 遊戲的最新動態，您始終能夠自行選擇接收關於哪些產品的內容。即便在此設定為全部不接收，您仍然會收到關於帳號安全和交易的電子郵件，或由第三方活動收集同意的電子郵件，例如登入驗證、密碼復原確認及第三方活動通知。訂閱設定的更改可能有所延遲，至多需一週生效。我們尊重您的隱私權，不會與第三方或合作夥伴分享您的個人資料。
+                        </p>
+                    </div>
+
+                    <hr class="border-gray-100">
+
+                    <!-- Item 2: 定向廣告 -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-bold text-gray-800 text-sm">定向廣告</h3>
+                            <!-- Custom Switch -->
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="toggle-ads" class="sr-only peer" checked onchange="handleToggleChange('定向廣告', this.checked)">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-hoyoblue"></div>
+                            </label>
+                        </div>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            允許我們使用您的個人資料（例如裝置識別符號及廣告識別符號），並在必要情況下與合作夥伴共享該等資訊，用於在其他網站或平臺上向您展示根據興趣的個人化廣告。關閉後，您仍可能看到廣告，但將不再根據您的興趣定向展示。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Dark Footer -->
+    <footer class="bg-darkfooter text-gray-400 mt-12 py-8 px-6 text-xs border-t border-gray-800">
+        <div class="max-w-screen-md mx-auto space-y-6">
+            <!-- Footer Logo -->
+            <div class="flex items-center">
+                <span class="text-xl font-bold tracking-wider uppercase flex items-center gap-1 text-white">
+                    HOYOVERSE
+                    <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-indigo-500 to-sky-400 inline-block ml-0.5"></span>
+                </span>
+            </div>
+
+            <!-- Language Dropdown Button -->
+            <div class="relative inline-block w-full sm:w-auto">
+                <div class="flex items-center justify-between bg-[#1e2029] border border-gray-700 text-white px-4 py-2.5 rounded-lg w-full sm:w-64 cursor-pointer hover:border-gray-500 transition-colors">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-globe text-sm text-gray-300"></i>
+                        <span class="text-sm">中文(繁體)</span>
+                    </div>
+                    <i class="fa-solid fa-caret-down text-gray-400 text-xs"></i>
+                </div>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="flex flex-wrap gap-y-3 gap-x-6 text-gray-300 font-medium pt-2">
+                <a href="javascript:void(0)" onclick="showToast('使用條款')" class="hover:text-white transition-colors">使用條款</a>
+                <a href="javascript:void(0)" onclick="showToast('隱私政策')" class="hover:text-white transition-colors">隱私政策</a>
+                <a href="javascript:void(0)" onclick="showToast('聯絡我們')" class="hover:text-white transition-colors">聯絡我們</a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-4 border-t border-gray-800 text-gray-500 text-[11px]">
+                Copyright © COGNOSPHERE. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Data & Script Logic -->
+    <script>
+        // Data definition matching screenshots
+        const linkedAccountsData = [
+            {
+                platform: 'Google',
+                name: 'Chi Tsai',
+                iconClass: 'fa-brands fa-google text-red-500',
+                status: 'bound_in_game',
+                statusText: '已綁定，請在遊戲內解除綁定'
+            },
+            {
+                platform: 'Facebook',
+                name: 'ShihChi Tsai',
+                iconClass: 'fa-brands fa-facebook text-blue-600',
+                status: 'unbindable',
+                statusText: '解除綁定'
+            },
+            {
+                platform: 'Apple',
+                name: '士齊',
+                iconClass: 'fa-brands fa-apple text-black',
+                status: 'bound_in_game',
+                statusText: '已綁定，請在遊戲內解除綁定'
+            },
+            {
+                platform: 'Game Center',
+                name: '嗜血幽冥XD',
+                iconClass: 'fa-solid fa-circle-nodes text-emerald-500',
+                status: 'bound_in_game',
+                statusText: '已綁定，請在遊戲內解除綁定'
+            },
+            {
+                platform: 'Twitter',
+                name: 'Chi Tsai',
+                iconClass: 'fa-brands fa-x-twitter text-black',
+                status: 'unbindable',
+                statusText: '解除綁定'
+            },
+            {
+                platform: 'Sony',
+                name: '-',
+                iconClass: 'fa-brands fa-playstation text-blue-700',
+                status: 'unbound_in_game',
+                statusText: '未綁定，請在遊戲內綁定'
+            },
+            {
+                platform: 'Microsoft',
+                name: '-',
+                iconClass: 'fa-brands fa-xbox text-green-600',
+                status: 'unbound_in_game',
+                statusText: '未綁定，請在遊戲內綁定'
+            },
+            {
+                platform: 'Steam',
+                name: '-',
+                iconClass: 'fa-brands fa-steam text-slate-800',
+                status: 'unbound_in_game',
+                statusText: '未綁定，請在遊戲內綁定'
+            },
+            {
+                platform: 'Discord',
+                name: '-',
+                iconClass: 'fa-brands fa-discord text-indigo-500',
+                status: 'unbound_in_game',
+                statusText: '未綁定，請在遊戲內綁定'
+            }
+        ];
+
+        let trustedDevices = [
+            { id: 1, type: 'iPhone', name: 'iPhone 12 Pro', date: '2024/3/15 14:22:10', icon: 'fa-mobile-screen' },
+            { id: 2, type: 'Mac', name: 'iMac', date: '2024/3/11 21:10:04', icon: 'fa-desktop' },
+            { id: 3, type: 'iPad', name: 'iPad mini', date: '2024/3/08 17:14:30', icon: 'fa-tablet-screen-button' },
+            { id: 4, type: 'PC', name: 'DESKTOP-43DFF8G2', date: '2024/3/01 09:12:00', icon: 'fa-display' },
+            { id: 5, type: 'PC', name: 'DESKTOP-3A4DS02X', date: '2024/2/28 19:40:12', icon: 'fa-display' },
+            { id: 6, type: 'Android', name: 'SM-G9810', date: '2024/2/25 11:15:00', icon: 'fa-mobile-screen-button' }
+        ];
+
+        const tabTitles = {
+            'overview': '我的帳號',
+            'account-info': '帳號資訊',
+            'security': '密碼及安全',
+            'linked-accounts': '已綁定帳號',
+            'personalization': '個人化推薦'
+        };
+
+        // Render Linked Accounts for Overview tab
+        function renderOverviewLinked() {
+            const container = document.getElementById('overview-linked-list');
+            container.innerHTML = '';
+            linkedAccountsData.forEach(acc => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center justify-between py-1';
+                item.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-lg">
+                            <i class="${acc.iconClass}"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">${acc.platform}</p>
+                            <p class="font-medium text-sm text-gray-800">${acc.name}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Render Linked Accounts for full page tab
+        function renderFullLinked() {
+            const container = document.getElementById('full-linked-list');
+            container.innerHTML = '';
+            linkedAccountsData.forEach(acc => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center justify-between py-2 border-b border-gray-50 last:border-none';
+                
+                let actionHTML = '';
+                if (acc.status === 'unbindable') {
+                    actionHTML = `<button onclick="handleUnbind('${acc.platform}')" class="text-hoyoblue text-xs font-semibold hover:underline">${acc.statusText}</button>`;
+                } else {
+                    actionHTML = `<span class="text-xs text-gray-300 font-medium">${acc.statusText}</span>`;
+                }
+
+                item.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-xl">
+                            <i class="${acc.iconClass}"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">${acc.platform}</p>
+                            <p class="font-semibold text-sm text-gray-800">${acc.name}</p>
+                        </div>
+                    </div>
+                    <div>
+                        ${actionHTML}
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Render Trusted Devices List
+        function renderTrustedDevices() {
+            const container = document.getElementById('trusted-devices-list');
+            container.innerHTML = '';
+            
+            if (trustedDevices.length === 0) {
+                container.innerHTML = '<p class="text-xs text-gray-400 py-4 text-center">尚無信任裝置</p>';
+                return;
+            }
+
+            trustedDevices.forEach(dev => {
+                const item = document.createElement('div');
+                item.className = 'pt-3 first:pt-0 flex items-center justify-between';
+                item.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="text-gray-600 w-6 text-center">
+                            <i class="fa-solid ${dev.icon} text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-sm text-gray-800">${dev.name}</p>
+                            <p class="text-[11px] text-gray-400">${dev.date}</p>
+                        </div>
+                    </div>
+                    <button onclick="removeDevice(${dev.id}, '${dev.name}')" class="text-hoyoblue text-xs font-semibold hover:underline">
+                        刪除
+                    </button>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Navigation Switch Logic
+        function selectTab(tabKey) {
+            // Update Title
+            document.getElementById('current-page-title').innerText = tabTitles[tabKey] || '帳號中心';
+            
+            // Hide all views
+            const views = document.querySelectorAll('.view-content');
+            views.forEach(v => v.classList.add('hidden'));
+
+            // Show selected view
+            const selectedView = document.getElementById(`view-${tabKey}`);
+            if (selectedView) {
+                selectedView.classList.remove('hidden');
+            }
+
+            // Hide/Show Top ID Card depending on view
+            const idCard = document.getElementById('user-id-card');
+            if (tabKey === 'overview') {
+                idCard.classList.add('hidden');
+            } else {
+                idCard.classList.remove('hidden');
+            }
+
+            // Update active state in nav dropdown
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                if (item.getAttribute('data-tab') === tabKey) {
+                    item.classList.add('text-hoyoblue', 'font-medium');
+                    item.classList.remove('text-gray-700');
+                } else {
+                    item.classList.remove('text-hoyoblue', 'font-medium');
+                    item.classList.add('text-gray-700');
+                }
+            });
+
+            // Close dropdown menu
+            closeNavDropdown();
+
+            // Scroll top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchTab(tabKey) {
+            selectTab(tabKey);
+        }
+
+        // Toggle Navigation Dropdown Menu
+        function toggleNavDropdown() {
+            const nav = document.getElementById('nav-dropdown');
+            const chevron = document.getElementById('dropdown-chevron');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                chevron.classList.add('rotate-180');
+            } else {
+                closeNavDropdown();
+            }
+        }
+
+        function closeNavDropdown() {
+            const nav = document.getElementById('nav-dropdown');
+            const chevron = document.getElementById('dropdown-chevron');
+            nav.classList.add('hidden');
+            chevron.classList.remove('rotate-180');
+        }
+
+        // Copy User ID Function
+        function copyUserId() {
+            const idVal = document.getElementById('user-id-value').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = idVal;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('已複製 ID 到剪貼簿');
+        }
+
+        // Actions Feedback
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('toast-slide');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2500);
+        }
+
+        function removeDevice(id, name) {
+            trustedDevices = trustedDevices.filter(d => d.id !== id);
+            renderTrustedDevices();
+            showToast(`已成功刪除信任裝置：${name}`);
+        }
+
+        function handleUnbind(platform) {
+            showToast(`請完成驗證程序以解除 ${platform} 帳號綁定`);
+        }
+
+        function handleToggleChange(feature, isChecked) {
+            const stateText = isChecked ? '已開啟' : '已關閉';
+            showToast(`${feature} ${stateText}`);
+        }
+
+        // Initial Load Event
+        window.onload = function () {
+            renderOverviewLinked();
+            renderFullLinked();
+            renderTrustedDevices();
+            selectTab('overview');
+        };
+    </script>
+</body>
+</html>
