@@ -237,6 +237,49 @@ Chi 不使用單一模板硬套所有產品。先判斷頁面任務，再選擇�
 
 最終輸出應符合目標產品的功能與資訊架構，並呈現 Chi 的共通視覺語言。參考 HTML 是設計證據，不是可整頁複製的模板。
 
+## 元件選型對照表（實作優先）
+
+本節將常見介面需求對應到目前共用 CSS 中已存在的 class。AI 修改產品網站時，先從此表選型，再依照實際 HTML 結構確認用法；不要只因為名稱相似就假設某個 class 具備未記載的互動功能。
+
+| 介面需求 | 優先使用的 class | 選用與組合方式 |
+| --- | --- | --- |
+| 主要／次要操作 | `.chi-button`、`.chi-button--primary`、`.chi-button--danger`、`.chi-button--small`、`.chi-button--pill` | 一般操作用 `.chi-button`；主要 CTA 才加 primary；破壞性操作用 danger。small 和 pill 是外觀變體，不代表操作語意。 |
+| 圖示操作 | `.chi-button.chi-button--icon`、`.chi-icon-button` | 只放單一圖示的操作；必須在按鈕本身提供可理解的 accessible name。不要把無關的文字連結改成圖示按鈕。 |
+| 一般內容面板 | `.chi-panel` | 用於需要明確表面邊界的內容群組，不是每個段落的預設包裝。只有確實需要玻璃表面時才使用 `.chi-panel--glass`。 |
+| 功能介紹卡片 | `.chi-card`、`.chi-card__title`、`.chi-card__description` | 適合可獨立理解的功能或內容單元。卡片高度由內容決定，不要為了整齊塞入空白。 |
+| 區段標題與說明 | `.chi-section`、`.chi-section__header`、`.chi-section__title`、`.chi-section__description` | 用於建立章節層級；避免每個區段都另外製作一套標題樣式。 |
+| 頁面標題區 | `.chi-page-header`、`.chi-title`、`.chi-description`、`.chi-eyebrow` | 頁面主標題、摘要和可選的眉標。不要把帳號設定頁改成大型行銷 Hero。 |
+| 公開入口主視覺 | `.chi-hero`、`.chi-hero__inner`、`.chi-kicker`、`.chi-title__accent` | 只用於確實需要品牌介紹／主 CTA 的公開入口頁；不要移植到資料密集或設定型頁面。 |
+| 內容寬度與排列 | `.chi-container`、`.chi-container--reading`、`.chi-grid`、`.chi-row`、`.chi-row--between`、`.chi-stack`、`.chi-split` | 先用容器、grid、row、stack 和 split 建立版面，再微調個別元件。長文優先使用 reading 容器。 |
+| 設定項目 | `.chi-setting-row`、`.chi-setting-row__body`、`.chi-setting-row__title`、`.chi-setting-row__description`、`.chi-setting-row__action` | 適合偏好、帳號選項與有清楚標題／說明／操作的單列設定。需由產品程式碼實作實際儲存與狀態同步。 |
+| 已連結帳號 | `.chi-account-row` 及其 `__name`、`__meta`、`__action` 子元素 | 用於服務名稱、連結狀態與管理操作。若內容是一般設定而非外部帳號，不要硬套 account row。 |
+| 裝置／資源列 | `.chi-device-row` 及其 `__name`、`__meta`、`__icon`、`__body` 子元素 | 用於具有識別資訊、輔助描述和狀態／操作的資源列。 |
+| 一般清單 | `.chi-list`、`.chi-list__item`、`.chi-list__main`、`.chi-list__title`、`.chi-list__description` | 用於有一致項目結構的列表；若資料需要欄列對齊，改用 table，不要用空白硬排。 |
+| 表格 | `.chi-table-wrap`、`.chi-table` | 用於有欄位關係的結構化資料。確認窄螢幕策略；不要只靠整頁水平溢出容納表格。 |
+| 表單欄位 | `.chi-field`、`.chi-label`、`.chi-input`、`.chi-textarea`、`.chi-select`、`.chi-radio`、`.chi-switch` | 依控制項實際語意選擇。每個欄位需有標籤；錯誤和提示可用 field 子元素，不可只靠 placeholder 充當標籤。 |
+| 欄位提示／錯誤 | `.chi-field__hint`、`.chi-field__error`、`.chi-help` | 提示與錯誤文字放在對應欄位附近；錯誤也應透過程式與適當的 ARIA 關聯反映，不可只改紅色。 |
+| 狀態徽章 | `.chi-badge`、`.chi-badge--success`、`.chi-badge--warning`、`.chi-badge--danger`、`.chi-tag` | 用於短狀態或分類，不要把長句塞進徽章，也不要讓所有資訊都變成彩色標籤。 |
+| 訊息提示 | `.chi-alert`、`.chi-alert--info`、`.chi-alert--success`、`.chi-alert--warning`、`.chi-alert--danger` | 用於需留在內容區的訊息；選擇與實際情境相符的語意變體，並提供文字說明。 |
+| 短暫操作回饋 | `.chi-toast-region`、`.chi-toast`、`.chi-toast--success`、`.chi-toast--error`、`.chi-toast--floating`、`.chi-toast__message` | Toast 適合非阻斷回饋。實際顯示、計時、關閉與 live region 行為由產品程式碼負責。重要錯誤不可只用會消失的 Toast。 |
+| 空狀態 | `.chi-empty-state`、`.chi-empty-state__title`、`.chi-empty-state__description`、`.chi-empty` | 說明目前沒有的內容，以及可行時的下一步。不要只放一個空白插圖或「無資料」。 |
+| 載入中 | `.chi-skeleton` | 以接近實際內容尺寸的骨架降低跳動；確保輔助技術也能理解載入狀態。 |
+| 進度與步驟 | `.chi-progress`、`.chi-steps`、`.chi-steps__item` | 進度條用於可量化的完成度；步驟列用於多階段流程。不要將兩者當成裝飾。 |
+| 分頁／切換 | `.chi-tabs`、`.chi-tabs__item`、`.chi-segmented`、`.chi-segmented__item`、`.chi-pagination`、`.chi-pagination__item` | Tabs 用於同一層級內容面板；segmented 用於少量互斥選項；pagination 用於分頁導覽。鍵盤與選取狀態需由實際互動程式碼正確維護。 |
+| 麵包屑 | `.chi-breadcrumbs`、`.chi-breadcrumbs__separator` | 用於呈現階層式導覽；目前頁面需有可辨識狀態。 |
+| 選單／對話框 | `.chi-menu`、`.chi-menu__item`、`.chi-dialog`、`.chi-dialog-backdrop`、`.chi-tooltip`、`.chi-tooltip__content` | 這些 class 提供外觀基礎，不會自動提供焦點管理、Escape 關閉、定位或 ARIA 行為。使用前確認產品程式碼已實作所需互動。 |
+| 導覽列與行動版選單 | `.chi-site-header`、`.chi-site-header__inner`、`.chi-nav`、`.chi-mobile-menu`、`.chi-mobile-menu__trigger`、`.chi-site-menu`、`.chi-site-menu__trigger` | 依網站既有導覽架構選用，不要同時堆疊兩套不同的選單模式。展開狀態、關閉方式與焦點回復必須由實際程式碼處理。 |
+| 品牌與頁尾 | `.chi-brand`、`.chi-footer`、`.chi-footer__inner`、`.chi-footer__links`、`.chi-footer__bottom` | 沿用於品牌標示與頁尾資訊；產品仍保留自己的名稱、連結與資訊架構。 |
+| 資料視覺摘要 | `.chi-stat`、`.chi-stat__label`、`.chi-stat__value`、`.chi-stat__change`、`.chi-timeline`、`.chi-media`、`.chi-avatar` | 依內容語意使用統計、時間軸、媒體列或頭像。不要只因為有 class 就把數值或圖像加進不需要的區塊。 |
+
+### 選型順序與禁止事項
+
+1. 先找與需求語意吻合的既有元件，再確認其 HTML 結構、變體與響應式規則。
+2. 只有在資訊架構確實需要時才使用面板或卡片；純標題、說明文字和簡單分隔通常不需要額外容器。
+3. 優先用共用 tokens 調整間距、色彩、字級與表面，不要在產品頁複製一套近似的 `chi-*` CSS。
+4. `elements.css` 僅供設計圖鑑使用。產品網站應只載入所需的共用樣式，不能為了拿到一個範例版型而載入圖鑑專屬 CSS。
+5. class 只定義樣式或結構時，不可假設它會自動提供資料存取、表單驗證、選單定位、鍵盤控制、焦點管理或儲存功能。
+6. 若找不到合適元件，先用現有 tokens 和語意 HTML 組合；確認多個產品確實需要同一模式後，再新增共用元件與文件。
+
 ## 與實作同步的 Token 規格
 
 本節是供 AI 直接查用的精確參照。實際 CSS 的唯一來源仍是 `tokens.css`；若值有更新，應同步更新本表。產品元件必須引用 token，不應把這些色值複製成各自的硬編碼值。
