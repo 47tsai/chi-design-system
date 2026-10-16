@@ -197,3 +197,8 @@
 @keyframes chi-toast-enter{from{transform:translateY(-.4rem);opacity:0}to{transform:translateY(0);opacity:1}}
 @media(max-width:520px){.chi-setting-row{gap:.7rem}.chi-account-row{gap:.6rem}.chi-account-row__action{max-width:7rem;text-align:right}}
 @media(prefers-reduced-motion:reduce){.chi-switch__track,.chi-switch__track::after{transition:none}.chi-toast--floating{animation:none}}
+
+
+/* Keyboard skip link: visible only when reached by keyboard. */
+.chi-skip-link{position:fixed;z-index:200;top:.75rem;left:.75rem;transform:translateY(calc(-100% - 1rem));padding:.7rem 1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);color:var(--chi-color-text-strong);box-shadow:var(--chi-shadow-md);font-size:var(--chi-text-sm);font-weight:700;text-decoration:none}
+.chi-skip-link:focus{transform:translateY(0);outline:3px solid var(--chi-color-focus);outline-offset:3px}
