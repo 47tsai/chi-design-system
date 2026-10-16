@@ -12,7 +12,7 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 <body class="chi-page">
 <header class="chi-site-header"><div class="chi-container chi-site-header__inner">
 <a class="chi-brand" href="#" aria-label="Chi Design System 首頁">CHI<span style="color:var(--chi-color-accent);padding-inline:2px">✳</span></a>
-<nav class="chi-nav" aria-label="主要導覽"><a href="#foundations">基礎</a><a href="#components">元件圖鑑</a><a href="#patterns">版型</a><a href="DESIGN.md">規格</a></nav>
+<nav class="chi-nav" aria-label="主要導覽"><a href="#navigation">導覽元件</a><a href="#foundations">基礎</a><a href="#components">元件圖鑑</a><a href="#patterns">版型</a><a href="DESIGN.md">規格</a></nav>
 </div></header>
 <main class="preview-main">
 <section class="chi-hero"><div class="chi-hero__inner">
@@ -137,7 +137,7 @@ const closeNavPopovers=(except=null)=>{document.querySelectorAll('[data-language
 document.querySelectorAll('[data-language-picker]').forEach((picker)=>{const trigger=picker.querySelector('.chi-language__trigger');const panel=picker.querySelector('.chi-language__panel');trigger.addEventListener('click',(event)=>{event.stopPropagation();const open=trigger.getAttribute('aria-expanded')==='true';closeNavPopovers(picker);trigger.setAttribute('aria-expanded',String(!open));panel.hidden=open});panel.querySelectorAll('[data-language]').forEach((option)=>option.addEventListener('click',()=>{const language=option.dataset.language;document.querySelectorAll('[data-language-picker]').forEach((other)=>{other.querySelector('[data-language-label]').textContent=language;other.querySelectorAll('[data-language]').forEach((item)=>item.setAttribute('aria-selected',String(item.dataset.language===language)))});document.getElementById('nav-language-status').textContent='目前語言：'+language;closeNavPopovers();trigger.focus()}))});
 const mobileTrigger=document.querySelector('.chi-mobile-menu__trigger');const mobileMenu=document.getElementById('chi-mobile-menu');mobileTrigger.addEventListener('click',(event)=>{event.stopPropagation();const open=mobileTrigger.getAttribute('aria-expanded')==='true';closeNavPopovers();mobileTrigger.setAttribute('aria-expanded',String(!open));mobileTrigger.setAttribute('aria-label',open?'開啟網站選單':'關閉網站選單');mobileMenu.hidden=open});
 document.addEventListener('click',(event)=>{if(!event.target.closest('[data-language-picker]')&&!event.target.closest('.chi-mobile-menu__trigger')&&!event.target.closest('.chi-mobile-menu'))closeNavPopovers();if(event.target.closest('.chi-mobile-menu__link,.chi-mobile-menu__login'))closeNavPopovers()});
-document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){closeNavPopovers();document.activeElement?.blur()}});
+document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){const expanded=document.querySelector('[aria-expanded=true]');const returnFocus=expanded?.matches('.chi-language__trigger,.chi-mobile-menu__trigger')?expanded:expanded?.closest('[data-language-picker]')?.querySelector('.chi-language__trigger');closeNavPopovers();returnFocus?.focus()}});
 
 </script>
 </body></html>
