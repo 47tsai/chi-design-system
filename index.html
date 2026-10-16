@@ -121,8 +121,45 @@ last_checked: "just now"</pre></div>
 </div>
 </section>
 
+
+<section class="chi-container preview-section" id="settings-patterns">
+<p class="preview-section__label">04 · Account & settings patterns</p>
+<div class="preview-grid">
+<div class="preview-demo-panel chi-stack">
+<h2 class="chi-section__title">設定列與開關</h2>
+<div class="chi-setting-row">
+<div class="chi-setting-row__body"><p class="chi-setting-row__title">電子郵件通知</p><p class="chi-setting-row__description">接收重要更新與服務通知。這個示範只改變畫面狀態，不會儲存偏好。</p></div>
+<label class="chi-switch" aria-label="電子郵件通知"><input type="checkbox" checked data-demo-switch><span class="chi-switch__track" aria-hidden="true"></span></label>
+</div>
+<div class="chi-setting-row">
+<div class="chi-setting-row__body"><p class="chi-setting-row__title">公開活動資訊</p><p class="chi-setting-row__description">關閉後，示範開關會保留在本頁目前狀態。</p></div>
+<label class="chi-switch" aria-label="公開活動資訊"><input type="checkbox" data-demo-switch><span class="chi-switch__track" aria-hidden="true"></span></label>
+</div>
+<p class="chi-help">使用原生 checkbox，保留鍵盤操作與可存取名稱。</p>
+</div>
+<div class="preview-demo-panel chi-stack">
+<h2 class="chi-section__title">已連結服務</h2>
+<div class="chi-account-row"><span class="chi-account-row__icon" aria-hidden="true">G</span><div class="chi-account-row__body"><p class="chi-account-row__name">Google</p><p class="chi-account-row__meta">已連結 · user@example.com</p></div><a class="chi-account-row__action" href="#settings-patterns" data-demo-toast="這只是示範操作，沒有變更連結">管理</a></div>
+<div class="chi-account-row"><span class="chi-account-row__icon" aria-hidden="true">GH</span><div class="chi-account-row__body"><p class="chi-account-row__name">GitHub</p><p class="chi-account-row__meta">尚未連結</p></div><a class="chi-account-row__action" href="#settings-patterns" data-demo-toast="這只是示範操作，沒有連結帳號">連結</a></div>
+<p class="chi-help">帳號名稱、狀態和操作彼此分離，避免把整列做成難以辨識的大按鈕。</p>
+</div>
+<div class="preview-demo-panel chi-stack">
+<h2 class="chi-section__title">裝置與操作清單</h2>
+<div class="chi-device-row"><span class="chi-device-row__icon" aria-hidden="true">▣</span><div class="chi-device-row__body"><p class="chi-device-row__name">iPhone · 目前裝置</p><p class="chi-device-row__meta">最近活動：今天</p></div><span class="chi-badge chi-badge--success">使用中</span></div>
+<div class="chi-device-row"><span class="chi-device-row__icon" aria-hidden="true">▤</span><div class="chi-device-row__body"><p class="chi-device-row__name">桌上型電腦</p><p class="chi-device-row__meta">最近活動：昨天</p></div><button class="chi-button chi-button--small" type="button" data-demo-toast="示範：已送出裝置管理回饋">管理</button></div>
+<div class="chi-empty-state"><p class="chi-empty-state__title">沒有更多裝置</p><p class="chi-empty-state__description">空狀態可以說明目前情況，並在適當時提供下一步。</p></div>
+</div>
+<div class="preview-demo-panel chi-stack">
+<h2 class="chi-section__title">Toast 通知</h2>
+<p class="chi-help">用於短暫的操作回饋，不取代表單錯誤或重要確認。</p>
+<div class="chi-row" style="flex-wrap:wrap"><button class="chi-button chi-button--primary" type="button" data-demo-toast="已複製示範文字">成功回饋</button><button class="chi-button" type="button" data-demo-toast="這是一般提示訊息">一般提示</button><button class="chi-button chi-button--danger" type="button" data-demo-toast="示範操作未執行任何變更">警告回饋</button></div>
+<div class="chi-toast-region" id="chi-demo-toast-region" aria-live="polite" aria-atomic="false"></div>
+</div>
+</div>
+</section>
+
 <section class="chi-container preview-section">
-<p class="preview-section__label">04 · Theme check</p>
+<p class="preview-section__label">05 · Theme check</p>
 <div class="preview-grid"><div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">淺色主題</h2><p class="chi-help">主要參考風格：淡藍灰背景、白色表面、藍紫焦點。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.removeAttribute('data-chi-theme')">切換至淺色</button></div><div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">深色主題</h2><p class="chi-help">同一組元件沿用相同層級與間距，只替換色彩與表面 tokens。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.setAttribute('data-chi-theme','dark')">切換至深色</button></div></div>
 </section>
 <section class="chi-container" style="padding-bottom:2.5rem"><div class="chi-logo-row"><span class="chi-logo-placeholder">STATUS</span><span class="chi-logo-placeholder">CHI SOURCE</span><span class="chi-logo-placeholder">TOOLS</span></div></section>
@@ -138,6 +175,9 @@ document.querySelectorAll('[data-language-picker]').forEach((picker)=>{const tri
 const mobileTrigger=document.querySelector('.chi-mobile-menu__trigger');const mobileMenu=document.getElementById('chi-mobile-menu');mobileTrigger.addEventListener('click',(event)=>{event.stopPropagation();const open=mobileTrigger.getAttribute('aria-expanded')==='true';closeNavPopovers();mobileTrigger.setAttribute('aria-expanded',String(!open));mobileTrigger.setAttribute('aria-label',open?'開啟網站選單':'關閉網站選單');mobileMenu.hidden=open});
 document.addEventListener('click',(event)=>{if(!event.target.closest('[data-language-picker]')&&!event.target.closest('.chi-mobile-menu__trigger')&&!event.target.closest('.chi-mobile-menu'))closeNavPopovers();if(event.target.closest('.chi-mobile-menu__link,.chi-mobile-menu__login'))closeNavPopovers()});
 document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){const expanded=document.querySelector('[aria-expanded=true]');const returnFocus=expanded?.matches('.chi-language__trigger,.chi-mobile-menu__trigger')?expanded:expanded?.closest('[data-language-picker]')?.querySelector('.chi-language__trigger');closeNavPopovers();returnFocus?.focus()}});
+
+
+document.querySelectorAll('[data-demo-toast]').forEach((control)=>control.addEventListener('click',(event)=>{event.preventDefault();const region=document.getElementById('chi-demo-toast-region');if(!region)return;region.replaceChildren();const toast=document.createElement('div');toast.className='chi-toast chi-toast--floating chi-toast--success';toast.setAttribute('role','status');const message=document.createElement('span');message.className='chi-toast__message';message.textContent=control.dataset.demoToast;const close=document.createElement('button');close.type='button';close.className='chi-button chi-button--small';close.textContent='關閉';close.setAttribute('aria-label','關閉通知');close.addEventListener('click',()=>{if(toast.isConnected)toast.remove()});toast.append(message,close);region.append(toast);window.clearTimeout(window.chiDemoToastTimer);window.chiDemoToastTimer=window.setTimeout(()=>toast.remove(),3200)}));
 
 </script>
 </body></html>
