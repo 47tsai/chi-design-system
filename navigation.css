@@ -1,6 +1,4 @@
 /* Reusable navigation primitives. Load tokens.css and components.css first. */
-.chi-icon-button{display:inline-grid;width:2.65rem;height:2.65rem;place-items:center;border:1px solid var(--chi-color-border);border-radius:50%;background:var(--chi-color-surface);color:var(--chi-color-text);font:inherit;font-size:1.15rem;cursor:pointer}
-.chi-icon-button:hover{background:var(--chi-color-surface-muted)}
 .chi-icon-button:focus-visible,.chi-language__trigger:focus-visible,.chi-mobile-menu__trigger:focus-visible{outline:3px solid var(--chi-color-focus);outline-offset:3px}
 .chi-nav-demo{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-lg);background:color-mix(in srgb,var(--chi-color-surface) 88%,transparent);box-shadow:var(--chi-shadow-sm);backdrop-filter:blur(14px)}
 .chi-nav-demo__brand{color:var(--chi-color-text-strong);font-weight:850;letter-spacing:.04em;text-decoration:none}
