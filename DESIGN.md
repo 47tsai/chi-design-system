@@ -1,85 +1,112 @@
 # Chi Design System
 
-A reusable visual foundation for Chi sites, inspired by the light, airy HoYoverse account-center reference supplied for this project.
+Chi 是 Chi 系列網站共用的介面基礎，包含設計 token、可重用 CSS 元件、互動範例與頁面組合規範。目標不是把所有網站做成同一張模板，而是讓不同專案共享一致的間距、字級、狀態與操作習慣。
 
-## Visual direction
+## 視覺方向
 
-The reference's recognizable character comes from its composition, not just its blue palette: a compact translucent header, soft blue-gray hero glow, centered headline, restrained gradient accent, pill-shaped primary action, lightly elevated feature cards, a quiet logo strip, and a near-black footer. Chi borrows these general principles without copying HoYoverse branding, proprietary assets, or exact copy.
+以清爽的藍灰色畫布、白色內容表面、清楚的文字層級和克制的藍紫強調色建立視覺秩序。頁首、主視覺、內容寬度、區塊節奏與頁尾應先形成整體，再決定個別元件的裝飾。
 
-## Principles
+這套系統參考一般現代產品介面的共通做法，不複製特定品牌的標誌、文案或完整產品流程。
 
-1. **Start with page composition.** Establish the header, hero, reading width, content rhythm, and footer before styling components.
-2. **Use a cool, quiet canvas.** Pale blue-gray backgrounds and white surfaces create separation without thick outlines.
-3. **Reserve gradients for emphasis.** Accent gradients belong on a key phrase or primary action, not every heading and surface.
-4. **Use soft elevation selectively.** Feature cards can use a subtle border, translucent surface, and restrained shadow. Ordinary lists should remain flat.
-5. **Build cards with a consistent rhythm.** Icon, title, and description follow the same order and spacing. Never shrink body copy just to fit.
-6. **Let content set the height.** No fixed card heights, arbitrary offsets, or layout hacks.
-7. **Design mobile first, then expand.** A narrow reading column is intentional for focused pages. Wider layouts can use shared container and split/grid utilities.
-8. **Keep interactions accessible.** Use semantic HTML, keyboard focus, readable contrast, and reduced-motion support.
+## 設計原則
 
-## Component catalogue
+1. **先設計頁面，再設計零件。** 先確定頁首、主視覺、閱讀寬度、內容節奏與頁尾。
+2. **用層級取代裝飾。** 以字級、間距、表面和對齊表達重要性，不要讓每個區塊都像一張卡片。
+3. **強調色要有目的。** 漸層留給主要操作或少量視覺焦點；成功、警告、錯誤使用語意色。
+4. **卡片高度由內容決定。** 不用固定高度、任意位移或空白填充來假造整齊。
+5. **文案要能快速掃讀。** 標題說明主題，內文解釋用途，輔助文字才放限制或補充資訊。
+6. **先確保窄螢幕可用。** 網格應允許縮窄與換行；按鈕和互動控制要保有足夠操作面積。
+7. **互動狀態必須完整。** 考慮 hover、focus-visible、disabled、expanded、selected、loading 與錯誤狀態。
+8. **不要只靠顏色傳達狀態。** 同時提供文字、圖示或語意屬性。
+9. **尊重使用者偏好。** 動畫提供 reduced-motion 支援，表單控制保留原生語意與鍵盤操作。
+10. **範例資料不可冒充真實資料。** 圖鑑中的操作只展示互動方式，不代表已連接後端、儲存或驗證。
 
-The root preview is the working visual catalogue. It demonstrates the everyday UI set in context rather than as isolated style swatches:
+## 專案檔案
 
-- **Navigation:** site header, breadcrumbs, tabs, responsive menu trigger and panel, language picker with synchronized selected state, light header and dark footer variants.
-- **Actions:** primary, secondary, small, disabled, and destructive buttons; inline links.
-- **Forms:** text input, select, textarea, validation state, checkbox, radio, toggle switch, field hint and error.
-- **Feedback:** neutral and semantic badges, info/success/warning/danger alerts, notices, empty state, loading skeleton, tooltip.
-- **Data display:** flat lists, media rows, avatars and avatar groups, stat blocks, progress bars, step progress, responsive tables, pagination, tags, code and preformatted text.
-- **Page patterns:** section headers, filters, feature cards, confirmation-dialog composition, hero, logo strip, footer, light/dark theme tokens.
+- `tokens.css`：色彩、字級、行高、間距、圓角、陰影、內容寬度與控制項尺寸。
+- `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定列及回饋元件。
+- `navigation.css`：語言選單、導覽示範、行動版選單及全站漢堡選單。
+- `index.html`：主要互動元件圖鑑與版型展示。
+- `examples/index.html`：指向圖鑑的次要入口。
+- `DESIGN.md`：設計原則、元件角色與檢查清單。
 
-Prefer semantic native HTML elements and keep application logic in the host project. The catalogue's tabs and theme controls are demo interactions, not a reusable application state layer.
+載入順序：先 `tokens.css`，再 `components.css`，需要導覽元件時再載入 `navigation.css`。
 
-## Account and settings patterns
+## 元件分類與用途
 
-- .chi-setting-row: preference row with title, supporting text, and an optional control.
-- .chi-switch: accessible checkbox-based toggle with checked, focus, and disabled states.
-- .chi-account-row: linked service or account entry with status and optional action.
-- .chi-device-row: device/session list item with metadata and a secondary action.
-- .chi-empty-state: clear, compact explanation for an empty collection.
-- .chi-toast-region and .chi-toast--floating: transient action feedback with live-region support.
+### 導覽與內容結構
+- `.chi-site-header`、`.chi-site-menu`：全站頁首與漢堡導覽。
+- `.chi-nav-demo`、`.chi-mobile-menu`：可互動的導覽展示範例。
+- `.chi-language`：語言選單；圖鑑會同步更新頁首與頁尾示範的選取狀態。
+- `.chi-breadcrumbs`：顯示目前頁面在資訊架構中的位置。
+- `.chi-tabs`：切換同一層級的內容；不適合用來替代不同頁面的主要導覽。
 
-Keep actual persistence and authorization in the host application. Demo toggles and toast actions in the catalogue are visual examples only.
+### 動作與表單
+- `.chi-button`：主要、次要、小型與危險操作。
+- `.chi-field`、`.chi-label`、`.chi-input`、`.chi-select`、`.chi-textarea`：表單欄位與驗證狀態。
+- `.chi-check`、`.chi-radio`、`.chi-switch`：選擇、單選與布林設定。
+- `.chi-segmented`：少量互斥檢視模式的快速切換。
 
-## Component roles
+### 狀態與回饋
+- `.chi-badge`：簡短狀態或屬性。
+- `.chi-tag`：分類或篩選條件。
+- `.chi-alert`：需要持續留在內容中的提示。
+- `.chi-toast`、`.chi-toast-region`：短暫操作回饋，不應取代重要錯誤訊息。
+- `.chi-tooltip`、`.chi-empty-state`、載入骨架：補充說明、無資料與等待中的狀態。
 
-- .chi-site-header: compact translucent navigation.\n- navigation.css: reusable language picker, menu trigger, responsive navigation panel, footer variant, keyboard dismissal, and reduced-motion states.
-- .chi-hero: soft gradient introduction with centered reading width.
-- .chi-title__accent: restrained violet-to-blue text accent.
-- .chi-button--primary and .chi-button--pill: gradient primary action with rounded geometry.
-- .chi-feature-list and .chi-card: repeatable feature stack or responsive feature grid.
-- .chi-icon-circle: consistent icon backing for host-provided icons.
-- .chi-logo-row: low-emphasis brand/integration row. Use approved real logos where available.
-- .chi-footer: dark closing section with a centered inner column.
-- .chi-panel, .chi-list, .chi-field, .chi-input, .chi-select, .chi-badge: general-purpose building blocks for tools and settings pages.
+### 資料與工作區
+- `.chi-list`、`.chi-account-row`、`.chi-device-row`：清單、關聯服務及裝置資訊。
+- `.chi-stat`、`.chi-progress`、`.chi-steps`：數值摘要、進度與多步驟流程。
+- 表格、分頁、程式碼區塊：用於密集資料、結果瀏覽與技術內容。
+- `.chi-setting-row`：標題、說明和設定控制項組成的偏好列。
 
-## Tokens and adoption
+### 頁面組合
+- `.chi-hero`：首頁或功能頁的主視覺介紹。
+- `.chi-card`、`.chi-feature-list`：功能群組或可比較的內容；若列表已足夠清楚，就不必再加卡片。
+- `.chi-panel`：需要視覺分組的工作區內容。
+- `.chi-footer`：頁面結尾與次要連結。
 
-- tokens.css contains color, typography, spacing, radius, shadow, and width tokens.
-- components.css contains reusable, framework-agnostic chi- styles.
-- Load tokens.css before components.css.
-- Keep routing, state, validation, and data access in each host project.
-- index.html and examples/index.html are visual references, not production pages.
+## 設計 token 使用規則
 
-## Account and settings checklist
+- 優先使用既有的 `--chi-*` token，不在單一元件內重複定義相近色彩或尺寸。
+- 新增 token 前，先確認現有 token 是否已能表達同一用途。
+- 語意色按用途使用：success 表示完成或正常，warning 表示需要留意，danger 表示錯誤或破壞性操作。
+- 圓角、陰影與邊框是層級工具，不是每個元素都要同時使用。
+- 深色主題透過 `[data-chi-theme="dark"]` 覆寫 token；新增元件時必須檢查文字、邊框、表面與焦點的對比。
+- 字體大小、間距、寬度與控制項高度盡量採用 token，減少零散魔法數字。
 
-- Are settings labels explicit and their supporting descriptions readable?
-- Do switches use a native checkbox, an accessible name, and visible keyboard focus?
-- Are linked-account and device actions distinct from their row content?
-- Does an empty state explain what is empty and what to do next?
-- Are toast messages brief, dismissible, announced to assistive technology, and clearly not a substitute for persistent errors?
+## 互動與無障礙
 
-## Review checklist
+- 所有可操作元素都要能用鍵盤到達，並有明確的 `:focus-visible` 樣式。
+- 按鈕應使用 `button`，跳轉應使用 `a`，表單控制應有可程式辨識的標籤。
+- 展開式元件同步更新 `aria-expanded`，並讓 Escape 和點擊外部的行為一致。
+- Tab 元件需同步更新選取狀態；正式產品若實作完整 ARIA tabs，還應提供對應的 tabpanel、鍵盤方向鍵操作與焦點管理。
+- 表單錯誤要有文字說明，不只改變邊框顏色。
+- Toast 應簡短、可關閉、可由輔助科技感知，且不能成為唯一的錯誤呈現方式。
+- 使用 `prefers-reduced-motion` 降低非必要動畫。
+- 裝飾性圖示使用 `aria-hidden="true"`；具有意義的圖示需提供文字替代。
 
-- Is the visual focus obvious at first glance?
-- Does the hero feel airy without creating a dead zone?
-- Are gradients used sparingly?
-- Are card titles and body text readable on phones?
-- Do card spacing and icon geometry remain consistent?
-- Does the footer close the page cleanly?
-- Are hover, focus, dark-theme, and reduced-motion states considered?\n- Do popovers expose their expanded state and close on outside click or Escape?\n- Are duplicate language pickers sharing one selected language state?
+## 範例的功能邊界
 
+圖鑑只展示樣式與前端互動。語言選單只改變示範標籤，不會翻譯整個頁面；切換、Toast、開關和按鈕也不會自動連接 API、儲存資料或執行帳號驗證。正式專案需由宿主應用程式實作狀態、路由、驗證、授權和資料存取。
 
-## Reference-driven development
+## 新增或修改元件的流程
 
-Use external websites as sources for reusable patterns, not as a reason to create one-off pages. Extract generalizable elements such as navigation, language pickers, overlays, feature rows, loading states, and form interactions; then document and demonstrate them in the shared catalogue. Keep brand-specific copy, logos, and complete product flows out of the shared system unless they are intentionally part of the design system itself.
+1. 先寫出元件要解決的問題與適用情境。
+2. 搜尋現有 token 和元件，避免重複造輪子。
+3. 使用語意化的 `chi-` class 命名，樣式集中在對應 CSS 檔案。
+4. 展示一般、互動、停用、錯誤及必要的深色主題狀態。
+5. 檢查窄螢幕、鍵盤焦點、文字換行、對比與 reduced motion。
+6. 更新圖鑑與本文件，清楚註明範例是否有真實功能。
+7. 在桌面與手機實際檢查 GitHub Pages，再視為完成。
+
+## 發佈前檢查清單
+
+- [ ] 首屏能清楚說明這是什麼、能做什麼。
+- [ ] 導覽名稱與各區塊 ID 一致，連結沒有失效。
+- [ ] 標題、內文和輔助資訊有清楚的字級與對比層級。
+- [ ] 卡片沒有為了等高而出現不必要的空白。
+- [ ] 元件在窄螢幕不溢出，長文字可正常換行。
+- [ ] 深色主題、焦點、停用、錯誤與載入狀態均有檢查。
+- [ ] 互動範例的行為與說明一致。
+- [ ] 文件、README 和圖鑑的元件名稱一致。
