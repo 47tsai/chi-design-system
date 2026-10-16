@@ -61,6 +61,6 @@ Prefer semantic native HTML elements and keep application logic in the host proj
 - Are hover, focus, dark-theme, and reduced-motion states considered?\n- Do popovers expose their expanded state and close on outside click or Escape?\n- Are duplicate language pickers sharing one selected language state?
 
 
-## Full-page interaction reference
+## Reference-driven development
 
-`examples/account-center.html` demonstrates the full composition: sticky header, light and dark language menus sharing one selected language, mobile navigation overlay, hero, feature cards, service strip, dark footer, loading state, and login dialog with password visibility. It is a Chi-branded adaptation of the supplied reference, not an official HoYoverse page. The login form is intentionally non-functional and must not collect or transmit credentials. Language selection updates the selected label only; it does not translate page copy.
+Use external websites as sources for reusable patterns, not as a reason to create one-off pages. Extract generalizable elements such as navigation, language pickers, overlays, feature rows, loading states, and form interactions; then document and demonstrate them in the shared catalogue. Keep brand-specific copy, logos, and complete product flows out of the shared system unless they are intentionally part of the design system itself.
