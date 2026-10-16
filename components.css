@@ -212,3 +212,6 @@
 .chi-icon-gallery__item>.chi-icon{width:1.35rem;height:1.35rem;color:var(--chi-color-text-strong)}
 .chi-icon-gallery__item>span{font-size:var(--chi-text-xs)}
 .chi-icon-gallery__item>code{max-width:100%;overflow-wrap:anywhere;color:var(--chi-color-text-subtle);font-family:var(--chi-font-mono);font-size:.65rem}
+
+/* Icon-only action button: shared control sizing and focus behavior. */
+.chi-button--icon{width:var(--chi-control-height);min-width:var(--chi-control-height);padding:0;border-radius:var(--chi-radius-pill)}
