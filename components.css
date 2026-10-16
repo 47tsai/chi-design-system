@@ -202,3 +202,15 @@
 /* Keyboard skip link: visible only when reached by keyboard. */
 .chi-skip-link{position:fixed;z-index:200;top:.75rem;left:.75rem;transform:translateY(calc(-100% - 1rem));padding:.7rem 1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);color:var(--chi-color-text-strong);box-shadow:var(--chi-shadow-md);font-size:var(--chi-text-sm);font-weight:700;text-decoration:none}
 .chi-skip-link:focus{transform:translateY(0);outline:3px solid var(--chi-color-focus);outline-offset:3px}
+
+
+/* Unified icon system: local Lucide-style SVG sprite, no icon font or CDN. */
+.chi-icon{display:inline-block;width:1em;height:1em;flex:none;vertical-align:-.16em;overflow:visible;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.chi-icon--sm{width:.875em;height:.875em;vertical-align:-.1em}
+.chi-icon--lg{width:1.5em;height:1.5em;vertical-align:-.25em}
+.chi-icon-circle>.chi-icon{width:1.35rem;height:1.35rem}
+.chi-language__check .chi-icon{width:.875rem;height:.875rem}
+.chi-search>.chi-icon{margin-inline:.15rem .25rem;color:var(--chi-color-text-subtle)}
+.chi-menu__item>.chi-icon{color:var(--chi-color-text-muted)}
+.chi-dropzone__icon>.chi-icon{width:1.5rem;height:1.5rem}
+.chi-device-row__icon>.chi-icon{width:1.25rem;height:1.25rem}
