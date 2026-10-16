@@ -5,12 +5,17 @@ Chi 系列網站共用的 UI 基礎，集中管理設計 token、可重用 CSS �
 ## 專案內容
 
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
-- `elements.html`：設計規範入口、元件圖鑑與互動預覽。
+- `elements.html`：設計規範入口、基礎 Token、元件圖鑑、版型範例與引用教學。
 - `tokens.css`：共用色彩、字級、間距、圓角、陰影與尺寸 token。
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定與回饋元件。
 - `navigation.css`：語言選單、導覽面板、漢堡選單及其互動狀態。
 - `DESIGN.md`：視覺原則、元件用途、無障礙與發佈前檢查清單。
 - `DESIGN.md`：設計原則、元件用途、無障礙與發佈前檢查清單。
+
+## 設計系統分頁
+
+- [空白版型](https://tsai97216.github.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
+- [設計規範與元件](https://tsai97216.github.io/chi-design-system/elements.html)：基礎、元件圖鑑、版型與使用方式。這是查閱手冊，不是產品首頁模板。
 
 ## 元件範圍
 
