@@ -56,3 +56,19 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 .preview-muted-on-dark{color:#9ca3af}
 .preview-brand-accent{padding-inline:2px;color:#a5a1ff}
 .preview-bottom-space{padding-bottom:2.5rem}
+
+/* Fixed-size specimens and loading states in the gallery. */
+.preview-shape{display:grid;place-items:center;background:#dbeafe;font-size:11px}
+.preview-shape--sm{width:48px;height:48px;border-radius:6px}
+.preview-shape--md{width:48px;height:48px;border-radius:10px}
+.preview-shape--lg{width:48px;height:48px;border-radius:16px}
+.preview-shape--pill{width:78px;height:34px;border-radius:999px}
+.preview-progress--partial{width:68%}
+.preview-progress--complete{width:100%}
+.preview-skeleton-avatar{width:42px;height:42px;border-radius:50%}
+.preview-skeleton-line{height:12px}
+.preview-skeleton-line--short{width:48%}
+.preview-skeleton-line--long{width:82%;height:10px}
+.preview-skeleton-line--full{width:100%}
+.preview-skeleton-line--medium{width:76%}
+.preview-divider-compact{margin:.25rem 0}
