@@ -65,6 +65,15 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 .metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric{padding:15px;border:1px solid var(--chi-color-border);border-radius:9px;background:var(--chi-color-surface)}.metric-number{font-size:23px;font-weight:800;letter-spacing:-.05em;color:var(--chi-color-text-strong)}.metric-caption{margin-top:5px;color:var(--chi-color-text-muted);font-size:10px}
 .rule-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.rule{padding:14px;border:1px solid var(--chi-color-border);border-radius:9px;background:var(--chi-color-surface)}.rule strong{display:block;margin-bottom:5px;font-size:11px;color:var(--chi-color-text-strong)}.rule p{margin:0;color:var(--chi-color-text-muted);font-size:10px;line-height:1.7}.rule.good{border-top:3px solid var(--chi-color-success)}.rule.bad{border-top:3px solid var(--chi-color-danger)}
 .footer{display:flex;justify-content:space-between;gap:12px;margin-top:42px;padding-top:18px;border-top:1px solid var(--chi-color-border);color:var(--chi-color-text-subtle);font-size:10px}
+.spec-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(250px,.9fr);gap:14px;align-items:stretch}
+.spec-code{overflow:hidden;border:1px solid var(--chi-color-border);border-radius:12px;background:#17191f;color:#dfe4f4}
+.spec-code-head{display:flex;align-items:center;justify-content:space-between;padding:12px 15px;border-bottom:1px solid #343846;color:#aab1c7;font:10px var(--chi-font-mono)}
+.spec-code pre{overflow:auto;margin:0;padding:17px;font:10px/1.85 var(--chi-font-mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.spec-code .key{color:#a5a1ff}.spec-code .str{color:#a6d9b5}.spec-code .num{color:#f3c98b}
+.spec-info{padding:20px}.spec-info h3{margin:0 0 9px;color:var(--chi-color-text-strong);font-size:14px}.spec-info p{margin:0;color:var(--chi-color-text-muted);font-size:11px;line-height:1.8}.spec-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.spec-pill{display:inline-flex;align-items:center;padding:7px 9px;border:1px solid var(--chi-color-border);border-radius:6px;color:var(--chi-color-text);text-decoration:none;font-size:10px}
+@media(max-width:720px){.spec-layout{grid-template-columns:1fr}}
+
 @media(max-width:900px){.preview-shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:12px 16px;border-right:0;border-bottom:1px solid var(--chi-color-border)}.brand{padding:0 4px 12px}.side-label,.side-bottom{display:none}.side-nav{display:flex;gap:4px;overflow:auto}.side-link{white-space:nowrap;margin:0;padding:9px}.side-link .glyph{display:none}.page{padding:28px 20px}.palette{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.hero-row{display:block}.version{display:inline-block;margin-top:16px}.component-grid,.layout-grid,.type-panel,.rule-grid{grid-template-columns:1fr}.type-sample:nth-child(odd){border-right:0}.type-sample:last-child{border-bottom:0}.metric-row{grid-template-columns:1fr 1fr 1fr}.component-card{padding:16px}.section-note{display:none}.topbar{padding:13px 18px}}
 </style>
@@ -85,7 +94,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
   <div class="side-bottom"><b style="color:var(--chi-color-text)">Preview build</b><br>這是可視化草稿，用來檢視真實元件與設計語言。不是部署驗收證明。</div>
 </aside>
 <main class="main">
-<header class="topbar"><div class="crumb">CHI / <b>Visual Preview</b></div><div class="top-actions"><span class="section-note">Theme</span><button class="theme-btn" id="themeToggle" type="button">☾ 深色模式</button><a class="quiet-btn" href="./elements.html">開啟元件圖鑑 ↗</a></div></header>
+<header class="topbar"><div class="crumb">CHI / <b>Visual Preview</b></div><div class="top-actions"><span class="section-note">Theme</span><button class="theme-btn" id="themeToggle" type="button">☾ 深色模式</button><a class="quiet-btn" href="./design-system.yml">設計規格 YAML ↗</a><a class="quiet-btn" href="./elements.html">元件圖鑑 ↗</a></div></header>
 <div class="page">
 <section id="overview">
 <div class="hero-row"><div><div class="eyebrow"><span class="live-dot"></span> VISUAL SYSTEM / 01</div><h1>設計規範，<br>應該一眼就看得懂。</h1><p class="lead">Chi Design System 的可視化預覽。從實際色票、文字層級到可操作元件與頁面版型，直接檢查設計語言是否一致，不必只讀 CSS 和規格文件。</p></div><span class="version">CHi / PREVIEW 01</span></div>
@@ -93,6 +102,39 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 <div class="metric"><div class="metric-number">01</div><div class="metric-caption">Foundations · 基礎設計</div></div>
 <div class="metric"><div class="metric-number">02</div><div class="metric-caption">Components · 可重用元件</div></div>
 <div class="metric"><div class="metric-number">03</div><div class="metric-caption">Patterns · 頁面組合</div></div>
+</div>
+</section>
+<section class="section" id="spec">
+<div class="section-head"><div><div class="section-kicker">DESIGN SPEC / SOURCE</div><h2>規格與畫面一一對照</h2></div><span class="section-note">Machine-readable · Human-readable</span></div>
+<div class="spec-layout">
+<div class="spec-code"><div class="spec-code-head"><span>design-system.yml</span><span>YAML / SPEC</span></div><pre><span class="key">version:</span> <span class="str">"1.0"</span>
+<span class="key">name:</span> <span class="str">"Chi Design System"</span>
+<span class="key">description:</span> <span class="str">"清爽、精確、偏冷色的產品介面風格"</span>
+
+<span class="key">colors:</span>
+  <span class="key">page:</span>
+    <span class="key">light:</span> <span class="str">"#f6f8fc"</span>
+    <span class="key">dark:</span> <span class="str">"#17191f"</span>
+  <span class="key">accent:</span>
+    <span class="key">light:</span> <span class="str">"#4f46e5"</span>
+    <span class="key">dark:</span> <span class="str">"#a5a1ff"</span>
+
+<span class="key">typography:</span>
+  <span class="key">body:</span>
+    <span class="key">fontSize:</span> <span class="str">"1rem"</span>
+    <span class="key">lineHeight:</span> <span class="num">1.65</span>
+
+<span class="key">components:</span>
+  <span class="key">button-primary:</span>
+    <span class="key">class:</span> <span class="str">".chi-button--primary"</span>
+    <span class="key">minHeight:</span> <span class="str">"44px"</span>
+  <span class="key">setting-row:</span>
+    <span class="key">class:</span> <span class="str">".chi-setting-row"</span>
+
+<span class="key">page_patterns:</span>
+  <span class="key">marketing:</span> <span class="str">"a.html"</span>
+  <span class="key">account-settings:</span> <span class="str">"b.html"</span></pre></div>
+<div class="panel spec-info"><div class="eyebrow" style="margin-bottom:13px">SPECIFICATION</div><h3>不只描述風格，也定義實作依據</h3><p>這份規格把實際 CSS Token、元件 class、頁型選擇與設計原則整理在同一份 YAML。左側是節錄示意，完整定義以專案中的 design-system.yml 為準；DESIGN.md 保留更完整的設計決策與 AI 工作契約。</p><div class="spec-links"><a class="spec-pill" href="./design-system.yml">查看完整 YAML ↗</a><a class="spec-pill" href="./DESIGN.md">閱讀設計說明 ↗</a><a class="spec-pill" href="./elements.html">元件圖鑑 ↗</a></div></div>
 </div>
 </section>
 <section class="section" id="color">
