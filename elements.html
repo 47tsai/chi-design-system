@@ -6,6 +6,19 @@
 <link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css"><link rel="stylesheet" href="./navigation.css">
 <style>
 body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.preview-section{padding:2.25rem 0 2.75rem;scroll-margin-top:76px}.preview-section__label{margin:0 0 1.2rem;color:var(--chi-color-text-subtle);font-size:var(--chi-text-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase}.preview-demo-panel{min-width:0;padding:1.25rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-lg);background:var(--chi-color-surface)}.preview-demo-panel>.chi-section__title{margin-bottom:.25rem}.preview-demo-panel .chi-stack{gap:1rem}.preview-subtitle{margin:0;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);line-height:1.7}.preview-token{display:flex;align-items:center;gap:.65rem;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm)}.preview-token i{display:block;width:1.8rem;height:1.8rem;flex:none;border:1px solid var(--chi-color-border);border-radius:7px;background:var(--swatch)}.preview-grid{display:grid;grid-template-columns:1fr;gap:1rem}.preview-demo-panel--wide{grid-column:1/-1}.preview-swatch-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}.preview-swatch{min-height:76px;padding:.75rem;border:1px solid var(--chi-color-border);border-radius:10px;display:flex;flex-direction:column;justify-content:flex-end;font-size:var(--chi-text-xs)}.preview-code{font-family:var(--chi-font-mono);font-size:var(--chi-text-xs)}.preview-anchor{scroll-margin-top:80px}
+.preview-token-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:.75rem}
+.preview-token-card{min-width:0;padding:1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface)}
+.preview-token-card code,.preview-code-block code{font-family:var(--chi-font-mono);font-size:var(--chi-text-xs);overflow-wrap:anywhere}
+.preview-token-card p{margin:.35rem 0 0;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm)}
+.preview-code-block{position:relative;margin:0;padding:1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface-muted);overflow:auto;white-space:pre}
+.preview-code-block code{color:var(--chi-color-text)}
+.preview-copy{float:right;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);padding:.35rem .7rem;background:var(--chi-color-surface);color:var(--chi-color-text);font:inherit;font-size:var(--chi-text-xs);cursor:pointer}
+.preview-copy:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
+.preview-section__intro{max-width:68ch;margin:-.4rem 0 1.5rem;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);line-height:1.75}
+.preview-page-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem}
+.preview-page-nav a{padding:.45rem .75rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-pill);color:var(--chi-color-text-muted);font-size:var(--chi-text-sm);text-decoration:none}
+.preview-page-nav a:hover{border-color:var(--chi-color-accent);color:var(--chi-color-accent)}
+
 @media(min-width:720px){.preview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.preview-swatch-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.preview-hero-grid{grid-template-columns:1fr auto;align-items:center}.preview-section{padding-block:2.75rem 3.25rem}}
 </style>
 </head>
@@ -21,6 +34,7 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 <a class="chi-site-menu__link" href="#foundations">基礎</a>
 <a class="chi-site-menu__link" href="#components">元件圖鑑</a>
 <a class="chi-site-menu__link" href="#patterns">版型</a>
+<a class="chi-site-menu__link" href="#usage">使用方式</a>
 <a class="chi-site-menu__link" href="DESIGN.md">規格 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#external-link"></use></svg></a>
 </nav></div>
 </div></header>
@@ -173,6 +187,58 @@ last_checked: "just now"</pre></div>
 <div class="preview-grid"><div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">淺色主題</h2><p class="chi-help">主要參考風格：淡藍灰背景、白色表面、藍紫焦點。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.removeAttribute('data-chi-theme')">切換至淺色</button></div><div class="preview-demo-panel chi-stack"><h2 class="chi-section__title">深色主題</h2><p class="chi-help">同一組元件沿用相同層級與間距，只替換色彩與表面 tokens。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.setAttribute('data-chi-theme','dark')">切換至深色</button></div></div>
 </section>
 <section class="chi-container" style="padding-bottom:2.5rem"><div class="chi-logo-row"><span class="chi-logo-placeholder">STATUS</span><span class="chi-logo-placeholder">CHI SOURCE</span><span class="chi-logo-placeholder">TOOLS</span></div></section>
+<section class="chi-container preview-section" id="usage">
+<p class="preview-section__label">05 · Implementation</p>
+<h2 class="chi-section__title">在其他專案使用</h2>
+<p class="preview-section__intro">先沿用基礎 token，再挑選需要的元件。空白版型只負責共用外框；這一頁負責查規格與看範例。每個產品都應保留自己的資訊架構與操作流程。</p>
+<div class="preview-grid">
+<div class="preview-demo-panel chi-stack">
+<h3 class="chi-section__title">1. 載入共用樣式</h3>
+<p class="preview-subtitle">如果網站與設計系統放在同一個根目錄，直接引用以下檔案；若部署在子路徑，請調整成實際可用的相對或絕對路徑。</p>
+<pre class="preview-code-block"><code>&lt;link rel="stylesheet" href="./tokens.css"&gt;
+&lt;link rel="stylesheet" href="./components.css"&gt;
+&lt;link rel="stylesheet" href="./navigation.css"&gt;</code></pre>
+<button class="preview-copy" type="button" data-copy-code>複製程式碼</button>
+</div>
+<div class="preview-demo-panel chi-stack">
+<h3 class="chi-section__title">2. 使用既有元件</h3>
+<p class="preview-subtitle">以語意化 HTML 搭配共用 class。互動邏輯、資料讀取、驗證和儲存由實際專案負責。</p>
+<pre class="preview-code-block"><code>&lt;button class="chi-button chi-button--primary"&gt;
+  儲存設定
+&lt;/button&gt;
+
+&lt;div class="chi-card"&gt;
+  &lt;h2 class="chi-section__title"&gt;區塊標題&lt;/h2&gt;
+  &lt;p class="chi-help"&gt;補充說明&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<button class="preview-copy" type="button" data-copy-code>複製程式碼</button>
+</div>
+<div class="preview-demo-panel chi-stack preview-demo-panel--wide">
+<h3 class="chi-section__title">常用 Token 速查</h3>
+<div class="preview-token-list">
+<div class="preview-token-card"><strong>頁面背景</strong><p><code>--chi-color-page</code></p><p>整體畫布的底色。</p></div>
+<div class="preview-token-card"><strong>內容表面</strong><p><code>--chi-color-surface</code></p><p>卡片、選單與輸入區域。</p></div>
+<div class="preview-token-card"><strong>主要強調色</strong><p><code>--chi-color-accent</code></p><p>主要操作與互動焦點。</p></div>
+<div class="preview-token-card"><strong>主要文字</strong><p><code>--chi-color-text-strong</code></p><p>標題與重要內容。</p></div>
+<div class="preview-token-card"><strong>一般間距</strong><p><code>--chi-space-4</code></p><p>基準間距為 1rem。</p></div>
+<div class="preview-token-card"><strong>元件圓角</strong><p><code>--chi-radius-md</code></p><p>常用中型圓角為 10px。</p></div>
+<div class="preview-token-card"><strong>內容最大寬度</strong><p><code>--chi-content-width</code></p><p>預設 1080px。</p></div>
+<div class="preview-token-card"><strong>控制項高度</strong><p><code>--chi-control-height</code></p><p>預設 44px。</p></div>
+</div>
+<p class="chi-help">Token 的實際定義以 <code>tokens.css</code> 為準；深色主題會透過 <code>data-chi-theme="dark"</code> 覆寫對應值。</p>
+</div>
+<div class="preview-demo-panel chi-stack preview-demo-panel--wide">
+<h3 class="chi-section__title">開發時的選擇順序</h3>
+<div class="chi-list">
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">先看基礎</p><p class="chi-list__description">確認色彩、字級、間距、圓角與深色主題。</p></div><span class="chi-badge">Tokens</span></div>
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">再挑元件</p><p class="chi-list__description">優先重用現有 class，缺少功能時才新增元件。</p></div><span class="chi-badge">Components</span></div>
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">最後組合版型</p><p class="chi-list__description">依產品的資訊層級配置內容，不要複製圖鑑頁面本身。</p></div><span class="chi-badge">Patterns</span></div>
+</div>
+<a class="chi-button" href="./DESIGN.md">閱讀完整設計規格 ↗</a>
+</div>
+</div>
+</section>
+
 </main>
 <footer class="chi-footer"><div class="chi-footer__inner chi-stack"><a class="chi-brand" style="color:#fff" href="#">CHI<span style="color:#a5a1ff;padding-inline:2px"></span></a><p class="chi-help" style="color:#9ca3af">一套共享的視覺基礎，讓每個專案保有自己的樣子。</p><ul class="chi-footer__links"><li><a href="DESIGN.md">設計規格</a></li><li><a href="README.md">使用說明</a></li></ul><div class="chi-footer__bottom">Chi Design System · Component catalogue · Not yet applied to production sites</div></div></footer>
 <script>
@@ -197,5 +263,27 @@ siteMenu?.querySelectorAll('a').forEach((link)=>link.addEventListener('click',cl
 document.addEventListener('click',(event)=>{if(!event.target.closest('.chi-site-menu-wrap'))closeSiteMenu()});
 document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&siteMenuTrigger?.getAttribute('aria-expanded')==='true'){closeSiteMenu();siteMenuTrigger.focus()}});
 
+</script>
+<script>
+document.querySelectorAll('[data-copy-code]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const code = button.parentElement.querySelector('pre code')?.textContent || '';
+    try {
+      await navigator.clipboard.writeText(code);
+      button.textContent = '已複製';
+    } catch {
+      const field = document.createElement('textarea');
+      field.value = code;
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.append(field);
+      field.select();
+      const copied = document.execCommand('copy');
+      field.remove();
+      button.textContent = copied ? '已複製' : '請手動複製';
+    }
+    window.setTimeout(() => { button.textContent = '複製程式碼'; }, 1800);
+  });
+});
 </script>
 </body></html>
