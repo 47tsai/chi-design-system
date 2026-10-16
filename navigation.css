@@ -38,8 +38,8 @@
 /* Main catalogue navigation: compact hamburger menu on every viewport */
 .chi-site-header__inner{position:relative}
 .chi-site-menu-wrap{position:relative;z-index:60}
-.chi-site-menu__trigger{display:inline-grid;width:2.65rem;height:2.65rem;place-items:center;border:1px solid var(--chi-color-border);border-radius:50%;background:var(--chi-color-surface);color:var(--chi-color-text);cursor:pointer;transition:background .16s ease,border-color .16s ease}
-.chi-site-menu__trigger:hover,.chi-site-menu__trigger[aria-expanded=true]{border-color:var(--chi-color-accent);background:var(--chi-color-surface-muted)}
+.chi-site-menu__trigger{display:inline-grid;width:2.5rem;height:2.5rem;place-items:center;padding:0;border:0;border-radius:0;background:transparent;color:var(--chi-color-text);cursor:pointer;transition:color .16s ease}
+.chi-site-menu__trigger:hover,.chi-site-menu__trigger[aria-expanded=true]{background:transparent;color:var(--chi-color-accent)}
 .chi-site-menu__trigger:focus-visible{outline:3px solid var(--chi-color-focus);outline-offset:3px}
 .chi-site-menu__glyph{display:grid;gap:4px;width:17px}
 .chi-site-menu__glyph span{display:block;height:1.5px;border-radius:2px;background:currentColor;transition:transform .16s ease,opacity .16s ease}
