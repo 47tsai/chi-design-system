@@ -21,7 +21,7 @@ The reference's recognizable character comes from its composition, not just its 
 
 The root preview is the working visual catalogue. It demonstrates the everyday UI set in context rather than as isolated style swatches:
 
-- **Navigation:** site header, breadcrumbs, tabs.
+- **Navigation:** site header, breadcrumbs, tabs, responsive menu trigger and panel, language picker with synchronized selected state, light header and dark footer variants.
 - **Actions:** primary, secondary, small, disabled, and destructive buttons; inline links.
 - **Forms:** text input, select, textarea, validation state, checkbox, radio, toggle switch, field hint and error.
 - **Feedback:** neutral and semantic badges, info/success/warning/danger alerts, notices, empty state, loading skeleton, tooltip.
@@ -32,7 +32,7 @@ Prefer semantic native HTML elements and keep application logic in the host proj
 
 ## Component roles
 
-- .chi-site-header: compact translucent navigation.
+- .chi-site-header: compact translucent navigation.\n- navigation.css: reusable language picker, menu trigger, responsive navigation panel, footer variant, keyboard dismissal, and reduced-motion states.
 - .chi-hero: soft gradient introduction with centered reading width.
 - .chi-title__accent: restrained violet-to-blue text accent.
 - .chi-button--primary and .chi-button--pill: gradient primary action with rounded geometry.
@@ -58,4 +58,4 @@ Prefer semantic native HTML elements and keep application logic in the host proj
 - Are card titles and body text readable on phones?
 - Do card spacing and icon geometry remain consistent?
 - Does the footer close the page cleanly?
-- Are hover, focus, dark-theme, and reduced-motion states considered?
+- Are hover, focus, dark-theme, and reduced-motion states considered?\n- Do popovers expose their expanded state and close on outside click or Escape?\n- Are duplicate language pickers sharing one selected language state?
