@@ -5,7 +5,8 @@ Chi 系列網站共用的 UI 基礎，集中管理設計 token、可重用 CSS �
 ## 專案內容
 
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
-- `elements.html`：設計規範入口、基礎 Token、元件圖鑑、版型範例與引用教學。\n- `elements.css`：圖鑑專用排版與篩選樣式，產品網站不需載入。
+- `elements.html`：設計規範入口、基礎 Token、元件圖鑑、版型範例與引用教學。
+- `elements.css`：圖鑑專用排版與篩選樣式，產品網站不需載入。
 - `tokens.css`：共用色彩、字級、間距、圓角、陰影與尺寸 token。
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定與回饋元件。
 - `navigation.css`：語言選單、導覽面板、漢堡選單及其互動狀態。
