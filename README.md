@@ -1,6 +1,6 @@
 # Chi Design System
 
-A framework-agnostic UI foundation for Chi sites. It centralizes design tokens, reusable components, interaction patterns, and a live component catalogue.
+A framework-agnostic UI foundation for Chi sites. It centralizes design tokens, reusable components, interaction patterns, and a live component catalogue, including navigation, forms, settings, linked-account rows, device lists, empty states, and toast feedback.
 
 ## Files
 
