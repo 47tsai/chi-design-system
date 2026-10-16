@@ -156,7 +156,7 @@ function syncLanguages(){document.querySelectorAll('.demo-lang-option').forEach(
 function closeLanguages(){topMenu.hidden=true;footerMenu.hidden=true;topBtn.setAttribute('aria-expanded','false');footerBtn.setAttribute('aria-expanded','false')}
 function closeNav(){nav.hidden=true;menuBtn.setAttribute('aria-expanded','false');menuBtn.setAttribute('aria-label','開啟選單')}
 function closeFloating(){closeLanguages();closeNav()}
-function selectLanguage(lang){selectedLanguage=lang;syncLanguages();closeLanguages();(event?.currentTarget)}
+function selectLanguage(lang){selectedLanguage=lang;syncLanguages();closeLanguages()}
 function toggleLanguage(button,panel,otherPanel){const willOpen=panel.hidden;closeFloating();if(willOpen){panel.hidden=false;button.setAttribute('aria-expanded','true')}}
 topBtn.addEventListener('click',e=>{e.stopPropagation();toggleLanguage(topBtn,topMenu,footerMenu)});
 footerBtn.addEventListener('click',e=>{e.stopPropagation();toggleLanguage(footerBtn,footerMenu,topMenu)});
