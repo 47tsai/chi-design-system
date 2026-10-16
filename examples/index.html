@@ -1,102 +1,54 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>Chi Design System · Preview</title>
-  <link rel="stylesheet" href="../tokens.css">
-  <link rel="stylesheet" href="../components.css">
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--chi-color-page); color: var(--chi-color-text); font-family: var(--chi-font-sans); }
-    .demo-toolbar { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--chi-color-border); }
-    .demo-brand { font-weight:700; letter-spacing:-.02em; }
-    .demo-main { padding-bottom:3rem; }
-    .demo-swatch { display:flex; align-items:center; gap:.65rem; font-size:.875rem; }
-    .demo-swatch__color { width:2rem; height:2rem; border:1px solid var(--chi-color-border); border-radius:8px; background:var(--swatch); }
-    .demo-swatch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.75rem; }
-    .demo-status { display:flex; align-items:center; gap:.5rem; }
-    .demo-dot { width:.5rem; height:.5rem; border-radius:50%; background:var(--chi-color-success); }
-    @media(max-width:600px){.demo-toolbar{align-items:flex-start}.demo-toolbar .chi-row{flex-wrap:wrap}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Chi Design System visual preview">
+<title>Chi Design System</title>
+<link rel="stylesheet" href="../tokens.css">
+<link rel="stylesheet" href="../components.css">
+<style>
+*{box-sizing:border-box}body{margin:0;background:var(--chi-color-page)}
+.preview-hero{padding-block:3.5rem 2.5rem}.preview-hero__copy{max-width:38rem}
+.preview-login{padding:1.75rem}.preview-login h2{margin:0 0 .35rem;font-size:1.35rem}.preview-login .chi-description{margin-top:.25rem;font-size:.9rem}
+.preview-stat{padding:1.1rem 0}.preview-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--chi-color-border);border-bottom:1px solid var(--chi-color-border)}
+.preview-feature{padding:1.5rem 1.25rem 1.6rem 0}.preview-feature+.preview-feature{border-left:1px solid var(--chi-color-border);padding-left:1.25rem}
+.preview-feature h3{margin:0 0 .5rem;font-size:1rem}.preview-feature p{margin:0;color:var(--chi-color-text-muted);font-size:.9rem;line-height:1.7}
+.preview-token{display:flex;align-items:center;gap:.65rem;color:var(--chi-color-text-muted);font-size:.875rem}.preview-token i{display:block;width:1.8rem;height:1.8rem;border:1px solid var(--chi-color-border);border-radius:5px;background:var(--swatch)}
+@media(max-width:680px){.preview-hero{padding-block:2rem 1.5rem}.preview-login{padding:1.25rem}.preview-features{grid-template-columns:1fr}.preview-feature{padding:1rem 0}.preview-feature+.preview-feature{border-left:0;border-top:1px solid var(--chi-color-border);padding-left:0}}
+</style>
 </head>
 <body class="chi-page">
-  <div class="chi-container">
-    <header class="demo-toolbar">
-      <div class="demo-brand">CHI <span style="color:var(--chi-color-text-muted);font-weight:450">/ Design System</span></div>
-      <div class="chi-row">
-        <span class="chi-badge">Preview · v0.1</span>
-        <button class="chi-button" id="theme-toggle" type="button" aria-pressed="false">切換深色模式</button>
-      </div>
-    </header>
-    <main class="demo-main">
-      <section class="chi-page-header">
-        <p class="chi-eyebrow">DESIGN FOUNDATION</p>
-        <h1 class="chi-title">清楚、安靜、有秩序。</h1>
-        <p class="chi-description">一套供 Chi 系列網站共用的介面基礎。用細框線、明確層級和一致間距組織內容，讓每個網站保持自己的功能，同時擁有共同的視覺語言。</p>
-      </section>
-
-      <section class="chi-section" aria-labelledby="cards-heading">
-        <div class="chi-section__header"><h2 class="chi-section__title" id="cards-heading">卡片與資訊區塊</h2><span class="chi-help">Reusable components</span></div>
-        <div class="chi-grid">
-          <article class="chi-card">
-            <div class="chi-card__top"><h3 class="chi-card__title">網站狀態</h3><span class="chi-badge chi-badge--success">正常</span></div>
-            <p class="chi-card__description">簡潔呈現服務名稱、摘要與目前狀態，讓重要資訊容易掃讀。</p>
-            <div class="chi-card__actions"><button class="chi-button chi-button--primary" type="button">查看詳情</button><button class="chi-button" type="button">設定</button></div>
-          </article>
-          <article class="chi-card">
-            <div class="chi-card__top"><h3 class="chi-card__title">專案工具</h3><span class="chi-badge">工具</span></div>
-            <p class="chi-card__description">卡片高度由內容決定，標題、描述與操作依固定順序排列，不用手動推移位置。</p>
-            <div class="chi-card__actions"><a class="chi-button chi-button--primary" href="#form-demo">開啟範例</a></div>
-          </article>
-          <article class="chi-card">
-            <div class="chi-card__top"><h3 class="chi-card__title">同步紀錄</h3><span class="chi-badge chi-badge--warning">待確認</span></div>
-            <p class="chi-card__description">狀態標籤使用一致的形狀與尺寸，只用顏色輔助傳達狀態。</p>
-            <div class="chi-card__actions"><button class="chi-button" type="button">查看紀錄</button></div>
-          </article>
-        </div>
-      </section>
-
-      <hr class="chi-divider" style="margin:2rem 0">
-      <section class="chi-section" id="form-demo" aria-labelledby="form-heading">
-        <div class="chi-section__header"><h2 class="chi-section__title" id="form-heading">表單與控制項</h2><span class="chi-help">Consistent controls</span></div>
-        <div class="chi-panel chi-stack">
-          <div class="chi-field"><label class="chi-label" for="project-name">專案名稱</label><input class="chi-input" id="project-name" value="Chi Design System"><p class="chi-help">輸入欄位、說明文字和表單標籤使用一致的間距。</p></div>
-          <div class="chi-field"><label class="chi-label" for="project-type">專案類型</label><select class="chi-select" id="project-type"><option>工具網站</option><option>狀態監控</option><option>專案展示</option></select></div>
-          <div class="chi-row"><button class="chi-button chi-button--primary" type="button" id="save-demo">儲存範例</button><button class="chi-button" type="reset" id="reset-demo">重設</button><span class="chi-help" id="demo-feedback" role="status" aria-live="polite"></span></div>
-        </div>
-      </section>
-
-      <hr class="chi-divider" style="margin:2rem 0">
-      <section class="chi-section" aria-labelledby="tokens-heading">
-        <div class="chi-section__header"><h2 class="chi-section__title" id="tokens-heading">基礎色彩</h2><span class="chi-help">Design tokens</span></div>
-        <div class="chi-panel demo-swatch-grid">
-          <div class="demo-swatch"><span class="demo-swatch__color" style="--swatch:var(--chi-color-page)"></span>頁面背景</div>
-          <div class="demo-swatch"><span class="demo-swatch__color" style="--swatch:var(--chi-color-surface)"></span>內容表面</div>
-          <div class="demo-swatch"><span class="demo-swatch__color" style="--swatch:var(--chi-color-border)"></span>框線</div>
-          <div class="demo-swatch"><span class="demo-swatch__color" style="--swatch:var(--chi-color-accent)"></span>互動強調</div>
-        </div>
-      </section>
-      <footer style="padding:2rem 0;color:var(--chi-color-text-muted);font-size:var(--chi-text-sm)">Chi Design System · Initial draft · Not yet applied to production sites</footer>
-    </main>
-  </div>
-  <script>
-    const toggle = document.querySelector('#theme-toggle');
-    toggle.addEventListener('click', () => {
-      const dark = document.documentElement.dataset.chiTheme !== 'dark';
-      if (dark) document.documentElement.dataset.chiTheme = 'dark';
-      else delete document.documentElement.dataset.chiTheme;
-      toggle.setAttribute('aria-pressed', String(dark));
-    });
-    document.querySelector('#save-demo').addEventListener('click', () => {
-      document.querySelector('#demo-feedback').textContent = '這是介面示範，沒有實際送出資料。';
-    });
-    document.querySelector('#reset-demo').addEventListener('click', () => {
-      document.querySelector('#project-name').value = 'Chi Design System';
-      document.querySelector('#project-type').selectedIndex = 0;
-      document.querySelector('#demo-feedback').textContent = '';
-    });
-  </script>
-</body>
-</html>
+<header class="chi-site-header"><div class="chi-container chi-site-header__inner">
+<a class="chi-brand" href="#" aria-label="Chi Design System 首頁">CHI <span style="font-weight:450;color:var(--chi-color-text-muted)">/ Design System</span></a>
+<nav class="chi-nav" aria-label="主要導覽"><a href="#principles" aria-current="page">設計原則</a><a href="#components">元件</a><button class="chi-button" id="theme-toggle" type="button" aria-pressed="false">切換主題</button></nav>
+</div></header>
+<main class="chi-container">
+<section class="preview-hero chi-split">
+<div class="preview-hero__copy"><p class="chi-eyebrow">A shared foundation for Chi</p><h1 class="chi-title">讓介面回到清楚、安靜、有秩序。</h1>
+<p class="chi-description">一套供 Chi 系列網站共用的視覺基礎。以清楚的內容層級、克制的表面、細緻的分隔與一致的操作規則，讓不同專案有共同語言，而不是全部長成同一個模板。</p>
+<div class="chi-row" style="margin-top:1.5rem;flex-wrap:wrap"><a class="chi-button chi-button--primary" href="#components">查看元件</a><a class="chi-button" href="DESIGN.md">設計規格</a></div></div>
+<section class="chi-panel preview-login" aria-labelledby="overview-heading"><p class="chi-eyebrow">PROJECT OVERVIEW</p><h2 id="overview-heading">專案工作區</h2><p class="chi-description">以一個具體情境展示表單、狀態與主要操作如何自然共存。</p>
+<hr class="chi-divider" style="margin:1.25rem 0"><div class="chi-field"><label class="chi-label" for="project-name">專案名稱</label><input class="chi-input" id="project-name" value="Chi Design System"></div>
+<div class="chi-field" style="margin-top:1rem"><label class="chi-label" for="project-type">專案類型</label><select class="chi-select" id="project-type"><option>工具網站</option><option>狀態監控</option><option>專案展示</option></select></div>
+<div class="chi-row" style="justify-content:space-between;margin-top:1.25rem;flex-wrap:wrap"><span class="chi-badge chi-badge--success">預覽模式</span><button class="chi-button chi-button--primary" id="save-demo" type="button">儲存範例</button></div><p class="chi-help" id="demo-feedback" role="status" aria-live="polite" style="margin-top:.75rem"></p></section>
+</section>
+<section class="chi-section" id="principles" style="padding-bottom:2.5rem"><div class="chi-section__header"><h2 class="chi-section__title">同一套規則，不同的網站</h2><span class="chi-help">Design principles</span></div>
+<div class="preview-features"><article class="preview-feature"><h3>資訊先有層級</h3><p>標題、描述、狀態和操作有明確的閱讀順序，不需要靠大量裝飾搶注意力。</p></article><article class="preview-feature"><h3>面板不是裝飾</h3><p>只有需要被視為一個整體的內容才使用面板，其他資訊以對齊與分隔線組織。</p></article><article class="preview-feature"><h3>操作保持一致</h3><p>輸入欄位、按鈕、焦點狀態和回饋使用同一套規則，降低跨專案的使用成本。</p></article></div></section>
+<section class="chi-section" id="components" style="padding-bottom:2.5rem"><div class="chi-section__header"><h2 class="chi-section__title">元件與狀態</h2><span class="chi-help">Component reference</span></div>
+<div class="chi-split"><div class="chi-stack"><div class="chi-list">
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">網站狀態</p><p class="chi-list__description">服務正常運作，最後檢查時間為剛才。</p></div><span class="chi-badge chi-badge--success">正常</span></div>
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">資料同步</p><p class="chi-list__description">有一項設定需要確認後才能繼續。</p></div><span class="chi-badge chi-badge--warning">待確認</span></div>
+<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">背景工作</p><p class="chi-list__description">上一次執行未能完成，請檢查紀錄。</p></div><span class="chi-badge chi-badge--danger">失敗</span></div></div>
+<div class="chi-notice">這些資料只用來展示元件樣式，不會連線到任何服務或儲存設定。</div></div>
+<div class="chi-panel chi-stack"><div class="chi-section__header"><h3 class="chi-section__title">基礎色彩</h3><span class="chi-help">Tokens</span></div>
+<div class="preview-token"><i style="--swatch:var(--chi-color-page)"></i>頁面背景</div><div class="preview-token"><i style="--swatch:var(--chi-color-surface)"></i>內容表面</div><div class="preview-token"><i style="--swatch:var(--chi-color-border)"></i>分隔與框線</div><div class="preview-token"><i style="--swatch:var(--chi-color-accent)"></i>主要操作</div><hr class="chi-divider" style="margin-block:.5rem"><div class="chi-row" style="flex-wrap:wrap"><button class="chi-button chi-button--primary" type="button">主要操作</button><button class="chi-button" type="button">次要操作</button></div></div></div></section>
+<footer class="chi-footer"><hr class="chi-divider" style="margin-bottom:1rem">Chi Design System · Working draft · Not yet applied to production sites</footer>
+</main>
+<script>
+const toggle=document.querySelector('#theme-toggle');
+toggle.addEventListener('click',()=>{const dark=document.documentElement.dataset.chiTheme!=='dark';if(dark)document.documentElement.dataset.chiTheme='dark';else delete document.documentElement.dataset.chiTheme;toggle.setAttribute('aria-pressed',String(dark));});
+document.querySelector('#save-demo').addEventListener('click',()=>{document.querySelector('#demo-feedback').textContent='這是介面示範，沒有實際儲存資料。';});
+</script>
+</body></html>
