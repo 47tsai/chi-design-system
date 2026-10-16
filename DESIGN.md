@@ -59,3 +59,8 @@ Prefer semantic native HTML elements and keep application logic in the host proj
 - Do card spacing and icon geometry remain consistent?
 - Does the footer close the page cleanly?
 - Are hover, focus, dark-theme, and reduced-motion states considered?\n- Do popovers expose their expanded state and close on outside click or Escape?\n- Are duplicate language pickers sharing one selected language state?
+
+
+## Full-page interaction reference
+
+`examples/account-center.html` demonstrates the full composition: sticky header, light and dark language menus sharing one selected language, mobile navigation overlay, hero, feature cards, service strip, dark footer, loading state, and login dialog with password visibility. It is a Chi-branded adaptation of the supplied reference, not an official HoYoverse page. The login form is intentionally non-functional and must not collect or transmit credentials. Language selection updates the selected label only; it does not translate page copy.
