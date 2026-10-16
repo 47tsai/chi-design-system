@@ -214,3 +214,9 @@
 .chi-menu__item>.chi-icon{color:var(--chi-color-text-muted)}
 .chi-dropzone__icon>.chi-icon{width:1.5rem;height:1.5rem}
 .chi-device-row__icon>.chi-icon{width:1.25rem;height:1.25rem}
+
+.chi-icon-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:.5rem}
+.chi-icon-gallery__item{min-width:0;min-height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:.7rem .35rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);color:var(--chi-color-text-muted);text-align:center}
+.chi-icon-gallery__item>.chi-icon{width:1.35rem;height:1.35rem;color:var(--chi-color-text-strong)}
+.chi-icon-gallery__item>span{font-size:var(--chi-text-xs)}
+.chi-icon-gallery__item>code{max-width:100%;overflow-wrap:anywhere;color:var(--chi-color-text-subtle);font-family:var(--chi-font-mono);font-size:.65rem}
