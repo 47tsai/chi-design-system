@@ -27,10 +27,10 @@ Chi 是 Chi 系列網站共用的介面基礎，包含設計 token、可重用 C
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定列及回饋元件。
 - `navigation.css`：語言選單、導覽示範、行動版選單及全站漢堡選單。
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
-- `elements.html`：設計規範入口、Token 速查、元件圖鑑、版型範例與引用教學。
+- `elements.html`：設計規範入口、Token 速查、元件圖鑑、版型範例與引用教學。\n- `elements.css`：只負責圖鑑自身的展示排版、搜尋篩選與範例輔助樣式，不是正式產品共用元件。
 - `DESIGN.md`：設計原則、元件角色與檢查清單。
 
-載入順序：先 `tokens.css`，再 `components.css`，需要導覽元件時再載入 `navigation.css`。
+載入順序：先 `tokens.css`，再 `components.css`，需要導覽元件時再載入 `navigation.css`。只有 `elements.html` 需要額外載入 `elements.css`；產品網站不應載入圖鑑展示樣式。
 
 ## 版型與設計系統的分工
 
@@ -100,7 +100,7 @@ Chi 是 Chi 系列網站共用的介面基礎，包含設計 token、可重用 C
 
 1. 從 `index.html` 複製共用頁面骨架，或在既有專案中採用相同的頁首、主內容容器與頁尾結構。
 2. 載入 `tokens.css` 與 `components.css`；只有使用 Chi 導覽元件時才載入 `navigation.css`。
-3. 在 `elements.html` 查閱 Token、元件狀態與版型範例，使用適合目前產品的部分。
+3. 在 `elements.html` 查閱 Token、元件狀態與版型範例，使用適合目前產品的部分；不要引用 `elements.css` 當作產品元件樣式。
 4. 不要把圖鑑的 Hero、展示面板、示範資料或頁面排列直接當成產品內容。
 5. 若網站部署在子路徑或不同網域，確認 CSS、圖示 sprite 與連結路徑已依實際部署方式調整。
 
