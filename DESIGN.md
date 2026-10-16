@@ -237,6 +237,102 @@ Chi 不使用單一模板硬套所有產品。先判斷頁面任務，再選擇�
 
 最終輸出應符合目標產品的功能與資訊架構，並呈現 Chi 的共通視覺語言。參考 HTML 是設計證據，不是可整頁複製的模板。
 
+## 與實作同步的 Token 規格
+
+本節是供 AI 直接查用的精確參照。實際 CSS 的唯一來源仍是 `tokens.css`；若值有更新，應同步更新本表。產品元件必須引用 token，不應把這些色值複製成各自的硬編碼值。
+
+### 語意色彩 Token
+
+| Token | 淺色值 | 深色值 | 用途 |
+| --- | --- | --- | --- |
+| `--chi-color-page` | `#f6f8fc` | `#17191f` | 頁面畫布 |
+| `--chi-color-page-soft` | `#f4f6fb` | `#1b1e27` | 次級畫布、柔和背景 |
+| `--chi-color-surface` | `#fff` | `#20232c` | 一般內容表面 |
+| `--chi-color-surface-raised` | `#fff` | `#272b36` | 下拉選單、浮層 |
+| `--chi-color-surface-muted` | `#edf2fc` | `#282c38` | 輕量區塊與 hover 表面 |
+| `--chi-color-text-strong` | `#202127` | `#f7f8fc` | 標題與高強調文字 |
+| `--chi-color-text` | `#33343a` | `#e8eaf1` | 一般內文 |
+| `--chi-color-text-muted` | `#686f7d` | `#b2b8c7` | 輔助說明 |
+| `--chi-color-text-subtle` | `#9299a7` | `#8c94a6` | 低強調文字，不能承載必要資訊而不驗證對比 |
+| `--chi-color-border` | `#e8ebf2` | `#353a49` | 一般邊框與分隔線 |
+| `--chi-color-border-strong` | `#d4dae6` | `#4b5265` | 較明確的邊界 |
+| `--chi-color-accent` | `#4f46e5` | `#a5a1ff` | 主要操作、目前選取狀態 |
+| `--chi-color-accent-hover` | `#4338ca` | `#c0bdff` | 主要強調色的 hover |
+| `--chi-color-accent-blue` | `#3b82f6` | `#7daeff` | 輔助藍色與漸層終點 |
+| `--chi-color-on-accent` | `#fff` | `#171827` | 主要強調背景上的文字 |
+| `--chi-color-accent-soft` | `#eef2ff` | `#292b45` | 強調色淡底 |
+| `--chi-color-focus` | `#818cf8` | `#a5a1ff` | 鍵盤焦點環 |
+| `--chi-color-success` | `#237a50` | `#7ed6a7` | 成功狀態 |
+| `--chi-color-warning` | `#8a5b13` | `#edc071` | 警告狀態 |
+| `--chi-color-danger` | `#b93843` | `#ff969e` | 危險或錯誤狀態 |
+| `--chi-color-footer` | `#111113` | `#101116` | 深色頁尾 |
+
+### 字體、間距與尺寸 Token
+
+| Token | 實際值 | 使用規則 |
+| --- | --- | --- |
+| `--chi-font-sans` | `"Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif` | 一般 UI 與中文內文 |
+| `--chi-font-mono` | `ui-monospace, SFMono-Regular, Menlo, Consolas, monospace` | 程式碼、識別碼或等寬資料 |
+| `--chi-text-2xs` | `.6875rem` (11px at 16px root) | 僅次要、非關鍵的短標籤 |
+| `--chi-text-xs` | `.8125rem` (13px) | 輔助資訊與狀態補充 |
+| `--chi-text-sm` | `.9rem` (14.4px) | 次要文字、表單說明 |
+| `--chi-text-md` | `1rem` (16px) | 預設正文 |
+| `--chi-text-lg` | `1.125rem` (18px) | 小標題或較強調正文 |
+| `--chi-text-xl` | `1.375rem` (22px) | 區段標題 |
+| `--chi-text-2xl` | `clamp(1.875rem, 4vw, 2.5rem)` | 頁面標題 |
+| `--chi-text-display` | `clamp(2rem, 7vw, 2.5rem)` | 公開入口頁的主視覺標題 |
+| `--chi-leading-tight` | `1.2` | 標題行高 |
+| `--chi-leading-normal` | `1.65` | 內文行高 |
+| `--chi-space-1` | `.25rem` (4px) | 緊湊圖示間距 |
+| `--chi-space-2` | `.5rem` (8px) | 控制項內部間距 |
+| `--chi-space-3` | `.75rem` (12px) | 元件內距、緊湊分組 |
+| `--chi-space-4` | `1rem` (16px) | 常用元件間距 |
+| `--chi-space-5` | `1.25rem` (20px) | 面板內距 |
+| `--chi-space-6` | `1.5rem` (24px) | 區塊間距 |
+| `--chi-space-8` | `2rem` (32px) | 主要區段間距 |
+| `--chi-space-10` | `2.5rem` (40px) | 大區段間距 |
+| `--chi-space-12` | `3rem` (48px) | 頁面區段留白 |
+| `--chi-space-16` | `4rem` (64px) | 大型頁面分區 |
+| `--chi-radius-sm` | `6px` | 小型控制項或緊湊表面 |
+| `--chi-radius-md` | `10px` | 輸入框、選單 |
+| `--chi-radius-lg` | `16px` | 面板、卡片與浮層 |
+| `--chi-radius-xl` | `22px` | 大型主視覺容器，適量使用 |
+| `--chi-radius-pill` | `999px` | 僅用於刻意設計為膠囊形的控制項 |
+| `--chi-content-width` | `1080px` | 一般頁面內容最大寬度 |
+| `--chi-reading-width` | `448px` | 窄版閱讀或表單內容寬度 |
+| `--chi-control-height` | `44px` | 一般操作控制項的基準高度 |
+| `--chi-transition-fast` | `180ms ease` | 快速的顏色與表面轉換 |
+
+### 陰影與漸層 Token
+
+| Token | 淺色主題 | 深色主題 | 用途 |
+| --- | --- | --- | --- |
+| `--chi-shadow-sm` | `0 4px 14px rgb(59 82 145 / 8%)` | `0 4px 16px rgb(0 0 0 / 18%)` | 輕量浮起效果 |
+| `--chi-shadow-md` | `0 10px 25px -5px rgb(220 226 240 / 65%), 0 8px 10px -6px rgb(220 226 240 / 42%)` | `0 10px 28px rgb(0 0 0 / 24%)` | 下拉選單、浮層 |
+| `--chi-shadow-card-hover` | `0 14px 28px -4px rgb(200 210 235 / 55%)` | `0 14px 28px -4px rgb(0 0 0 / 30%)` | 卡片 hover |
+| `--chi-shadow-accent` | `0 4px 14px rgb(59 130 246 / 28%)` | `0 4px 14px rgb(80 105 220 / 22%)` | 主要操作的克制強調 |
+| `--chi-gradient-start` | `#a78bfa` | `#c4b5fd` | 強調漸層起點 |
+| `--chi-gradient-mid` | `#6366f1` | `#a5a1ff` | 強調漸層中段 |
+| `--chi-gradient-end` | `#3b82f6` | `#7daeff` | 強調漸層終點 |
+
+### 元件狀態契約
+
+| 元件／狀態 | 視覺與行為規則 |
+| --- | --- |
+| `.chi-button` 預設 | 依 primary、一般或 danger 變體呈現；文字、背景與邊界使用語意 token。 |
+| `.chi-button:hover` | 只增加適量顏色或陰影變化，不大幅位移。 |
+| `.chi-button:active` | 提供明確按下回饋，不改變控制項的版面尺寸。 |
+| `.chi-button:focus-visible` | 必須有清楚的鍵盤焦點提示，不可移除 outline 而不提供替代方案。 |
+| `.chi-button:disabled` | 呈現不可操作狀態，並使用原生 disabled 或等效語意；不得只降低透明度卻仍可觸發。 |
+| `.chi-input:focus-visible` | 使用 `--chi-color-focus` 顯示可見焦點。 |
+| `.chi-field__error` | 錯誤文字需與欄位關聯，且不能只靠紅色傳遞錯誤。 |
+| `.chi-badge--success`、`.chi-alert--info` | 使用對應語意色與文字說明，不用主色替代所有狀態。 |
+| `.chi-language__trigger[aria-expanded=true]` | 觸發按鈕的 ARIA 狀態與選單實際顯示狀態保持一致。 |
+| `.chi-mobile-menu__trigger[aria-expanded=true]` | 按鈕展開狀態、圖示與選單可見性保持一致。 |
+| `.chi-toast-region` | 為非阻斷回饋提供適當 live region 語意；重要錯誤仍需保留在頁面中。 |
+
+元件狀態以共用 CSS 的實際能力為準。若某個專案尚未實作表格中的狀態，不可只因本文件提到它就宣稱已支援；應補齊實作或明確標示為待辦。
+
 ## 視覺方向
 
 以清爽的藍灰色畫布、白色內容表面、清楚的文字層級和克制的藍紫強調色建立視覺秩序。頁首、主視覺、內容寬度、區塊節奏與頁尾應先形成整體，再決定個別元件的裝飾。
