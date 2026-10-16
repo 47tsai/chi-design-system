@@ -27,7 +27,8 @@ Chi 是 Chi 系列網站共用的介面基礎，包含設計 token、可重用 C
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定列及回饋元件。
 - `navigation.css`：語言選單、導覽示範、行動版選單及全站漢堡選單。
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
-- `elements.html`：設計規範入口、Token 速查、元件圖鑑、版型範例與引用教學。\n- `elements.css`：只負責圖鑑自身的展示排版、搜尋篩選與範例輔助樣式，不是正式產品共用元件。
+- `elements.html`：設計規範入口、Token 速查、元件圖鑑、版型範例與引用教學。
+- `elements.css`：只負責圖鑑自身的展示排版、搜尋篩選與範例輔助樣式，不是正式產品共用元件。
 - `DESIGN.md`：設計原則、元件角色與檢查清單。
 
 載入順序：先 `tokens.css`，再 `components.css`，需要導覽元件時再載入 `navigation.css`。只有 `elements.html` 需要額外載入 `elements.css`；產品網站不應載入圖鑑展示樣式。
