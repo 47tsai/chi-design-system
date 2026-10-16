@@ -17,6 +17,19 @@ The reference's recognizable character comes from its composition, not just its 
 7. **Design mobile first, then expand.** A narrow reading column is intentional for focused pages. Wider layouts can use shared container and split/grid utilities.
 8. **Keep interactions accessible.** Use semantic HTML, keyboard focus, readable contrast, and reduced-motion support.
 
+## Component catalogue
+
+The root preview is the working visual catalogue. It demonstrates the everyday UI set in context rather than as isolated style swatches:
+
+- **Navigation:** site header, breadcrumbs, tabs.
+- **Actions:** primary, secondary, small, disabled, and destructive buttons; inline links.
+- **Forms:** text input, select, textarea, validation state, checkbox, radio, toggle switch, field hint and error.
+- **Feedback:** neutral and semantic badges, info/success/warning/danger alerts, notices, empty state, loading skeleton, tooltip.
+- **Data display:** flat lists, media rows, avatars and avatar groups, stat blocks, progress bars, step progress, responsive tables, pagination, tags, code and preformatted text.
+- **Page patterns:** section headers, filters, feature cards, confirmation-dialog composition, hero, logo strip, footer, light/dark theme tokens.
+
+Prefer semantic native HTML elements and keep application logic in the host project. The catalogue's tabs and theme controls are demo interactions, not a reusable application state layer.
+
 ## Component roles
 
 - .chi-site-header: compact translucent navigation.
