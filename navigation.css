@@ -20,14 +20,14 @@
 .chi-mobile-menu__trigger[aria-expanded=true] .chi-mobile-menu__glyph span:nth-child(2){opacity:0}
 .chi-mobile-menu__trigger[aria-expanded=true] .chi-mobile-menu__glyph span:last-child{transform:translateY(-5.5px) rotate(-45deg)}
 .chi-mobile-menu{position:absolute;z-index:35;inset:calc(100% + .5rem) 0 auto;padding:1rem;border:1px solid var(--chi-color-border);border-radius:var(--chi-radius-lg);background:var(--chi-color-surface);box-shadow:var(--chi-shadow-md);animation:chi-menu-enter .18s ease-out}
-.chi-mobile-menu__login{display:flex;align-items:center;justify-content:center;min-height:2.8rem;margin-bottom:.65rem;border-radius:var(--chi-radius-pill);background:linear-gradient(100deg,#4f46e5,#3b82f6);color:#fff;font-weight:700;text-decoration:none}
+.chi-mobile-menu__login{display:flex;align-items:center;justify-content:center;min-height:2.8rem;margin-bottom:.65rem;border-radius:var(--chi-radius-pill);background:linear-gradient(100deg,var(--chi-color-accent),var(--chi-color-accent-blue));color:var(--chi-color-on-accent);font-weight:700;text-decoration:none}
 .chi-mobile-menu__link{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem .25rem;border-bottom:1px solid var(--chi-color-border);color:var(--chi-color-text);text-decoration:none}
 .chi-mobile-menu__link:last-child{border-bottom:0}
 .chi-mobile-menu__link:hover{color:var(--chi-color-accent)}
-.chi-language--footer .chi-language__trigger{border-color:rgb(255 255 255 / 22%);background:transparent;color:var(--chi-color-footer-text)}
-.chi-language--footer .chi-language__panel{top:auto;bottom:calc(100% + .55rem);border-color:#34343d;background:#202127;color:#f5f5f7}
-.chi-language--footer .chi-language__option{color:#f5f5f7}
-.chi-language--footer .chi-language__option:hover,.chi-language--footer .chi-language__option:focus-visible{background:#34343d}
+.chi-language--footer .chi-language__trigger{border-color:var(--chi-color-footer-border);background:transparent;color:var(--chi-color-footer-text)}
+.chi-language--footer .chi-language__panel{top:auto;bottom:calc(100% + .55rem);border-color:var(--chi-color-footer-menu-border);background:var(--chi-color-footer-menu-surface);color:var(--chi-color-footer-menu-text)}
+.chi-language--footer .chi-language__option{color:var(--chi-color-footer-menu-text)}
+.chi-language--footer .chi-language__option:hover,.chi-language--footer .chi-language__option:focus-visible{background:var(--chi-color-footer-menu-hover)}
 @keyframes chi-menu-enter{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:680px){.chi-nav-demo{padding:.65rem .75rem}.chi-nav-demo__brand{font-size:var(--chi-text-sm)}}
 @media(prefers-reduced-motion:reduce){.chi-mobile-menu__glyph span,.chi-language__panel,.chi-mobile-menu{animation:none!important;transition:none!important}}
