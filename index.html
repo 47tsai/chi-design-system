@@ -12,7 +12,14 @@ body{display:flex;min-height:100vh;flex-direction:column}.preview-main{flex:1}.p
 <body class="chi-page">
 <header class="chi-site-header"><div class="chi-container chi-site-header__inner">
 <a class="chi-brand" href="#" aria-label="Chi Design System 首頁">CHI<span style="color:var(--chi-color-accent);padding-inline:2px">✳</span></a>
-<nav class="chi-nav" aria-label="主要導覽"><a href="#navigation">導覽元件</a><a href="#foundations">基礎</a><a href="#components">元件圖鑑</a><a href="#patterns">版型</a><a href="DESIGN.md">規格</a></nav>
+<div class="chi-site-menu-wrap"><button class="chi-site-menu__trigger" type="button" aria-label="開啟網站導覽" aria-expanded="false" aria-controls="chi-site-menu"><span class="chi-site-menu__glyph" aria-hidden="true"><span></span><span></span><span></span></span></button>
+<nav class="chi-site-menu" id="chi-site-menu" aria-label="網站導覽" hidden>
+<a class="chi-site-menu__link" href="#navigation"><span class="chi-site-menu__number">01</span><span><strong>導覽元件</strong><small>Navigation</small></span></a>
+<a class="chi-site-menu__link" href="#foundations"><span class="chi-site-menu__number">02</span><span><strong>基礎</strong><small>Foundations</small></span></a>
+<a class="chi-site-menu__link" href="#components"><span class="chi-site-menu__number">03</span><span><strong>元件圖鑑</strong><small>Components</small></span></a>
+<a class="chi-site-menu__link" href="#patterns"><span class="chi-site-menu__number">04</span><span><strong>版型</strong><small>Patterns</small></span></a>
+<a class="chi-site-menu__link" href="DESIGN.md"><span class="chi-site-menu__number">05</span><span><strong>規格</strong><small>Design specs</small></span><span class="chi-site-menu__external" aria-hidden="true">↗</span></a>
+</nav></div>
 </div></header>
 <main class="preview-main">
 <section class="chi-hero"><div class="chi-hero__inner">
@@ -178,6 +185,14 @@ document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){const exp
 
 
 document.querySelectorAll('[data-demo-toast]').forEach((control)=>control.addEventListener('click',(event)=>{event.preventDefault();const region=document.getElementById('chi-demo-toast-region');if(!region)return;region.replaceChildren();const toast=document.createElement('div');const variant=control.classList.contains('chi-button--danger')?'chi-toast--error':control.classList.contains('chi-button--primary')?'chi-toast--success':'';toast.className=('chi-toast chi-toast--floating '+variant).trim();toast.setAttribute('role','status');const message=document.createElement('span');message.className='chi-toast__message';message.textContent=control.dataset.demoToast;const close=document.createElement('button');close.type='button';close.className='chi-button chi-button--small';close.textContent='關閉';close.setAttribute('aria-label','關閉通知');close.addEventListener('click',()=>{if(toast.isConnected)toast.remove()});toast.append(message,close);region.append(toast);window.clearTimeout(window.chiDemoToastTimer);window.chiDemoToastTimer=window.setTimeout(()=>toast.remove(),3200)}));
+
+
+const siteMenuTrigger=document.querySelector('.chi-site-menu__trigger');const siteMenu=document.getElementById('chi-site-menu');
+const closeSiteMenu=()=>{if(!siteMenuTrigger||!siteMenu)return;siteMenuTrigger.setAttribute('aria-expanded','false');siteMenuTrigger.setAttribute('aria-label','開啟網站導覽');siteMenu.hidden=true};
+siteMenuTrigger?.addEventListener('click',(event)=>{event.stopPropagation();const isOpen=siteMenuTrigger.getAttribute('aria-expanded')==='true';siteMenuTrigger.setAttribute('aria-expanded',String(!isOpen));siteMenuTrigger.setAttribute('aria-label',isOpen?'開啟網站導覽':'關閉網站導覽');siteMenu.hidden=isOpen});
+siteMenu?.querySelectorAll('a').forEach((link)=>link.addEventListener('click',closeSiteMenu));
+document.addEventListener('click',(event)=>{if(!event.target.closest('.chi-site-menu-wrap'))closeSiteMenu()});
+document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&siteMenuTrigger?.getAttribute('aria-expanded')==='true'){closeSiteMenu();siteMenuTrigger.focus()}});
 
 </script>
 </body></html>
