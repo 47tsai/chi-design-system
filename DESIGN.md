@@ -121,5 +121,5 @@ Chi 使用 **Lucide 風格的線性 SVG 圖示**，採用統一的 24 × 24 view
 - 顏色使用 `currentColor`，由按鈕、狀態或容器控制，不在圖示路徑裡硬編碼顏色。
 - 裝飾圖示標記 `aria-hidden="true"`。純圖示按鈕仍需在按鈕本身提供可理解的 `aria-label`。
 - 同一操作固定使用同一圖示，例如搜尋使用 `search`、關閉使用 `x`、下拉使用 `chevron-down`、成功使用 `circle-check`。
-- Chi 的 `✳` 字標屬於品牌識別，不作為一般功能圖示；一般介面符號不再混用 Unicode 字元、Emoji 或不同線條風格的圖示。
+- Chi 的 `✳` 字標屬於品牌識別，不作為一般功能圖示；一般介面符號不再混用 Unicode 字元、Emoji 或不同線條風格的圖示。圖鑑中的「圖示系統」區塊列出目前可用的 symbol 與對應名稱。
 - 新增圖示時先確認 Lucide 是否有對應圖示，再將其 SVG symbol 加入 `icons.svg`，同時更新圖鑑與文件。Lucide 官方圖示採 ISC 授權，詳見 [Lucide 官方專案](https://github.com/lucide-icons/lucide)。
