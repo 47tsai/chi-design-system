@@ -1,27 +1,21 @@
 # Chi Design System
 
-A framework-agnostic visual foundation for the Chi website ecosystem.
+A framework-agnostic visual foundation for the Chi website ecosystem, using the HoYoverse Account Center as a reference for clear grouping and restrained interface design without copying its assets or implementation.
 
-## Goals
+## Files
 
-- Keep typography, spacing, borders, surfaces, controls, and feedback consistent across projects.
-- Use plain CSS custom properties and reusable classes so Astro, Svelte, React, and static HTML projects can adopt the same visual language.
-- Preserve each site's information architecture and functionality; standardize the design, not every page layout.
-- Use HoYoverse Account Center as a visual reference for clean grouping and restrained panels, without copying its proprietary assets or source code.
-
-## Structure
-
-- `DESIGN.md`: visual principles and implementation rules.
-- `tokens.css`: shared design tokens.
-- `components.css`: framework-independent component styles.
-- `examples/index.html`: standalone preview page.
+- `DESIGN.md`: visual principles, layout rules, and review checklist.
+- `tokens.css`: shared colors, typography, spacing, radii, and theme tokens.
+- `components.css`: framework-agnostic layouts and reusable components.
+- `index.html`: GitHub Pages preview homepage.
+- `examples/index.html`: standalone component and layout preview.
 
 ## Preview
 
-Open `examples/index.html` locally, or enable GitHub Pages for this repository and publish from the root.
+After GitHub Pages is enabled for `main` and `/(root)`, open the repository's Pages URL. The preview is also available in `examples/index.html`.
 
 ## Adoption
 
-Import `tokens.css` and `components.css` into a project, then use the `chi-` class names. Framework-specific interactive behavior remains in each project's own code.
+Import `tokens.css` and then `components.css` into a project. Use the `chi-` classes for shared visual styles. Keep routing, data access, validation, and application behavior in each host project.
 
-Start with the preview page and refine the system before migrating production sites.
+This is a working draft. Review the preview on desktop and mobile before applying the system to production sites.
