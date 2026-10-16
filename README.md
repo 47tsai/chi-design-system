@@ -14,6 +14,10 @@ A framework-agnostic visual foundation for Chi sites, using a cool blue-gray pal
 
 The preview covers responsive navigation, synchronized language pickers, actions, form controls and validation, status badges, alerts, progress and steps, lists, tables, pagination, empty/loading states, avatars, statistics, tooltips, code blocks, and common page patterns. Component styles are in `components.css`; design tokens are in `tokens.css`.
 
+## Full-page reference example
+
+- [Account center interaction demo](examples/account-center.html): complete responsive page with header, language pickers, navigation overlay, feature cards, footer, loading state, and login modal. Login is UI-only and never sends credentials.
+
 ## Preview
 
 Enable GitHub Pages for branch main and folder /(root), then open the repository's Pages URL.
