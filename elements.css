@@ -12,7 +12,7 @@ body.chi-page{display:flex;min-height:100vh;min-height:100dvh;flex-direction:col
 .catalog-heading__meta a{color:var(--chi-color-accent);text-decoration:none}
 .catalog-heading__meta a:hover{text-decoration:underline;text-underline-offset:3px}
 .catalog-heading__separator{width:3px;height:3px;border-radius:50%;background:var(--chi-color-border-strong)}
-.catalog-toolbar{position:sticky;z-index:10;top:60px;display:grid;gap:.8rem;padding:1rem 0;background:color-mix(in srgb,var(--chi-color-page) 92%,transparent);backdrop-filter:blur(14px)}
+.catalog-toolbar{position:sticky;z-index:10;top:60px;display:grid;gap:.8rem;padding:1rem 0;background:var(--chi-color-page)}
 .catalog-search{display:flex;align-items:center;gap:.65rem;min-height:44px;padding:0 .85rem;border:1px solid var(--chi-color-border-strong);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);color:var(--chi-color-text-muted)}
 .catalog-search:focus-within{border-color:var(--chi-color-focus);outline:3px solid color-mix(in srgb,var(--chi-color-focus) 22%,transparent);outline-offset:1px}
 .catalog-search>.chi-icon{flex:none}
