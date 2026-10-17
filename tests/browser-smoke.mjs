@@ -143,3 +143,61 @@ test('mobile viewport has no horizontal page overflow and key controls remain vi
     await context.close();
   }
 });
+
+test('page loads without JavaScript errors or failed local assets', async () => {
+  const { context, page } = await openCatalog();
+  const pageErrors = [];
+  const failedLocalRequests = [];
+  page.on('pageerror', error => pageErrors.push(error.message));
+  page.on('requestfailed', request => {
+    if (request.url().startsWith(baseURL)) failedLocalRequests.push(request.url());
+  });
+  try {
+    await page.reload();
+    await page.locator('.specimen').first().waitFor();
+    await page.locator('[data-copy-icon]').first().waitFor();
+    assert.deepEqual(pageErrors, []);
+    assert.deepEqual(failedLocalRequests, []);
+  } finally {
+    await context.close();
+  }
+});
+
+test('every SVG use reference resolves to a symbol in the shared sprite', async () => {
+  const { context, page } = await openCatalog();
+  try {
+    const spriteResponse = await page.request.get(`${baseURL}/icons.svg`);
+    assert.equal(spriteResponse.ok(), true);
+    const sprite = await spriteResponse.text();
+    const symbolIds = new Set([...sprite.matchAll(/<symbol\\s+id="([^"]+)"/g)].map(match => match[1]));
+    const refs = await page.locator('svg use').evaluateAll(nodes =>
+      nodes.map(node => node.getAttribute('href')).filter(Boolean).map(href => href.split('#').pop())
+    );
+    assert.ok(refs.length > 0, 'page should include SVG symbol references');
+    const missing = [...new Set(refs.filter(id => !symbolIds.has(id)))];
+    assert.deepEqual(missing, []);
+  } finally {
+    await context.close();
+  }
+});
+
+test('tabs support arrow-key navigation and toast notifications can be dismissed', async () => {
+  const { context, page } = await openCatalog();
+  try {
+    const firstTab = page.locator('[data-tab="general"]');
+    const activityTab = page.locator('[data-tab="activity"]');
+    await firstTab.focus();
+    await page.keyboard.press('ArrowRight');
+    assert.equal(await activityTab.getAttribute('aria-selected'), 'true');
+    assert.equal(await activityTab.evaluate(el => el === document.activeElement), true);
+    assert.equal(await page.locator('#catalog-tab-panel').textContent(), '活動');
+
+    await page.locator('#show-toast').click();
+    const toast = page.locator('#catalog-toast-region .chi-toast');
+    assert.equal(await toast.isVisible(), true);
+    await toast.getByRole('button', { name: '關閉通知' }).click();
+    assert.equal(await toast.count(), 0);
+  } finally {
+    await context.close();
+  }
+});
