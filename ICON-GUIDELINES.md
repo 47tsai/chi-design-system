@@ -80,7 +80,12 @@
 | 成功／通過 | `circle-check` | 已有 |
 | 一般資訊 | `info` | 已有 |
 | 警告 | `triangle-alert` | 已有 |
-| 首頁 | `house` | 尚未加入；需要時再新增 |
+| 首頁 | `house` | 已有 |
+| 色彩／配色 | `palette` | 已有 |
+| 字體／文字 | `type` | 已有 |
+| 元件網格 | `layout-grid` | 已有 |
+| 版型／面板 | `panels-top-left` | 已有 |
+| 規則／檢查清單 | `list-checks` | 已有 |
 | 導覽選單 | `menu` | 尚未加入；需要時再新增 |
 | 失敗／錯誤 | `circle-x` 或 Lucide 當前對應名稱 | 尚未加入；加入前核對官方名稱 |
 | 載入中 | `loader-circle` | 尚未加入；需搭配 reduced-motion 考量 |
