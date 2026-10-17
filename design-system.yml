@@ -167,7 +167,7 @@ components:
     principle: "文字導覽優先，使用細分隔線與有限的黏性玻璃效果。"
   button-primary:
     class: ".chi-button--primary"
-    background: "linear-gradient(90deg, {colors.accent} 0%, {colors.accent-blue} 100%)"
+    background: "{colors.accent}"
     text: "{colors.on-accent}"
     minHeight: "44px"
     radius: "{rounded.md}"
