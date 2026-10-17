@@ -87,7 +87,8 @@ else pass(`CSS tokens: ${definedTokens.size} declarations, all ${usedTokens.size
 const emojiPattern = /\p{Extended_Pictographic}/u;
 const emojiFiles = [];
 for (const file of sourceFiles) {
-  const text = read(file).replace(/[©®™]/g, '');\n  if (emojiPattern.test(text)) emojiFiles.push(file);
+  const text = read(file).replace(/[©®™]/g, '');
+  if (emojiPattern.test(text)) emojiFiles.push(file);
 }
 if (emojiFiles.length) fail(`Emoji pictographs found in project source/docs: ${emojiFiles.join(', ')}`);
 else pass(`No emoji pictographs found in ${sourceFiles.length} tracked source/documentation files`);
