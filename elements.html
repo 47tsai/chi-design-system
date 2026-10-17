@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Chi Design System 元件圖鑑：設計基礎、互動元件、頁面模式與實作規範。">
 <meta name="color-scheme" content="light dark">
+<meta name="description" content="Chi Design System 共用 UI 元件圖鑑。">
 <title>Chi Design System · 元件圖鑑</title>
 <link rel="stylesheet" href="./tokens.css">
 <link rel="stylesheet" href="./components.css">
@@ -13,514 +13,434 @@
 </head>
 <body class="chi-page">
 <a class="chi-skip-link" href="#main-content">跳至主要內容</a>
-
 <header class="chi-site-header">
   <div class="chi-container chi-site-header__inner">
-    <a class="chi-brand" href="./index.html" aria-label="Chi Design System 首頁">CHI</a>
-    <nav class="chi-nav" aria-label="主要導覽">
-      <a href="./index.html">空白版型</a>
-      <a href="./elements.html" aria-current="page">元件圖鑑</a>
-      <a href="./DESIGN.md">設計規格</a>
-    </nav>
-    <div class="preview-header-actions">
-      <span class="preview-version">UI FOUNDATION / 01</span>
+    <a class="chi-brand" href="./index.html" aria-label="Chi Design System 空白版型">CHI</a>
+    <div class="catalog-header__actions">
+      <span class="catalog-header__label">COMPONENT LIBRARY</span>
       <button class="chi-button chi-button--icon" id="theme-toggle" type="button" aria-label="切換色彩主題" title="切換色彩主題"><span id="theme-icon" aria-hidden="true">◐</span></button>
     </div>
   </div>
 </header>
 
-<main id="main-content" class="preview-main" tabindex="-1">
-  <section class="preview-intro">
-    <div class="chi-container preview-intro__inner">
-      <div class="preview-intro__copy">
-        <p class="chi-eyebrow">CHI DESIGN SYSTEM <span aria-hidden="true">/</span> DOCUMENTATION</p>
-        <h1 class="preview-title">介面元件，<span>有章可循。</span></h1>
-        <p class="preview-lede">這裡不是網站模板，而是 Chi 共用介面的工作手冊。從色彩、字體與間距，到可重用元件和常見頁面模式，展示每個選擇該如何服務內容與操作。</p>
-        <div class="chi-row preview-intro__actions">
-          <a class="chi-button chi-button--primary" href="#components">探索元件 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-down"></use></svg></a>
-          <a class="chi-button" href="./DESIGN.md">閱讀 DESIGN.md</a>
-        </div>
+<main id="main-content" class="catalog-main" tabindex="-1">
+  <div class="chi-container">
+    <header class="catalog-heading">
+      <p class="chi-eyebrow">CHI / UI COMPONENTS</p>
+      <h1 class="catalog-heading__title">元件圖鑑</h1>
+      <p class="catalog-heading__description">Chi 共用介面元件的集中目錄。每個項目直接呈現元件本身，不放使用教學、版型範例或程式碼片段。</p>
+      <div class="catalog-heading__meta">
+        <span id="catalog-count">載入元件目錄</span>
+        <span class="catalog-heading__separator" aria-hidden="true"></span>
+        <span>Light / Dark</span>
+        <span class="catalog-heading__separator" aria-hidden="true"></span>
+        <a href="./DESIGN.md">設計規格 <span aria-hidden="true">↗</span></a>
       </div>
-      <aside class="preview-intro__aside" aria-label="設計系統原則">
-        <p class="preview-aside__eyebrow">THE PRINCIPLE</p>
-        <p class="preview-aside__statement">清楚的層級，<br>比更多裝飾重要。</p>
-        <div class="preview-aside__rule"></div>
-        <p class="preview-aside__note">先用排版、留白與語意建立秩序。只有在需要時，才加入邊框、表面層級與陰影。</p>
-      </aside>
-    </div>
-  </section>
+    </header>
 
-  <div class="preview-docbar">
-    <div class="chi-container preview-docbar__inner">
-      <span class="preview-docbar__label">ON THIS PAGE</span>
-      <nav aria-label="本頁章節" class="preview-section-nav">
-        <a href="#foundations">基礎</a>
-        <a href="#components">元件</a>
-        <a href="#patterns">版型</a>
-        <a href="#usage">實作規範</a>
-      </nav>
-      <a class="preview-docbar__source" href="./design-system.yml">YAML 規格 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
+    <div class="catalog-toolbar">
+      <label class="catalog-search" for="component-search">
+        <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg>
+        <input id="component-search" type="search" placeholder="搜尋元件名稱…" autocomplete="off" spellcheck="false">
+        <kbd>/</kbd>
+      </label>
+      <div class="catalog-filters" role="group" aria-label="元件類別">
+        <button class="catalog-filter is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="catalog-filter" type="button" data-filter="actions" aria-pressed="false">操作</button>
+        <button class="catalog-filter" type="button" data-filter="forms" aria-pressed="false">表單</button>
+        <button class="catalog-filter" type="button" data-filter="navigation" aria-pressed="false">導覽</button>
+        <button class="catalog-filter" type="button" data-filter="feedback" aria-pressed="false">狀態回饋</button>
+        <button class="catalog-filter" type="button" data-filter="data" aria-pressed="false">資料呈現</button>
+        <button class="catalog-filter" type="button" data-filter="layout" aria-pressed="false">容器與工具</button>
+      </div>
     </div>
+
+    <p class="catalog-status" id="catalog-status" role="status" aria-live="polite">顯示所有元件</p>
+
+    <section class="catalog-section" id="actions" data-section="actions">
+      <header class="catalog-section__header">
+        <span class="catalog-section__index">01</span>
+        <div><h2>操作</h2><p>執行動作、快速選擇與文字操作</p></div>
+        <span class="catalog-section__count" data-section-count>—</span>
+      </header>
+      <div class="catalog-grid">
+        <article class="specimen" data-category="actions" data-name="按鈕 Button Primary Secondary Danger Disabled Small">
+          <div class="specimen__header"><h3>Button</h3><span>按鈕</span></div>
+          <div class="specimen__body">
+            <div class="specimen__row"><button class="chi-button chi-button--primary" type="button">主要操作</button><button class="chi-button" type="button">次要操作</button></div>
+            <div class="specimen__row"><button class="chi-button chi-button--danger" type="button">危險操作</button><button class="chi-button" type="button" disabled>停用</button></div>
+            <div class="specimen__row"><button class="chi-button chi-button--small" type="button">小型按鈕</button><button class="chi-button chi-button--primary chi-button--small" type="button">小型主要</button></div>
+          </div>
+        </article>
+        <article class="specimen" data-category="actions" data-name="圖示按鈕 Icon Button">
+          <div class="specimen__header"><h3>Icon button</h3><span>圖示按鈕</span></div>
+          <div class="specimen__body">
+            <div class="specimen__row">
+              <button class="chi-button chi-button--icon" type="button" aria-label="搜尋" title="搜尋"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#search"></use></svg></button>
+              <button class="chi-button chi-button--icon" type="button" aria-label="編輯" title="編輯"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#pencil"></use></svg></button>
+              <button class="chi-button chi-button--icon" type="button" aria-label="設定" title="設定"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#settings"></use></svg></button>
+              <button class="chi-button chi-button--icon" type="button" aria-label="刪除" title="刪除"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#trash-2"></use></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="specimen" data-category="actions" data-name="標籤 Tag Badge 狀態">
+          <div class="specimen__header"><h3>Badge &amp; Tag</h3><span>標記</span></div>
+          <div class="specimen__body">
+            <div class="specimen__row"><span class="chi-badge">一般</span><span class="chi-badge chi-badge--success">正常</span><span class="chi-badge chi-badge--warning">待處理</span><span class="chi-badge chi-badge--danger">失敗</span></div>
+            <div class="chi-tag-list"><span class="chi-tag">公開</span><span class="chi-tag">工具</span><span class="chi-tag">v2.4.0</span></div>
+          </div>
+        </article>
+        <article class="specimen" data-category="actions" data-name="分段控制 Segmented control">
+          <div class="specimen__header"><h3>Segmented control</h3><span>分段選擇</span></div>
+          <div class="specimen__body">
+            <div class="chi-segmented" role="group" aria-label="檢視模式">
+              <button class="chi-segmented__item" type="button" aria-pressed="true">列表</button>
+              <button class="chi-segmented__item" type="button" aria-pressed="false">網格</button>
+              <button class="chi-segmented__item" type="button" aria-pressed="false">簡潔</button>
+            </div>
+          </div>
+        </article>
+        <article class="specimen" data-category="actions" data-name="工具提示 Tooltip">
+          <div class="specimen__header"><h3>Tooltip</h3><span>工具提示</span></div>
+          <div class="specimen__body specimen__body--center">
+            <span class="chi-tooltip"><button class="chi-button" type="button">將游標移至此處</button><span class="chi-tooltip__content" role="tooltip">這是提示內容</span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="forms" data-section="forms">
+      <header class="catalog-section__header">
+        <span class="catalog-section__index">02</span>
+        <div><h2>表單</h2><p>輸入、選取與偏好設定控制</p></div>
+        <span class="catalog-section__count" data-section-count>—</span>
+      </header>
+      <div class="catalog-grid">
+        <article class="specimen" data-category="forms" data-name="輸入框 Input Text Email Search">
+          <div class="specimen__header"><h3>Input</h3><span>輸入框</span></div>
+          <div class="specimen__body specimen__stack">
+            <label class="chi-field"><span class="chi-label">一般輸入</span><input class="chi-input" type="text" placeholder="輸入內容"></label>
+            <label class="chi-field"><span class="chi-label">搜尋</span><span class="chi-search"><svg class="chi-icon chi-icon--sm" aria-hidden="true"><use href="./icons.svg#search"></use></svg><input type="search" placeholder="搜尋項目…"></span></label>
+          </div>
+        </article>
+        <article class="specimen" data-category="forms" data-name="選擇器 Select">
+          <div class="specimen__header"><h3>Select</h3><span>選擇器</span></div>
+          <div class="specimen__body specimen__stack">
+            <label class="chi-field"><span class="chi-label">選擇項目</span><select class="chi-select"><option>請選擇</option><option>選項一</option><option>選項二</option></select></label>
+            <label class="chi-field"><span class="chi-label">停用狀態</span><select class="chi-select" disabled><option>不可選擇</option></select></label>
+          </div>
+        </article>
+        <article class="specimen" data-category="forms" data-name="多行文字 Textarea">
+          <div class="specimen__header"><h3>Textarea</h3><span>多行文字</span></div>
+          <div class="specimen__body specimen__stack">
+            <label class="chi-field"><span class="chi-label">內容</span><textarea class="chi-textarea" rows="3" placeholder="輸入多行文字…"></textarea></label>
+          </div>
+        </article>
+        <article class="specimen" data-category="forms" data-name="Checkbox Radio 單選 多選">
+          <div class="specimen__header"><h3>Checkbox &amp; Radio</h3><span>勾選與單選</span></div>
+          <div class="specimen__body specimen__stack">
+            <label class="chi-check"><input type="checkbox" checked> 已啟用通知</label>
+            <label class="chi-check"><input type="checkbox"> 接收產品更新</label>
+            <hr class="chi-divider">
+            <label class="chi-radio"><input type="radio" name="catalog-radio" checked> 自動</label>
+            <label class="chi-radio"><input type="radio" name="catalog-radio"> 手動</label>
+          </div>
+        </article>
+        <article class="specimen" data-category="forms" data-name="Switch 開關">
+          <div class="specimen__header"><h3>Switch</h3><span>開關</span></div>
+          <div class="specimen__body specimen__stack">
+            <label class="chi-switch"><input type="checkbox" checked><span class="chi-switch__track" aria-hidden="true"></span><span>啟用通知</span></label>
+            <label class="chi-switch"><input type="checkbox"><span class="chi-switch__track" aria-hidden="true"></span><span>自動更新</span></label>
+            <label class="chi-switch"><input type="checkbox" disabled><span class="chi-switch__track" aria-hidden="true"></span><span>停用狀態</span></label>
+          </div>
+        </article>
+        <article class="specimen" data-category="forms" data-name="欄位提示錯誤 Field Hint Error">
+          <div class="specimen__header"><h3>Field feedback</h3><span>欄位回饋</span></div>
+          <div class="specimen__body specimen__stack">
+            <label class="chi-field"><span class="chi-label">電子郵件</span><input class="chi-input" type="email" value="hello@example.com" aria-describedby="field-hint"><span class="chi-field__hint" id="field-hint">使用可收信的地址</span></label>
+            <label class="chi-field"><span class="chi-label">帳號</span><input class="chi-input" type="text" value=" " aria-invalid="true" aria-describedby="field-error"><span class="chi-field__error" id="field-error">請填寫帳號</span></label>
+          </div>
+        </article>
+        <article class="specimen" data-category="forms" data-name="檔案上傳 Dropzone Upload">
+          <div class="specimen__header"><h3>Dropzone</h3><span>檔案上傳區</span></div>
+          <div class="specimen__body">
+            <div class="chi-dropzone"><span class="chi-dropzone__icon"><svg class="chi-icon chi-icon--lg" aria-hidden="true"><use href="./icons.svg#upload"></use></svg></span><strong>拖曳檔案至此</strong><span class="chi-help">或選擇裝置中的檔案</span><button class="chi-button chi-button--small" type="button" id="choose-file">選擇檔案</button><input id="file-input" class="catalog-file-input" type="file" hidden><span class="chi-help" id="file-name" aria-live="polite">尚未選擇檔案</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="navigation" data-section="navigation">
+      <header class="catalog-section__header">
+        <span class="catalog-section__index">03</span>
+        <div><h2>導覽</h2><p>位置、頁面切換與清單導向</p></div>
+        <span class="catalog-section__count" data-section-count>—</span>
+      </header>
+      <div class="catalog-grid">
+        <article class="specimen" data-category="navigation" data-name="Breadcrumbs 麵包屑">
+          <div class="specimen__header"><h3>Breadcrumbs</h3><span>麵包屑</span></div>
+          <div class="specimen__body"><nav class="chi-breadcrumbs" aria-label="麵包屑"><a href="#main-content">首頁</a><span class="chi-breadcrumbs__separator">/</span><a href="#navigation">專案</a><span class="chi-breadcrumbs__separator">/</span><span aria-current="page">設定</span></nav></div>
+        </article>
+        <article class="specimen" data-category="navigation" data-name="Tabs 分頁">
+          <div class="specimen__header"><h3>Tabs</h3><span>頁籤</span></div>
+          <div class="specimen__body specimen__stack">
+            <div class="chi-tabs" role="tablist" aria-label="元件分頁">
+              <button class="chi-tabs__item" id="catalog-tab-general" role="tab" aria-controls="catalog-tab-panel" aria-selected="true" tabindex="0" data-tab="general">一般</button>
+              <button class="chi-tabs__item" id="catalog-tab-activity" role="tab" aria-controls="catalog-tab-panel" aria-selected="false" tabindex="-1" data-tab="activity">活動</button>
+              <button class="chi-tabs__item" id="catalog-tab-settings" role="tab" aria-controls="catalog-tab-panel" aria-selected="false" tabindex="-1" data-tab="settings">設定</button>
+            </div>
+            <p class="catalog-tab-panel" id="catalog-tab-panel" role="tabpanel" aria-labelledby="catalog-tab-general" tabindex="0">一般</p>
+          </div>
+        </article>
+        <article class="specimen" data-category="navigation" data-name="Pagination 分頁控制">
+          <div class="specimen__header"><h3>Pagination</h3><span>分頁控制</span></div>
+          <div class="specimen__body"><nav class="chi-pagination" aria-label="資料分頁"><a class="chi-pagination__item" href="#navigation" aria-label="上一頁">‹</a><a class="chi-pagination__item" href="#navigation" aria-current="page">1</a><a class="chi-pagination__item" href="#navigation">2</a><a class="chi-pagination__item" href="#navigation">3</a><span class="chi-pagination__item" aria-hidden="true">…</span><a class="chi-pagination__item" href="#navigation">8</a><a class="chi-pagination__item" href="#navigation" aria-label="下一頁">›</a></nav></div>
+        </article>
+        <article class="specimen" data-category="navigation" data-name="Menu 選單">
+          <div class="specimen__header"><h3>Menu</h3><span>選單項目</span></div>
+          <div class="specimen__body"><div class="chi-menu" role="menu" aria-label="項目選單"><button class="chi-menu__item" type="button" role="menuitem"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#pencil"></use></svg>編輯</button><button class="chi-menu__item" type="button" role="menuitem"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#copy"></use></svg>複製</button><button class="chi-menu__item chi-menu__item--danger" type="button" role="menuitem"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#trash-2"></use></svg>刪除</button></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="feedback" data-section="feedback">
+      <header class="catalog-section__header">
+        <span class="catalog-section__index">04</span>
+        <div><h2>狀態與回饋</h2><p>系統狀態、操作結果與載入過程</p></div>
+        <span class="catalog-section__count" data-section-count>—</span>
+      </header>
+      <div class="catalog-grid">
+        <article class="specimen" data-category="feedback" data-name="Alert 提示訊息 Info Success Warning Danger">
+          <div class="specimen__header"><h3>Alert</h3><span>提示訊息</span></div>
+          <div class="specimen__body specimen__stack">
+            <div class="chi-alert chi-alert--info"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#info"></use></svg><div class="chi-alert__body"><p class="chi-alert__title">資訊</p><p class="chi-alert__body">這是一則一般提示訊息。</p></div></div>
+            <div class="chi-alert chi-alert--success"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#circle-check"></use></svg><div><p class="chi-alert__title">已完成</p><p class="chi-alert__body">變更已成功儲存。</p></div></div>
+            <div class="chi-alert chi-alert--warning"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#triangle-alert"></use></svg><div><p class="chi-alert__title">注意</p><p class="chi-alert__body">此操作需要再次確認。</p></div></div>
+            <div class="chi-alert chi-alert--danger"><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#x"></use></svg><div><p class="chi-alert__title">發生錯誤</p><p class="chi-alert__body">目前無法完成操作。</p></div></div>
+          </div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Notice Inline notice">
+          <div class="specimen__header"><h3>Notice</h3><span>內嵌提示</span></div>
+          <div class="specimen__body specimen__stack"><div class="chi-notice">此處顯示與目前內容相關的補充資訊。</div><div class="chi-notice">設定尚未儲存，離開前請確認變更。</div></div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Progress 進度條">
+          <div class="specimen__header"><h3>Progress</h3><span>進度條</span></div>
+          <div class="specimen__body specimen__stack">
+            <div class="catalog-progress-row"><span>進行中</span><strong>68%</strong></div><div class="chi-progress" role="progressbar" aria-label="進行中" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68"><div class="chi-progress__bar" style="width:68%"></div></div>
+            <div class="catalog-progress-row"><span>已完成</span><strong>100%</strong></div><div class="chi-progress chi-progress--success" role="progressbar" aria-label="已完成" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div class="chi-progress__bar" style="width:100%"></div></div>
+            <div class="catalog-progress-row"><span>中斷</span><strong>32%</strong></div><div class="chi-progress chi-progress--danger" role="progressbar" aria-label="中斷" aria-valuemin="0" aria-valuemax="100" aria-valuenow="32"><div class="chi-progress__bar" style="width:32%"></div></div>
+          </div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Steps 步驟">
+          <div class="specimen__header"><h3>Steps</h3><span>步驟</span></div>
+          <div class="specimen__body"><div class="chi-steps"><div class="chi-steps__item is-complete">建立帳號</div><div class="chi-steps__item is-current">設定資料</div><div class="chi-steps__item">完成</div></div></div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Empty 空狀態 Empty state">
+          <div class="specimen__header"><h3>Empty state</h3><span>空狀態</span></div>
+          <div class="specimen__body"><div class="chi-empty-state"><span class="chi-icon-circle catalog-empty-icon"><svg class="chi-icon chi-icon--lg" aria-hidden="true"><use href="./icons.svg#search"></use></svg></span><p class="chi-empty-state__title">目前沒有項目</p><p class="chi-empty-state__description">新增項目後，內容會顯示在這裡。</p></div></div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Skeleton Loading 載入中">
+          <div class="specimen__header"><h3>Skeleton</h3><span>載入佔位</span></div>
+          <div class="specimen__body specimen__stack">
+            <div class="catalog-skeleton-row"><span class="chi-skeleton catalog-skeleton-avatar"></span><span class="catalog-skeleton-copy"><span class="chi-skeleton catalog-skeleton-line"></span><span class="chi-skeleton catalog-skeleton-line catalog-skeleton-line--short"></span></span></div>
+            <span class="chi-skeleton catalog-skeleton-line"></span><span class="chi-skeleton catalog-skeleton-line catalog-skeleton-line--medium"></span>
+          </div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Toast 通知">
+          <div class="specimen__header"><h3>Toast</h3><span>短暫通知</span></div>
+          <div class="specimen__body specimen__stack">
+            <div class="chi-toast"><svg class="chi-icon" aria-hidden="true" style="color:var(--chi-color-success)"><use href="./icons.svg#circle-check"></use></svg><span class="chi-toast__message">設定已儲存</span><button class="chi-button chi-button--small" type="button" data-dismiss-toast>關閉</button></div>
+            <button class="chi-button chi-button--primary" type="button" id="show-toast">顯示通知</button>
+            <div id="catalog-toast-region" class="chi-toast-region" aria-live="polite" aria-atomic="true"></div>
+          </div>
+        </article>
+        <article class="specimen" data-category="feedback" data-name="Dialog 確認對話框">
+          <div class="specimen__header"><h3>Dialog</h3><span>確認對話框</span></div>
+          <div class="specimen__body"><div class="chi-dialog"><h4 class="catalog-dialog-title">確認變更？</h4><p class="chi-help">儲存後會套用新的設定。</p><div class="specimen__row specimen__row--end"><button class="chi-button chi-button--small" type="button">取消</button><button class="chi-button chi-button--primary chi-button--small" type="button">確認</button></div></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="data" data-section="data">
+      <header class="catalog-section__header">
+        <span class="catalog-section__index">05</span>
+        <div><h2>資料呈現</h2><p>文字、清單、統計與資料結構</p></div>
+        <span class="catalog-section__count" data-section-count>—</span>
+      </header>
+      <div class="catalog-grid">
+        <article class="specimen" data-category="data" data-name="Avatar 使用者頭像">
+          <div class="specimen__header"><h3>Avatar</h3><span>頭像</span></div>
+          <div class="specimen__body"><div class="specimen__row specimen__row--baseline"><span class="chi-avatar chi-avatar--small">C</span><span class="chi-avatar">CH</span><span class="chi-avatar chi-avatar--large">CHI</span><span class="chi-avatar-group"><span class="chi-avatar">A</span><span class="chi-avatar">B</span><span class="chi-avatar">C</span></span></div></div>
+        </article>
+        <article class="specimen" data-category="data" data-name="Stat 統計數值">
+          <div class="specimen__header"><h3>Stat</h3><span>統計數值</span></div>
+          <div class="specimen__body">
+            <div class="catalog-stat-grid"><div class="chi-stat"><span class="chi-stat__label">總使用次數</span><strong class="chi-stat__value">12,840</strong><span class="chi-stat__change">↑ 12.8%</span></div><div class="chi-stat"><span class="chi-stat__label">成功率</span><strong class="chi-stat__value">98.6%</strong><span class="chi-stat__change">↑ 2.4%</span></div></div>
+          </div>
+        </article>
+        <article class="specimen" data-category="data" data-name="List 清單">
+          <div class="specimen__header"><h3>List</h3><span>清單</span></div>
+          <div class="specimen__body"><div class="chi-list"><div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">一般項目</p><p class="chi-list__description">次要說明文字</p></div><span class="chi-badge">一般</span></div><div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">已完成項目</p><p class="chi-list__description">最後更新於剛才</p></div><span class="chi-badge chi-badge--success">完成</span></div></div></div>
+        </article>
+        <article class="specimen" data-category="data" data-name="Media row 媒體列">
+          <div class="specimen__header"><h3>Media row</h3><span>媒體列</span></div>
+          <div class="specimen__body"><div class="chi-media"><span class="chi-icon-circle"><svg class="chi-icon chi-icon--lg" aria-hidden="true"><use href="./icons.svg#monitor"></use></svg></span><div class="chi-media__body"><p class="chi-media__title">桌面裝置</p><p class="chi-media__description">Windows · 最近使用</p></div><span class="chi-badge chi-badge--success">在線</span></div></div>
+        </article>
+        <article class="specimen specimen--wide" data-category="data" data-name="Table 資料表格">
+          <div class="specimen__header"><h3>Table</h3><span>資料表格</span></div>
+          <div class="specimen__body"><div class="chi-table-wrap"><table class="chi-table"><thead><tr><th scope="col">名稱</th><th scope="col">狀態</th><th scope="col">版本</th><th scope="col">更新日期</th></tr></thead><tbody><tr><td>Chi Source</td><td><span class="chi-badge chi-badge--success">正常</span></td><td>2.4.0</td><td>2026-10-12</td></tr><tr><td>Chi Auth</td><td><span class="chi-badge chi-badge--warning">待確認</span></td><td>1.2.1</td><td>2026-10-10</td></tr><tr><td>Chi Status</td><td><span class="chi-badge">維護中</span></td><td>0.9.8</td><td>2026-10-08</td></tr></tbody></table></div></div>
+        </article>
+        <article class="specimen" data-category="data" data-name="Timeline 時間軸">
+          <div class="specimen__header"><h3>Timeline</h3><span>時間軸</span></div>
+          <div class="specimen__body"><div class="chi-timeline"><div class="chi-timeline__item"><span class="chi-timeline__rail"><span class="chi-timeline__dot"></span></span><div><p class="chi-timeline__title">部署完成</p><p class="chi-timeline__meta">今天 · 09:42</p></div></div><div class="chi-timeline__item"><span class="chi-timeline__rail"><span class="chi-timeline__dot"></span></span><div><p class="chi-timeline__title">檢查通過</p><p class="chi-timeline__meta">今天 · 09:38</p></div></div><div class="chi-timeline__item"><span class="chi-timeline__rail"><span class="chi-timeline__dot"></span></span><div><p class="chi-timeline__title">開始部署</p><p class="chi-timeline__meta">今天 · 09:31</p></div></div></div></div>
+        </article>
+        <article class="specimen" data-category="data" data-name="Quote 引言">
+          <div class="specimen__header"><h3>Quote</h3><span>引言</span></div>
+          <div class="specimen__body"><blockquote class="chi-quote">清楚的層級，讓內容自己說話。</blockquote></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="layout" data-section="layout">
+      <header class="catalog-section__header">
+        <span class="catalog-section__index">06</span>
+        <div><h2>容器與工具</h2><p>內容表面、分隔線與文字工具</p></div>
+        <span class="catalog-section__count" data-section-count>—</span>
+      </header>
+      <div class="catalog-grid">
+        <article class="specimen" data-category="layout" data-name="Card 卡片">
+          <div class="specimen__header"><h3>Card</h3><span>卡片</span></div>
+          <div class="specimen__body"><div class="chi-card"><span class="chi-icon-circle"><svg class="chi-icon chi-icon--lg" aria-hidden="true"><use href="./icons.svg#layers"></use></svg></span><h4 class="chi-card__title">內容卡片</h4><p class="chi-card__description">卡片用來承載一組相關資訊，保留清楚的標題、內文與間距。</p></div></div>
+        </article>
+        <article class="specimen" data-category="layout" data-name="Panel 面板 Surface">
+          <div class="specimen__header"><h3>Panel</h3><span>面板</span></div>
+          <div class="specimen__body specimen__stack"><div class="chi-panel catalog-panel-sample"><strong>一般表面</strong><span class="chi-help">以內容和邊界建立分組。</span></div><div class="chi-panel chi-panel--glass catalog-panel-sample"><strong>玻璃表面</strong><span class="chi-help">只用於需要透出背景的情境。</span></div></div>
+        </article>
+        <article class="specimen" data-category="layout" data-name="Divider 分隔線">
+          <div class="specimen__header"><h3>Divider</h3><span>分隔線</span></div>
+          <div class="specimen__body specimen__stack"><p>第一個內容區塊</p><hr class="chi-divider"><p>第二個內容區塊</p></div>
+        </article>
+        <article class="specimen" data-category="layout" data-name="Typography 標題文字連結">
+          <div class="specimen__header"><h3>Typography</h3><span>文字層級</span></div>
+          <div class="specimen__body specimen__stack"><p class="chi-kicker">SECTION LABEL</p><h4 class="catalog-type-title">內容標題</h4><p>一般內文與 <a class="chi-link" href="#layout">文字連結</a></p><p class="chi-help">輔助資訊</p><p><code class="chi-code">inline code</code></p></div>
+        </article>
+        <article class="specimen" data-category="layout" data-name="Code Pre 程式碼區塊">
+          <div class="specimen__header"><h3>Code block</h3><span>程式碼外觀</span></div>
+          <div class="specimen__body"><pre class="chi-pre"><code>--chi-color-accent
+--chi-space-4
+--chi-radius-md</code></pre></div>
+        </article>
+        <article class="specimen" data-category="layout" data-name="Feature list 功能清單">
+          <div class="specimen__header"><h3>Feature list</h3><span>功能清單</span></div>
+          <div class="specimen__body"><ul class="chi-feature-list catalog-feature-list"><li><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#check"></use></svg><span>一致的視覺語言</span></li><li><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#check"></use></svg><span>亮暗主題支援</span></li><li><svg class="chi-icon" aria-hidden="true"><use href="./icons.svg#check"></use></svg><span>可重用的共用樣式</span></li></ul></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="catalog-empty" id="catalog-empty" hidden>找不到符合條件的元件，試試其他關鍵字或切換類別。</div>
   </div>
-
-  <section class="chi-container preview-section" id="foundations" aria-labelledby="foundations-title">
-    <div class="preview-section-heading">
-      <div>
-        <p class="preview-kicker">01 / FOUNDATIONS</p>
-        <h2 class="chi-section__title" id="foundations-title">基礎規格</h2>
-        <p class="preview-section__intro">用一致的語意 token 管理色彩、字體、間距與表面。實際數值以 <code>tokens.css</code> 為準，避免各頁面自行長出一套規則。</p>
-      </div>
-      <a class="preview-text-link" href="./DESIGN.md#與實作同步的-token-規格">查看完整 token 規範 <span aria-hidden="true">↗</span></a>
-    </div>
-
-    <div class="preview-foundation-grid">
-      <article class="preview-foundation-block">
-        <div class="preview-block-heading">
-          <div><span class="preview-index">A</span><h3>色彩角色</h3></div>
-          <span class="preview-mini-note">LIGHT / DARK</span>
-        </div>
-        <p class="preview-block-copy">色彩先表達用途，再表達裝飾。切換主題時，元件只需讀取同一個語意 token。</p>
-        <div class="preview-color-list">
-          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-page)"></span><span class="preview-color-meta"><strong>Page</strong><code>--chi-color-page</code></span><output data-token-value="--chi-color-page"></output></div>
-          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-surface)"></span><span class="preview-color-meta"><strong>Surface</strong><code>--chi-color-surface</code></span><output data-token-value="--chi-color-surface"></output></div>
-          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-text-strong)"></span><span class="preview-color-meta"><strong>Primary text</strong><code>--chi-color-text-strong</code></span><output data-token-value="--chi-color-text-strong"></output></div>
-          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-accent)"></span><span class="preview-color-meta"><strong>Accent</strong><code>--chi-color-accent</code></span><output data-token-value="--chi-color-accent"></output></div>
-          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-accent-blue)"></span><span class="preview-color-meta"><strong>Blue accent</strong><code>--chi-color-accent-blue</code></span><output data-token-value="--chi-color-accent-blue"></output></div>
-          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-border)"></span><span class="preview-color-meta"><strong>Border</strong><code>--chi-color-border</code></span><output data-token-value="--chi-color-border"></output></div>
-        </div>
-      </article>
-
-      <article class="preview-foundation-block">
-        <div class="preview-block-heading">
-          <div><span class="preview-index">B</span><h3>文字層級</h3></div>
-          <span class="preview-mini-note">TYPE SCALE</span>
-        </div>
-        <p class="preview-block-copy">標題建立閱讀順序，輔助文字補充脈絡。不要只靠顏色區分重要程度。</p>
-        <div class="preview-type-specimens">
-          <div class="preview-type-row"><span>Display</span><p class="preview-type-display">清楚的介面</p><code>--chi-text-display</code></div>
-          <div class="preview-type-row"><span>Heading</span><p class="preview-type-heading">章節與頁面標題</p><code>--chi-text-xl</code></div>
-          <div class="preview-type-row"><span>Body</span><p class="preview-type-body">內容應該容易閱讀，行距足夠，說明靠近它所解釋的控制項。</p><code>--chi-text-md</code></div>
-          <div class="preview-type-row"><span>Supporting</span><p class="preview-type-supporting">用於補充資訊、狀態說明與欄位提示。</p><code>--chi-text-sm</code></div>
-        </div>
-      </article>
-
-      <article class="preview-foundation-block">
-        <div class="preview-block-heading">
-          <div><span class="preview-index">C</span><h3>間距與形狀</h3></div>
-          <span class="preview-mini-note">SPACING / RADIUS</span>
-        </div>
-        <p class="preview-block-copy">間距維持節奏，圓角區分元件角色。不是每個容器都需要邊框、陰影或膠囊外型。</p>
-        <div class="preview-scale-list">
-          <div class="preview-scale-row"><code>space-2</code><span class="preview-scale-track"><i style="--scale:16%"></i></span><output>8px</output></div>
-          <div class="preview-scale-row"><code>space-3</code><span class="preview-scale-track"><i style="--scale:24%"></i></span><output>12px</output></div>
-          <div class="preview-scale-row"><code>space-4</code><span class="preview-scale-track"><i style="--scale:32%"></i></span><output>16px</output></div>
-          <div class="preview-scale-row"><code>space-6</code><span class="preview-scale-track"><i style="--scale:48%"></i></span><output>24px</output></div>
-          <div class="preview-scale-row"><code>space-8</code><span class="preview-scale-track"><i style="--scale:64%"></i></span><output>32px</output></div>
-        </div>
-        <div class="preview-shape-list">
-          <div><span class="preview-shape preview-shape--sm"></span><code>6px / sm</code></div>
-          <div><span class="preview-shape preview-shape--md"></span><code>10px / md</code></div>
-          <div><span class="preview-shape preview-shape--lg"></span><code>16px / lg</code></div>
-          <div><span class="preview-shape preview-shape--pill"></span><code>pill</code></div>
-        </div>
-      </article>
-
-      <article class="preview-foundation-block preview-foundation-block--surface">
-        <div class="preview-block-heading">
-          <div><span class="preview-index">D</span><h3>表面與層級</h3></div>
-          <span class="preview-mini-note">SURFACE / ELEVATION</span>
-        </div>
-        <p class="preview-block-copy">先以背景與細邊框建立層次。只有浮層、互動卡片等需要時，才提高陰影。</p>
-        <div class="preview-surface-demo">
-          <div class="preview-surface-demo__page"><span>Page</span><div class="preview-surface-demo__surface"><span>Surface</span><div class="preview-surface-demo__raised"><span>Raised surface</span></div></div></div>
-        </div>
-        <ul class="preview-rule-list">
-          <li>一般面板以表面色與邊框為主</li>
-          <li>下拉選單使用 raised surface</li>
-          <li>玻璃效果只用在需要背景透視的局部</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="preview-component-section" id="components" aria-labelledby="components-title">
-    <div class="chi-container preview-section">
-      <div class="preview-section-heading">
-        <div>
-          <p class="preview-kicker">02 / COMPONENTS</p>
-          <h2 class="chi-section__title" id="components-title">元件圖鑑</h2>
-          <p class="preview-section__intro">每個元件都要有清楚用途、可辨識的狀態與合理的鍵盤行為。可以搜尋名稱、用途或英文關鍵字，快速找到需要的範例。</p>
-        </div>
-        <span class="preview-component-count" id="component-count">12 個範例</span>
-      </div>
-
-      <div class="preview-catalog-tools">
-        <div class="preview-search-wrap">
-          <label for="component-search">搜尋元件</label>
-          <div class="preview-search-control">
-            <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg>
-            <input class="chi-input" id="component-search" type="search" placeholder="例如：button、表單、錯誤…" autocomplete="off">
-            <button class="chi-button chi-button--small" id="component-search-clear" type="button">清除</button>
-          </div>
-          <p class="chi-help" id="component-search-status" aria-live="polite">顯示全部範例。</p>
-        </div>
-        <div class="preview-filter-group" role="group" aria-label="依元件類別篩選">
-          <button class="preview-filter is-active" type="button" data-component-filter="all" aria-pressed="true">全部</button>
-          <button class="preview-filter" type="button" data-component-filter="actions" aria-pressed="false">操作</button>
-          <button class="preview-filter" type="button" data-component-filter="forms" aria-pressed="false">表單</button>
-          <button class="preview-filter" type="button" data-component-filter="feedback" aria-pressed="false">狀態回饋</button>
-          <button class="preview-filter" type="button" data-component-filter="data" aria-pressed="false">資料呈現</button>
-        </div>
-      </div>
-
-      <div class="preview-component-grid" id="component-catalog">
-        <article class="preview-component-card" data-category="actions" data-search="button 按鈕 primary secondary danger 主要 次要 危險">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C01</span><h3>按鈕與操作</h3></div><span class="preview-status">Action</span></div>
-          <p>主要操作清楚突出，次要操作降低視覺重量；危險操作需與一般流程區隔。</p>
-          <div class="preview-specimen preview-specimen--wrap">
-            <button class="chi-button chi-button--primary" type="button" data-demo-toast="主要操作已觸發。">主要操作</button>
-            <button class="chi-button" type="button" data-demo-toast="次要操作已觸發。">次要操作</button>
-            <button class="chi-button chi-button--danger" type="button" data-demo-toast="這是示範回饋，沒有刪除任何資料。">危險操作</button>
-            <button class="chi-button" type="button" disabled>不可用</button>
-          </div>
-          <div class="preview-code-block"><button class="preview-copy" type="button" data-copy-code>複製程式碼</button><pre><code>&lt;button class="chi-button chi-button--primary"&gt;
-  儲存變更
-&lt;/button&gt;</code></pre></div>
-        </article>
-
-        <article class="preview-component-card" data-category="forms" data-search="input form 輸入欄位 label help error 搜尋">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C02</span><h3>輸入欄位</h3></div><span class="preview-status">Form</span></div>
-          <p>欄位標籤、提示與錯誤訊息都應直接對應輸入內容，不能只用顏色傳達錯誤。</p>
-          <div class="preview-specimen preview-specimen--stack">
-            <label class="chi-label" for="demo-email">電子郵件</label>
-            <input class="chi-input" id="demo-email" type="email" placeholder="name@example.com" aria-describedby="demo-email-help">
-            <p class="chi-help" id="demo-email-help">用於帳號通知，不會公開顯示。</p>
-            <label class="chi-label" for="demo-invalid">錯誤狀態示範</label>
-            <input class="chi-input" id="demo-invalid" type="text" value="未完成的資料" aria-invalid="true" aria-describedby="demo-invalid-error">
-            <p class="chi-help preview-error-text" id="demo-invalid-error">請檢查這個欄位的內容。</p>
-          </div>
-          <div class="preview-code-block"><button class="preview-copy" type="button" data-copy-code>複製程式碼</button><pre><code>&lt;label class="chi-label" for="email"&gt;
-  電子郵件
-&lt;/label&gt;
-&lt;input class="chi-input" id="email" type="email"&gt;</code></pre></div>
-        </article>
-
-        <article class="preview-component-card" data-category="forms" data-search="switch toggle 開關 設定 preference 偏好">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C03</span><h3>開關與設定列</h3></div><span class="preview-status">Settings</span></div>
-          <p>開關適用於切換後立即生效的布林設定；需要提交的設定應使用明確的表單流程。</p>
-          <div class="preview-specimen preview-specimen--stack">
-            <label class="preview-setting-row"><span><strong>郵件通知</strong><small>接收重要活動的更新</small></span><input class="chi-switch" type="checkbox" checked aria-label="郵件通知"></label>
-            <label class="preview-setting-row"><span><strong>產品更新</strong><small>接收新功能與版本資訊</small></span><input class="chi-switch" type="checkbox" aria-label="產品更新"></label>
-          </div>
-          <div class="preview-code-block"><button class="preview-copy" type="button" data-copy-code>複製程式碼</button><pre><code>&lt;label class="preview-setting-row"&gt;
-  &lt;span&gt;郵件通知&lt;/span&gt;
-  &lt;input class="chi-switch" type="checkbox"&gt;
-&lt;/label&gt;</code></pre></div>
-        </article>
-
-        <article class="preview-component-card" data-category="actions" data-search="tabs tab 頁籤 navigation 切換">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C04</span><h3>頁籤</h3></div><span class="preview-status">Navigation</span></div>
-          <p>頁籤切換同一層級的相關內容，選取狀態要可見，也要能用鍵盤切換。</p>
-          <div class="preview-specimen preview-specimen--stack">
-            <div class="preview-tabs" role="tablist" aria-label="頁籤範例">
-              <button id="demo-tab-overview" class="preview-tab is-active" role="tab" type="button" aria-selected="true" aria-controls="demo-tab-panel" tabindex="0" data-demo-tab="overview">總覽</button>
-              <button id="demo-tab-activity" class="preview-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-tab-panel" tabindex="-1" data-demo-tab="activity">活動</button>
-              <button id="demo-tab-settings" class="preview-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-tab-panel" tabindex="-1" data-demo-tab="settings">設定</button>
-            </div>
-            <div class="preview-tab-panel" id="demo-tab-panel" role="tabpanel" aria-labelledby="demo-tab-overview" tabindex="0">總覽內容顯示在這裡。分頁只切換同一層級的內容。</div>
-          </div>
-        </article>
-
-        <article class="preview-component-card" data-category="feedback" data-search="badge status tag 狀態標籤 success warning danger">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C05</span><h3>狀態標籤</h3></div><span class="preview-status">Status</span></div>
-          <p>標籤用來快速辨識狀態，不是裝飾。保持文字簡短，避免同一畫面出現太多高彩度徽章。</p>
-          <div class="preview-specimen preview-specimen--wrap">
-            <span class="chi-badge chi-badge--success">已完成</span>
-            <span class="chi-badge chi-badge--warning">等待處理</span>
-            <span class="chi-badge chi-badge--danger">需要注意</span>
-            <span class="chi-badge">草稿</span>
-          </div>
-        </article>
-
-        <article class="preview-component-card" data-category="feedback" data-search="alert notice 提示訊息 success warning error 錯誤">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C06</span><h3>提示訊息</h3></div><span class="preview-status">Feedback</span></div>
-          <p>需要持續閱讀的錯誤或提醒應留在內容中；不要把重要資訊只放在短暫消失的 Toast。</p>
-          <div class="preview-specimen preview-specimen--stack">
-            <div class="chi-alert chi-alert--success" role="status"><strong>已儲存</strong><span>變更已在此示範介面中完成。</span></div>
-            <div class="chi-alert chi-alert--warning" role="note"><strong>請留意</strong><span>離開前請確認尚未完成的內容。</span></div>
-          </div>
-        </article>
-
-        <article class="preview-component-card" data-category="feedback" data-search="toast notification 通知 暫時回饋">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C07</span><h3>Toast 通知</h3></div><span class="preview-status">Transient</span></div>
-          <p>適合非阻斷性的操作結果。此範例只在頁面上顯示示範訊息，不會呼叫 API 或保存資料。</p>
-          <div class="preview-specimen preview-specimen--wrap">
-            <button class="chi-button chi-button--primary" type="button" data-demo-toast="操作成功。這是前端示範訊息。">顯示成功通知</button>
-            <button class="chi-button" type="button" data-demo-toast="目前沒有待處理的項目。">顯示一般通知</button>
-          </div>
-          <div id="chi-demo-toast-region" class="preview-toast-region" aria-live="polite" aria-atomic="false"></div>
-        </article>
-
-        <article class="preview-component-card" data-category="data" data-search="table data table 資料表格 row 欄位">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C08</span><h3>資料表格</h3></div><span class="preview-status">Data</span></div>
-          <p>欄位名稱保持清楚，狀態與操作放在一致的位置；窄螢幕時應有替代呈現方式。</p>
-          <div class="preview-table-wrap">
-            <table class="preview-table">
-              <thead><tr><th scope="col">項目</th><th scope="col">狀態</th><th scope="col">更新時間</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">設計規格</th><td><span class="chi-badge chi-badge--success">已同步</span></td><td>剛剛</td></tr>
-                <tr><th scope="row">元件清單</th><td><span class="chi-badge chi-badge--warning">待檢查</span></td><td>今天</td></tr>
-                <tr><th scope="row">主題設定</th><td><span class="chi-badge">草稿</span></td><td>昨天</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="preview-component-card" data-category="data" data-search="list row list item 設定列 服務 清單">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C09</span><h3>清單與資料列</h3></div><span class="preview-status">List</span></div>
-          <p>把名稱、輔助說明、狀態與操作整理在同一閱讀路徑，適合設定、服務綁定與最近活動。</p>
-          <div class="preview-data-list">
-            <div class="preview-data-row"><span class="preview-service-icon">DS</span><span class="preview-data-row__copy"><strong>設計系統</strong><small>共用樣式與元件規範</small></span><span class="chi-badge chi-badge--success">已連結</span></div>
-            <div class="preview-data-row"><span class="preview-service-icon">UI</span><span class="preview-data-row__copy"><strong>元件圖鑑</strong><small>HTML / CSS 示範頁</small></span><span class="chi-badge">文件</span></div>
-          </div>
-        </article>
-
-        <article class="preview-component-card" data-category="data" data-search="empty state 空狀態 no results 無資料">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C10</span><h3>空狀態</h3></div><span class="preview-status">Empty</span></div>
-          <p>明確說明目前沒有什麼，並提供合理的下一步。不要只留下空白或一張沒有解釋的插圖。</p>
-          <div class="preview-empty-state">
-            <span class="preview-empty-state__mark" aria-hidden="true"><svg class="chi-icon chi-icon--lg" focusable="false"><use href="./icons.svg#search"></use></svg></span>
-            <strong>目前沒有符合的項目</strong>
-            <p>調整篩選條件，或清除搜尋後再試一次。</p>
-            <button class="chi-button chi-button--small" type="button" id="demo-empty-reset">清除條件</button>
-          </div>
-        </article>
-
-        <article class="preview-component-card" data-category="feedback" data-search="skeleton loading 載入中 progress 進度">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C11</span><h3>載入與進度</h3></div><span class="preview-status">Loading</span></div>
-          <p>載入時保留內容的大致尺寸，降低版面跳動。動態效果需尊重減少動態的系統偏好。</p>
-          <div class="preview-loading-demo" aria-label="載入中示範">
-            <span class="preview-skeleton preview-skeleton--avatar"></span>
-            <span class="preview-skeleton-lines"><i></i><i></i><i></i></span>
-          </div>
-          <div class="preview-progress"><span>同步進度 <strong>68%</strong></span><div class="preview-progress__track" role="progressbar" aria-label="同步進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68"><i></i></div></div>
-        </article>
-
-        <article class="preview-component-card" data-category="actions" data-search="menu dropdown popover 選單 浮層">
-          <div class="preview-component-card__head"><div><span class="preview-card-number">C12</span><h3>選單與浮層原則</h3></div><span class="preview-status">Overlay</span></div>
-          <p>浮層需要清楚的觸發器、展開狀態與關閉方式。不要讓重要功能只能靠 hover 使用。</p>
-          <div class="preview-specimen preview-specimen--stack">
-            <button class="chi-button" id="demo-menu-trigger" type="button" aria-expanded="false" aria-controls="demo-menu-panel">開啟操作選單 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg></button>
-            <div class="preview-menu-panel" id="demo-menu-panel" hidden>
-              <button type="button" data-menu-action="編輯">編輯項目</button>
-              <button type="button" data-menu-action="複製">複製項目</button>
-              <button type="button" data-menu-action="查看詳情">查看詳情</button>
-            </div>
-            <p class="chi-help" id="demo-menu-status" aria-live="polite">選單操作僅更新此處的示範文字。</p>
-          </div>
-        </article>
-      </div>
-      <p class="preview-catalog-empty" id="component-empty" hidden>沒有找到符合條件的範例，試試其他關鍵字或切回「全部」。</p>
-    </div>
-  </section>
-
-  <section class="chi-container preview-section" id="patterns" aria-labelledby="patterns-title">
-    <div class="preview-section-heading">
-      <div>
-        <p class="preview-kicker">03 / PAGE PATTERNS</p>
-        <h2 class="chi-section__title" id="patterns-title">版型模式</h2>
-        <p class="preview-section__intro">設計系統提供組合方式，不是要求所有網站長得一樣。依照使用者的任務選擇資訊架構，再套用共同的視覺語言。</p>
-      </div>
-      <a class="preview-text-link" href="./DESIGN.md#layout-principles版面原則與頁型">閱讀頁型規則 <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="preview-pattern-grid">
-      <article class="preview-pattern">
-        <div class="preview-pattern__visual preview-pattern__visual--landing">
-          <div class="preview-wire-header"><i></i><span></span><span></span><span></span></div>
-          <div class="preview-wire-hero"><i></i><b></b><span></span><span></span><em></em></div>
-          <div class="preview-wire-cards"><i></i><i></i><i></i></div>
-        </div>
-        <div class="preview-pattern__body"><span class="preview-pattern__tag">A / PUBLIC</span><h3>公開入口與品牌介紹</h3><p>主視覺清楚、說明精簡，搭配少量功能區塊。適合產品介紹、工具入口與公開首頁。</p><a href="./DESIGN.md#layout-principles版面原則與頁型" class="preview-text-link">查看設計原則 <span aria-hidden="true">↗</span></a></div>
-      </article>
-      <article class="preview-pattern">
-        <div class="preview-pattern__visual preview-pattern__visual--settings">
-          <div class="preview-wire-appbar"><i></i><span></span><b></b></div>
-          <div class="preview-wire-settings"><i></i><span></span><em></em><i></i><span></span><em></em><i></i><span></span><em></em></div>
-        </div>
-        <div class="preview-pattern__body"><span class="preview-pattern__tag">B / ACCOUNT</span><h3>帳號中心與設定</h3><p>以設定列、區段標題和分隔線組織資訊。減少大型 Hero 與重複卡片，讓操作容易掃讀。</p><a href="./DESIGN.md#layout-principles版面原則與頁型" class="preview-text-link">查看設計原則 <span aria-hidden="true">↗</span></a></div>
-      </article>
-      <article class="preview-pattern">
-        <div class="preview-pattern__visual preview-pattern__visual--data">
-          <div class="preview-wire-metrics"><i></i><i></i><i></i></div>
-          <div class="preview-wire-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          <div class="preview-wire-table"><i></i><i></i><i></i></div>
-        </div>
-        <div class="preview-pattern__body"><span class="preview-pattern__tag">C / WORKSPACE</span><h3>資料工作區與監控</h3><p>優先呈現摘要、狀態、表格與主要任務。資訊密度較高時，避免不必要的裝飾和空間浪費。</p><a href="./DESIGN.md#元件分類與用途" class="preview-text-link">查看元件選型 <span aria-hidden="true">↗</span></a></div>
-      </article>
-    </div>
-    <div class="preview-pattern-note"><strong>共同原則</strong><span>共用 token 與元件，保留各產品自己的內容、流程、路由與功能。不要把元件圖鑑整頁複製成產品首頁。</span></div>
-  </section>
-
-  <section class="preview-implementation" id="usage" aria-labelledby="usage-title">
-    <div class="chi-container preview-implementation__inner">
-      <div class="preview-implementation__copy">
-        <p class="preview-kicker">04 / IMPLEMENTATION</p>
-        <h2 class="chi-section__title" id="usage-title">把規格帶進專案</h2>
-        <p class="preview-section__intro">先讀設計契約，再選擇共用樣式。正式產品應重用 tokens 與元件，不應載入本頁專用的 <code>elements.css</code>。</p>
-        <ol class="preview-steps">
-          <li><span>01</span><div><strong>載入共用樣式</strong><p><code>tokens.css</code> → <code>components.css</code> → <code>navigation.css</code></p></div></li>
-          <li><span>02</span><div><strong>使用語意 token 與元件</strong><p>優先選用既有的 <code>chi-button</code>、<code>chi-input</code>、<code>chi-panel</code> 等元件。</p></div></li>
-          <li><span>03</span><div><strong>驗證兩種主題與響應式</strong><p>檢查焦點、錯誤、停用、載入、空狀態與窄螢幕行為。</p></div></li>
-        </ol>
-      </div>
-      <div class="preview-implementation__code">
-        <div class="preview-code-heading"><span>HTML</span><button class="preview-copy" type="button" data-copy-code>複製程式碼</button></div>
-        <pre><code>&lt;link rel="stylesheet" href="./tokens.css"&gt;
-&lt;link rel="stylesheet" href="./components.css"&gt;
-&lt;link rel="stylesheet" href="./navigation.css"&gt;
-
-&lt;button class="chi-button chi-button--primary"&gt;
-  儲存變更
-&lt;/button&gt;</code></pre>
-        <div class="preview-reference-links">
-          <a href="./DESIGN.md"><span><strong>DESIGN.md</strong><small>設計原則、頁型與無障礙契約</small></span><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
-          <a href="./design-system.yml"><span><strong>design-system.yml</strong><small>機器可讀的 token 與元件規格</small></span><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
-          <a href="./README.md"><span><strong>README.md</strong><small>檔案用途、引用方式與專案說明</small></span><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
-<footer class="preview-footer">
-  <div class="chi-container preview-footer__inner">
-    <span><strong>CHI</strong> <span>Shared interface foundation</span></span>
-    <span>Built around clarity, consistency and useful restraint.</span>
-  </div>
+<footer class="catalog-footer">
+  <div class="chi-container catalog-footer__inner"><a class="chi-brand" href="./index.html">CHI</a><span>Chi Design System · Component library</span><a href="./DESIGN.md">DESIGN.md <span aria-hidden="true">↗</span></a></div>
 </footer>
 
 <script>
 (() => {
   const root = document.documentElement;
-  const button = document.getElementById('theme-toggle');
-  const icon = document.getElementById('theme-icon');
+  const themeButton = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
   const saved = (() => { try { return localStorage.getItem('chi-theme'); } catch { return null; } })();
-  const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const apply = (theme) => {
+  const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+  const applyTheme = (theme) => {
     if (theme === 'dark') root.setAttribute('data-chi-theme', 'dark');
     else root.removeAttribute('data-chi-theme');
-    icon.textContent = theme === 'dark' ? '☼' : '◐';
-    button.setAttribute('aria-label', theme === 'dark' ? '切換為淺色主題' : '切換為深色主題');
-    button.title = theme === 'dark' ? '切換為淺色主題' : '切換為深色主題';
-    updateTokenValues();
+    themeIcon.textContent = theme === 'dark' ? '☼' : '◐';
+    themeButton.setAttribute('aria-label', theme === 'dark' ? '切換為淺色主題' : '切換為深色主題');
+    themeButton.title = theme === 'dark' ? '切換為淺色主題' : '切換為深色主題';
   };
-  const updateTokenValues = () => {
-    const styles = getComputedStyle(root);
-    document.querySelectorAll('[data-token-value]').forEach((node) => {
-      const value = styles.getPropertyValue(node.dataset.tokenValue).trim();
-      if (value) node.textContent = value;
-    });
-  };
-  apply(saved || (systemDark ? 'dark' : 'light'));
-  button.addEventListener('click', () => {
+  applyTheme(saved || (systemDark ? 'dark' : 'light'));
+  themeButton.addEventListener('click', () => {
     const next = root.getAttribute('data-chi-theme') === 'dark' ? 'light' : 'dark';
-    apply(next);
+    applyTheme(next);
     try { localStorage.setItem('chi-theme', next); } catch {}
   });
-  root.addEventListener('change', updateTokenValues);
-  const observer = new MutationObserver(updateTokenValues);
-  observer.observe(root, { attributes: true, attributeFilter: ['data-chi-theme'] });
 
   const search = document.getElementById('component-search');
-  const clear = document.getElementById('component-search-clear');
-  const catalog = document.getElementById('component-catalog');
-  const empty = document.getElementById('component-empty');
-  const status = document.getElementById('component-search-status');
-  const count = document.getElementById('component-count');
-  const cards = [...catalog.querySelectorAll('[data-category]')];
-  const filters = [...document.querySelectorAll('[data-component-filter]')];
-  let category = 'all';
-  const renderCatalog = () => {
+  const filters = [...document.querySelectorAll('[data-filter]')];
+  const specimens = [...document.querySelectorAll('.specimen')];
+  const sections = [...document.querySelectorAll('[data-section]')];
+  const status = document.getElementById('catalog-status');
+  const count = document.getElementById('catalog-count');
+  const empty = document.getElementById('catalog-empty');
+  let activeFilter = 'all';
+
+  const render = () => {
     const query = search.value.trim().toLocaleLowerCase();
-    let visible = 0;
-    cards.forEach((card) => {
-      const matchText = !query || (card.dataset.search + ' ' + card.textContent).toLocaleLowerCase().includes(query);
-      const matchCategory = category === 'all' || card.dataset.category === category;
-      const show = matchText && matchCategory;
-      card.hidden = !show;
-      if (show) visible += 1;
+    let visibleCount = 0;
+    specimens.forEach((item) => {
+      const matchesText = !query || (item.dataset.name + ' ' + item.textContent).toLocaleLowerCase().includes(query);
+      const matchesFilter = activeFilter === 'all' || item.dataset.category === activeFilter;
+      const visible = matchesText && matchesFilter;
+      item.hidden = !visible;
+      if (visible) visibleCount++;
     });
-    empty.hidden = visible !== 0;
-    count.textContent = visible + ' 個範例';
-    status.textContent = query || category !== 'all' ? '找到 ' + visible + ' 個符合條件的範例。' : '顯示全部 ' + visible + ' 個範例。';
+    sections.forEach((section) => {
+      const sectionItems = [...section.querySelectorAll('.specimen')];
+      const visibleItems = sectionItems.filter((item) => !item.hidden).length;
+      section.hidden = visibleItems === 0;
+      const sectionCount = section.querySelector('[data-section-count]');
+      if (sectionCount) sectionCount.textContent = String(visibleItems).padStart(2, '0');
+    });
+    empty.hidden = visibleCount !== 0;
+    count.textContent = visibleCount + ' 個元件';
+    status.textContent = query || activeFilter !== 'all' ? '找到 ' + visibleCount + ' 個符合條件的元件' : '目前收錄 ' + visibleCount + ' 個元件';
   };
-  filters.forEach((filter) => filter.addEventListener('click', () => {
-    category = filter.dataset.componentFilter;
+
+  filters.forEach((button) => button.addEventListener('click', () => {
+    activeFilter = button.dataset.filter;
     filters.forEach((item) => {
-      const selected = item === filter;
+      const selected = item === button;
       item.classList.toggle('is-active', selected);
       item.setAttribute('aria-pressed', String(selected));
     });
-    renderCatalog();
+    render();
   }));
-  search.addEventListener('input', renderCatalog);
-  clear.addEventListener('click', () => {
-    search.value = '';
-    category = 'all';
-    filters.forEach((item) => {
-      const selected = item.dataset.componentFilter === 'all';
-      item.classList.toggle('is-active', selected);
-      item.setAttribute('aria-pressed', String(selected));
-    });
-    renderCatalog();
-    search.focus();
-  });
-  renderCatalog();
-
-  document.querySelectorAll('[data-copy-code]').forEach((copyButton) => {
-    copyButton.addEventListener('click', async () => {
-      const code = copyButton.closest('.preview-code-block, .preview-implementation__code')?.querySelector('pre code')?.textContent || '';
-      const original = copyButton.textContent;
-      try {
-        await navigator.clipboard.writeText(code);
-        copyButton.textContent = '已複製';
-      } catch {
-        const field = document.createElement('textarea');
-        field.value = code;
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.append(field);
-        field.select();
-        const copied = document.execCommand('copy');
-        field.remove();
-        copyButton.textContent = copied ? '已複製' : '請手動複製';
-      }
-      window.setTimeout(() => { copyButton.textContent = original; }, 1600);
-    });
+  search.addEventListener('input', render);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === '/' && !/input|textarea|select/i.test(document.activeElement?.tagName || '')) {
+      event.preventDefault();
+      search.focus();
+    }
+    if (event.key === 'Escape' && document.activeElement === search) {
+      search.value = '';
+      render();
+      search.blur();
+    }
   });
 
-  const tabButtons = [...document.querySelectorAll('[data-demo-tab]')];
-  const tabPanel = document.getElementById('demo-tab-panel');
-  const tabContent = {
-    overview: ['總覽內容顯示在這裡。分頁只切換同一層級的內容。', 'demo-tab-overview'],
-    activity: ['活動紀錄適合呈現時間順序的事件與狀態。', 'demo-tab-activity'],
-    settings: ['設定頁集中放置同一類型的偏好與控制項。', 'demo-tab-settings']
-  };
-  const activateTab = (tab, focus = false) => {
+  document.querySelectorAll('.chi-segmented').forEach((group) => {
+    group.querySelectorAll('button').forEach((button) => button.addEventListener('click', () => {
+      group.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+    }));
+  });
+
+  const tabButtons = [...document.querySelectorAll('[data-tab]')];
+  const tabPanel = document.getElementById('catalog-tab-panel');
+  const tabLabels = { general: '一般', activity: '活動', settings: '設定' };
+  const activateTab = (button, focus = false) => {
     tabButtons.forEach((item) => {
-      const active = item === tab;
-      item.classList.toggle('is-active', active);
-      item.setAttribute('aria-selected', String(active));
-      item.tabIndex = active ? 0 : -1;
+      const selected = item === button;
+      item.setAttribute('aria-selected', String(selected));
+      item.tabIndex = selected ? 0 : -1;
     });
-    const [content, id] = tabContent[tab.dataset.demoTab];
-    tabPanel.textContent = content;
-    tabPanel.setAttribute('aria-labelledby', id);
-    if (focus) tab.focus();
+    tabPanel.textContent = tabLabels[button.dataset.tab];
+    tabPanel.setAttribute('aria-labelledby', button.id);
+    if (focus) button.focus();
   };
-  tabButtons.forEach((tab, index) => {
-    tab.addEventListener('click', () => activateTab(tab));
-    tab.addEventListener('keydown', (event) => {
+  tabButtons.forEach((button, index) => {
+    button.addEventListener('click', () => activateTab(button));
+    button.addEventListener('keydown', (event) => {
       let next = index;
       if (event.key === 'ArrowRight') next = (index + 1) % tabButtons.length;
       else if (event.key === 'ArrowLeft') next = (index - 1 + tabButtons.length) % tabButtons.length;
@@ -532,62 +452,35 @@
     });
   });
 
-  const toastRegion = document.getElementById('chi-demo-toast-region');
-  let toastTimer;
-  document.querySelectorAll('[data-demo-toast]').forEach((control) => control.addEventListener('click', () => {
-    toastRegion.replaceChildren();
+  const fileInput = document.getElementById('file-input');
+  document.getElementById('choose-file').addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => {
+    document.getElementById('file-name').textContent = fileInput.files?.[0]?.name || '尚未選擇檔案';
+  });
+
+  document.querySelectorAll('[data-dismiss-toast]').forEach((button) => button.addEventListener('click', () => button.closest('.chi-toast')?.remove()));
+  document.getElementById('show-toast').addEventListener('click', () => {
+    const region = document.getElementById('catalog-toast-region');
+    region.replaceChildren();
     const toast = document.createElement('div');
-    toast.className = 'chi-toast chi-toast--floating';
+    toast.className = 'chi-toast chi-toast--floating chi-toast--success';
     toast.setAttribute('role', 'status');
     const message = document.createElement('span');
     message.className = 'chi-toast__message';
-    message.textContent = control.dataset.demoToast;
+    message.textContent = '操作已完成';
     const close = document.createElement('button');
-    close.className = 'chi-button chi-button--small';
     close.type = 'button';
+    close.className = 'chi-button chi-button--small';
     close.textContent = '關閉';
     close.setAttribute('aria-label', '關閉通知');
     close.addEventListener('click', () => toast.remove());
     toast.append(message, close);
-    toastRegion.append(toast);
-    window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(() => toast.remove(), 3200);
-  }));
+    region.append(toast);
+    window.clearTimeout(window.chiCatalogToastTimer);
+    window.chiCatalogToastTimer = window.setTimeout(() => toast.remove(), 3200);
+  });
 
-  const menuTrigger = document.getElementById('demo-menu-trigger');
-  const menuPanel = document.getElementById('demo-menu-panel');
-  const menuStatus = document.getElementById('demo-menu-status');
-  const closeMenu = (returnFocus = false) => {
-    menuPanel.hidden = true;
-    menuTrigger.setAttribute('aria-expanded', 'false');
-    if (returnFocus) menuTrigger.focus();
-  };
-  menuTrigger.addEventListener('click', () => {
-    const open = menuTrigger.getAttribute('aria-expanded') === 'true';
-    menuPanel.hidden = open;
-    menuTrigger.setAttribute('aria-expanded', String(!open));
-  });
-  menuPanel.querySelectorAll('[data-menu-action]').forEach((item) => item.addEventListener('click', () => {
-    menuStatus.textContent = '已選擇「' + item.dataset.menuAction + '」示範操作。';
-    closeMenu(true);
-  }));
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('#demo-menu-trigger, #demo-menu-panel')) closeMenu();
-  });
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && menuTrigger.getAttribute('aria-expanded') === 'true') closeMenu(true);
-  });
-  document.getElementById('demo-empty-reset').addEventListener('click', () => {
-    search.value = '';
-    category = 'all';
-    filters.forEach((item) => {
-      const selected = item.dataset.componentFilter === 'all';
-      item.classList.toggle('is-active', selected);
-      item.setAttribute('aria-pressed', String(selected));
-    });
-    renderCatalog();
-    search.focus();
-  });
+  render();
 })();
 </script>
 </body>
