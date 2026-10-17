@@ -6,7 +6,7 @@ Chi 是 Chi 系列網站共用的介面參考，提供一致的色彩、字體�
 
 - **清楚優先：** 先安排資訊層級、版面與閱讀順序，再調整裝飾。
 - **克制而一致：** 以對齊、留白、字級、邊框和表面差異建立層級，不要把每個區塊都包成卡片。
-- **藍色作為強調：** 主色為 `#4a88fc)，用於主要操作、連結與必要的選取狀態。
+- **藍色作為強調：** 主色為 `#4a88fc`，用於主要操作、連結與必要的選取狀態。
 - **少用裝飾：** 漸層、陰影、發光與玻璃效果只在確實有助於層級或辨識時使用，不要讓介面充滿浮層或裝飾效果。
 - **內容決定版面：** 卡片高度依內容自然伸展；不要為了等高而塞入空白，也不要把文字硬擠成一行。
 - **保留產品特色：** 不要把所有頁面改成「置中 Hero、漸層標題、三張卡片」的相同模板。
@@ -37,7 +37,7 @@ Chi 是 Chi 系列網站共用的介面參考，提供一致的色彩、字體�
 
 - 淺色主題使用淡藍灰背景、白色表面與清楚的深色文字。
 - 深色主題使用分層的深藍灰表面，不要直接把淺色主題反相。
-- 主題設定支援淺色、深色、跟隨系統三種模式；圖示固定使用 `sun`、`moon`、`sun-moon`，詳見 [`ICON-GUIDELINES.md`](./ICON-GUIDELINES.md)。
+- 主題設定支援淺色、深色、跟隨系統三種模式。主題圖示標準為 `material-symbols:wb-sunny-outline-rounded`（Light）、`material-symbols:dark-mode-outline-rounded`（Dark）、`material-symbols:radio-button-partial-outline`（System）。使用本地 sprite 的專案分別對應 `sun`、`moon`、`sun-moon`。詳見 [`ICON-GUIDELINES.md`](./ICON-GUIDELINES.md)。
 - 成功、警告、錯誤使用各自的語意色，不以主色代替所有狀態。
 - 不要只靠顏色表達選取、錯誤或成功；搭配文字、圖示或其他明確提示。
 - 漸層 token 可以保留供少數品牌焦點使用，但純色是一般操作與內容表面的預設。
@@ -102,7 +102,7 @@ Chi 不提供必須照抄的頁面模板。依頁面的主要任務選擇組合�
 
 ## 圖示與 Emoji
 
-Chi 系列介面與專案文件不使用 Emoji 作為圖示、裝飾或狀態回饋。需要圖示時，使用 `icons.svg` 中核准的本地 Lucide SVG symbol，不依賴外部圖示 CDN 或圖示字型。預設為 24 × 24 viewBox、2px 描邊，顏色使用 `currentColor`。完整規則與 symbol 清單請參考 [`ICON-GUIDELINES.md`](./ICON-GUIDELINES.md)。
+Chi 系列介面與專案文件不使用 Emoji 作為圖示、裝飾或狀態回饋。一般圖示使用 `icons.svg` 中核准的本地 Lucide SVG symbol。主題選擇器的三態圖示依 `ICON-GUIDELINES.md` 所列標準名稱統一；使用 Iconify 的專案可使用指定名稱，不使用 Iconify 的專案則使用本地 sprite 對應圖形。避免新增不必要的外部執行時依賴。
 
 ## 修改與檢查
 
