@@ -48,12 +48,12 @@ colors:
     dark: "#8c94a6"
     token: "--chi-color-text-subtle"
   accent:
-    light: "#4f46e5"
-    dark: "#a5a1ff"
+    light: "#4a88fc"
+    dark: "#4a88fc"
     token: "--chi-color-accent"
   accent-blue:
-    light: "#3b82f6"
-    dark: "#7daeff"
+    light: "#4a88fc"
+    dark: "#4a88fc"
     token: "--chi-color-accent-blue"
   border:
     light: "#e8ebf2"
@@ -64,12 +64,12 @@ colors:
     dark: "#4b5265"
     token: "--chi-color-border-strong"
   focus:
-    light: "#818cf8"
-    dark: "#a5a1ff"
+    light: "#4a88fc"
+    dark: "#4a88fc"
     token: "--chi-color-focus"
   on-accent:
-    light: "#ffffff"
-    dark: "#171827"
+    light: "#071a36"
+    dark: "#071a36"
     token: "--chi-color-on-accent"
   success:
     light: "#237a50"
