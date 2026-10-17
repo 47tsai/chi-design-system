@@ -39,7 +39,7 @@
 .chi-button{display:inline-flex;min-height:var(--chi-control-height);align-items:center;justify-content:center;gap:var(--chi-space-2);padding:0 var(--chi-space-5);border:1px solid var(--chi-color-border-strong);border-radius:var(--chi-radius-md);background:var(--chi-color-surface);color:var(--chi-color-text);font:inherit;font-size:var(--chi-text-sm);font-weight:650;text-decoration:none;cursor:pointer;transition:transform var(--chi-transition-fast),background var(--chi-transition-fast),border-color var(--chi-transition-fast),box-shadow var(--chi-transition-fast),color var(--chi-transition-fast)}
 .chi-button:hover{background:var(--chi-color-surface-muted)}
 .chi-button:active{transform:translateY(1px)}
-.chi-button--primary{border-color:transparent;background:linear-gradient(90deg,var(--chi-color-accent) 0%,var(--chi-color-accent-blue) 100%);color:var(--chi-color-on-accent);box-shadow:var(--chi-shadow-accent)}
+.chi-button--primary{border-color:transparent;background:var(--chi-color-accent);color:var(--chi-color-on-accent);box-shadow:var(--chi-shadow-accent)}
 .chi-button--primary:hover{border-color:transparent;box-shadow:var(--chi-shadow-accent-hover);opacity:.96}
 .chi-button--pill{min-height:44px;padding-inline:2rem;border-radius:var(--chi-radius-pill)}
 .chi-field{display:flex;flex-direction:column;gap:var(--chi-space-2)}
