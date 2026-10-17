@@ -353,7 +353,7 @@ Chi 不使用單一模板硬套所有產品。先判斷頁面任務，再選擇�
 | `--chi-shadow-sm` | `0 4px 14px rgb(59 82 145 / 8%)` | `0 4px 16px rgb(0 0 0 / 18%)` | 輕量浮起效果 |
 | `--chi-shadow-md` | `0 10px 25px -5px rgb(220 226 240 / 65%), 0 8px 10px -6px rgb(220 226 240 / 42%)` | `0 10px 28px rgb(0 0 0 / 24%)` | 下拉選單、浮層 |
 | `--chi-shadow-card-hover` | `0 14px 28px -4px rgb(200 210 235 / 55%)` | `0 14px 28px -4px rgb(0 0 0 / 30%)` | 卡片 hover |
-| `--chi-shadow-accent` | `0 4px 14px rgb(59 130 246 / 28%)` | `0 4px 14px rgb(80 105 220 / 22%)` | 主要操作的克制強調 |
+| `--chi-shadow-accent` | `0 4px 14px rgb(74 136 252 / 28%)` | `0 4px 14px rgb(74 136 252 / 22%)` | 主要操作的克制強調 |
 | `--chi-gradient-start` | `#76a7ff` | `#8db6ff` | 強調漸層起點 |
 | `--chi-gradient-mid` | `#4a88fc` | `#4a88fc` | 強調漸層中段 |
 | `--chi-gradient-end` | `#286fe8` | `#2f73e6` | 強調漸層終點 |
