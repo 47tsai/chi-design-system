@@ -53,6 +53,7 @@
         <button class="catalog-filter" type="button" data-filter="navigation" aria-pressed="false">導覽</button>
         <button class="catalog-filter" type="button" data-filter="feedback" aria-pressed="false">狀態回饋</button>
         <button class="catalog-filter" type="button" data-filter="data" aria-pressed="false">資料呈現</button>
+        <button class="catalog-filter" type="button" data-filter="icons" aria-pressed="false">圖示</button>
         <button class="catalog-filter" type="button" data-filter="layout" aria-pressed="false">容器與工具</button>
       </div>
     </div>
@@ -556,7 +557,7 @@
     });
     iconItems.forEach((item) => {
       const matchesText = !query || item.dataset.name.toLocaleLowerCase().includes(query);
-      const matchesFilter = activeFilter === 'all' || activeFilter === 'data';
+      const matchesFilter = activeFilter === 'all' || activeFilter === 'icons';
       item.hidden = !(matchesText && matchesFilter);
     });
     sections.forEach((section) => {
@@ -568,9 +569,13 @@
       const sectionCount = section.querySelector('[data-section-count]');
       if (sectionCount) sectionCount.textContent = String(visibleItems).padStart(2, '0');
     });
-    empty.hidden = visibleCount !== 0 || iconItems.some((item) => !item.hidden);
-    count.textContent = (visibleCount + iconItems.filter((item) => !item.hidden).length) + ' 個項目';
-    status.textContent = query || activeFilter !== 'all' ? '找到 ' + visibleCount + ' 個符合條件的元件' : '目前收錄 ' + visibleCount + ' 個元件';
+    const visibleIconCount = iconItems.filter((item) => !item.hidden).length;
+    const totalVisible = visibleCount + visibleIconCount;
+    empty.hidden = totalVisible !== 0;
+    count.textContent = totalVisible + ' 個項目';
+    status.textContent = query || activeFilter !== 'all'
+      ? '找到 ' + totalVisible + ' 個符合條件的項目'
+      : '目前收錄 ' + totalVisible + ' 個項目';
   };
 
   filters.forEach((button) => button.addEventListener('click', () => {
