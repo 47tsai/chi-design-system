@@ -32,7 +32,7 @@ for (const file of htmlFiles) {
   if (duplicateIds.length) fail(`${file}: duplicate HTML id(s): ${[...new Set(duplicateIds)].join(', ')}`);
 
   const idSet = new Set(ids);
-  const scriptIds = [...html.matchAll(/getElementById\\(\\s*['"]([^'"]+)['"]\\s*\\)/g)].map((match) => match[1]);
+  const scriptIds = [...html.matchAll(/getElementById\(\s*['"]([^'"]+)['"]\s*\)/g)].map((match) => match[1]);
   const missingScriptIds = [...new Set(scriptIds)].filter((id) => !idSet.has(id));
   if (missingScriptIds.length) {
     fail(`${file}: JavaScript references missing element ID(s): ${missingScriptIds.join(', ')}`);
