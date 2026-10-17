@@ -69,3 +69,49 @@
 - 本文件記錄規範與語意；`icons.svg` 是圖示實際資產來源。
 - 不因單一產品需求而修改全站共用圖示語意。
 - 不要把本清單視為圖示全集；它只列出目前專案已收錄與常用的圖示。
+
+
+## 現有圖示語意速查
+
+以下 symbol ID 必須先確認實際存在於 `icons.svg` 才可引用：
+
+| Symbol ID | 標準用途 |
+| --- | --- |
+| `arrow-down` | 向下移動、下載方向提示 |
+| `arrow-right` | 前進、下一步 |
+| `arrow-up-right` | 向外延伸的方向提示 |
+| `check` | 一般勾選、子步驟完成 |
+| `chevron-down` | 下拉選單、可展開提示 |
+| `circle-check` | 成功、通過、操作完成 |
+| `external-link` | 開啟外部網站或資源 |
+| `globe` | 公開網站、網路或全球範圍 |
+| `house` | 首頁 |
+| `info` | 一般資訊 |
+| `layout-grid` | 元件網格 |
+| `layers` | 圖層、集合、分組 |
+| `list-checks` | 規則、檢查清單 |
+| `monitor` | 桌面裝置、桌面預覽 |
+| `moon` | 深色主題 |
+| `palette` | 色彩、配色設定 |
+| `panels-top-left` | 版型、面板與配置 |
+| `pencil` | 編輯、修改 |
+| `search` | 搜尋、查找 |
+| `sliders-horizontal` | 設定、偏好設定 |
+| `smartphone` | 手機、行動裝置 |
+| `sparkles` | 特殊亮點、智慧輔助或生成式功能 |
+| `sun` | 淺色主題 |
+| `sun-moon` | 本地 sprite 中代表跟隨系統主題的對應圖示 |
+| `copy` | 複製 |
+| `trash-2` | 刪除、移除 |
+| `triangle-alert` | 警告、需注意的狀況 |
+| `trending-up` | 成長趨勢、上升指標 |
+| `type` | 字體、文字與排版 |
+| `upload` | 上傳、匯入檔案 |
+| `x` | 關閉、取消 |
+
+## 維護檢查清單
+
+- 新增圖示前先檢查現有 sprite 和全專案引用，避免重複收錄。
+- 新增或變更圖示時，同步更新 `icons.svg`、本文件及必要的 `DESIGN.md`／`README.md`。
+- 檢查所有 symbol ID 都存在，並驗證亮色、深色、窄螢幕、鍵盤焦點及圖示按鈕的可存取名稱。
+- 只有實際開啟頁面並測試後，才可回報瀏覽器驗證通過。
