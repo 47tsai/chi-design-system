@@ -92,6 +92,14 @@ If a browser, build command, or runtime is unavailable, report that check as **n
 5. Update the catalogue and design documentation so future work can discover the change.
 6. Verify that product sites do not need to import `elements.css` to use the shared component.
 
+### Icon system changes
+
+- Before adding or changing an icon, inspect `ICON-GUIDELINES.md`, the existing symbols in `icons.svg`, and all current references.
+- Use the existing Lucide-style local SVG sprite; do not add icon CDNs, icon fonts, Emoji, or a second icon library.
+- Preserve the 24 × 24 viewBox, 2px rounded strokes, `currentColor`, and original Lucide symbol names.
+- When adding a symbol, verify its name and SVG against the official Lucide source, then update the sprite and icon guideline inventory. Update catalogue examples when they expose or demonstrate the icon set.
+- Ensure decorative icons are hidden from assistive technology and icon-only controls have an accessible name. Check all references resolve to an existing symbol.
+
 ### Catalogue changes
 
 - Keep examples clearly identified as demonstrations.
