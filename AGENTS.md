@@ -92,6 +92,13 @@ If a browser, build command, or runtime is unavailable, report that check as **n
 5. Update the catalogue and design documentation so future work can discover the change.
 6. Verify that product sites do not need to import `elements.css` to use the shared component.
 
+### No-Emoji rule
+
+- Emoji are prohibited throughout Chi project source, UI, copy, documentation, examples, comments, and commit messages. Do not add emoji characters for decoration, status, branding, placeholders, or feedback.
+- Use ordinary text for content and status messages. For interface iconography, use the approved local Lucide SVG sprite. Do not replace an emoji with an arbitrary Unicode symbol; use text or a semantically correct approved icon instead.
+- When editing an existing file, remove emoji characters encountered in project-owned UI or documentation and replace them with appropriate text or approved icons. Preserve user-generated content and external data as data rather than silently rewriting it.
+- Include a repository-wide emoji scan in validation when UI, documentation, or design rules change. Distinguish actual emoji usage from the word “Emoji” in documentation or legitimate Unicode characters used as language/content data.
+
 ### Icon system changes
 
 - Before adding or changing an icon, inspect `ICON-GUIDELINES.md`, the existing symbols in `icons.svg`, and all current references.
