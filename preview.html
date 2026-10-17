@@ -20,7 +20,7 @@ a{color:inherit}
 .side-label{padding:14px 10px 7px;color:var(--chi-color-text-subtle);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 .side-link{display:flex;align-items:center;gap:10px;margin:3px 0;padding:10px;border-radius:8px;color:var(--chi-color-text-muted);font-size:12px;text-decoration:none}
 .side-link:hover,.side-link.active{background:var(--chi-color-accent-soft);color:var(--chi-color-accent)}
-.side-link .glyph{width:18px;text-align:center;font-size:15px}
+.side-link>.chi-icon{width:18px;height:18px;flex:none}
 .side-bottom{position:absolute;bottom:22px;left:18px;right:18px;padding:14px;border:1px solid var(--chi-color-border);border-radius:10px;color:var(--chi-color-text-muted);font-size:11px;line-height:1.6}
 .main{min-width:0}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px clamp(20px,4vw,54px);border-bottom:1px solid var(--chi-color-border);background:var(--chi-color-surface-glass)}
@@ -74,8 +74,11 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 .spec-pill{display:inline-flex;align-items:center;padding:7px 9px;border:1px solid var(--chi-color-border);border-radius:6px;color:var(--chi-color-text);text-decoration:none;font-size:10px}
 @media(max-width:720px){.spec-layout{grid-template-columns:1fr}}
 
-@media(max-width:900px){.preview-shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:12px 16px;border-right:0;border-bottom:1px solid var(--chi-color-border)}.brand{padding:0 4px 12px}.side-label,.side-bottom{display:none}.side-nav{display:flex;gap:4px;overflow:auto}.side-link{white-space:nowrap;margin:0;padding:9px}.side-link .glyph{display:none}.page{padding:28px 20px}.palette{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.preview-shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:12px 16px;border-right:0;border-bottom:1px solid var(--chi-color-border)}.brand{padding:0 4px 12px}.side-label,.side-bottom{display:none}.side-nav{display:flex;gap:4px;overflow:auto}.side-link{white-space:nowrap;margin:0;padding:9px}.side-link>.chi-icon{display:none}.page{padding:28px 20px}.palette{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:620px){.hero-row{display:block}.version{display:inline-block;margin-top:16px}.component-grid,.layout-grid,.type-panel,.rule-grid{grid-template-columns:1fr}.type-sample:nth-child(odd){border-right:0}.type-sample:last-child{border-bottom:0}.metric-row{grid-template-columns:1fr 1fr 1fr}.component-card{padding:16px}.section-note{display:none}.topbar{padding:13px 18px}}
+.theme-btn:focus-visible,.quiet-btn:focus-visible,.demo-button:focus-visible,.side-link:focus-visible,.demo-input:focus-visible,.toggle:focus-visible{outline:3px solid var(--chi-color-focus);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toggle::after,.demo-button,.side-link{transition:none!important}.mini-hero::after{filter:none}}
+
 </style>
 </head>
 <body>
@@ -84,12 +87,12 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
   <div class="brand"><span class="brand-mark">C</span><span>CHI / DESIGN SYSTEM</span></div>
   <div class="side-label">Explore</div>
   <nav class="side-nav">
-    <a class="side-link active" href="#overview"><span class="glyph">⌂</span>總覽 Overview</a>
-    <a class="side-link" href="#color"><span class="glyph">◉</span>色彩 Color</a>
-    <a class="side-link" href="#type"><span class="glyph">T</span>字體 Typography</a>
-    <a class="side-link" href="#components"><span class="glyph">▦</span>元件 Components</a>
-    <a class="side-link" href="#patterns"><span class="glyph">▤</span>版型 Patterns</a>
-    <a class="side-link" href="#rules"><span class="glyph">⌘</span>設計原則 Rules</a>
+    <a class="side-link active" href="#overview"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#house"></use></svg>總覽 Overview</a>
+    <a class="side-link" href="#color"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#palette"></use></svg>色彩 Color</a>
+    <a class="side-link" href="#type"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#type"></use></svg>字體 Typography</a>
+    <a class="side-link" href="#components"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#layout-grid"></use></svg>元件 Components</a>
+    <a class="side-link" href="#patterns"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#panels-top-left"></use></svg>版型 Patterns</a>
+    <a class="side-link" href="#rules"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#list-checks"></use></svg>設計原則 Rules</a>
   </nav>
   <div class="side-bottom"><b style="color:var(--chi-color-text)">Preview build</b><br>這是可視化草稿，用來檢視真實元件與設計語言。不是部署驗收證明。</div>
 </aside>
@@ -185,11 +188,11 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 (function(){
   const root=document.documentElement;
   const toggle=document.getElementById('themeToggle');
-  const stored=localStorage.getItem('chi-theme');
+  const stored=(()=>{try{return localStorage.getItem('chi-theme')}catch{return null}})();
   const systemDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
   function setTheme(theme){if(theme==='dark'){root.setAttribute('data-chi-theme','dark');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-2#sun"></use></svg> 淺色模式'}else{root.removeAttribute('data-chi-theme');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-2#moon"></use></svg> 深色模式'}}
   setTheme(stored==='dark'||(!stored&&systemDark)?'dark':'light');
-  toggle.addEventListener('click',function(){const next=root.getAttribute('data-chi-theme')==='dark'?'light':'dark';setTheme(next);localStorage.setItem('chi-theme',next)});
+  toggle.addEventListener('click',function(){const next=root.getAttribute('data-chi-theme')==='dark'?'light':'dark';setTheme(next);try{localStorage.setItem('chi-theme',next)}catch{}});
   document.getElementById('demoAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='主要操作已觸發，這是元件的即時回饋。'});
   document.getElementById('secondaryAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='次要操作已觸發。層級不同，但互動仍然清楚。'});
   document.getElementById('dangerAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='這裡示範危險操作的視覺區隔，未執行任何刪除。'});
