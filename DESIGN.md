@@ -484,12 +484,11 @@ Chi 不使用單一模板硬套所有產品。先判斷頁面任務，再選擇�
 
 ## 圖示系統
 
-Chi 使用 **Lucide 風格的線性 SVG 圖示**，採用統一的 24 × 24 viewBox、圓角端點與圓角接合、預設 2px 描邊。圖示集中於根目錄的 `icons.svg`，由 `components.css` 的 `.chi-icon` 規則統一尺寸與外觀；範例透過同源 SVG sprite 引用，不載入外部 CDN，也不需要圖示字型。
+Chi 系列統一使用 **Lucide 線性 SVG 圖示**，以根目錄的 `icons.svg` 作為本地 sprite。預設使用 24 × 24 viewBox、2px 描邊、圓角端點與接合，圖示顏色繼承 `currentColor`，不載入外部 CDN 或圖示字型。
 
-- 使用方式：`<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg>`。
-- 尺寸優先沿用文字尺寸（`1em`）；緊湊控制項使用 `.chi-icon--sm`，較醒目的示範圖示使用 `.chi-icon--lg`。
-- 顏色使用 `currentColor`，由按鈕、狀態或容器控制，不在圖示路徑裡硬編碼顏色。
-- 裝飾圖示標記 `aria-hidden="true"`。純圖示按鈕仍需在按鈕本身提供可理解的 `aria-label`。
-- 同一操作固定使用同一圖示，例如搜尋使用 `search`、關閉使用 `x`、下拉使用 `chevron-down`、成功使用 `circle-check`。
-- 品牌識別與功能圖示分開處理；一般介面符號不混用 Unicode 字元、Emoji 或不同線條風格的圖示。圖鑑中的「圖示系統」區塊列出目前可用的 symbol 與對應名稱。
-- 新增圖示時先確認 Lucide 是否有對應圖示，再將其 SVG symbol 加入 `icons.svg`，同時更新圖鑑與文件。Lucide 官方圖示採 ISC 授權，詳見 [Lucide 官方專案](https://github.com/lucide-icons/lucide)。
+- 內文圖示預設沿用文字大小；緊湊位置使用 `.chi-icon--sm`，需要更醒目時使用 `.chi-icon--lg`。
+- 裝飾圖示使用 `aria-hidden="true"`；純圖示按鈕必須有明確的 `aria-label`。
+- 同一操作在所有 Chi 網站使用相同 symbol，不混用 Emoji、Unicode 符號或不同圖示庫。
+- 新增圖示前先核對 Lucide 官方名稱與 SVG，並同步更新 sprite、圖示規範及必要的範例。
+
+完整的 symbol 清單、語意對照、尺寸、無障礙要求與新增流程，請遵循 [`ICON-GUIDELINES.md`](./ICON-GUIDELINES.md)。
