@@ -94,7 +94,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
   <div class="side-bottom"><b style="color:var(--chi-color-text)">Preview build</b><br>這是可視化草稿，用來檢視真實元件與設計語言。不是部署驗收證明。</div>
 </aside>
 <main class="main">
-<header class="topbar"><div class="crumb">CHI / <b>Visual Preview</b></div><div class="top-actions"><span class="section-note">Theme</span><button class="theme-btn" id="themeToggle" type="button"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017#moon"></use></svg> 深色模式</button><a class="quiet-btn" href="./design-system.yml">設計規格 YAML</a><a class="quiet-btn" href="./elements.html">元件圖鑑</a></div></header>
+<header class="topbar"><div class="crumb">CHI / <b>Visual Preview</b></div><div class="top-actions"><span class="section-note">Theme</span><button class="theme-btn" id="themeToggle" type="button"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-2#moon"></use></svg> 深色模式</button><a class="quiet-btn" href="./design-system.yml">設計規格 YAML</a><a class="quiet-btn" href="./elements.html">元件圖鑑</a></div></header>
 <div class="page">
 <section id="overview">
 <div class="hero-row"><div><div class="eyebrow"><span class="live-dot"></span> VISUAL SYSTEM / 01</div><h1>設計規範，<br>應該一眼就看得懂。</h1><p class="lead">Chi Design System 的可視化預覽。從實際色票、文字層級到可操作元件與頁面版型，直接檢查設計語言是否一致，不必只讀 CSS 和規格文件。</p></div><span class="version">CHi / PREVIEW 01</span></div>
@@ -187,7 +187,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
   const toggle=document.getElementById('themeToggle');
   const stored=localStorage.getItem('chi-theme');
   const systemDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-  function setTheme(theme){if(theme==='dark'){root.setAttribute('data-chi-theme','dark');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017#sun"></use></svg> 淺色模式'}else{root.removeAttribute('data-chi-theme');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017#moon"></use></svg> 深色模式'}}
+  function setTheme(theme){if(theme==='dark'){root.setAttribute('data-chi-theme','dark');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-2#sun"></use></svg> 淺色模式'}else{root.removeAttribute('data-chi-theme');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-2#moon"></use></svg> 深色模式'}}
   setTheme(stored==='dark'||(!stored&&systemDark)?'dark':'light');
   toggle.addEventListener('click',function(){const next=root.getAttribute('data-chi-theme')==='dark'?'light':'dark';setTheme(next);localStorage.setItem('chi-theme',next)});
   document.getElementById('demoAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='主要操作已觸發，這是元件的即時回饋。'});
