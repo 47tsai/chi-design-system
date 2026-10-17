@@ -11,6 +11,8 @@ Chi 系列網站共用的介面設計系統。**`DESIGN.md` 是設計決策與 A
 - `elements.css`：圖鑑專用排版與篩選樣式，產品網站不需載入。
 - `tokens.css`：共用色彩、字級、間距、圓角、陰影與尺寸 token。
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定與回饋元件。
+- `icons.svg`：本地 Lucide 風格 SVG sprite，共用圖示資產。
+- `ICON-GUIDELINES.md`：圖示語意對照、尺寸、無障礙與新增規範。
 - `navigation.css`：語言選單、導覽面板、漢堡選單及其互動狀態。
 - `DESIGN.md`：AI 可直接遵循的設計規範，包含視覺主題、精確的亮／暗色 Token 對照、字體與間距尺度、元件狀態、頁型選擇、深度與陰影、響應式行為、Do／Don't、Agent Prompt Guide 與驗收流程。參考 `references/a.html` 的公開入口頁與 `references/b.html` 的帳號管理頁，提取共通視覺語言，不複製品牌識別；CSS token 是實際值的唯一來源，文件須隨之同步。
 - `AGENTS.md`：AI 的工程工作規範，定義修改前盤點、檔案選擇、功能保留、無障礙／安全注意事項、驗證方式與回報標準；它規定「怎麼做」，`DESIGN.md` 規定「介面應如何呈現」。
@@ -57,4 +59,4 @@ Chi 系列網站共用的介面設計系統。**`DESIGN.md` 是設計決策與 A
 </svg>
 ```
 
-圖示統一使用 24 × 24 viewBox、2px 圓角線條與 `currentColor`。詳細規範見 `DESIGN.md`。
+圖示統一使用 24 × 24 viewBox、2px 圓角線條與 `currentColor`。新增前請查閱 [`ICON-GUIDELINES.md`](./ICON-GUIDELINES.md)，整體介面規範見 `DESIGN.md`。
