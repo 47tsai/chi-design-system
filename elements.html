@@ -1,380 +1,594 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Chi Design System 的設計規範、元件與版型範例"><title>Chi Design System · 設計規範與元件</title>
-<link rel="stylesheet" href="./tokens.css"><link rel="stylesheet" href="./components.css"><link rel="stylesheet" href="./navigation.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Chi Design System 元件圖鑑：設計基礎、互動元件、頁面模式與實作規範。">
+<meta name="color-scheme" content="light dark">
+<title>Chi Design System · 元件圖鑑</title>
+<link rel="stylesheet" href="./tokens.css">
+<link rel="stylesheet" href="./components.css">
+<link rel="stylesheet" href="./navigation.css">
 <link rel="stylesheet" href="./elements.css">
 </head>
 <body class="chi-page">
 <a class="chi-skip-link" href="#main-content">跳至主要內容</a>
-<header class="chi-site-header"><div class="chi-container chi-site-header__inner">
-<a class="chi-brand" href="./index.html" aria-label="Chi Design System 空白版型">CHI</a>
-<div class="chi-site-menu-wrap"><button class="chi-site-menu__trigger" type="button" aria-label="開啟網站導覽" aria-expanded="false" aria-controls="chi-site-menu"><span class="chi-site-menu__glyph" aria-hidden="true"><span></span><span></span><span></span></span></button>
-<nav class="chi-site-menu" id="chi-site-menu" aria-label="網站導覽" hidden>
-<a class="chi-site-menu__link" href="./index.html">空白版型</a>
-<a class="chi-site-menu__link" href="./elements.html">設計規範與元件</a>
-<a class="chi-site-menu__link" href="#navigation">導覽元件</a>
-<a class="chi-site-menu__link" href="#foundations">基礎</a>
-<a class="chi-site-menu__link" href="#components">元件圖鑑</a>
-<a class="chi-site-menu__link" href="#patterns">版型</a>
-<a class="chi-site-menu__link" href="#usage">使用方式</a>
-<a class="chi-site-menu__link" href="DESIGN.md">規格 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#external-link"></use></svg></a>
-</nav></div>
-</div></header>
-<main class="preview-main" id="main-content" tabindex="-1">
-<section class="chi-hero"><div class="chi-hero__inner">
-<p class="chi-eyebrow">A shared foundation for Chi</p>
-<h1 class="chi-title">讓介面回到清楚的<span class="chi-title__accent">秩序</span></h1>
-<p class="chi-description">Chi 系列網站共用的 UI 元件圖鑑。從按鈕、表單、狀態標籤，到資料表格、分頁、空狀態和確認視窗，先定義一致的外觀與使用情境，再帶進各個專案。</p>
-<div class="chi-row chi-row preview-row--centered preview-mt-lg"><a class="chi-button chi-button--primary chi-button--pill" href="#components">瀏覽元件 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-down"></use></svg></a><a class="chi-button chi-button--pill" href="DESIGN.md">設計規格</a></div>
-</div></section>
 
-
-<section class="chi-container preview-section" id="navigation">
-<p class="preview-section__label">01 · Navigation &amp; floating panels</p>
-<div class="preview-grid">
-<div class="chi-panel preview-demo-panel chi-stack preview-demo-panel--wide">
-<h2 class="chi-section__title">網站導覽列、語言選單與行動版選單</h2>
-<p class="preview-subtitle">可重用的導覽元件。按鈕會同步更新展開狀態，點選外部或按 Escape 可關閉浮層；語言選擇會同步更新兩個示範選單的選取狀態。</p>
-<div class="chi-nav-demo" id="nav-demo">
-<a class="chi-nav-demo__brand" href="#navigation" aria-label="Chi 首頁">CHI</a>
-<div class="chi-nav-demo__actions">
-<div class="chi-language" data-language-picker>
-<button class="chi-language__trigger" type="button" aria-expanded="false" aria-haspopup="listbox"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#globe"></use></svg><span data-language-label>繁體中文</span><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg></button>
-<div class="chi-language__panel" role="listbox" aria-label="選擇語言" hidden>
-<button class="chi-language__option" type="button" role="option" aria-selected="true" data-language="繁體中文">繁體中文 <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="简体中文">简体中文 <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="English">English <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="日本語">日本語 <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-</div>
-</div>
-<button class="chi-mobile-menu__trigger" type="button" aria-label="開啟網站選單" aria-expanded="false" aria-controls="chi-mobile-menu"><span class="chi-mobile-menu__glyph" aria-hidden="true"><span></span><span></span><span></span></span></button>
-</div>
-<nav class="chi-mobile-menu" id="chi-mobile-menu" aria-label="行動版導覽" hidden>
-
-<a class="chi-mobile-menu__link" href="#foundations">設計基礎 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-right"></use></svg></a>
-<a class="chi-mobile-menu__link" href="#components">元件圖鑑 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-right"></use></svg></a>
-<a class="chi-mobile-menu__link" href="#patterns">版型範例 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-right"></use></svg></a>
-<a class="chi-mobile-menu__link" href="DESIGN.md">設計規格 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
-</nav>
-</div>
-<div class="chi-row chi-row--between chi-row chi-row--between preview-wrap preview-mt-md"><p class="chi-help">頁首語言選單</p><p class="chi-help" id="nav-language-status" role="status" aria-live="polite">目前語言：繁體中文</p></div>
-<div class="chi-footer chi-footer preview-footer-sample">
-<div class="chi-row chi-row--between preview-wrap">
-<div><strong class="preview-on-dark">CHI </strong><p class="chi-help preview-muted-on-dark preview-mt-xs">頁尾使用深色版本的相同語言選單。</p></div>
-<div class="chi-language chi-language--footer" data-language-picker>
-<button class="chi-language__trigger" type="button" aria-expanded="false" aria-haspopup="listbox"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#globe"></use></svg><span data-language-label>繁體中文</span><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg></button>
-<div class="chi-language__panel" role="listbox" aria-label="頁尾語言選擇" hidden>
-<button class="chi-language__option" type="button" role="option" aria-selected="true" data-language="繁體中文">繁體中文 <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="简体中文">简体中文 <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="English">English <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-<button class="chi-language__option" type="button" role="option" aria-selected="false" data-language="日本語">日本語 <span class="chi-language__check" aria-hidden="true"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg></span></button>
-</div>
-</div>
-</div></div>
-<p class="chi-help">這是互動示範，切換語言只更新選單狀態與標籤，尚未翻譯整個頁面。</p>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack">
-<h2 class="chi-section__title">導覽元件的使用原則</h2>
-<div class="chi-list">
-<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">頁首語言選單</p><p class="chi-list__description">靠近全站工具，白色表面與右側對齊，選取狀態清楚可辨。</p></div></div>
-<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">行動版導覽</p><p class="chi-list__description">用展開按鈕收納主要連結，讓窄螢幕保有閱讀空間。</p></div></div>
-<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">頁尾語言選單</p><p class="chi-list__description">沿用相同選項與狀態，只切換深色外觀，避免維護兩套邏輯。</p></div></div>
-</div></div></div>
-</section>
-
-<section class="chi-container preview-section" id="foundations">
-<p class="preview-section__label">02 · Foundations</p>
-<div class="preview-grid">
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">色彩與表面</h2><p class="preview-subtitle">淡藍灰底色負責留白，白色表面承載內容，藍紫漸層只用於重要焦點。</p>
-<div class="preview-swatch-grid"><div class="preview-swatch" style="background:var(--chi-color-page)"><span>Page</span><span class="preview-code" data-token-value="--chi-color-page">--chi-color-page</span></div><div class="preview-swatch" style="background:var(--chi-color-surface)"><span>Surface</span><span class="preview-code" data-token-value="--chi-color-surface">--chi-color-surface</span></div><div class="preview-swatch" style="background:var(--chi-color-accent);color:white"><span>Accent</span><span class="preview-code" data-token-value="--chi-color-accent">--chi-color-accent</span></div><div class="preview-swatch" style="background:var(--chi-color-footer);color:white"><span>Footer</span><span class="preview-code" data-token-value="--chi-color-footer">--chi-color-footer</span></div></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">文字層級</h2><div><p class="chi-eyebrow">Eyebrow / 標記</p><h3 class="chi-title preview-type-display">主標題層級</h3><p class="preview-type-heading">區塊標題層級</p><p class="preview-type-body">內文說明層級，保持舒服的行高與可讀性。</p><p class="chi-help">輔助資訊與時間標記</p></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">按鈕層級</h2><div class="chi-row preview-wrap"><button class="chi-button chi-button--primary">主要操作</button><button class="chi-button">次要操作</button><button class="chi-button chi-button--small">小型操作</button><button class="chi-button chi-button--danger">危險操作</button><button class="chi-button" disabled>停用</button></div><p class="chi-help">主要操作每個區域盡量只留一個；危險操作需明確標示，不用顏色裝飾一般按鈕。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack preview-demo-panel--wide"><h2 class="chi-section__title">圖示系統</h2><p class="preview-subtitle">使用同一套 Lucide 風格 SVG 線性圖示，保持一致的描邊、尺寸與語意。正式介面只在能幫助辨識或操作時使用圖示。</p><div class="chi-icon-gallery"><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-down"></use></svg><span>向下</span><code>arrow-down</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-right"></use></svg><span>下一步</span><code>arrow-right</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg><span>右上箭頭</span><code>arrow-up-right</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#check"></use></svg><span>勾選</span><code>check</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg><span>展開</span><code>chevron-down</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#circle-check"></use></svg><span>成功</span><code>circle-check</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#external-link"></use></svg><span>外部連結</span><code>external-link</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#globe"></use></svg><span>語言</span><code>globe</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#info"></use></svg><span>資訊</span><code>info</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#monitor"></use></svg><span>桌機</span><code>monitor</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#pencil"></use></svg><span>編輯</span><code>pencil</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg><span>搜尋</span><code>search</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#smartphone"></use></svg><span>手機</span><code>smartphone</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#sparkles"></use></svg><span>特色</span><code>sparkles</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#trash-2"></use></svg><span>刪除</span><code>trash-2</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#triangle-alert"></use></svg><span>警告</span><code>triangle-alert</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#trending-up"></use></svg><span>上升</span><code>trending-up</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#upload"></use></svg><span>上傳</span><code>upload</code></div><div class="chi-icon-gallery__item"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#x"></use></svg><span>關閉</span><code>x</code></div></div><p class="chi-help">SVG sprite：<code class="chi-code">icons.svg</code> · 預設 24 × 24 viewBox、2px 描邊、圓角端點。</p></div><div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">間距與形狀</h2><div class="chi-row preview-wrap preview-align-end"><span class="preview-shape preview-shape--sm">6px</span><span class="preview-shape preview-shape--md">10px</span><span class="preview-shape preview-shape--lg">16px</span><span class="preview-shape preview-shape--pill">Pill</span></div><p class="chi-help">圓角用來區分元件角色，不是每個容器都要做成卡片。</p></div>
-</div></section>
-
-<section class="chi-container preview-section" id="components">
-<p class="preview-section__label">03 · Everyday components</p>
-<div class="chi-panel preview-catalog-tools" aria-label="元件圖鑑篩選">
-  <div class="preview-catalog-search">
-    <label for="component-search">搜尋元件</label>
-    <div class="preview-catalog-search__control">
-      <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg>
-      <input class="chi-input" id="component-search" type="search" placeholder="例如：表單、按鈕、Toast、分頁" autocomplete="off">
-      <button class="chi-button chi-button--small" id="component-search-clear" type="button">清除</button>
+<header class="chi-site-header">
+  <div class="chi-container chi-site-header__inner">
+    <a class="chi-brand" href="./index.html" aria-label="Chi Design System 首頁">CHI</a>
+    <nav class="chi-nav" aria-label="主要導覽">
+      <a href="./index.html">空白版型</a>
+      <a href="./elements.html" aria-current="page">元件圖鑑</a>
+      <a href="./DESIGN.md">設計規格</a>
+    </nav>
+    <div class="preview-header-actions">
+      <span class="preview-version">UI FOUNDATION / 01</span>
+      <button class="chi-button chi-button--icon" id="theme-toggle" type="button" aria-label="切換色彩主題" title="切換色彩主題"><span id="theme-icon" aria-hidden="true">◐</span></button>
     </div>
-    <p class="chi-help" id="component-search-status" role="status" aria-live="polite">顯示全部元件。可用名稱、用途或英文關鍵字搜尋。</p>
   </div>
-  <div class="preview-catalog-filters" role="group" aria-label="依類別篩選">
-    <button class="preview-catalog-filter is-active" type="button" data-component-filter="all" aria-pressed="true">全部</button>
-    <button class="preview-catalog-filter" type="button" data-component-filter="navigation" aria-pressed="false">導覽</button>
-    <button class="preview-catalog-filter" type="button" data-component-filter="forms" aria-pressed="false">表單</button>
-    <button class="preview-catalog-filter" type="button" data-component-filter="feedback" aria-pressed="false">狀態與回饋</button>
-    <button class="preview-catalog-filter" type="button" data-component-filter="data" aria-pressed="false">資料與清單</button>
-    <button class="preview-catalog-filter" type="button" data-component-filter="layout" aria-pressed="false">版面與其他</button>
+</header>
+
+<main id="main-content" class="preview-main" tabindex="-1">
+  <section class="preview-intro">
+    <div class="chi-container preview-intro__inner">
+      <div class="preview-intro__copy">
+        <p class="chi-eyebrow">CHI DESIGN SYSTEM <span aria-hidden="true">/</span> DOCUMENTATION</p>
+        <h1 class="preview-title">介面元件，<span>有章可循。</span></h1>
+        <p class="preview-lede">這裡不是網站模板，而是 Chi 共用介面的工作手冊。從色彩、字體與間距，到可重用元件和常見頁面模式，展示每個選擇該如何服務內容與操作。</p>
+        <div class="chi-row preview-intro__actions">
+          <a class="chi-button chi-button--primary" href="#components">探索元件 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-down"></use></svg></a>
+          <a class="chi-button" href="./DESIGN.md">閱讀 DESIGN.md</a>
+        </div>
+      </div>
+      <aside class="preview-intro__aside" aria-label="設計系統原則">
+        <p class="preview-aside__eyebrow">THE PRINCIPLE</p>
+        <p class="preview-aside__statement">清楚的層級，<br>比更多裝飾重要。</p>
+        <div class="preview-aside__rule"></div>
+        <p class="preview-aside__note">先用排版、留白與語意建立秩序。只有在需要時，才加入邊框、表面層級與陰影。</p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="preview-docbar">
+    <div class="chi-container preview-docbar__inner">
+      <span class="preview-docbar__label">ON THIS PAGE</span>
+      <nav aria-label="本頁章節" class="preview-section-nav">
+        <a href="#foundations">基礎</a>
+        <a href="#components">元件</a>
+        <a href="#patterns">版型</a>
+        <a href="#usage">實作規範</a>
+      </nav>
+      <a class="preview-docbar__source" href="./design-system.yml">YAML 規格 <svg class="chi-icon chi-icon--xs" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
+    </div>
   </div>
-</div>
-<div class="preview-grid" id="component-catalog">
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">導覽與路徑</h2><nav class="chi-breadcrumbs" aria-label="麵包屑"><a href="#components">首頁</a><span class="chi-breadcrumbs__separator">/</span><a href="#components">專案</a><span class="chi-breadcrumbs__separator">/</span><span aria-current="page">設定</span></nav>
-<div class="chi-tabs" role="tablist" aria-label="範例分頁"><button class="chi-tabs__item" id="demo-tab-overview" role="tab" aria-controls="tab-demo-text" aria-selected="true" tabindex="0" data-tab="overview">總覽</button><button class="chi-tabs__item" id="demo-tab-activity" role="tab" aria-controls="tab-demo-text" aria-selected="false" tabindex="-1" data-tab="activity">活動紀錄</button><button class="chi-tabs__item" id="demo-tab-settings" role="tab" aria-controls="tab-demo-text" aria-selected="false" tabindex="-1" data-tab="settings">設定</button></div><p class="chi-help" id="tab-demo-text" role="tabpanel" aria-labelledby="demo-tab-overview" tabindex="0">總覽內容顯示在這裡。分頁只切換同一層級的內容。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">狀態與標籤</h2><div class="chi-row preview-wrap"><span class="chi-badge">一般</span><span class="chi-badge chi-badge--success">正常</span><span class="chi-badge chi-badge--warning">待處理</span><span class="chi-badge chi-badge--danger">失敗</span></div><div class="chi-tag-list"><span class="chi-tag">工具 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#x"></use></svg></span><span class="chi-tag">公開</span><span class="chi-tag">v2.4.0</span></div><p class="chi-help">Badge 表示狀態或短屬性；Tag 用於分類、篩選或可移除條件。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">提示訊息</h2><div class="chi-alert chi-alert--info"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#info"></use></svg><div><p class="chi-alert__title">資訊</p><p class="chi-alert__body">這是一般提示，補充目前操作需要知道的資訊。</p></div></div><div class="chi-alert chi-alert--success"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#circle-check"></use></svg><div><p class="chi-alert__title">已完成</p><p class="chi-alert__body">設定已成功儲存。</p></div></div><div class="chi-alert chi-alert--warning"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#triangle-alert"></use></svg><div><p class="chi-alert__title">需要留意</p><p class="chi-alert__body">部分資料尚未同步，請稍後再確認。</p></div></div><div class="chi-alert chi-alert--danger"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#x"></use></svg><div><p class="chi-alert__title">操作失敗</p><p class="chi-alert__body">未能完成要求，請檢查設定或重試。</p></div></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">表單欄位</h2><div class="chi-field"><label class="chi-label" for="demo-name">文字輸入</label><input class="chi-input" id="demo-name" placeholder="輸入專案名稱" value="Chi Design System"><p class="chi-field__hint">輔助說明放在欄位下方，補充格式或用途。</p></div><div class="chi-field"><label class="chi-label" for="demo-select">下拉選單</label><select class="chi-select" id="demo-select"><option>工具網站</option><option>狀態監控</option><option>專案展示</option></select></div><div class="chi-field"><label class="chi-label" for="demo-textarea">多行文字</label><textarea class="chi-textarea" id="demo-textarea" placeholder="輸入補充說明">簡短、清楚，避免不必要的欄位。</textarea></div><div class="chi-field"><label class="chi-label" for="demo-error">錯誤狀態</label><input class="chi-input" id="demo-error" aria-invalid="true" value="invalid input"><p class="chi-field__error">請輸入有效的內容。</p></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">選項與開關</h2><label class="chi-check"><input type="checkbox" checked>記住這次選擇</label><label class="chi-check"><input type="checkbox">接收更新通知</label><label class="chi-radio"><input type="radio" name="demo-radio" checked>自動</label><label class="chi-radio"><input type="radio" name="demo-radio">手動</label><label class="chi-switch"><input type="checkbox" checked><span class="chi-switch__track"></span><span>啟用服務</span></label><label class="chi-switch"><input type="checkbox"><span class="chi-switch__track"></span><span>維護模式</span></label></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">進度與步驟</h2><div class="chi-stack preview-gap-sm"><div class="chi-row chi-row--between"><span class="chi-help">同步進度</span><strong>68%</strong></div><div class="chi-progress" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"><div class="chi-progress__bar preview-progress--partial"></div></div></div><div class="chi-stack preview-gap-sm"><div class="chi-row chi-row--between"><span class="chi-help">完成</span><strong>100%</strong></div><div class="chi-progress chi-progress--success"><div class="chi-progress__bar preview-progress--complete"></div></div></div><div class="chi-steps"><div class="chi-steps__item is-complete">建立專案</div><div class="chi-steps__item is-current">設定資料</div><div class="chi-steps__item">完成</div></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">使用者與統計</h2><div class="chi-row"><span class="chi-avatar chi-avatar--large">CHI</span><div class="chi-stack preview-gap-xs"><strong>Chi Workspace</strong><span class="chi-help">管理員 · 最後更新 5 分鐘前</span></div></div><div class="chi-row chi-row--between"><div class="chi-avatar-group"><span class="chi-avatar">A</span><span class="chi-avatar">B</span><span class="chi-avatar">C</span><span class="chi-avatar">+2</span></div><span class="chi-help">5 位協作者</span></div><hr class="chi-divider"><div class="chi-grid"><div class="chi-stat"><span class="chi-stat__label">可用服務</span><span class="chi-stat__value">12</span><span class="chi-stat__change"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#trending-up"></use></svg> 2 本週新增</span></div><div class="chi-stat"><span class="chi-stat__label">成功率</span><span class="chi-stat__value">99.8%</span><span class="chi-help">過去 30 天</span></div></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">列表與媒體列</h2><div class="chi-list"><div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">網站服務</p><p class="chi-list__description">最近一次檢查已完成。</p></div><span class="chi-badge chi-badge--success">正常</span></div><div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">資料同步</p><p class="chi-list__description">等待下一次排程。</p></div><span class="chi-badge chi-badge--warning">等待中</span></div></div><hr class="chi-divider"><div class="chi-media"><span class="chi-icon-circle" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></span><div class="chi-media__body"><p class="chi-media__title">Chi Source</p><p class="chi-media__description">第三方來源管理與應用程式索引。</p><a class="chi-link" href="#patterns">查看詳情</a></div></div></div>
-<div class="chi-panel preview-demo-panel preview-demo-panel--wide chi-stack"><h2 class="chi-section__title">資料表格</h2><p class="chi-help">表格適合比較多筆同類資料；手機版可橫向捲動，不強行壓縮欄位。</p><div class="chi-table-wrap"><table class="chi-table"><thead><tr><th>服務</th><th>類型</th><th>最近更新</th><th>狀態</th><th>操作</th></tr></thead><tbody><tr><td><strong>Chi Source</strong></td><td>應用程式來源</td><td>5 分鐘前</td><td><span class="chi-badge chi-badge--success">正常</span></td><td><a class="chi-link" href="#patterns">檢視</a></td></tr><tr><td><strong>Status</strong></td><td>狀態監控</td><td>12 分鐘前</td><td><span class="chi-badge chi-badge--warning">注意</span></td><td><a class="chi-link" href="#patterns">檢視</a></td></tr><tr><td><strong>Tools</strong></td><td>線上工具</td><td>1 小時前</td><td><span class="chi-badge">未檢查</span></td><td><a class="chi-link" href="#patterns">檢視</a></td></tr></tbody></table></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">分頁控制</h2><div class="chi-row chi-row--between"><span class="chi-help">共 48 筆資料</span><nav class="chi-pagination" aria-label="分頁"><a class="chi-pagination__item" href="#components" aria-label="上一頁">‹</a><a class="chi-pagination__item" href="#components" aria-current="page">1</a><a class="chi-pagination__item" href="#components">2</a><a class="chi-pagination__item" href="#components">3</a><span class="chi-help">…</span><a class="chi-pagination__item" href="#components">8</a><a class="chi-pagination__item" href="#components" aria-label="下一頁">›</a></nav></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">空狀態</h2><div class="chi-empty"><div class="chi-icon-circle preview-empty-icon"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg></div><strong class="preview-empty-title">尚無符合條件的項目</strong><p class="chi-help">可以調整篩選條件，或新增第一筆資料。</p><button class="chi-button chi-button--primary preview-mt-md">新增項目</button></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">載入中</h2><div class="chi-row"><div class="chi-skeleton preview-skeleton-avatar"></div><div class="chi-stack preview-flex-fill preview-gap-sm"><div class="chi-skeleton preview-skeleton-line preview-skeleton-line--short"></div><div class="chi-skeleton preview-skeleton-line preview-skeleton-line--long"></div></div></div><div class="chi-skeleton preview-skeleton-line preview-skeleton-line--full"></div><div class="chi-skeleton preview-skeleton-line preview-skeleton-line--medium"></div><p class="chi-help">骨架畫面保留內容大致形狀，避免整頁突然跳動。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">提示與程式碼</h2><p>快捷鍵 <kbd class="chi-code">⌘ K</kbd>，路徑 <code class="chi-code">/api/status</code></p><div class="chi-tooltip"><button class="chi-button">滑過或聚焦我</button><span class="chi-tooltip__content" role="tooltip">這是一段補充提示</span></div><blockquote class="chi-quote">把說明放在使用者需要它的地方，不要讓提示文字搶過主要內容。</blockquote><pre class="chi-pre">status: "healthy"
-last_checked: "just now"</pre></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">搜尋與快速切換</h2><label class="chi-search"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg><input type="search" placeholder="搜尋服務、工具或設定…" aria-label="搜尋服務、工具或設定"></label><div class="chi-segmented" role="group" aria-label="顯示模式"><button class="chi-segmented__item" aria-pressed="true">列表</button><button class="chi-segmented__item" aria-pressed="false">網格</button><button class="chi-segmented__item" aria-pressed="false">精簡</button></div><p class="chi-help">搜尋欄位用於即時篩選；分段控制適合在少量互斥檢視模式間切換。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">選單</h2><div class="chi-menu" role="menu" aria-label="項目操作"><a class="chi-menu__item" role="menuitem" href="#patterns"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#external-link"></use></svg> <span>檢視詳細資料</span></a><a class="chi-menu__item" role="menuitem" href="#patterns"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#pencil"></use></svg> <span>編輯設定</span></a><hr class="chi-divider preview-divider-compact"><button class="chi-menu__item chi-menu__item--danger" role="menuitem"><svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#trash-2"></use></svg> <span>移除項目</span></button></div><p class="chi-help">選單適合放次要操作；重要或不可逆的動作需再加確認步驟。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">檔案上傳區</h2><label class="chi-dropzone"><span class="chi-dropzone__icon" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#upload"></use></svg></span><strong>選擇檔案或拖曳至此</strong><span class="chi-help">支援的格式與大小限制應在此明確說明</span><input type="file" class="preview-file-input" aria-label="選擇要上傳的檔案"></label></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">時間軸</h2><div class="chi-timeline"><div class="chi-timeline__item"><div class="chi-timeline__rail"><span class="chi-timeline__dot"></span></div><div><p class="chi-timeline__title">部署完成</p><p class="chi-timeline__meta">今天 13:42 · main</p><p class="chi-help">新版本已成功部署。</p></div></div><div class="chi-timeline__item"><div class="chi-timeline__rail"><span class="chi-timeline__dot"></span></div><div><p class="chi-timeline__title">檢查通過</p><p class="chi-timeline__meta">今天 13:39 · CI</p></div></div><div class="chi-timeline__item"><div class="chi-timeline__rail"><span class="chi-timeline__dot"></span></div><div><p class="chi-timeline__title">提交變更</p><p class="chi-timeline__meta">今天 13:35 · commit</p></div></div></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">Toast 通知</h2><div class="chi-toast" role="status"><span aria-hidden="true" class="preview-icon-success"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#circle-check"></use></svg></span><span class="chi-toast__message">設定已儲存</span><button class="chi-button chi-button--small" aria-label="關閉通知">關閉</button></div><div class="chi-toast" role="status"><span aria-hidden="true" class="preview-icon-warning"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#triangle-alert"></use></svg></span><span class="chi-toast__message">同步仍在背景執行</span></div><p class="chi-help">Toast 用於短暫回饋，不承載需要使用者立即處理的錯誤細節。</p></div>
-</div></section>
 
-<section class="chi-container preview-section" id="patterns">
-<p class="preview-section__label">04 · Page patterns</p>
-<div class="preview-grid">
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">確認對話框</h2><div class="chi-dialog-backdrop"><div class="chi-dialog chi-stack preview-gap-md"><div class="chi-section__header"><h3 class="chi-section__title">刪除這個項目？</h3><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#x"></use></svg></div><p class="chi-help">刪除後將無法從此頁面還原。請確認你真的要繼續。</p><div class="chi-row preview-wrap preview-justify-end"><button class="chi-button">取消</button><button class="chi-button chi-button--danger">確認刪除</button></div></div></div><p class="chi-help">危險動作要說清楚後果，並讓取消操作容易找到。</p></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">區塊標題與篩選列</h2><div class="chi-section__header"><div><h3 class="chi-section__title">最近活動</h3><p class="chi-section__description">查看服務最近的變更</p></div><button class="chi-button chi-button--small">查看全部</button></div><div class="chi-row preview-wrap"><span class="chi-badge chi-badge--success">全部服務</span><span class="chi-tag">最近 7 天 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg></span><span class="chi-tag">狀態：全部 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg></span></div><hr class="chi-divider"><div class="chi-media"><span class="chi-avatar">CI</span><div class="chi-media__body"><p class="chi-media__title">部署成功</p><p class="chi-media__description">main 分支 · 8 分鐘前</p></div><span class="chi-badge chi-badge--success">成功</span></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">引言與內容提示</h2><p class="preview-subtitle">內容頁面應先呈現使用者要完成的事，再放置輔助資訊、注意事項與補充連結。</p><div class="chi-notice"><strong>注意事項</strong><p class="chi-help preview-mt-xs">執行同步前，請先確認目標來源與權限。</p></div><div class="chi-row preview-wrap"><a class="chi-link" href="#foundations">回到基礎</a><a class="chi-link" href="README.md">閱讀使用說明</a></div></div>
-<div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">主視覺與功能卡片</h2><article class="chi-card"><span class="chi-icon-circle" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#sparkles"></use></svg></span><p class="chi-kicker">Chi tools</p><h3 class="chi-card__title">常用工具，集中整理</h3><p class="chi-card__description">卡片適合呈現可獨立理解的功能入口。標題與簡介應自然靠近，不用固定高度或硬塞空白。</p><a class="chi-link" href="#components">探索工具 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-right"></use></svg></a></article></div>
-</div>
-</section>
+  <section class="chi-container preview-section" id="foundations" aria-labelledby="foundations-title">
+    <div class="preview-section-heading">
+      <div>
+        <p class="preview-kicker">01 / FOUNDATIONS</p>
+        <h2 class="chi-section__title" id="foundations-title">基礎規格</h2>
+        <p class="preview-section__intro">用一致的語意 token 管理色彩、字體、間距與表面。實際數值以 <code>tokens.css</code> 為準，避免各頁面自行長出一套規則。</p>
+      </div>
+      <a class="preview-text-link" href="./DESIGN.md#與實作同步的-token-規格">查看完整 token 規範 <span aria-hidden="true">↗</span></a>
+    </div>
 
+    <div class="preview-foundation-grid">
+      <article class="preview-foundation-block">
+        <div class="preview-block-heading">
+          <div><span class="preview-index">A</span><h3>色彩角色</h3></div>
+          <span class="preview-mini-note">LIGHT / DARK</span>
+        </div>
+        <p class="preview-block-copy">色彩先表達用途，再表達裝飾。切換主題時，元件只需讀取同一個語意 token。</p>
+        <div class="preview-color-list">
+          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-page)"></span><span class="preview-color-meta"><strong>Page</strong><code>--chi-color-page</code></span><output data-token-value="--chi-color-page"></output></div>
+          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-surface)"></span><span class="preview-color-meta"><strong>Surface</strong><code>--chi-color-surface</code></span><output data-token-value="--chi-color-surface"></output></div>
+          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-text-strong)"></span><span class="preview-color-meta"><strong>Primary text</strong><code>--chi-color-text-strong</code></span><output data-token-value="--chi-color-text-strong"></output></div>
+          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-accent)"></span><span class="preview-color-meta"><strong>Accent</strong><code>--chi-color-accent</code></span><output data-token-value="--chi-color-accent"></output></div>
+          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-accent-blue)"></span><span class="preview-color-meta"><strong>Blue accent</strong><code>--chi-color-accent-blue</code></span><output data-token-value="--chi-color-accent-blue"></output></div>
+          <div class="preview-color-row"><span class="preview-color-chip" style="--swatch:var(--chi-color-border)"></span><span class="preview-color-meta"><strong>Border</strong><code>--chi-color-border</code></span><output data-token-value="--chi-color-border"></output></div>
+        </div>
+      </article>
 
-<section class="chi-container preview-section" id="settings-patterns">
-<p class="preview-section__label">05 · Account & settings patterns</p>
-<div class="preview-grid">
-<div class="chi-panel preview-demo-panel chi-stack">
-<h2 class="chi-section__title">設定列與開關</h2>
-<div class="chi-setting-row">
-<div class="chi-setting-row__body"><p class="chi-setting-row__title">電子郵件通知</p><p class="chi-setting-row__description">接收重要更新與服務通知。這個示範只改變畫面狀態，不會儲存偏好。</p></div>
-<label class="chi-switch" aria-label="電子郵件通知"><input type="checkbox" checked data-demo-switch><span class="chi-switch__track" aria-hidden="true"></span></label>
-</div>
-<div class="chi-setting-row">
-<div class="chi-setting-row__body"><p class="chi-setting-row__title">公開活動資訊</p><p class="chi-setting-row__description">關閉後，示範開關會保留在本頁目前狀態。</p></div>
-<label class="chi-switch" aria-label="公開活動資訊"><input type="checkbox" data-demo-switch><span class="chi-switch__track" aria-hidden="true"></span></label>
-</div>
-<p class="chi-help">使用原生 checkbox，保留鍵盤操作與可存取名稱。</p>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack">
-<h2 class="chi-section__title">已連結服務</h2>
-<div class="chi-account-row"><span class="chi-account-row__icon" aria-hidden="true">G</span><div class="chi-account-row__body"><p class="chi-account-row__name">Google</p><p class="chi-account-row__meta">已連結 · user@example.com</p></div><a class="chi-account-row__action" href="#settings-patterns" data-demo-toast="這只是示範操作，沒有變更連結">管理</a></div>
-<div class="chi-account-row"><span class="chi-account-row__icon" aria-hidden="true">GH</span><div class="chi-account-row__body"><p class="chi-account-row__name">GitHub</p><p class="chi-account-row__meta">尚未連結</p></div><a class="chi-account-row__action" href="#settings-patterns" data-demo-toast="這只是示範操作，沒有連結帳號">連結</a></div>
-<p class="chi-help">帳號名稱、狀態和操作彼此分離，避免把整列做成難以辨識的大按鈕。</p>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack">
-<h2 class="chi-section__title">裝置與操作清單</h2>
-<div class="chi-device-row"><span class="chi-device-row__icon" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#smartphone"></use></svg></span><div class="chi-device-row__body"><p class="chi-device-row__name">iPhone · 目前裝置</p><p class="chi-device-row__meta">最近活動：今天</p></div><span class="chi-badge chi-badge--success">使用中</span></div>
-<div class="chi-device-row"><span class="chi-device-row__icon" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#monitor"></use></svg></span><div class="chi-device-row__body"><p class="chi-device-row__name">桌上型電腦</p><p class="chi-device-row__meta">最近活動：昨天</p></div><button class="chi-button chi-button--small" type="button" data-demo-toast="示範：已送出裝置管理回饋">管理</button></div>
-<div class="chi-empty-state"><p class="chi-empty-state__title">沒有更多裝置</p><p class="chi-empty-state__description">空狀態可以說明目前情況，並在適當時提供下一步。</p></div>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack">
-<h2 class="chi-section__title">Toast 通知</h2>
-<p class="chi-help">用於短暫的操作回饋，不取代表單錯誤或重要確認。</p>
-<div class="chi-row preview-wrap"><button class="chi-button chi-button--primary" type="button" data-demo-toast="已複製示範文字">成功回饋</button><button class="chi-button" type="button" data-demo-toast="這是一般提示訊息">一般提示</button><button class="chi-button chi-button--danger" type="button" data-demo-toast="示範操作未執行任何變更">警告回饋</button></div>
-<div class="chi-toast-region" id="chi-demo-toast-region" aria-live="polite" aria-atomic="false"></div>
-</div>
-</div>
-</section>
+      <article class="preview-foundation-block">
+        <div class="preview-block-heading">
+          <div><span class="preview-index">B</span><h3>文字層級</h3></div>
+          <span class="preview-mini-note">TYPE SCALE</span>
+        </div>
+        <p class="preview-block-copy">標題建立閱讀順序，輔助文字補充脈絡。不要只靠顏色區分重要程度。</p>
+        <div class="preview-type-specimens">
+          <div class="preview-type-row"><span>Display</span><p class="preview-type-display">清楚的介面</p><code>--chi-text-display</code></div>
+          <div class="preview-type-row"><span>Heading</span><p class="preview-type-heading">章節與頁面標題</p><code>--chi-text-xl</code></div>
+          <div class="preview-type-row"><span>Body</span><p class="preview-type-body">內容應該容易閱讀，行距足夠，說明靠近它所解釋的控制項。</p><code>--chi-text-md</code></div>
+          <div class="preview-type-row"><span>Supporting</span><p class="preview-type-supporting">用於補充資訊、狀態說明與欄位提示。</p><code>--chi-text-sm</code></div>
+        </div>
+      </article>
 
-<section class="chi-container preview-section">
-<p class="preview-section__label">06 · Theme check</p>
-<div class="preview-grid"><div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">淺色主題</h2><p class="chi-help">主要參考風格：淡藍灰背景、白色表面、藍紫焦點。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.removeAttribute('data-chi-theme')">切換至淺色</button></div><div class="chi-panel preview-demo-panel chi-stack"><h2 class="chi-section__title">深色主題</h2><p class="chi-help">同一組元件沿用相同層級與間距，只替換色彩與表面 tokens。</p><button class="chi-button chi-button--primary" onclick="document.documentElement.setAttribute('data-chi-theme','dark')">切換至深色</button></div></div>
-</section>
-<section class="chi-container preview-bottom-space"><div class="chi-logo-row"><span class="chi-logo-placeholder">STATUS</span><span class="chi-logo-placeholder">CHI SOURCE</span><span class="chi-logo-placeholder">TOOLS</span></div></section>
-<section class="chi-container preview-section" id="usage">
-<p class="preview-section__label">05 · Implementation</p>
-<h2 class="chi-section__title">在其他專案使用</h2>
-<p class="preview-section__intro">先沿用基礎 token，再挑選需要的元件。空白版型只負責共用外框；這一頁負責查規格與看範例。每個產品都應保留自己的資訊架構與操作流程。</p>
-<div class="preview-grid">
-<div class="chi-panel preview-demo-panel chi-stack">
-<h3 class="chi-section__title">1. 載入共用樣式</h3>
-<p class="preview-subtitle">如果網站與設計系統放在同一個根目錄，直接引用以下檔案；若部署在子路徑，請調整成實際可用的相對或絕對路徑。</p>
-<pre class="preview-code-block"><code>&lt;link rel="stylesheet" href="./tokens.css"&gt;
+      <article class="preview-foundation-block">
+        <div class="preview-block-heading">
+          <div><span class="preview-index">C</span><h3>間距與形狀</h3></div>
+          <span class="preview-mini-note">SPACING / RADIUS</span>
+        </div>
+        <p class="preview-block-copy">間距維持節奏，圓角區分元件角色。不是每個容器都需要邊框、陰影或膠囊外型。</p>
+        <div class="preview-scale-list">
+          <div class="preview-scale-row"><code>space-2</code><span class="preview-scale-track"><i style="--scale:16%"></i></span><output>8px</output></div>
+          <div class="preview-scale-row"><code>space-3</code><span class="preview-scale-track"><i style="--scale:24%"></i></span><output>12px</output></div>
+          <div class="preview-scale-row"><code>space-4</code><span class="preview-scale-track"><i style="--scale:32%"></i></span><output>16px</output></div>
+          <div class="preview-scale-row"><code>space-6</code><span class="preview-scale-track"><i style="--scale:48%"></i></span><output>24px</output></div>
+          <div class="preview-scale-row"><code>space-8</code><span class="preview-scale-track"><i style="--scale:64%"></i></span><output>32px</output></div>
+        </div>
+        <div class="preview-shape-list">
+          <div><span class="preview-shape preview-shape--sm"></span><code>6px / sm</code></div>
+          <div><span class="preview-shape preview-shape--md"></span><code>10px / md</code></div>
+          <div><span class="preview-shape preview-shape--lg"></span><code>16px / lg</code></div>
+          <div><span class="preview-shape preview-shape--pill"></span><code>pill</code></div>
+        </div>
+      </article>
+
+      <article class="preview-foundation-block preview-foundation-block--surface">
+        <div class="preview-block-heading">
+          <div><span class="preview-index">D</span><h3>表面與層級</h3></div>
+          <span class="preview-mini-note">SURFACE / ELEVATION</span>
+        </div>
+        <p class="preview-block-copy">先以背景與細邊框建立層次。只有浮層、互動卡片等需要時，才提高陰影。</p>
+        <div class="preview-surface-demo">
+          <div class="preview-surface-demo__page"><span>Page</span><div class="preview-surface-demo__surface"><span>Surface</span><div class="preview-surface-demo__raised"><span>Raised surface</span></div></div></div>
+        </div>
+        <ul class="preview-rule-list">
+          <li>一般面板以表面色與邊框為主</li>
+          <li>下拉選單使用 raised surface</li>
+          <li>玻璃效果只用在需要背景透視的局部</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="preview-component-section" id="components" aria-labelledby="components-title">
+    <div class="chi-container preview-section">
+      <div class="preview-section-heading">
+        <div>
+          <p class="preview-kicker">02 / COMPONENTS</p>
+          <h2 class="chi-section__title" id="components-title">元件圖鑑</h2>
+          <p class="preview-section__intro">每個元件都要有清楚用途、可辨識的狀態與合理的鍵盤行為。可以搜尋名稱、用途或英文關鍵字，快速找到需要的範例。</p>
+        </div>
+        <span class="preview-component-count" id="component-count">12 個範例</span>
+      </div>
+
+      <div class="preview-catalog-tools">
+        <div class="preview-search-wrap">
+          <label for="component-search">搜尋元件</label>
+          <div class="preview-search-control">
+            <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#search"></use></svg>
+            <input class="chi-input" id="component-search" type="search" placeholder="例如：button、表單、錯誤…" autocomplete="off">
+            <button class="chi-button chi-button--small" id="component-search-clear" type="button">清除</button>
+          </div>
+          <p class="chi-help" id="component-search-status" aria-live="polite">顯示全部範例。</p>
+        </div>
+        <div class="preview-filter-group" role="group" aria-label="依元件類別篩選">
+          <button class="preview-filter is-active" type="button" data-component-filter="all" aria-pressed="true">全部</button>
+          <button class="preview-filter" type="button" data-component-filter="actions" aria-pressed="false">操作</button>
+          <button class="preview-filter" type="button" data-component-filter="forms" aria-pressed="false">表單</button>
+          <button class="preview-filter" type="button" data-component-filter="feedback" aria-pressed="false">狀態回饋</button>
+          <button class="preview-filter" type="button" data-component-filter="data" aria-pressed="false">資料呈現</button>
+        </div>
+      </div>
+
+      <div class="preview-component-grid" id="component-catalog">
+        <article class="preview-component-card" data-category="actions" data-search="button 按鈕 primary secondary danger 主要 次要 危險">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C01</span><h3>按鈕與操作</h3></div><span class="preview-status">Action</span></div>
+          <p>主要操作清楚突出，次要操作降低視覺重量；危險操作需與一般流程區隔。</p>
+          <div class="preview-specimen preview-specimen--wrap">
+            <button class="chi-button chi-button--primary" type="button" data-demo-toast="主要操作已觸發。">主要操作</button>
+            <button class="chi-button" type="button" data-demo-toast="次要操作已觸發。">次要操作</button>
+            <button class="chi-button chi-button--danger" type="button" data-demo-toast="這是示範回饋，沒有刪除任何資料。">危險操作</button>
+            <button class="chi-button" type="button" disabled>不可用</button>
+          </div>
+          <div class="preview-code-block"><button class="preview-copy" type="button" data-copy-code>複製程式碼</button><pre><code>&lt;button class="chi-button chi-button--primary"&gt;
+  儲存變更
+&lt;/button&gt;</code></pre></div>
+        </article>
+
+        <article class="preview-component-card" data-category="forms" data-search="input form 輸入欄位 label help error 搜尋">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C02</span><h3>輸入欄位</h3></div><span class="preview-status">Form</span></div>
+          <p>欄位標籤、提示與錯誤訊息都應直接對應輸入內容，不能只用顏色傳達錯誤。</p>
+          <div class="preview-specimen preview-specimen--stack">
+            <label class="chi-label" for="demo-email">電子郵件</label>
+            <input class="chi-input" id="demo-email" type="email" placeholder="name@example.com" aria-describedby="demo-email-help">
+            <p class="chi-help" id="demo-email-help">用於帳號通知，不會公開顯示。</p>
+            <label class="chi-label" for="demo-invalid">錯誤狀態示範</label>
+            <input class="chi-input" id="demo-invalid" type="text" value="未完成的資料" aria-invalid="true" aria-describedby="demo-invalid-error">
+            <p class="chi-help preview-error-text" id="demo-invalid-error">請檢查這個欄位的內容。</p>
+          </div>
+          <div class="preview-code-block"><button class="preview-copy" type="button" data-copy-code>複製程式碼</button><pre><code>&lt;label class="chi-label" for="email"&gt;
+  電子郵件
+&lt;/label&gt;
+&lt;input class="chi-input" id="email" type="email"&gt;</code></pre></div>
+        </article>
+
+        <article class="preview-component-card" data-category="forms" data-search="switch toggle 開關 設定 preference 偏好">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C03</span><h3>開關與設定列</h3></div><span class="preview-status">Settings</span></div>
+          <p>開關適用於切換後立即生效的布林設定；需要提交的設定應使用明確的表單流程。</p>
+          <div class="preview-specimen preview-specimen--stack">
+            <label class="preview-setting-row"><span><strong>郵件通知</strong><small>接收重要活動的更新</small></span><input class="chi-switch" type="checkbox" checked aria-label="郵件通知"></label>
+            <label class="preview-setting-row"><span><strong>產品更新</strong><small>接收新功能與版本資訊</small></span><input class="chi-switch" type="checkbox" aria-label="產品更新"></label>
+          </div>
+          <div class="preview-code-block"><button class="preview-copy" type="button" data-copy-code>複製程式碼</button><pre><code>&lt;label class="preview-setting-row"&gt;
+  &lt;span&gt;郵件通知&lt;/span&gt;
+  &lt;input class="chi-switch" type="checkbox"&gt;
+&lt;/label&gt;</code></pre></div>
+        </article>
+
+        <article class="preview-component-card" data-category="actions" data-search="tabs tab 頁籤 navigation 切換">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C04</span><h3>頁籤</h3></div><span class="preview-status">Navigation</span></div>
+          <p>頁籤切換同一層級的相關內容，選取狀態要可見，也要能用鍵盤切換。</p>
+          <div class="preview-specimen preview-specimen--stack">
+            <div class="preview-tabs" role="tablist" aria-label="頁籤範例">
+              <button id="demo-tab-overview" class="preview-tab is-active" role="tab" type="button" aria-selected="true" aria-controls="demo-tab-panel" tabindex="0" data-demo-tab="overview">總覽</button>
+              <button id="demo-tab-activity" class="preview-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-tab-panel" tabindex="-1" data-demo-tab="activity">活動</button>
+              <button id="demo-tab-settings" class="preview-tab" role="tab" type="button" aria-selected="false" aria-controls="demo-tab-panel" tabindex="-1" data-demo-tab="settings">設定</button>
+            </div>
+            <div class="preview-tab-panel" id="demo-tab-panel" role="tabpanel" aria-labelledby="demo-tab-overview" tabindex="0">總覽內容顯示在這裡。分頁只切換同一層級的內容。</div>
+          </div>
+        </article>
+
+        <article class="preview-component-card" data-category="feedback" data-search="badge status tag 狀態標籤 success warning danger">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C05</span><h3>狀態標籤</h3></div><span class="preview-status">Status</span></div>
+          <p>標籤用來快速辨識狀態，不是裝飾。保持文字簡短，避免同一畫面出現太多高彩度徽章。</p>
+          <div class="preview-specimen preview-specimen--wrap">
+            <span class="chi-badge chi-badge--success">已完成</span>
+            <span class="chi-badge chi-badge--warning">等待處理</span>
+            <span class="chi-badge chi-badge--danger">需要注意</span>
+            <span class="chi-badge">草稿</span>
+          </div>
+        </article>
+
+        <article class="preview-component-card" data-category="feedback" data-search="alert notice 提示訊息 success warning error 錯誤">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C06</span><h3>提示訊息</h3></div><span class="preview-status">Feedback</span></div>
+          <p>需要持續閱讀的錯誤或提醒應留在內容中；不要把重要資訊只放在短暫消失的 Toast。</p>
+          <div class="preview-specimen preview-specimen--stack">
+            <div class="chi-alert chi-alert--success" role="status"><strong>已儲存</strong><span>變更已在此示範介面中完成。</span></div>
+            <div class="chi-alert chi-alert--warning" role="note"><strong>請留意</strong><span>離開前請確認尚未完成的內容。</span></div>
+          </div>
+        </article>
+
+        <article class="preview-component-card" data-category="feedback" data-search="toast notification 通知 暫時回饋">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C07</span><h3>Toast 通知</h3></div><span class="preview-status">Transient</span></div>
+          <p>適合非阻斷性的操作結果。此範例只在頁面上顯示示範訊息，不會呼叫 API 或保存資料。</p>
+          <div class="preview-specimen preview-specimen--wrap">
+            <button class="chi-button chi-button--primary" type="button" data-demo-toast="操作成功。這是前端示範訊息。">顯示成功通知</button>
+            <button class="chi-button" type="button" data-demo-toast="目前沒有待處理的項目。">顯示一般通知</button>
+          </div>
+          <div id="chi-demo-toast-region" class="preview-toast-region" aria-live="polite" aria-atomic="false"></div>
+        </article>
+
+        <article class="preview-component-card" data-category="data" data-search="table data table 資料表格 row 欄位">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C08</span><h3>資料表格</h3></div><span class="preview-status">Data</span></div>
+          <p>欄位名稱保持清楚，狀態與操作放在一致的位置；窄螢幕時應有替代呈現方式。</p>
+          <div class="preview-table-wrap">
+            <table class="preview-table">
+              <thead><tr><th scope="col">項目</th><th scope="col">狀態</th><th scope="col">更新時間</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">設計規格</th><td><span class="chi-badge chi-badge--success">已同步</span></td><td>剛剛</td></tr>
+                <tr><th scope="row">元件清單</th><td><span class="chi-badge chi-badge--warning">待檢查</span></td><td>今天</td></tr>
+                <tr><th scope="row">主題設定</th><td><span class="chi-badge">草稿</span></td><td>昨天</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="preview-component-card" data-category="data" data-search="list row list item 設定列 服務 清單">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C09</span><h3>清單與資料列</h3></div><span class="preview-status">List</span></div>
+          <p>把名稱、輔助說明、狀態與操作整理在同一閱讀路徑，適合設定、服務綁定與最近活動。</p>
+          <div class="preview-data-list">
+            <div class="preview-data-row"><span class="preview-service-icon">DS</span><span class="preview-data-row__copy"><strong>設計系統</strong><small>共用樣式與元件規範</small></span><span class="chi-badge chi-badge--success">已連結</span></div>
+            <div class="preview-data-row"><span class="preview-service-icon">UI</span><span class="preview-data-row__copy"><strong>元件圖鑑</strong><small>HTML / CSS 示範頁</small></span><span class="chi-badge">文件</span></div>
+          </div>
+        </article>
+
+        <article class="preview-component-card" data-category="data" data-search="empty state 空狀態 no results 無資料">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C10</span><h3>空狀態</h3></div><span class="preview-status">Empty</span></div>
+          <p>明確說明目前沒有什麼，並提供合理的下一步。不要只留下空白或一張沒有解釋的插圖。</p>
+          <div class="preview-empty-state">
+            <span class="preview-empty-state__mark" aria-hidden="true"><svg class="chi-icon chi-icon--lg" focusable="false"><use href="./icons.svg#search"></use></svg></span>
+            <strong>目前沒有符合的項目</strong>
+            <p>調整篩選條件，或清除搜尋後再試一次。</p>
+            <button class="chi-button chi-button--small" type="button" id="demo-empty-reset">清除條件</button>
+          </div>
+        </article>
+
+        <article class="preview-component-card" data-category="feedback" data-search="skeleton loading 載入中 progress 進度">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C11</span><h3>載入與進度</h3></div><span class="preview-status">Loading</span></div>
+          <p>載入時保留內容的大致尺寸，降低版面跳動。動態效果需尊重減少動態的系統偏好。</p>
+          <div class="preview-loading-demo" aria-label="載入中示範">
+            <span class="preview-skeleton preview-skeleton--avatar"></span>
+            <span class="preview-skeleton-lines"><i></i><i></i><i></i></span>
+          </div>
+          <div class="preview-progress"><span>同步進度 <strong>68%</strong></span><div class="preview-progress__track" role="progressbar" aria-label="同步進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68"><i></i></div></div>
+        </article>
+
+        <article class="preview-component-card" data-category="actions" data-search="menu dropdown popover 選單 浮層">
+          <div class="preview-component-card__head"><div><span class="preview-card-number">C12</span><h3>選單與浮層原則</h3></div><span class="preview-status">Overlay</span></div>
+          <p>浮層需要清楚的觸發器、展開狀態與關閉方式。不要讓重要功能只能靠 hover 使用。</p>
+          <div class="preview-specimen preview-specimen--stack">
+            <button class="chi-button" id="demo-menu-trigger" type="button" aria-expanded="false" aria-controls="demo-menu-panel">開啟操作選單 <svg class="chi-icon chi-icon--sm" aria-hidden="true" focusable="false"><use href="./icons.svg#chevron-down"></use></svg></button>
+            <div class="preview-menu-panel" id="demo-menu-panel" hidden>
+              <button type="button" data-menu-action="編輯">編輯項目</button>
+              <button type="button" data-menu-action="複製">複製項目</button>
+              <button type="button" data-menu-action="查看詳情">查看詳情</button>
+            </div>
+            <p class="chi-help" id="demo-menu-status" aria-live="polite">選單操作僅更新此處的示範文字。</p>
+          </div>
+        </article>
+      </div>
+      <p class="preview-catalog-empty" id="component-empty" hidden>沒有找到符合條件的範例，試試其他關鍵字或切回「全部」。</p>
+    </div>
+  </section>
+
+  <section class="chi-container preview-section" id="patterns" aria-labelledby="patterns-title">
+    <div class="preview-section-heading">
+      <div>
+        <p class="preview-kicker">03 / PAGE PATTERNS</p>
+        <h2 class="chi-section__title" id="patterns-title">版型模式</h2>
+        <p class="preview-section__intro">設計系統提供組合方式，不是要求所有網站長得一樣。依照使用者的任務選擇資訊架構，再套用共同的視覺語言。</p>
+      </div>
+      <a class="preview-text-link" href="./DESIGN.md#layout-principles版面原則與頁型">閱讀頁型規則 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="preview-pattern-grid">
+      <article class="preview-pattern">
+        <div class="preview-pattern__visual preview-pattern__visual--landing">
+          <div class="preview-wire-header"><i></i><span></span><span></span><span></span></div>
+          <div class="preview-wire-hero"><i></i><b></b><span></span><span></span><em></em></div>
+          <div class="preview-wire-cards"><i></i><i></i><i></i></div>
+        </div>
+        <div class="preview-pattern__body"><span class="preview-pattern__tag">A / PUBLIC</span><h3>公開入口與品牌介紹</h3><p>主視覺清楚、說明精簡，搭配少量功能區塊。適合產品介紹、工具入口與公開首頁。</p><a href="./DESIGN.md#layout-principles版面原則與頁型" class="preview-text-link">查看設計原則 <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="preview-pattern">
+        <div class="preview-pattern__visual preview-pattern__visual--settings">
+          <div class="preview-wire-appbar"><i></i><span></span><b></b></div>
+          <div class="preview-wire-settings"><i></i><span></span><em></em><i></i><span></span><em></em><i></i><span></span><em></em></div>
+        </div>
+        <div class="preview-pattern__body"><span class="preview-pattern__tag">B / ACCOUNT</span><h3>帳號中心與設定</h3><p>以設定列、區段標題和分隔線組織資訊。減少大型 Hero 與重複卡片，讓操作容易掃讀。</p><a href="./DESIGN.md#layout-principles版面原則與頁型" class="preview-text-link">查看設計原則 <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="preview-pattern">
+        <div class="preview-pattern__visual preview-pattern__visual--data">
+          <div class="preview-wire-metrics"><i></i><i></i><i></i></div>
+          <div class="preview-wire-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="preview-wire-table"><i></i><i></i><i></i></div>
+        </div>
+        <div class="preview-pattern__body"><span class="preview-pattern__tag">C / WORKSPACE</span><h3>資料工作區與監控</h3><p>優先呈現摘要、狀態、表格與主要任務。資訊密度較高時，避免不必要的裝飾和空間浪費。</p><a href="./DESIGN.md#元件分類與用途" class="preview-text-link">查看元件選型 <span aria-hidden="true">↗</span></a></div>
+      </article>
+    </div>
+    <div class="preview-pattern-note"><strong>共同原則</strong><span>共用 token 與元件，保留各產品自己的內容、流程、路由與功能。不要把元件圖鑑整頁複製成產品首頁。</span></div>
+  </section>
+
+  <section class="preview-implementation" id="usage" aria-labelledby="usage-title">
+    <div class="chi-container preview-implementation__inner">
+      <div class="preview-implementation__copy">
+        <p class="preview-kicker">04 / IMPLEMENTATION</p>
+        <h2 class="chi-section__title" id="usage-title">把規格帶進專案</h2>
+        <p class="preview-section__intro">先讀設計契約，再選擇共用樣式。正式產品應重用 tokens 與元件，不應載入本頁專用的 <code>elements.css</code>。</p>
+        <ol class="preview-steps">
+          <li><span>01</span><div><strong>載入共用樣式</strong><p><code>tokens.css</code> → <code>components.css</code> → <code>navigation.css</code></p></div></li>
+          <li><span>02</span><div><strong>使用語意 token 與元件</strong><p>優先選用既有的 <code>chi-button</code>、<code>chi-input</code>、<code>chi-panel</code> 等元件。</p></div></li>
+          <li><span>03</span><div><strong>驗證兩種主題與響應式</strong><p>檢查焦點、錯誤、停用、載入、空狀態與窄螢幕行為。</p></div></li>
+        </ol>
+      </div>
+      <div class="preview-implementation__code">
+        <div class="preview-code-heading"><span>HTML</span><button class="preview-copy" type="button" data-copy-code>複製程式碼</button></div>
+        <pre><code>&lt;link rel="stylesheet" href="./tokens.css"&gt;
 &lt;link rel="stylesheet" href="./components.css"&gt;
-&lt;link rel="stylesheet" href="./navigation.css"&gt;</code></pre>
-<button class="preview-copy" type="button" data-copy-code>複製程式碼</button>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack">
-<h3 class="chi-section__title">2. 使用既有元件</h3>
-<p class="preview-subtitle">以語意化 HTML 搭配共用 class。互動邏輯、資料讀取、驗證和儲存由實際專案負責。</p>
-<pre class="preview-code-block"><code>&lt;button class="chi-button chi-button--primary"&gt;
-  儲存設定
-&lt;/button&gt;
+&lt;link rel="stylesheet" href="./navigation.css"&gt;
 
-&lt;div class="chi-card"&gt;
-  &lt;h2 class="chi-section__title"&gt;區塊標題&lt;/h2&gt;
-  &lt;p class="chi-help"&gt;補充說明&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-<button class="preview-copy" type="button" data-copy-code>複製程式碼</button>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack preview-demo-panel--wide">
-<h3 class="chi-section__title">常用 Token 速查</h3>
-<div class="preview-token-list">
-<div class="preview-token-card"><strong>頁面背景</strong><p><code>--chi-color-page</code></p><p>整體畫布的底色。</p></div>
-<div class="preview-token-card"><strong>內容表面</strong><p><code>--chi-color-surface</code></p><p>卡片、選單與輸入區域。</p></div>
-<div class="preview-token-card"><strong>主要強調色</strong><p><code>--chi-color-accent</code></p><p>主要操作與互動焦點。</p></div>
-<div class="preview-token-card"><strong>主要文字</strong><p><code>--chi-color-text-strong</code></p><p>標題與重要內容。</p></div>
-<div class="preview-token-card"><strong>一般間距</strong><p><code>--chi-space-4</code></p><p>基準間距為 1rem。</p></div>
-<div class="preview-token-card"><strong>元件圓角</strong><p><code>--chi-radius-md</code></p><p>常用中型圓角為 10px。</p></div>
-<div class="preview-token-card"><strong>內容最大寬度</strong><p><code>--chi-content-width</code></p><p>預設 1080px。</p></div>
-<div class="preview-token-card"><strong>控制項高度</strong><p><code>--chi-control-height</code></p><p>預設 44px。</p></div>
-</div>
-<p class="chi-help">Token 的實際定義以 <code>tokens.css</code> 為準；深色主題會透過 <code>data-chi-theme="dark"</code> 覆寫對應值。</p>
-</div>
-<div class="chi-panel preview-demo-panel chi-stack preview-demo-panel--wide">
-<h3 class="chi-section__title">開發時的選擇順序</h3>
-<div class="chi-list">
-<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">先看基礎</p><p class="chi-list__description">確認色彩、字級、間距、圓角與深色主題。</p></div><span class="chi-badge">Tokens</span></div>
-<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">再挑元件</p><p class="chi-list__description">優先重用現有 class，缺少功能時才新增元件。</p></div><span class="chi-badge">Components</span></div>
-<div class="chi-list__item"><div class="chi-list__main"><p class="chi-list__title">最後組合版型</p><p class="chi-list__description">依產品的資訊層級配置內容，不要複製圖鑑頁面本身。</p></div><span class="chi-badge">Patterns</span></div>
-</div>
-<a class="chi-button" href="./DESIGN.md">閱讀完整設計規格 ↗</a>
-</div>
-</div>
-</section>
-
+&lt;button class="chi-button chi-button--primary"&gt;
+  儲存變更
+&lt;/button&gt;</code></pre>
+        <div class="preview-reference-links">
+          <a href="./DESIGN.md"><span><strong>DESIGN.md</strong><small>設計原則、頁型與無障礙契約</small></span><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
+          <a href="./design-system.yml"><span><strong>design-system.yml</strong><small>機器可讀的 token 與元件規格</small></span><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
+          <a href="./README.md"><span><strong>README.md</strong><small>檔案用途、引用方式與專案說明</small></span><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#arrow-up-right"></use></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
-<footer class="chi-footer"><div class="chi-footer__inner chi-stack"><a class="chi-brand preview-on-dark" href="#">CHI<span class="preview-brand-accent"></span></a><p class="chi-help preview-muted-on-dark">一套共享的視覺基礎，讓每個專案保有自己的樣子。</p><ul class="chi-footer__links"><li><a href="DESIGN.md">設計規格</a></li><li><a href="README.md">使用說明</a></li></ul><div class="chi-footer__bottom">Chi Design System · Component catalogue · Not yet applied to production sites</div></div></footer>
-<script>
-const demoTabs=[...document.querySelectorAll('[data-tab]')];const demoTabPanel=document.getElementById('tab-demo-text');const demoTabCopy={overview:'總覽內容顯示在這裡。分頁只切換同一層級的內容。',activity:'活動紀錄適合呈現時間順序的事件與狀態。',settings:'設定頁集中放置同一類型的偏好與控制項。'};const activateDemoTab=(tab,moveFocus=false)=>{demoTabs.forEach((item)=>{const active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1});demoTabPanel.textContent=demoTabCopy[tab.dataset.tab];demoTabPanel.setAttribute('aria-labelledby',tab.id);if(moveFocus)tab.focus()};demoTabs.forEach((tab,index)=>{tab.addEventListener('click',()=>activateDemoTab(tab));tab.addEventListener('keydown',(event)=>{let next=index;if(event.key==='ArrowRight')next=(index+1)%demoTabs.length;else if(event.key==='ArrowLeft')next=(index-1+demoTabs.length)%demoTabs.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=demoTabs.length-1;else return;event.preventDefault();activateDemoTab(demoTabs[next],true)})});
-document.querySelectorAll('.chi-segmented__item').forEach((item)=>item.addEventListener('click',()=>{document.querySelectorAll('.chi-segmented__item').forEach((button)=>button.setAttribute('aria-pressed',String(button===item)))}));
-document.querySelectorAll('.chi-toast button').forEach((button)=>button.addEventListener('click',()=>button.closest('.chi-toast').remove()));
 
-const closeNavPopovers=(except=null)=>{document.querySelectorAll('[data-language-picker]').forEach((picker)=>{if(picker===except)return;const trigger=picker.querySelector('.chi-language__trigger');const panel=picker.querySelector('.chi-language__panel');trigger.setAttribute('aria-expanded','false');panel.hidden=true});if(!except){const trigger=document.querySelector('.chi-mobile-menu__trigger');const menu=document.getElementById('chi-mobile-menu');if(trigger&&menu){trigger.setAttribute('aria-expanded','false');trigger.setAttribute('aria-label','開啟網站選單');menu.hidden=true}}};
-document.querySelectorAll('[data-language-picker]').forEach((picker)=>{const trigger=picker.querySelector('.chi-language__trigger');const panel=picker.querySelector('.chi-language__panel');trigger.addEventListener('click',(event)=>{event.stopPropagation();const open=trigger.getAttribute('aria-expanded')==='true';closeNavPopovers(picker);trigger.setAttribute('aria-expanded',String(!open));panel.hidden=open});panel.querySelectorAll('[data-language]').forEach((option)=>option.addEventListener('click',()=>{const language=option.dataset.language;document.querySelectorAll('[data-language-picker]').forEach((other)=>{other.querySelector('[data-language-label]').textContent=language;other.querySelectorAll('[data-language]').forEach((item)=>item.setAttribute('aria-selected',String(item.dataset.language===language)))});document.getElementById('nav-language-status').textContent='目前語言：'+language;closeNavPopovers();trigger.focus()}))});
-const mobileTrigger=document.querySelector('.chi-mobile-menu__trigger');const mobileMenu=document.getElementById('chi-mobile-menu');mobileTrigger.addEventListener('click',(event)=>{event.stopPropagation();const open=mobileTrigger.getAttribute('aria-expanded')==='true';closeNavPopovers();mobileTrigger.setAttribute('aria-expanded',String(!open));mobileTrigger.setAttribute('aria-label',open?'開啟網站選單':'關閉網站選單');mobileMenu.hidden=open});
-document.addEventListener('click',(event)=>{if(!event.target.closest('[data-language-picker]')&&!event.target.closest('.chi-mobile-menu__trigger')&&!event.target.closest('.chi-mobile-menu'))closeNavPopovers();if(event.target.closest('.chi-mobile-menu__link,.chi-mobile-menu__login'))closeNavPopovers()});
-document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){const expanded=document.querySelector('[aria-expanded=true]');const returnFocus=expanded?.matches('.chi-language__trigger,.chi-mobile-menu__trigger')?expanded:expanded?.closest('[data-language-picker]')?.querySelector('.chi-language__trigger');closeNavPopovers();returnFocus?.focus()}});
+<footer class="preview-footer">
+  <div class="chi-container preview-footer__inner">
+    <span><strong>CHI</strong> <span>Shared interface foundation</span></span>
+    <span>Built around clarity, consistency and useful restraint.</span>
+  </div>
+</footer>
 
-
-document.querySelectorAll('[data-demo-toast]').forEach((control)=>control.addEventListener('click',(event)=>{event.preventDefault();const region=document.getElementById('chi-demo-toast-region');if(!region)return;region.replaceChildren();const toast=document.createElement('div');const variant=control.classList.contains('chi-button--danger')?'chi-toast--error':control.classList.contains('chi-button--primary')?'chi-toast--success':'';toast.className=('chi-toast chi-toast--floating '+variant).trim();toast.setAttribute('role','status');const message=document.createElement('span');message.className='chi-toast__message';message.textContent=control.dataset.demoToast;const close=document.createElement('button');close.type='button';close.className='chi-button chi-button--small';close.textContent='關閉';close.setAttribute('aria-label','關閉通知');close.addEventListener('click',()=>{if(toast.isConnected)toast.remove()});toast.append(message,close);region.append(toast);window.clearTimeout(window.chiDemoToastTimer);window.chiDemoToastTimer=window.setTimeout(()=>toast.remove(),3200)}));
-
-
-const siteMenuTrigger=document.querySelector('.chi-site-menu__trigger');const siteMenu=document.getElementById('chi-site-menu');
-const closeSiteMenu=()=>{if(!siteMenuTrigger||!siteMenu)return;siteMenuTrigger.setAttribute('aria-expanded','false');siteMenuTrigger.setAttribute('aria-label','開啟網站導覽');siteMenu.hidden=true};
-siteMenuTrigger?.addEventListener('click',(event)=>{event.stopPropagation();const isOpen=siteMenuTrigger.getAttribute('aria-expanded')==='true';siteMenuTrigger.setAttribute('aria-expanded',String(!isOpen));siteMenuTrigger.setAttribute('aria-label',isOpen?'開啟網站導覽':'關閉網站導覽');siteMenu.hidden=isOpen});
-siteMenu?.querySelectorAll('a').forEach((link)=>link.addEventListener('click',closeSiteMenu));
-document.addEventListener('click',(event)=>{if(!event.target.closest('.chi-site-menu-wrap'))closeSiteMenu()});
-document.addEventListener('keydown',(event)=>{if(event.key==='Escape'&&siteMenuTrigger?.getAttribute('aria-expanded')==='true'){closeSiteMenu();siteMenuTrigger.focus()}});
-
-</script>
 <script>
 (() => {
-  const catalog = document.getElementById('component-catalog');
+  const root = document.documentElement;
+  const button = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const saved = (() => { try { return localStorage.getItem('chi-theme'); } catch { return null; } })();
+  const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const apply = (theme) => {
+    if (theme === 'dark') root.setAttribute('data-chi-theme', 'dark');
+    else root.removeAttribute('data-chi-theme');
+    icon.textContent = theme === 'dark' ? '☼' : '◐';
+    button.setAttribute('aria-label', theme === 'dark' ? '切換為淺色主題' : '切換為深色主題');
+    button.title = theme === 'dark' ? '切換為淺色主題' : '切換為深色主題';
+    updateTokenValues();
+  };
+  const updateTokenValues = () => {
+    const styles = getComputedStyle(root);
+    document.querySelectorAll('[data-token-value]').forEach((node) => {
+      const value = styles.getPropertyValue(node.dataset.tokenValue).trim();
+      if (value) node.textContent = value;
+    });
+  };
+  apply(saved || (systemDark ? 'dark' : 'light'));
+  button.addEventListener('click', () => {
+    const next = root.getAttribute('data-chi-theme') === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('chi-theme', next); } catch {}
+  });
+  root.addEventListener('change', updateTokenValues);
+  const observer = new MutationObserver(updateTokenValues);
+  observer.observe(root, { attributes: true, attributeFilter: ['data-chi-theme'] });
+
   const search = document.getElementById('component-search');
   const clear = document.getElementById('component-search-clear');
+  const catalog = document.getElementById('component-catalog');
+  const empty = document.getElementById('component-empty');
   const status = document.getElementById('component-search-status');
-  if (!catalog || !search || !clear || !status) return;
-
-  const panels = [...catalog.querySelectorAll('.preview-demo-panel')];
-  const categories = [
-    { key: 'navigation', label: '導覽', words: /導覽|路徑|分頁控制|搜尋與快速切換|選單/ },
-    { key: 'forms', label: '表單', words: /表單|選項與開關|設定列|檔案上傳/ },
-    { key: 'feedback', label: '狀態與回饋', words: /狀態與標籤|提示訊息|空狀態|載入中|Toast|確認對話框|提示與程式碼/ },
-    { key: 'data', label: '資料與清單', words: /進度與步驟|使用者與統計|列表與媒體列|資料表格|時間軸|已連結服務|裝置與操作清單/ },
-    { key: 'layout', label: '版面與其他', words: /區塊標題|引言與內容提示|主視覺與功能卡片|淺色主題|深色主題/ }
-  ];
-  panels.forEach((panel) => {
-    const heading = panel.querySelector('h2');
-    const title = heading?.textContent.trim() || '';
-    const category = categories.find((item) => item.words.test(title))?.key || 'layout';
-    panel.dataset.componentTitle = title;
-    panel.dataset.componentCategory = category;
-    panel.dataset.componentSearch = panel.textContent.toLocaleLowerCase();
-  });
-
-  const empty = document.createElement('p');
-  empty.className = 'preview-catalog-empty';
-  empty.hidden = true;
-  empty.textContent = '找不到符合條件的元件，試試其他關鍵字或切回「全部」。';
-  catalog.append(empty);
-
-  let activeCategory = 'all';
-  const render = () => {
+  const count = document.getElementById('component-count');
+  const cards = [...catalog.querySelectorAll('[data-category]')];
+  const filters = [...document.querySelectorAll('[data-component-filter]')];
+  let category = 'all';
+  const renderCatalog = () => {
     const query = search.value.trim().toLocaleLowerCase();
-    let count = 0;
-    panels.forEach((panel) => {
-      const matchesQuery = !query || panel.dataset.componentSearch.includes(query);
-      const matchesCategory = activeCategory === 'all' || panel.dataset.componentCategory === activeCategory;
-      const visible = matchesQuery && matchesCategory;
-      panel.hidden = !visible;
-      if (visible) count += 1;
+    let visible = 0;
+    cards.forEach((card) => {
+      const matchText = !query || (card.dataset.search + ' ' + card.textContent).toLocaleLowerCase().includes(query);
+      const matchCategory = category === 'all' || card.dataset.category === category;
+      const show = matchText && matchCategory;
+      card.hidden = !show;
+      if (show) visible += 1;
     });
-    empty.hidden = count !== 0;
-    status.textContent = query || activeCategory !== 'all'
-      ? `符合條件的元件：${count} 組`
-      : `顯示全部元件：${count} 組。可用名稱、用途或英文關鍵字搜尋。`;
+    empty.hidden = visible !== 0;
+    count.textContent = visible + ' 個範例';
+    status.textContent = query || category !== 'all' ? '找到 ' + visible + ' 個符合條件的範例。' : '顯示全部 ' + visible + ' 個範例。';
   };
-
-  catalog.querySelectorAll('[data-component-filter]').forEach((button) => {
-    button.addEventListener('click', () => {
-      activeCategory = button.dataset.componentFilter || 'all';
-      catalog.querySelectorAll('[data-component-filter]').forEach((item) => {
-        const selected = item === button;
-        item.classList.toggle('is-active', selected);
-        item.setAttribute('aria-pressed', String(selected));
-      });
-      render();
+  filters.forEach((filter) => filter.addEventListener('click', () => {
+    category = filter.dataset.componentFilter;
+    filters.forEach((item) => {
+      const selected = item === filter;
+      item.classList.toggle('is-active', selected);
+      item.setAttribute('aria-pressed', String(selected));
     });
-  });
-  search.addEventListener('input', render);
+    renderCatalog();
+  }));
+  search.addEventListener('input', renderCatalog);
   clear.addEventListener('click', () => {
     search.value = '';
-    activeCategory = 'all';
-    catalog.querySelectorAll('[data-component-filter]').forEach((item) => {
+    category = 'all';
+    filters.forEach((item) => {
       const selected = item.dataset.componentFilter === 'all';
       item.classList.toggle('is-active', selected);
       item.setAttribute('aria-pressed', String(selected));
     });
-    render();
+    renderCatalog();
     search.focus();
   });
-  render();
-})();
+  renderCatalog();
 
-document.querySelectorAll('[data-copy-code]').forEach((button) => {
-  button.addEventListener('click', async () => {
-    const code = button.parentElement.querySelector('pre code')?.textContent || '';
-    try {
-      await navigator.clipboard.writeText(code);
-      button.textContent = '已複製';
-    } catch {
-      const field = document.createElement('textarea');
-      field.value = code;
-      field.style.position = 'fixed';
-      field.style.opacity = '0';
-      document.body.append(field);
-      field.select();
-      const copied = document.execCommand('copy');
-      field.remove();
-      button.textContent = copied ? '已複製' : '請手動複製';
-    }
-    window.setTimeout(() => { button.textContent = '複製程式碼'; }, 1800);
-  });
-});
-</script>
-<script>
-(() => {
-  const updateTokenValues = () => {
-    const styles = getComputedStyle(document.documentElement);
-    document.querySelectorAll('[data-token-value]').forEach((node) => {
-      const token = node.getAttribute('data-token-value');
-      const value = styles.getPropertyValue(token).trim();
-      if (value) node.textContent = value;
+  document.querySelectorAll('[data-copy-code]').forEach((copyButton) => {
+    copyButton.addEventListener('click', async () => {
+      const code = copyButton.closest('.preview-code-block, .preview-implementation__code')?.querySelector('pre code')?.textContent || '';
+      const original = copyButton.textContent;
+      try {
+        await navigator.clipboard.writeText(code);
+        copyButton.textContent = '已複製';
+      } catch {
+        const field = document.createElement('textarea');
+        field.value = code;
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.append(field);
+        field.select();
+        const copied = document.execCommand('copy');
+        field.remove();
+        copyButton.textContent = copied ? '已複製' : '請手動複製';
+      }
+      window.setTimeout(() => { copyButton.textContent = original; }, 1600);
     });
+  });
+
+  const tabButtons = [...document.querySelectorAll('[data-demo-tab]')];
+  const tabPanel = document.getElementById('demo-tab-panel');
+  const tabContent = {
+    overview: ['總覽內容顯示在這裡。分頁只切換同一層級的內容。', 'demo-tab-overview'],
+    activity: ['活動紀錄適合呈現時間順序的事件與狀態。', 'demo-tab-activity'],
+    settings: ['設定頁集中放置同一類型的偏好與控制項。', 'demo-tab-settings']
   };
-  updateTokenValues();
-  const observer = new MutationObserver(updateTokenValues);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-chi-theme'] });
+  const activateTab = (tab, focus = false) => {
+    tabButtons.forEach((item) => {
+      const active = item === tab;
+      item.classList.toggle('is-active', active);
+      item.setAttribute('aria-selected', String(active));
+      item.tabIndex = active ? 0 : -1;
+    });
+    const [content, id] = tabContent[tab.dataset.demoTab];
+    tabPanel.textContent = content;
+    tabPanel.setAttribute('aria-labelledby', id);
+    if (focus) tab.focus();
+  };
+  tabButtons.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (event) => {
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabButtons.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + tabButtons.length) % tabButtons.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabButtons.length - 1;
+      else return;
+      event.preventDefault();
+      activateTab(tabButtons[next], true);
+    });
+  });
+
+  const toastRegion = document.getElementById('chi-demo-toast-region');
+  let toastTimer;
+  document.querySelectorAll('[data-demo-toast]').forEach((control) => control.addEventListener('click', () => {
+    toastRegion.replaceChildren();
+    const toast = document.createElement('div');
+    toast.className = 'chi-toast chi-toast--floating';
+    toast.setAttribute('role', 'status');
+    const message = document.createElement('span');
+    message.className = 'chi-toast__message';
+    message.textContent = control.dataset.demoToast;
+    const close = document.createElement('button');
+    close.className = 'chi-button chi-button--small';
+    close.type = 'button';
+    close.textContent = '關閉';
+    close.setAttribute('aria-label', '關閉通知');
+    close.addEventListener('click', () => toast.remove());
+    toast.append(message, close);
+    toastRegion.append(toast);
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => toast.remove(), 3200);
+  }));
+
+  const menuTrigger = document.getElementById('demo-menu-trigger');
+  const menuPanel = document.getElementById('demo-menu-panel');
+  const menuStatus = document.getElementById('demo-menu-status');
+  const closeMenu = (returnFocus = false) => {
+    menuPanel.hidden = true;
+    menuTrigger.setAttribute('aria-expanded', 'false');
+    if (returnFocus) menuTrigger.focus();
+  };
+  menuTrigger.addEventListener('click', () => {
+    const open = menuTrigger.getAttribute('aria-expanded') === 'true';
+    menuPanel.hidden = open;
+    menuTrigger.setAttribute('aria-expanded', String(!open));
+  });
+  menuPanel.querySelectorAll('[data-menu-action]').forEach((item) => item.addEventListener('click', () => {
+    menuStatus.textContent = '已選擇「' + item.dataset.menuAction + '」示範操作。';
+    closeMenu(true);
+  }));
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('#demo-menu-trigger, #demo-menu-panel')) closeMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuTrigger.getAttribute('aria-expanded') === 'true') closeMenu(true);
+  });
+  document.getElementById('demo-empty-reset').addEventListener('click', () => {
+    search.value = '';
+    category = 'all';
+    filters.forEach((item) => {
+      const selected = item.dataset.componentFilter === 'all';
+      item.classList.toggle('is-active', selected);
+      item.setAttribute('aria-pressed', String(selected));
+    });
+    renderCatalog();
+    search.focus();
+  });
 })();
 </script>
-</body></html>
+</body>
+</html>
