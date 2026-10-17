@@ -11,6 +11,8 @@ source_of_truth:
   color_spacing_typography_radius_shadow_tokens: "tokens.css"
   reusable_components: "components.css"
   navigation_components: "navigation.css"
+  icon_assets: "icons.svg"
+  icon_usage_guidelines: "ICON-GUIDELINES.md"
   visual_catalogue: "elements.html"
   live_preview: "preview.html"
 
