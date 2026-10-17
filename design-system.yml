@@ -210,11 +210,11 @@ components:
 
 page_patterns:
   marketing:
-    reference: "a.html"
+    reference: "references/a.html"
     layout: "品牌主視覺、簡潔說明、主要 CTA、適量功能群組"
     visual_weight: "較高"
   account-settings:
-    reference: "b.html"
+    reference: "references/b.html"
     layout: "應用程式外框、帳號摘要、分組設定列、清楚的狀態與操作"
     visual_weight: "克制"
   dashboard:
