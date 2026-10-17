@@ -67,6 +67,10 @@ colors:
     light: "#818cf8"
     dark: "#a5a1ff"
     token: "--chi-color-focus"
+  on-accent:
+    light: "#ffffff"
+    dark: "#171827"
+    token: "--chi-color-on-accent"
   success:
     light: "#237a50"
     dark: "#7ed6a7"
@@ -163,8 +167,8 @@ components:
     principle: "文字導覽優先，使用細分隔線與有限的黏性玻璃效果。"
   button-primary:
     class: ".chi-button--primary"
-    background: "{colors.accent}"
-    text: "#ffffff"
+    background: "linear-gradient(90deg, {colors.accent} 0%, {colors.accent-blue} 100%)"
+    text: "{colors.on-accent}"
     minHeight: "44px"
     radius: "{rounded.md}"
     principle: "主要操作清楚突出；次要操作使用表面或邊框，不和主操作搶焦點。"
@@ -184,7 +188,7 @@ components:
     background: "{colors.surface}"
     border: "{colors.border}"
     radius: "{rounded.lg}"
-    elevation: "{elevation.subtle}"
+    elevation: "none by default; glass variant and cards use the raised surface shadow"
     principle: "只用於真正相關的內容群組，不把每一段文字都包成卡片。"
   input:
     class: ".chi-input"
