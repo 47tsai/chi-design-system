@@ -31,6 +31,13 @@ for (const file of htmlFiles) {
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length) fail(`${file}: duplicate HTML id(s): ${[...new Set(duplicateIds)].join(', ')}`);
 
+  const idSet = new Set(ids);
+  const scriptIds = [...html.matchAll(/getElementById\\(\\s*['"]([^'"]+)['"]\\s*\\)/g)].map((match) => match[1]);
+  const missingScriptIds = [...new Set(scriptIds)].filter((id) => !idSet.has(id));
+  if (missingScriptIds.length) {
+    fail(`${file}: JavaScript references missing element ID(s): ${missingScriptIds.join(', ')}`);
+  }
+
   for (const match of html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)) {
     const raw = match[1].trim();
     if (!raw || raw.startsWith('#') || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(raw)) continue;
