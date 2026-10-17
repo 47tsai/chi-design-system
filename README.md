@@ -1,11 +1,11 @@
 # Chi Design System
 
-Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實作時的主要依據**，定義視覺原則、元件規則、修改流程與驗收標準；CSS 檔案是規範的實作，`elements.html` 則是查閱與展示工具。它提供一致的視覺語言，但不強迫每個專案使用同一種頁面模板。
+Chi 系列網站共用的介面設計系統。**`DESIGN.md` 是設計決策與 AI 實作時的主要依據**，定義視覺原則、元件規則、修改流程與驗收標準；CSS 檔案是規範的實作，`elements.html` 專門展示共用元件及其狀態。它提供一致的視覺語言，但不強迫每個專案使用同一種頁面模板。
 
 ## 檔案用途
 
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
-- `elements.html`：設計規範入口、基礎 Token、元件圖鑑、版型範例與引用教學。
+- `elements.html`：共用元件圖鑑，集中展示元件本身與常見狀態，不放版型範例或引用教學。
 - `preview.html`：可視化規格預覽，將 YAML 規格、色彩、字體、互動元件與頁型範例並列呈現。
 - `design-system.yml`：機器可讀的設計系統規格，集中記錄亮／暗色 Token、字體尺度、圓角、間距、元件映射與頁型模式。實際色值仍以 `tokens.css` 為準。
 - `elements.css`：圖鑑專用排版與篩選樣式，產品網站不需載入。
@@ -21,7 +21,7 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 - [機器可讀設計規格](https://chi.qzz.io/chi-design-system/design-system.yml)：YAML Token 與元件定義。
 
 - [空白版型](https://chi.qzz.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
-- [設計規範與元件](https://chi.qzz.io/chi-design-system/elements.html)：基礎、元件圖鑑、版型與使用方式。這是查閱手冊，不是產品首頁模板。
+- [元件圖鑑](https://chi.qzz.io/chi-design-system/elements.html)：依類別查閱共用元件、搜尋元件名稱並切換亮暗主題。
 
 ## 元件範圍
 
@@ -43,7 +43,7 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 
 ## 開發原則
 
-新專案以 `index.html` 作為空白起始骨架，不要把 `elements.html` 的展示內容複製成產品頁。新增元件前先檢查既有 token 與 class，避免功能重複；新增後同步更新 `elements.html` 與 `DESIGN.md`。元件必須考慮窄螢幕、鍵盤操作、焦點樣式、深色主題與 reduced motion。圖鑑中的互動僅為前端示範，不代表已連接真實服務。
+新專案以 `index.html` 作為空白起始骨架，不要把 `elements.html` 的展示內容複製成產品頁。新增元件前先檢查既有 token 與 class，避免功能重複；新增後同步更新 `elements.html` 與 `DESIGN.md`。元件必須考慮窄螢幕、鍵盤操作、焦點樣式、深色主題與 reduced motion。圖鑑中的互動僅用於呈現元件狀態，不代表已連接真實服務。
 
 提交前請在桌面與手機檢查實際頁面，並確認導覽連結、控制項狀態、文字換行和錯誤回饋。
 
