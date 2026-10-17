@@ -94,7 +94,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
   <div class="side-bottom"><b style="color:var(--chi-color-text)">Preview build</b><br>這是可視化草稿，用來檢視真實元件與設計語言。不是部署驗收證明。</div>
 </aside>
 <main class="main">
-<header class="topbar"><div class="crumb">CHI / <b>Visual Preview</b></div><div class="top-actions"><span class="section-note">Theme</span><button class="theme-btn" id="themeToggle" type="button">☾ 深色模式</button><a class="quiet-btn" href="./design-system.yml">設計規格 YAML ↗</a><a class="quiet-btn" href="./elements.html">元件圖鑑 ↗</a></div></header>
+<header class="topbar"><div class="crumb">CHI / <b>Visual Preview</b></div><div class="top-actions"><span class="section-note">Theme</span><button class="theme-btn" id="themeToggle" type="button"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#moon"></use></svg> 深色模式</button><a class="quiet-btn" href="./design-system.yml">設計規格 YAML</a><a class="quiet-btn" href="./elements.html">元件圖鑑</a></div></header>
 <div class="page">
 <section id="overview">
 <div class="hero-row"><div><div class="eyebrow"><span class="live-dot"></span> VISUAL SYSTEM / 01</div><h1>設計規範，<br>應該一眼就看得懂。</h1><p class="lead">Chi Design System 的可視化預覽。從實際色票、文字層級到可操作元件與頁面版型，直接檢查設計語言是否一致，不必只讀 CSS 和規格文件。</p></div><span class="version">CHi / PREVIEW 01</span></div>
@@ -134,7 +134,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 <span class="key">page_patterns:</span>
   <span class="key">marketing:</span> <span class="str">"a.html"</span>
   <span class="key">account-settings:</span> <span class="str">"b.html"</span></pre></div>
-<div class="panel spec-info"><div class="eyebrow" style="margin-bottom:13px">SPECIFICATION</div><h3>不只描述風格，也定義實作依據</h3><p>這份規格把實際 CSS Token、元件 class、頁型選擇與設計原則整理在同一份 YAML。左側是節錄示意，完整定義以專案中的 design-system.yml 為準；DESIGN.md 保留更完整的設計決策與 AI 工作契約。</p><div class="spec-links"><a class="spec-pill" href="./design-system.yml">查看完整 YAML ↗</a><a class="spec-pill" href="./DESIGN.md">閱讀設計說明 ↗</a><a class="spec-pill" href="./elements.html">元件圖鑑 ↗</a></div></div>
+<div class="panel spec-info"><div class="eyebrow" style="margin-bottom:13px">SPECIFICATION</div><h3>不只描述風格，也定義實作依據</h3><p>這份規格把實際 CSS Token、元件 class、頁型選擇與設計原則整理在同一份 YAML。左側是節錄示意，完整定義以專案中的 design-system.yml 為準；DESIGN.md 保留更完整的設計決策與 AI 工作契約。</p><div class="spec-links"><a class="spec-pill" href="./design-system.yml">查看完整 YAML</a><a class="spec-pill" href="./DESIGN.md">閱讀設計說明</a><a class="spec-pill" href="./elements.html">元件圖鑑 ↗</a></div></div>
 </div>
 </section>
 <section class="section" id="color">
@@ -160,7 +160,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 <section class="section" id="components">
 <div class="section-head"><div><div class="section-kicker">COMPONENTS / 01</div><h2>互動元件</h2></div><span class="section-note">可以實際點擊與操作</span></div>
 <div class="component-grid">
-<div class="panel component-card"><div class="card-label"><span>按鈕 Buttons</span><span class="code-label">ACTION / 01</span></div><div class="demo-row"><button class="demo-button primary" type="button" id="demoAction">主要操作</button><button class="demo-button" type="button" id="secondaryAction">次要操作</button><button class="demo-button ghost" type="button">文字連結 ↗</button></div><p id="actionFeedback" style="margin:14px 0 0;color:var(--chi-color-text-subtle);font-size:10px">點擊按鈕，查看操作回饋。</p></div>
+<div class="panel component-card"><div class="card-label"><span>按鈕 Buttons</span><span class="code-label">ACTION / 01</span></div><div class="demo-row"><button class="demo-button primary" type="button" id="demoAction">主要操作</button><button class="demo-button" type="button" id="secondaryAction">次要操作</button><button class="demo-button ghost" type="button">文字連結</button></div><p id="actionFeedback" style="margin:14px 0 0;color:var(--chi-color-text-subtle);font-size:10px">點擊按鈕，查看操作回饋。</p></div>
 <div class="panel component-card"><div class="card-label"><span>表單 Fields</span><span class="code-label">INPUT / 02</span></div><label class="field-label" for="previewEmail">電子郵件</label><input class="demo-input" id="previewEmail" type="email" placeholder="name@example.com"><p style="margin:9px 0 0;color:var(--chi-color-text-subtle);font-size:10px">聚焦欄位可檢查 focus 狀態。</p></div>
 <div class="panel component-card"><div class="card-label"><span>狀態與提示</span><span class="code-label">FEEDBACK / 03</span></div><div class="demo-stack"><div><span class="status">已同步</span></div><div class="notice"><span class="notice-icon">i</span><span>這是資訊提示。使用語意色彩傳達狀態，而不是只靠顏色辨識。</span></div><div class="demo-row"><button class="demo-button danger" type="button" id="dangerAction">危險操作</button><span class="code-label">需明確區隔</span></div></div></div>
 <div class="panel component-card"><div class="card-label"><span>設定列與開關</span><span class="code-label">SETTINGS / 04</span></div><div class="setting"><div><div class="setting-title">登入通知</div><div class="setting-desc">新裝置登入時提醒我</div></div><input class="toggle" type="checkbox" checked aria-label="切換登入通知"></div><div class="setting"><div><div class="setting-title">產品更新</div><div class="setting-desc">接收重要功能更新</div></div><input class="toggle" type="checkbox" aria-label="切換產品更新"></div></div>
@@ -170,7 +170,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 <div class="section-head"><div><div class="section-kicker">PATTERNS / 01</div><h2>真實頁面組合</h2></div><span class="section-note">同一套基礎，兩種使用情境</span></div>
 <div class="layout-grid">
 <div class="mini-hero"><div class="eyebrow">CHI / ACCOUNT PLATFORM</div><div class="mini-title">所有重要設定，<br>井然有序。</div><div class="mini-copy">品牌首頁的示意版型：明確的標題、克制的漸層、清楚的行動入口。</div><div style="margin-top:18px"><button class="demo-button primary" type="button">開始使用　→</button></div></div>
-<div class="panel account-preview"><div class="account-head"><div class="avatar">C</div><div><div class="account-title">帳號中心</div><div class="account-sub">管理你的帳號與安全性</div></div></div><div class="setting"><div><div class="setting-title">電子郵件</div><div class="setting-desc">user@example.com</div></div><span class="status">已驗證</span></div><div class="setting"><div><div class="setting-title">雙重驗證</div><div class="setting-desc">為帳號增加安全保障</div></div><button class="demo-button" type="button">管理</button></div><div class="setting"><div><div class="setting-title">登入裝置</div><div class="setting-desc">查看目前登入的裝置</div></div><span style="color:var(--chi-color-accent);font-size:11px">查看 ↗</span></div></div>
+<div class="panel account-preview"><div class="account-head"><div class="avatar">C</div><div><div class="account-title">帳號中心</div><div class="account-sub">管理你的帳號與安全性</div></div></div><div class="setting"><div><div class="setting-title">電子郵件</div><div class="setting-desc">user@example.com</div></div><span class="status">已驗證</span></div><div class="setting"><div><div class="setting-title">雙重驗證</div><div class="setting-desc">為帳號增加安全保障</div></div><button class="demo-button" type="button">管理</button></div><div class="setting"><div><div class="setting-title">登入裝置</div><div class="setting-desc">查看目前登入的裝置</div></div><span style="color:var(--chi-color-accent);font-size:11px">查看</span></div></div>
 </div>
 </section>
 <section class="section" id="rules">
@@ -187,10 +187,10 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
   const toggle=document.getElementById('themeToggle');
   const stored=localStorage.getItem('chi-theme');
   const systemDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
-  function setTheme(theme){if(theme==='dark'){root.setAttribute('data-chi-theme','dark');toggle.textContent='☀ 淺色模式'}else{root.removeAttribute('data-chi-theme');toggle.textContent='☾ 深色模式'}}
+  function setTheme(theme){if(theme==='dark'){root.setAttribute('data-chi-theme','dark');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#sun"></use></svg> 淺色模式'}else{root.removeAttribute('data-chi-theme');toggle.innerHTML='<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#moon"></use></svg> 深色模式'}}
   setTheme(stored==='dark'||(!stored&&systemDark)?'dark':'light');
   toggle.addEventListener('click',function(){const next=root.getAttribute('data-chi-theme')==='dark'?'light':'dark';setTheme(next);localStorage.setItem('chi-theme',next)});
-  document.getElementById('demoAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='✓ 主要操作已觸發，這是元件的即時回饋。'});
+  document.getElementById('demoAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='主要操作已觸發，這是元件的即時回饋。'});
   document.getElementById('secondaryAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='次要操作已觸發。層級不同，但互動仍然清楚。'});
   document.getElementById('dangerAction').addEventListener('click',function(){document.getElementById('actionFeedback').textContent='這裡示範危險操作的視覺區隔，未執行任何刪除。'});
   document.querySelectorAll('.side-link').forEach(function(link){link.addEventListener('click',function(){document.querySelectorAll('.side-link').forEach(function(item){item.classList.remove('active')});link.classList.add('active')})});
