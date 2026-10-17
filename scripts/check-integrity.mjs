@@ -87,7 +87,7 @@ else pass(`CSS tokens: ${definedTokens.size} declarations, all ${usedTokens.size
 const emojiPattern = /\p{Extended_Pictographic}/u;
 const emojiFiles = [];
 for (const file of sourceFiles) {
-  if (emojiPattern.test(read(file))) emojiFiles.push(file);
+  const text = read(file).replace(/[©®™]/g, '');\n  if (emojiPattern.test(text)) emojiFiles.push(file);
 }
 if (emojiFiles.length) fail(`Emoji pictographs found in project source/docs: ${emojiFiles.join(', ')}`);
 else pass(`No emoji pictographs found in ${sourceFiles.length} tracked source/documentation files`);
@@ -95,8 +95,8 @@ else pass(`No emoji pictographs found in ${sourceFiles.length} tracked source/do
 for (const message of checks) console.log(`PASS  ${message}`);
 if (failures.length) {
   for (const message of failures) console.error(`FAIL  ${message}`);
-  console.error(`\\nIntegrity check failed with ${failures.length} issue(s).`);
+  console.error(`\nIntegrity check failed with ${failures.length} issue(s).`);
   process.exitCode = 1;
 } else {
-  console.log('\\nAll integrity checks passed.');
+  console.log('\nAll integrity checks passed.');
 }
