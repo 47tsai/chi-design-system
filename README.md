@@ -2,6 +2,14 @@
 
 Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實作時的主要依據**，定義視覺原則、元件規則、修改流程與驗收標準；CSS 檔案是規範的實作，`elements.html` 則是查閱與展示工具。它提供一致的視覺語言，但不強迫每個專案使用同一種頁面模板。
 
+## 專案結構
+
+- `index.html`：空白起始版型。
+- `elements.html`、`elements.css`：元件圖鑑與專用樣式。
+- `preview.html`：設計規格與元件的可視化預覽。
+- `references/`：只供分析與比對的原始視覺參考頁，不會被產品頁載入。
+- `examples/`：已移除舊版轉址頁，避免保留無實際功能的入口。
+
 ## 專案內容
 
 - `index.html`：空白起始版型，只保留共用背景、頁首、空內容區與頁尾。
@@ -12,7 +20,7 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 - `tokens.css`：共用色彩、字級、間距、圓角、陰影與尺寸 token。
 - `components.css`：通用排版、按鈕、表單、狀態、資料呈現、設定與回饋元件。
 - `navigation.css`：語言選單、導覽面板、漢堡選單及其互動狀態。
-- `DESIGN.md`：AI 可直接遵循的設計規範，包含視覺主題、精確的亮／暗色 Token 對照、字體與間距尺度、元件狀態、頁型選擇、深度與陰影、響應式行為、Do／Don't、Agent Prompt Guide 與驗收流程。參考 `a.html` 的公開入口頁與 `b.html` 的帳號管理頁，提取共通視覺語言，不複製品牌識別；CSS token 是實際值的唯一來源，文件須隨之同步。
+- `DESIGN.md`：AI 可直接遵循的設計規範，包含視覺主題、精確的亮／暗色 Token 對照、字體與間距尺度、元件狀態、頁型選擇、深度與陰影、響應式行為、Do／Don't、Agent Prompt Guide 與驗收流程。參考 `references/a.html` 的公開入口頁與 `references/b.html` 的帳號管理頁，提取共通視覺語言，不複製品牌識別；CSS token 是實際值的唯一來源，文件須隨之同步。
 - `AGENTS.md`：AI 的工程工作規範，定義修改前盤點、檔案選擇、功能保留、無障礙／安全注意事項、驗證方式與回報標準；它規定「怎麼做」，`DESIGN.md` 規定「介面應如何呈現」。
 
 ## 設計系統分頁
@@ -38,11 +46,6 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 ```
 
 若專案不使用導覽元件，可省略最後一個檔案。元件以原生 HTML 與 CSS 為主，不依賴 CSS 框架或圖示 CDN。正式專案仍需自行實作路由、資料、驗證、授權與持久化。
-
-## 預覽
-
-- 空白版型：<https://chi.qzz.io/chi-design-system/>
-- 設計規範與元件：<https://chi.qzz.io/chi-design-system/elements.html>
 
 本專案使用 `.github/workflows/deploy-pages.yml` 透過 GitHub Actions 發佈。若部署未執行，請先到 Actions 確認 `Deploy GitHub Pages` 工作流程；再到 Settings → Pages 確認 Source 設為 `GitHub Actions`。提交成功不代表網站已完成部署。
 
