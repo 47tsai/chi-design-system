@@ -1,0 +1,74 @@
+# Chi ecosystem website color registry
+# TBD means the color has not been confirmed yet.
+brand_default: "#4a88fc"
+
+sites:
+  - id: chi
+    name: "Chi 主站／入口"
+    url: "https://chi.qzz.io/"
+    brand: "#4a88fc"
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "沿用 Chi 品牌主藍；其餘介面色依實際設計確認。"
+
+  - id: chi-design-system
+    name: "Chi Design System"
+    url: "https://chi.qzz.io/chi-design-system/"
+    brand: "#4a88fc"
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "設計參考與共用元件；不代表其他網站必須套用相同版型。"
+
+  - id: nav
+    name: "Chi Nav"
+    url: "https://nav.chi.qzz.io/"
+    brand: TBD
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "待確認目前實際配色。"
+
+  - id: status
+    name: "Chi Status"
+    url: "https://status.chi.qzz.io/"
+    brand: TBD
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "狀態語意色（正常、警告、故障）應與品牌色分開定義。"
+
+  - id: auth
+    name: "Chi Auth"
+    url: "https://auth.chi.qzz.io/"
+    brand: TBD
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "安全驗證服務；待確認實際配色。"
+
+  - id: vault
+    name: "Vaultwarden"
+    url: "https://vault.chi.qzz.io/"
+    brand: TBD
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "服務本身的產品識別可保留，不要求完全改成 Chi 主站配色。"
+
+  - id: merch
+    name: "Chi Merch"
+    url: "https://merch.chi.qzz.io/"
+    brand: TBD
+    accent: TBD
+    page: TBD
+    surface: TBD
+    text: TBD
+    notes: "待確認實際配色。"
