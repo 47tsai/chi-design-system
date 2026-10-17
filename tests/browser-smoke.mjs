@@ -2,7 +2,9 @@ import { after, before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { setTimeout as delay } from 'node:timers/promises';
-import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+const require = createRequire('/tmp/chi-browser-tests/package.json');
+const { chromium } = require('playwright');
 
 const baseURL = 'http://127.0.0.1:4173';
 let server;
