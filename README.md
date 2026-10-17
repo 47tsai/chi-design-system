@@ -8,7 +8,6 @@ Chi 系列網站共用的設計規範。**`DESIGN.md` 是設計決策與 AI 實�
 - `elements.html`、`elements.css`：元件圖鑑與專用樣式。
 - `preview.html`：設計規格與元件的可視化預覽。
 - `references/`：只供分析與比對的原始視覺參考頁，不會被產品頁載入。
-- `examples/`：已移除舊版轉址頁，避免保留無實際功能的入口。
 
 ## 專案內容
 
