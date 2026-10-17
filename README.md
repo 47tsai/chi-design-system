@@ -23,7 +23,7 @@ Chi 系列網站共用的介面設計系統。**`DESIGN.md` 是設計決策與 A
 - [機器可讀設計規格](https://chi.qzz.io/chi-design-system/design-system.yml)：YAML Token 與元件定義。
 
 - [空白版型](https://chi.qzz.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
-- [元件圖鑑](https://chi.qzz.io/chi-design-system/elements.html)：依類別查閱共用元件、搜尋元件名稱並切換亮暗主題。
+- [元件圖鑑](https://chi.qzz.io/chi-design-system/elements.html)：依類別查閱共用元件與圖示、搜尋名稱或用途、複製圖示引用並切換亮暗主題。
 
 ## 元件範圍
 
