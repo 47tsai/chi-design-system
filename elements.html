@@ -18,7 +18,7 @@
     <a class="chi-brand" href="./index.html" aria-label="Chi Design System 空白版型">CHI</a>
     <div class="catalog-header__actions">
       <span class="catalog-header__label">COMPONENT LIBRARY</span>
-      <button class="chi-button chi-button--icon" id="theme-toggle" type="button" aria-label="切換色彩主題" title="切換色彩主題"><span id="theme-icon" aria-hidden="true">◐</span></button>
+      <button class="chi-button chi-button--icon" id="theme-toggle" type="button" aria-label="切換色彩主題" title="切換色彩主題"><span id="theme-icon" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#moon"></use></svg></span></button>
     </div>
   </div>
 </header>
@@ -64,7 +64,7 @@
       <header class="catalog-section__header">
         <span class="catalog-section__index">00</span>
         <div><h2>圖示</h2><p>Chi 共用 Lucide 線性圖示。搜尋名稱或用途，複製可直接使用的 SVG 引用。</p></div>
-        <span class="catalog-section__count" data-section-count>22</span>
+        <span class="catalog-section__count" data-section-count>24</span>
       </header>
       <div class="chi-icon-gallery" id="icon-gallery">
         <article class="chi-icon-gallery__item" data-icon-item data-category="data" data-name="向下 arrow-down 方向提示">
@@ -137,6 +137,13 @@
           <span class="chi-icon-gallery__description">桌面裝置、預覽</span>
           <button class="chi-icon-gallery__copy" type="button" data-copy-icon="monitor" aria-label="複製 monitor 的 SVG 引用">複製引用</button>
         </article>
+        <article class="chi-icon-gallery__item" data-icon-item data-category="data" data-name="月亮 moon 深色主題、夜間模式">
+          <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#moon"></use></svg>
+          <span class="chi-icon-gallery__label">月亮</span>
+          <code>moon</code>
+          <span class="chi-icon-gallery__description">深色主題、夜間模式</span>
+          <button class="chi-icon-gallery__copy" type="button" data-copy-icon="moon" aria-label="複製 moon 的 SVG 引用">複製引用</button>
+        </article>
         <article class="chi-icon-gallery__item" data-icon-item data-category="data" data-name="編輯 pencil 修改內容">
           <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#pencil"></use></svg>
           <span class="chi-icon-gallery__label">編輯</span>
@@ -178,6 +185,13 @@
           <code>smartphone</code>
           <span class="chi-icon-gallery__description">行動裝置</span>
           <button class="chi-icon-gallery__copy" type="button" data-copy-icon="smartphone" aria-label="複製 smartphone 的 SVG 引用">複製引用</button>
+        </article>
+        <article class="chi-icon-gallery__item" data-icon-item data-category="data" data-name="太陽 sun 淺色主題、日間模式">
+          <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#sun"></use></svg>
+          <span class="chi-icon-gallery__label">太陽</span>
+          <code>sun</code>
+          <span class="chi-icon-gallery__description">淺色主題、日間模式</span>
+          <button class="chi-icon-gallery__copy" type="button" data-copy-icon="sun" aria-label="複製 sun 的 SVG 引用">複製引用</button>
         </article>
         <article class="chi-icon-gallery__item" data-icon-item data-category="data" data-name="智慧輔助 sparkles 特殊亮點、智慧功能">
           <svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#sparkles"></use></svg>
@@ -523,7 +537,7 @@
   const applyTheme = (theme) => {
     if (theme === 'dark') root.setAttribute('data-chi-theme', 'dark');
     else root.removeAttribute('data-chi-theme');
-    themeIcon.textContent = theme === 'dark' ? '☼' : '◐';
+    themeIcon.innerHTML = '<svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg#' + (theme === 'dark' ? 'sun' : 'moon') + '"></use></svg>';
     themeButton.setAttribute('aria-label', theme === 'dark' ? '切換為淺色主題' : '切換為深色主題');
     themeButton.title = theme === 'dark' ? '切換為淺色主題' : '切換為深色主題';
   };
