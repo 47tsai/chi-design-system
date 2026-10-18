@@ -52,7 +52,7 @@
 
 ## 驗收紀錄
 
-- [x] 已確認 `logo/` 中存在 `black-w.png`、`white-b.png`、`blue-b.png`、`blue-w.png`、`gray-b.png`、`gray-w.png`、`purple-b.png)、`purple-w.png`。
+- [x] 已確認 `logo/` 中存在 `black-w.png`、`white-b.png`、`blue-b.png`、`blue-w.png`、`gray-b.png`、`gray-w.png`、`purple-b.png`、`purple-w.png`。
 - [x] 已查詢相關 GitHub Actions 工作流程。
 - [x] 確認本清單最後一次修改後的所有工作流程均成功。
 - [ ] 完成實際部署網站的桌面與手機視覺驗收。
