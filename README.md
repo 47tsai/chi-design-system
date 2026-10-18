@@ -28,6 +28,7 @@ Chi 系列網站共用的介面設計系統。**`DESIGN.md` 是設計決策與 A
 
 - [空白版型](https://chi.qzz.io/chi-design-system/)：共用背景、頁首、空白主內容、頁尾與亮暗主題切換。
 - [元件圖鑑](https://chi.qzz.io/chi-design-system/elements.html)：依類別查閱共用元件與圖示、搜尋名稱或用途、複製圖示引用並切換亮暗主題。
+- [共用框架示範](https://chi.qzz.io/chi-design-system/example/)：查看共用側邊導覽、頁首、主題切換、響應式版型與元件互動。
 
 ## 元件範圍
 
