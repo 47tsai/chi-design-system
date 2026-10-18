@@ -10,6 +10,7 @@
 - [x] Chi Nav 為特例：淺色 `white-b.png`、深色與圖示 `black-w.png`。
 - Merch OAuth 回呼頁使用 Purple Logo／圖示；登入流程的互動強調色仍遵守共用安全流程規範，維持 Blue。
 - [x] 個人網站使用 Gray、Merch 使用 Purple、其他 Chi 網站使用 Blue。
+- [x] 個人網站不新增頂部／導覽列 Logo；Favicon 與 iOS 主畫面圖示改用原始 `gray-w.png`。
 - [ ] 逐站實機驗收淺色、深色、跟隨系統三種模式。
 - [ ] 逐站實機驗收 Favicon 與 iOS 主畫面圖示；瀏覽器可能保留舊快取。
 
@@ -17,7 +18,7 @@
 
 | 網站／服務 | Repository | 淺色主要 Logo | 深色主要 Logo | Favicon／安裝圖示 | 程式碼修改 |
 | --- | --- | --- | --- | --- | --- |
-| 個人網站 | [tsai97216.github.io](https://github.com/tsai97216/tsai97216.github.io) | `gray-b.png` | `gray-w.png` | `gray-w.png` | [x] |
+| 個人網站 | [tsai97216.github.io](https://github.com/tsai97216/tsai97216.github.io) | 不新增 | 不新增 | `gray-w.png` | [x] |
 | Chi Merch | [merch](https://github.com/tsai97216/merch) | `purple-b.png` | `purple-w.png` | `purple-w.png` | [x] |
 | Chi Nav | [nav](https://github.com/tsai97216/nav) | `white-b.png` | `black-w.png` | `black-w.png` | [x] |
 | Chi Status | [status](https://github.com/tsai97216/status) | `blue-b.png` | `blue-w.png` | `blue-w.png` | [x] |
@@ -31,7 +32,7 @@
 
 ## 已納入的主要檔案
 
-- 個人網站：`src/config/siteConfig.ts`、`src/layouts/Layout.astro`、`src/components/organisms/TopAppBar.astro`
+- 個人網站：`src/config/siteConfig.ts`、`src/layouts/Layout.astro`（Favicon／iOS 圖示使用原始 `gray-w.png`，不新增頂部 Logo）
 - Merch：`index.html`、`public/manifest.webmanifest`、`public/oauth-callback.html`
 - Nav：`index.html`、`manifest.json`、`bookmarks/index.html`、`admin/index.html`、`admin/admin.css`、`new/index.html`
 - Status：`index.html`、`action/index.html`、`actions/index.html`
