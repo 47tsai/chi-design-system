@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>Chi Design System · Visual Preview</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png">
 <link rel="stylesheet" href="./tokens.css">
 <link rel="stylesheet" href="./components.css">
 <link rel="stylesheet" href="./navigation.css">
@@ -16,7 +18,7 @@ a{color:inherit}
 .preview-shell{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:100vh}
 .sidebar{position:sticky;top:0;height:100vh;padding:26px 18px;border-right:1px solid var(--chi-color-border);background:var(--chi-color-surface)}
 .brand{display:flex;align-items:center;gap:10px;padding:0 8px 28px;font-size:15px;font-weight:800;letter-spacing:-.03em;color:var(--chi-color-text-strong)}
-.brand-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--chi-color-accent);color:var(--chi-color-on-accent);font-weight:900}
+.brand-mark{display:grid;place-items:center;width:32px;height:32px;flex:0 0 32px;overflow:hidden;background:transparent}.brand-mark img{display:block;width:100%;height:100%;object-fit:contain}.brand-logo-dark{display:none}[data-chi-theme=dark] .brand-logo-light{display:none}[data-chi-theme=dark] .brand-logo-dark{display:block}
 .side-label{padding:14px 10px 7px;color:var(--chi-color-text-subtle);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 .side-link{display:flex;align-items:center;gap:10px;margin:3px 0;padding:10px;border-radius:8px;color:var(--chi-color-text-muted);font-size:12px;text-decoration:none}
 .side-link:hover,.side-link.active{background:var(--chi-color-accent-soft);color:var(--chi-color-accent)}
@@ -84,7 +86,7 @@ h2{margin:0;color:var(--chi-color-text-strong);font-size:19px;letter-spacing:-.0
 <body>
 <div class="preview-shell">
 <aside class="sidebar">
-  <div class="brand"><span class="brand-mark">C</span><span>CHI / DESIGN SYSTEM</span></div>
+  <div class="brand"><span class="brand-mark"><img class="brand-logo-light" src="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-b.png" alt=""><img class="brand-logo-dark" src="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png" alt=""></span><span>CHI / DESIGN SYSTEM</span></div>
   <div class="side-label">Explore</div>
   <nav class="side-nav">
     <a class="side-link active" href="#overview"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-3#house"></use></svg>總覽 Overview</a>
