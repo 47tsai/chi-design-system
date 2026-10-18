@@ -25,6 +25,8 @@ Chi 是 Chi 系列網站共用的設計系統與網站框架。共用框架統�
 
 ## 品牌識別與 Logo
 
+逐站執行狀態與驗收項目請見 [`LOGO-CHECKLIST.md`](./LOGO-CHECKLIST.md)。
+
 Logo 原始資產集中於 [`logo/`](./logo/)；使用 PNG 原檔，不將其轉成 SVG，也不自行重繪或改變比例。網站主要 Logo 必須依主題切換，Favicon 與其他安裝圖示則固定使用深色版（檔名以 `-w.png` 結尾）。
 
 | 網站類型 | 品牌色 | 淺色模式主要 Logo | 深色模式主要 Logo | Favicon／其他圖示 |
