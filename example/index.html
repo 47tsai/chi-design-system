@@ -9,18 +9,19 @@
   <link rel="stylesheet" href="../components.css">
   <link rel="stylesheet" href="../navigation.css">
   <link rel="stylesheet" href="./framework.css">
+  <script src="./app.config.js" defer></script>
   <script src="./framework.js" defer></script>
 </head>
 <body class="chi-page">
   <a class="chi-skip-link" href="#main">跳到主要內容</a>
   <div class="chi-app-shell">
     <aside class="chi-sidebar" id="sidebar" aria-label="主要導覽">
-      <a class="chi-brand chi-sidebar__brand" href="./">CHI<span> / EXAMPLE</span></a>
+      <a class="chi-brand chi-sidebar__brand" href="./" data-app-brand>CHI<span> / EXAMPLE</span></a>
       <div class="chi-sidebar__label">工作區</div>
-      <nav class="chi-sidebar__nav">
-        <a class="is-active" href="#overview" aria-current="page"><span class="chi-sidebar__icon" aria-hidden="true">◫</span>總覽</a>
-        <a href="#content"><span class="chi-sidebar__icon" aria-hidden="true">▤</span>內容頁示範</a>
-        <a href="#components"><span class="chi-sidebar__icon" aria-hidden="true">◈</span>元件狀態</a>
+      <nav class="chi-sidebar__nav" data-app-navigation>
+        <a class="is-active" href="#overview" aria-current="page"><svg class="chi-sidebar__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>總覽</a>
+        <a href="#content"><svg class="chi-sidebar__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h14v15H5z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>內容頁示範</a>
+        <a href="#components"><svg class="chi-sidebar__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8.5 9-8.5 9L3.5 12 12 3Z"/><circle cx="12" cy="12" r="2.2"/></svg>元件狀態</a>
       </nav>
       <div class="chi-sidebar__bottom">
         <div class="chi-sidebar__note">共用框架管理導覽、版面、主題與元件；產品只提供自己的內容與功能。</div>
@@ -30,11 +31,11 @@
     <div class="chi-app-main">
       <header class="chi-app-topbar">
         <button class="chi-icon-button chi-menu-toggle" type="button" data-sidebar-toggle aria-controls="sidebar" aria-expanded="false" aria-label="開啟導覽">
-          <span aria-hidden="true">☰</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
-        <div class="chi-topbar__context"><span>Chi Design System</span><span aria-hidden="true">/</span><strong>Framework Example</strong></div>
+        <div class="chi-topbar__context"><span>Chi Design System</span><span aria-hidden="true">/</span><strong data-app-context>Framework Example</strong></div>
         <div class="chi-topbar__actions">
-          <span class="chi-version">示範框架</span>
+          <span class="chi-version" data-app-version>示範框架</span>
           <label class="chi-theme-control"><span>主題</span>
             <select class="chi-select" data-theme-select aria-label="選擇主題">
               <option value="system">跟隨系統</option>
@@ -122,7 +123,7 @@
           </div>
         </section>
 
-        <footer class="chi-app-footer"><span>Chi Design System · Framework Example</span><span>共用外觀，保留產品特色。</span></footer>
+        <footer class="chi-app-footer"><span data-app-footer-title>Chi Design System · Framework Example</span><span data-app-footer-note>共用外觀，保留產品特色。</span></footer>
       </main>
     </div>
   </div>
