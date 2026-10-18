@@ -6,16 +6,19 @@
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Chi Design System 共用 UI 元件圖鑑。">
 <title>Chi Design System · 元件圖鑑</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png">
 <link rel="stylesheet" href="./tokens.css">
 <link rel="stylesheet" href="./components.css">
 <link rel="stylesheet" href="./navigation.css">
 <link rel="stylesheet" href="./elements.css">
+<style>.chi-brand-logo-lockup{display:inline-flex;align-items:center;gap:.5rem}.chi-brand-logo{display:block;width:2.25rem;height:2.25rem;object-fit:contain}.chi-brand-logo-dark{display:none}[data-chi-theme=dark] .chi-brand-logo-light{display:none}[data-chi-theme=dark] .chi-brand-logo-dark{display:block}</style>
 </head>
 <body class="chi-page">
 <a class="chi-skip-link" href="#main-content">跳至主要內容</a>
 <header class="chi-site-header">
   <div class="chi-container chi-site-header__inner">
-    <a class="chi-brand" href="./index.html" aria-label="Chi Design System 空白版型">CHI</a>
+    <a class="chi-brand chi-brand-logo-lockup" href="./index.html" aria-label="Chi Design System 空白版型"><img class="chi-brand-logo chi-brand-logo-light" src="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-b.png" alt=""><img class="chi-brand-logo chi-brand-logo-dark" src="https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png" alt=""><span>CHI</span></a>
     <div class="catalog-header__actions">
       <span class="catalog-header__label">COMPONENT LIBRARY</span>
       <button class="chi-button chi-button--icon" id="theme-toggle" type="button" aria-label="切換色彩主題" title="切換色彩主題"><span id="theme-icon" aria-hidden="true"><svg class="chi-icon" aria-hidden="true" focusable="false"><use href="./icons.svg?v=20261017-2#moon"></use></svg></span></button>
