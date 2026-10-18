@@ -5,6 +5,7 @@ This document defines how existing Chi products adopt the shared Design System w
 ## Source of truth
 
 - `chi-design-system/DESIGN.md`: visual decisions and component usage.
+- `chi-design-system/example/`: canonical reference implementation for the shared app shell and content slot pattern.
 - `chi-design-system/tokens.css`: shared semantic design tokens.
 - `chi-design-system/components.css`: shared components and layout primitives.
 - `chi-design-system/navigation.css`: shared navigation behavior and presentation.
@@ -55,7 +56,7 @@ The shared shell contract governs spacing, typography, surfaces, controls, theme
 ### Phase 1: Canonicalize the shared foundation
 - Compare `DESIGN.md`, `tokens.css`, `components.css`, `navigation.css`, `design-system.yml`, and Chi Brand tokens.
 - Resolve conflicting token ownership and specify the mapping between shared accent tokens and product brand tokens.
-- Define and demonstrate a canonical app-shell example without copying catalogue-only markup into products.
+- Maintain `example/` as the canonical app-shell example; product pages should supply content/configuration rather than fork its shell markup and styles.
 - Keep `design-system.yml` synchronized with the actual CSS tokens.
 
 ### Phase 2: Migrate one product at a time
