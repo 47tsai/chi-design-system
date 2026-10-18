@@ -17,6 +17,10 @@ Chi 系列網站共用的介面設計系統。**`DESIGN.md` 是設計決策與 A
 - `DESIGN.md`：精簡的視覺原則、Token 使用方式、元件選用、頁型方向與基本可用性要求。參考 `references/a.html` 的公開入口頁與 `references/b.html` 的帳號管理頁，只取共通設計原則，不複製品牌識別；實際色值以 CSS token 為準。
 - `AGENTS.md`：AI 的工程工作規範，定義修改前盤點、檔案選擇、功能保留、無障礙／安全注意事項、驗證方式與回報標準；它規定「怎麼做」，`DESIGN.md` 規定「介面應如何呈現」。
 
+## 跨專案一致性
+
+跨網站導入規範、現況盤點與遷移順序請見 [`ADOPTION.md`](./ADOPTION.md)。修改產品介面前，先確認共用 Token、元件與主題規則，再保留各產品原有的資訊架構與功能。
+
 ## 設計系統分頁
 
 - [可視化規格預覽](https://chi.qzz.io/chi-design-system/preview.html)：直接查看設計規格與元件呈現。
