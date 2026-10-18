@@ -23,6 +23,23 @@ Chi 是 Chi 系列網站共用的設計系統與網站框架。共用框架統�
 - `design-system.yml`：方便工具讀取的設計規格；若與 CSS 實際值不一致，應以 CSS 為準並同步修正規格。
 - `icons.svg` / `ICON-GUIDELINES.md`：本地圖示與使用規範。
 
+## 品牌識別與 Logo
+
+Logo 原始資產集中於 [`logo/`](./logo/)；使用 PNG 原檔，不將其轉成 SVG，也不自行重繪或改變比例。網站主要 Logo 必須依主題切換，Favicon 與其他安裝圖示則固定使用深色版（檔名以 `-w.png` 結尾）。
+
+| 網站類型 | 品牌色 | 淺色模式主要 Logo | 深色模式主要 Logo | Favicon／其他圖示 |
+| --- | --- | --- | --- | --- |
+| 個人網站 | Gray | `gray-b.png` | `gray-w.png` | `gray-w.png` |
+| Chi Merch | Purple | `purple-b.png` | `purple-w.png` | `purple-w.png` |
+| 其他 Chi 網站與服務 | Blue | `blue-b.png` | `blue-w.png` | `blue-w.png` |
+| Chi Nav（例外） | 依既有 Nav 配色 | `white-b.png` | `black-w.png` | `black-w.png` |
+
+- `-b.png` 是一般網站淺色模式的主要 Logo；`-w.png` 是深色模式的主要 Logo。
+- Chi Nav 是明確例外：淺色模式使用 `white-b.png`，深色模式使用 `black-w.png`；不得套用一般的 `blue-b.png`／`blue-w.png` 主要 Logo 規則。
+- Favicon、PWA／iOS 主畫面圖示等非主題切換圖示，固定使用對應品牌的 `-w.png`；Chi Nav 使用 `black-w.png`。
+- 淺色、深色與跟隨系統三種主題都必須測試；跟隨系統時，主要 Logo 隨系統明暗自動切換。
+- API 與純後端服務不需額外建立獨立 Logo；若有可見的使用者介面，沿用所屬產品品牌。
+
 ## 色彩與主題
 
 優先使用語意化的 `--chi-*` token，不要在共用元件裡散落硬編碼色值。
