@@ -8,6 +8,7 @@
 - [x] 一般網站淺色模式使用對應品牌的 `-b.png`，深色模式使用 `-w.png`。
 - [x] Favicon、iOS 主畫面圖示與 PWA 圖示固定使用對應品牌的 `-w.png`。
 - [x] Chi Nav 為特例：淺色 `white-b.png`、深色與圖示 `black-w.png`。
+- Merch OAuth 回呼頁使用 Purple Logo／圖示；登入流程的互動強調色仍遵守共用安全流程規範，維持 Blue。
 - [x] 個人網站使用 Gray、Merch 使用 Purple、其他 Chi 網站使用 Blue。
 - [ ] 逐站實機驗收淺色、深色、跟隨系統三種模式。
 - [ ] 逐站實機驗收 Favicon 與 iOS 主畫面圖示；瀏覽器可能保留舊快取。
@@ -53,5 +54,5 @@
 
 - [x] 已確認 `logo/` 中存在 `black-w.png`、`white-b.png`、`blue-b.png`、`blue-w.png`、`gray-b.png`、`gray-w.png`、`purple-b.png)、`purple-w.png`。
 - [x] 已查詢相關 GitHub Actions 工作流程。
-- [ ] 確認本清單最後一次修改後的所有工作流程均成功。
+- [x] 確認本清單最後一次修改後的所有工作流程均成功。
 - [ ] 完成實際部署網站的桌面與手機視覺驗收。
