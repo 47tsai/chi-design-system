@@ -18,7 +18,7 @@
 
 | 網站／服務 | Repository | 淺色主要 Logo | 深色主要 Logo | Favicon／安裝圖示 | 程式碼修改 |
 | --- | --- | --- | --- | --- | --- |
-| 個人網站 | [tsai97216.github.io](https://github.com/47tsai/47tsai.github.io) | 不新增 | 不新增 | `gray-w.png` | [x] |
+| 個人網站 | [47tsai.github.io](https://github.com/47tsai/47tsai.github.io) | 不新增 | 不新增 | `gray-w.png` | [x] |
 | Chi Merch | [merch](https://github.com/47tsai/merch) | `purple-b.png` | `purple-w.png` | `purple-w.png` | [x] |
 | Chi Nav | [nav](https://github.com/47tsai/nav) | `white-b.png` | `black-w.png` | `black-w.png` | [x] |
 | Chi Status | [status](https://github.com/47tsai/status) | `blue-b.png` | `blue-w.png` | `blue-w.png` | [x] |
