@@ -5,7 +5,7 @@
   if (typeof config.title === "string") document.title = config.title;
   if (typeof config.brand === "string") {
     const brand = document.querySelector("[data-app-brand]");
-    if (brand) { const lightLogo = document.createElement("img"); lightLogo.className = "chi-brand-logo chi-brand-logo-light"; lightLogo.src = "https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-b.png"; lightLogo.alt = ""; lightLogo.setAttribute("aria-hidden", "true"); const darkLogo = document.createElement("img"); darkLogo.className = "chi-brand-logo chi-brand-logo-dark"; darkLogo.src = "https://raw.githubusercontent.com/tsai97216/chi-design-system/main/logo/blue-w.png"; darkLogo.alt = ""; darkLogo.setAttribute("aria-hidden", "true"); brand.replaceChildren(lightLogo, darkLogo, document.createTextNode(config.brand)); }
+    if (brand) { const lightLogo = document.createElement("img"); lightLogo.className = "chi-brand-logo chi-brand-logo-light"; lightLogo.src = "https://raw.githubusercontent.com/47tsai/chi-design-system/main/logo/blue-b.png"; lightLogo.alt = ""; lightLogo.setAttribute("aria-hidden", "true"); const darkLogo = document.createElement("img"); darkLogo.className = "chi-brand-logo chi-brand-logo-dark"; darkLogo.src = "https://raw.githubusercontent.com/47tsai/chi-design-system/main/logo/blue-w.png"; darkLogo.alt = ""; darkLogo.setAttribute("aria-hidden", "true"); brand.replaceChildren(lightLogo, darkLogo, document.createTextNode(config.brand)); }
   }
   setText("[data-app-version]", config.version);
   setText("[data-app-context]", config.context);
